@@ -7,7 +7,10 @@ const Index = () => {
                 <button> submit</button>
             </div>
             <input type="text" />
-            <div>joe 3abeet wahbalsdfasdgasgsdsdfasdfassdfasdf</div>
+            <div>
+                joe 3abeet
+                wahbalsdfasdgasgsdsdfasdfassdfasdasdasfffsdaassdfasdgf
+            </div>
         </div>
     );
 };
