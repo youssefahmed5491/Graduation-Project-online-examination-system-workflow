@@ -13,7 +13,7 @@ require("./bootstrap");
  */
 
 import ReactDOM from "react-dom";
-import Index from "./components";
+import Index from "./components/Index";
 import Habal from "./components/Habal";
 
 if (document.getElementById("app")) {

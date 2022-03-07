@@ -7,6 +7,7 @@ const Index = () => {
                 <button> submit</button>
             </div>
             <input type="text" />
+            <div>fuck you</div>
         </div>
     );
 };
