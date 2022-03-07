@@ -1,7 +1,7 @@
 import React from "react";
 
 const Habal = () => {
-    return <div>blabla</div>;
+    return <div>blablablaballbalbalabl</div>;
 };
 
 export default Habal;
