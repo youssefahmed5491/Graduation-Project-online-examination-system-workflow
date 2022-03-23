@@ -13,9 +13,28 @@ require("./bootstrap");
  */
 
 import ReactDOM from "react-dom";
-import Index from "./components/Index";
-import Habal from "./components/Habal";
+import Login from "./components/LoginPage/Login";
+import React from "react";
+import App from "./components/HomePage/App";
+import StudentHome from "./components/MainPage/StudentHome";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 if (document.getElementById("app")) {
-    ReactDOM.render(<Index />, document.getElementById("app"));
+    ReactDOM.render(
+        <React.StrictMode>
+            <Router>
+                <Routes>
+                    <Route exact path="/" element={<App />} />
+                    <Route exact path="/login" element={<Login />} />
+                    <Route
+                        exact
+                        path="/:username-:radio"
+                        element={<StudentHome />}
+                    />
+                </Routes>
+            </Router>
+        </React.StrictMode>,
+
+        document.getElementById("app")
+    );
 }

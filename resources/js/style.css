@@ -1,0 +1,90 @@
+.bol {
+    color: black;
+    text-decoration: none;
+}
+.bol:hover {
+    color: #c64200;
+}
+.my-button:hover {
+    background: #3dbfb6 !important;
+}
+.clickedbuttom {
+    background: #3dbfb6 !important;
+}
+.resizeTextOfPhoto600 {
+    font-size: 75px;
+}
+.rsizebutton {
+    width: 250px;
+    height: 100px;
+}
+.resizeTextOfLogoPhoto {
+    height: 25%;
+    width: 50%;
+}
+.Exams-font-size {
+    font-size: 32px;
+}
+.name-size {
+    font-size: 32px;
+}
+.nav-bar-text-size {
+    font-size: 32px;
+}
+@media only screen and (max-height: 605px) {
+    .hideat600 {
+        display: none;
+    }
+    .resizeTextOfPhoto600 {
+        font-size: 45px;
+    }
+    .resizeTextOfNavBar600 {
+        font-size: 20px;
+    }
+    .rsizebutton {
+        width: 200px;
+        height: 75px;
+    }
+    .resizeTextOfLastSection {
+        font-size: 17px;
+    }
+    .resizeTextOfLogoPhoto {
+        height: 20%;
+        width: 40%;
+    }
+    .reposition {
+        top: 10px;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .hideat600 {
+        display: none;
+    }
+    .resizeTextOfNavBar600 {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 1520px) {
+    .rsizebutton {
+        width: 200px;
+        height: 75px;
+    }
+    .resizeTextOfPhoto600 {
+        font-size: 45px;
+    }
+}
+@media only screen and (max-width: 1670px) {
+    .Exams-font-size {
+        font-size: 22px;
+    }
+}
+@media only screen and (max-width: 1600px) {
+    .name-size {
+        font-size: 25px;
+    }
+}
+@media only screen and (max-height: 670px) {
+    .nav-bar-text-size {
+        font-size: 25px;
+    }
+}

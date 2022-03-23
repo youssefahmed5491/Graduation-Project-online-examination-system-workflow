@@ -1,0 +1,165 @@
+@media only screen and (max-height: 725px) {
+    .floatright {
+        float: right;
+    }
+}
+.button {
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+    width: 75px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px gray;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+#header {
+    padding: 10px;
+    color: #d36c6c;
+    font-size: 26px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+#header button {
+    background-color: #92a1d1;
+}
+#container {
+    width: 630px;
+}
+#weekdays {
+    width: 10px;
+
+    display: flex;
+    color: #247ba0;
+}
+#weekdays div {
+    width: 80px;
+    font-size: 25px;
+    margin: 10px;
+    padding: 10px;
+}
+#calendar {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.day {
+    width: 73px;
+    padding: 10px;
+    height: 73px;
+    cursor: pointer;
+    font-size: 30px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: 0px 0px 3px #cbd4c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.day:hover {
+    background-color: #e8faed;
+}
+.day:focus-within {
+    box-shadow: 0px 0px 3px orangered;
+}
+
+.day + .currentDay {
+    background-color: grey;
+    font-size: 50px;
+    padding-top: 0;
+}
+.hasevent {
+    width: 37px;
+    height: 35px;
+    position: relative;
+    left: 1px;
+    border-style: solid;
+    border-radius: 100%;
+    border-color: red !important;
+}
+.currenthasevent {
+    width: 73px !important;
+    height: 73px;
+    position: relative;
+    top: 5px;
+    border-style: solid;
+    border-radius: 100%;
+    border-color: red !important;
+}
+
+.event {
+    font-size: 15px;
+    padding: 3px;
+    background-color: #58bae4;
+    color: white;
+    border-radius: 5px;
+    max-height: 55px;
+    overflow: hidden;
+}
+.today {
+    font-size: 15px;
+    padding: 3px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    max-height: 55px;
+    overflow: hidden;
+}
+.padding {
+    cursor: default !important;
+    background-color: #fffcff !important;
+    box-shadow: none !important;
+}
+#newEventModal,
+#deleteEventModal {
+    z-index: 20;
+    padding: 25px;
+    background-color: #e8f4fa;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 5px;
+    width: 350px;
+    top: 100px;
+    left: calc(50% - 175px);
+    position: absolute;
+    font-family: sans-serif;
+}
+#eventTitleInput {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 3px gray;
+}
+#eventTitleInput.error {
+    border: 2px solid red;
+}
+#cancelButton,
+#deleteButton {
+    background-color: #d36c6c;
+}
+#saveButton,
+#closeButton {
+    background-color: #92a1d1;
+}
+#eventText {
+    font-size: 14px;
+}
+#modalBackDrop {
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+}
