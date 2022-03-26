@@ -16,7 +16,7 @@ import ReactDOM from "react-dom";
 import Login from "./components/LoginPage/Login";
 import React from "react";
 import App from "./components/HomePage/App";
-import StudentHome from "./components/MainPage/StudentHome";
+import AllUsersHome from "./components/MainPage/AllUsersHome";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 if (document.getElementById("app")) {
@@ -29,7 +29,7 @@ if (document.getElementById("app")) {
                     <Route
                         exact
                         path="/:username-:radio"
-                        element={<StudentHome />}
+                        element={<AllUsersHome />}
                     />
                 </Routes>
             </Router>

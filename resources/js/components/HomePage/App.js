@@ -42,7 +42,12 @@ function App() {
                 >
                     <Navbar />
                     <div id="photo" className="h-75 row ">
-                        <img src={img2} className="w-100 h-100 p-0" alt="" />
+                        <img
+                            src={img2}
+                            className="w-100 h-100 p-0"
+                            alt=""
+                            style={{ objectFit: "cover" }}
+                        />
                         <div
                             className="position-absolute  overflow-hidden  w-50  m-4"
                             style={{ height: "70%" }}
@@ -113,7 +118,11 @@ function App() {
                         >
                             <img
                                 className="h-50 w-50 hideat600"
-                                style={{ maxWidth: "100%", height: "auto" }}
+                                style={{
+                                    maxWidth: "100%",
+                                    height: "auto",
+                                    objectFit: "cover",
+                                }}
                                 src={img3}
                                 alt=""
                             />
@@ -135,7 +144,7 @@ function App() {
                         >
                             <img
                                 className="h-50 w-50 hideat600"
-                                style={{ maxWidth: "100%" }}
+                                style={{ maxWidth: "100%", objectFit: "cover" }}
                                 src={img4}
                                 alt=""
                             />
@@ -180,6 +189,7 @@ function App() {
                         >
                             <img
                                 className="  resizeTextOfLogoPhoto "
+                                style={{ objectFit: "cover" }}
                                 src={img}
                                 alt=""
                             />

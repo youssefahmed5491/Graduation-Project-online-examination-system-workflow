@@ -12,7 +12,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [radio, setRadio] = useState("");
     console.log(username, password, radio);
-    let bola = 100;
+    let size = 100;
 
     const checkSize = () => {
         setHeigt(window.innerHeight);
@@ -31,17 +31,17 @@ const Login = () => {
     if (height < 605) {
         row = "";
         col = "";
-        bola = 0;
+        size = 0;
     }
     if (width < 1100) {
         row = "";
         col = "";
-        bola = 0;
+        size = 0;
     }
     if (height < 605 && width < 1570) {
         row = "";
         col = "";
-        bola = 0;
+        size = 0;
     }
 
     const handleSubmit = (e) => {
@@ -88,9 +88,14 @@ const Login = () => {
             >
                 <div
                     className={col}
-                    style={{ height: `${bola}%`, padding: "0px" }}
+                    style={{ height: `${size}%`, padding: "0px" }}
                 >
-                    <img src={img} alt="" className="w-100 h-100 " />
+                    <img
+                        src={img}
+                        alt=""
+                        className="w-100 h-100 "
+                        style={{ objectFit: "cover" }}
+                    />
                 </div>
                 <div
                     className={col}
@@ -104,6 +109,7 @@ const Login = () => {
                         className="pt-5 "
                         id="nameForm"
                         action={`/${username}-${radio}`}
+                        // ${radio === "Student" ? `/${username}-${radio}` : ""}`}
                         style={{
                             paddingLeft: "5%",
                         }}
@@ -141,7 +147,7 @@ const Login = () => {
                                     borderRight: "none",
                                     borderTop: "none",
                                     borderRadius: "0",
-                                    width: "90%",
+                                    width: "94%",
                                     margin: "0",
                                     padding: "0",
                                     height: "38px",

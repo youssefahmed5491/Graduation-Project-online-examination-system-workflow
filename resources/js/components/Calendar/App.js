@@ -1,3 +1,4 @@
+import { auto } from "@popperjs/core";
 import React, { useEffect, useState } from "react";
 import CalenderHeader from "./CalenderHeader";
 import Day from "./Day";
@@ -19,11 +20,9 @@ const App = () => {
         return events.filter((e) => e.date === date);
     };
     const [height, setHeigt] = useState(window.innerHeight);
-    const [width, setWidth] = useState(window.innerWidth);
 
     const checkSize = () => {
         setHeigt(window.innerHeight);
-        setWidth(window.innerWidth);
     };
     useEffect(() => {
         window.addEventListener("resize", checkSize);
@@ -33,10 +32,9 @@ const App = () => {
         };
     }, [height]);
     var col = "";
-    if (height < 775) {
-        col = "col";
-    }
-    console.log(col, height);
+    const divheight = (93 / 100) * height;
+
+    console.log(col, height, divheight);
     // console.log(events);
     useEffect(() => {
         localStorage.setItem("events", JSON.stringify(events));
@@ -102,7 +100,13 @@ const App = () => {
     console.log(clicked);
     return (
         <>
-            <div className="row">
+            <div
+                className="row"
+                style={{
+                    overflowY: "auto",
+                    height: `${divheight}px`,
+                }}
+            >
                 <div className="col">
                     <div id="container">
                         <CalenderHeader
@@ -116,12 +120,12 @@ const App = () => {
 
                         <div id="weekdays">
                             <div>Sun</div>
-                            <div style={{ paddingLeft: "17px" }}>Mon</div>
+                            <div style={{ paddingLeft: "5px" }}>Mon</div>
                             <div>Tue</div>
-                            <div style={{ paddingLeft: "17px" }}>Wed</div>
+                            <div style={{ paddingLeft: "7px" }}>Wed</div>
                             <div>Thu</div>
-                            <div style={{ paddingLeft: "25px" }}>Fri</div>
-                            <div style={{ paddingLeft: "30px" }}>Sat</div>
+                            <div style={{ paddingLeft: "15px" }}>Fri</div>
+                            <div style={{ paddingLeft: "20px" }}>Sat</div>
                         </div>
                         <div id="calendar">
                             {days.map((day, index) => (
@@ -135,7 +139,7 @@ const App = () => {
                     </div>
                 </div>
                 {clicked && (
-                    <div className={col}>
+                    <div>
                         <NewEventModal
                             onClose={() => {
                                 setClicked(null);

@@ -12,7 +12,7 @@ const NewEventModal = ({
     const [time, setTime] = useState("");
     const [error, setError] = useState(false);
     const [show, setShow] = useState(false);
-    console.log(show);
+    console.log(length);
     const today = clicked.split("/");
     const now = new Date(today[2], today[1] - 1, today[0]);
     const days = [
