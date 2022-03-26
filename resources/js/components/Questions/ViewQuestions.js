@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Pagination from "./Pagination";
+import EditQuestions from "./EditQuestions";
 
 import guiViewIcon from "./viewquestions/gui_view_icon_158340.png";
 import edit from "./viewquestions/edit.png";
@@ -8,7 +9,8 @@ import Delete from "./viewquestions/Delete-Alt-256.png";
 
 const ViewQuestions = (divheight) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage] = useState(13);
+    const [rowsPerPage] = useState(13);
+    const [selectedRow, setSelectedRow] = useState({});
     const [guiViewIconClicked, setGuiViewIconClicked] = useState(false);
     const [editClicked, setEditClicked] = useState(false);
     const [deleteClicked, setdeleteClicked] = useState(false);
@@ -287,6 +289,9 @@ const ViewQuestions = (divheight) => {
                                                                 setdeleteClicked(
                                                                     false
                                                                 );
+                                                                setSelectedRow(
+                                                                    row
+                                                                );
                                                             }}
                                                             alt=""
                                                             style={{
@@ -336,7 +341,9 @@ const ViewQuestions = (divheight) => {
                 </div>
             </div>
             <div className={guiViewIconclassname}>view clicked</div>
-            <div className={editclassname}>edit clicked</div>
+            <div className={editclassname}>
+                <EditQuestions selectedRow={selectedRow} />
+            </div>
             <div className={deletelassname}>delete clicked</div>
         </>
     );

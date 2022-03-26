@@ -7031,6 +7031,32 @@ var AddQuestions = function AddQuestions() {
 
 /***/ }),
 
+/***/ "./resources/js/components/Questions/EditQuestions.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Questions/EditQuestions.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var EditQuestions = function EditQuestions(selectedRow) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: selectedRow.selectedRow.id
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditQuestions);
+
+/***/ }),
+
 /***/ "./resources/js/components/Questions/Pagination.js":
 /*!*********************************************************!*\
   !*** ./resources/js/components/Questions/Pagination.js ***!
@@ -7153,10 +7179,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pagination */ "./resources/js/components/Questions/Pagination.js");
-/* harmony import */ var _viewquestions_gui_view_icon_158340_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./viewquestions/gui_view_icon_158340.png */ "./resources/js/components/Questions/viewquestions/gui_view_icon_158340.png");
-/* harmony import */ var _viewquestions_edit_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./viewquestions/edit.png */ "./resources/js/components/Questions/viewquestions/edit.png");
-/* harmony import */ var _viewquestions_Delete_Alt_256_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./viewquestions/Delete-Alt-256.png */ "./resources/js/components/Questions/viewquestions/Delete-Alt-256.png");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _EditQuestions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditQuestions */ "./resources/js/components/Questions/EditQuestions.js");
+/* harmony import */ var _viewquestions_gui_view_icon_158340_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./viewquestions/gui_view_icon_158340.png */ "./resources/js/components/Questions/viewquestions/gui_view_icon_158340.png");
+/* harmony import */ var _viewquestions_edit_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./viewquestions/edit.png */ "./resources/js/components/Questions/viewquestions/edit.png");
+/* harmony import */ var _viewquestions_Delete_Alt_256_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./viewquestions/Delete-Alt-256.png */ "./resources/js/components/Questions/viewquestions/Delete-Alt-256.png");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7178,6 +7205,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var ViewQuestions = function ViewQuestions(divheight) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
       _useState2 = _slicedToArray(_useState, 2),
@@ -7185,24 +7213,28 @@ var ViewQuestions = function ViewQuestions(divheight) {
       setCurrentPage = _useState2[1];
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(13),
-      _useState4 = _slicedToArray(_useState3, 2),
-      rowsPerPage = _useState4[0],
-      setRowsPerPage = _useState4[1];
+      _useState4 = _slicedToArray(_useState3, 1),
+      rowsPerPage = _useState4[0];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState6 = _slicedToArray(_useState5, 2),
-      guiViewIconClicked = _useState6[0],
-      setGuiViewIconClicked = _useState6[1];
+      selectedRow = _useState6[0],
+      setSelectedRow = _useState6[1];
 
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState8 = _slicedToArray(_useState7, 2),
-      editClicked = _useState8[0],
-      setEditClicked = _useState8[1];
+      guiViewIconClicked = _useState8[0],
+      setGuiViewIconClicked = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
-      deleteClicked = _useState10[0],
-      setdeleteClicked = _useState10[1];
+      editClicked = _useState10[0],
+      setEditClicked = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState12 = _slicedToArray(_useState11, 2),
+      deleteClicked = _useState12[0],
+      setdeleteClicked = _useState12[1];
 
   var tableRowHeight = divheight.divheight * (92 / 100) * (6.25 / 100);
   var displaynone = "".concat(guiViewIconClicked || editClicked || deleteClicked ? "displaynone" : "");
@@ -7232,48 +7264,48 @@ var ViewQuestions = function ViewQuestions(divheight) {
     setCurrentPage(pageNumber);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: displaynone,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
         children: "Question Bank List"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         style: {
           width: "81%",
           height: "".concat(divheight.divheight, "px"),
           background: "white",
           position: "absolute"
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           style: {
             width: "98%",
             height: "92%",
             margin: "1%"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "col",
             style: {
               margin: "1%",
               height: "100%",
               width: "100%"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "row w-100  ",
               style: {
                 overflowY: "auto",
                 height: "107%"
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("table", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("table", {
                   className: "table table-borderless",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("thead", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("thead", {
                     style: {
                       height: "".concat(tableRowHeight, "px"),
                       lineHeight: "100%",
                       background: "#ebebeb"
                     },
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         style: {
                           borderRight: "1px",
@@ -7281,7 +7313,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
                           borderColor: "white"
                         },
                         children: "#"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         style: {
                           borderRight: "1px",
@@ -7289,7 +7321,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
                           borderColor: "white"
                         },
                         children: "Questions"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         style: {
                           borderRight: "1px",
@@ -7297,7 +7329,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
                           borderColor: "white"
                         },
                         children: "Answer"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         style: {
                           borderRight: "1px",
@@ -7305,7 +7337,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
                           borderColor: "white"
                         },
                         children: "Subject"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         style: {
                           borderRight: "1px",
@@ -7313,7 +7345,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
                           borderColor: "white"
                         },
                         children: "Difficulty"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         style: {
                           borderRight: "1px",
@@ -7321,7 +7353,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
                           borderColor: "white"
                         },
                         children: "Duration"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         style: {
                           borderRight: "1px",
@@ -7329,20 +7361,20 @@ var ViewQuestions = function ViewQuestions(divheight) {
                           borderColor: "white"
                         },
                         children: "Status"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                         scope: "col",
                         children: "Actions"
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tbody", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("tbody", {
                     children: currentRows.map(function (row, index) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
                         style: {
                           background: "".concat(index % 2 == 0 ? "#f7f7f7" : "#ebebeb"),
                           height: "".concat(tableRowHeight, "px"),
                           lineHeight: "100%"
                         },
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
                           scope: "row",
                           style: {
                             borderRight: "1px",
@@ -7350,54 +7382,54 @@ var ViewQuestions = function ViewQuestions(divheight) {
                             borderColor: "white"
                           },
                           children: index
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
                           style: {
                             borderRight: "1px",
                             borderStyle: "solid",
                             borderColor: "white"
                           },
                           children: row.Questions
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
                           style: {
                             borderRight: "1px",
                             borderStyle: "solid",
                             borderColor: "white"
                           },
                           children: row.Answer
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
                           style: {
                             borderRight: "1px",
                             borderStyle: "solid",
                             borderColor: "white"
                           },
                           children: row.Subject
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
                           style: {
                             borderRight: "1px",
                             borderStyle: "solid",
                             borderColor: "white"
                           },
                           children: row.Difficulty
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
                           style: {
                             borderRight: "1px",
                             borderStyle: "solid",
                             borderColor: "white"
                           },
                           children: row.Duration
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
                           style: {
                             borderRight: "1px",
                             borderStyle: "solid",
                             borderColor: "white"
                           },
                           children: row.Status
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("td", {
                           style: {
                             width: "10%"
                           },
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-                            src: _viewquestions_gui_view_icon_158340_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                            src: _viewquestions_gui_view_icon_158340_png__WEBPACK_IMPORTED_MODULE_3__["default"],
                             onClick: function onClick() {
                               setGuiViewIconClicked(true);
                               setEditClicked(false);
@@ -7411,12 +7443,13 @@ var ViewQuestions = function ViewQuestions(divheight) {
                             "data-bs-toggle": "tooltip",
                             "data-bs-placement": "bottom",
                             title: "view"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-                            src: _viewquestions_edit_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                            src: _viewquestions_edit_png__WEBPACK_IMPORTED_MODULE_4__["default"],
                             onClick: function onClick() {
                               setGuiViewIconClicked(false);
                               setEditClicked(true);
                               setdeleteClicked(false);
+                              setSelectedRow(row);
                             },
                             alt: "",
                             style: {
@@ -7426,8 +7459,8 @@ var ViewQuestions = function ViewQuestions(divheight) {
                             "data-bs-toggle": "tooltip",
                             "data-bs-placement": "bottom",
                             title: "edit"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-                            src: _viewquestions_Delete_Alt_256_png__WEBPACK_IMPORTED_MODULE_4__["default"],
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                            src: _viewquestions_Delete_Alt_256_png__WEBPACK_IMPORTED_MODULE_5__["default"],
                             onClick: function onClick() {
                               setGuiViewIconClicked(false);
                               setEditClicked(false);
@@ -7445,7 +7478,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
                       }, index);
                     })
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pagination__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Pagination__WEBPACK_IMPORTED_MODULE_1__["default"], {
                   rowsPerPage: rowsPerPage,
                   totalRows: rows.length,
                   paginate: paginate
@@ -7455,13 +7488,15 @@ var ViewQuestions = function ViewQuestions(divheight) {
           })
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: guiViewIconclassname,
       children: "view clicked"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: editclassname,
-      children: "edit clicked"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_EditQuestions__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedRow: selectedRow
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: deletelassname,
       children: "delete clicked"
     })]
