@@ -58,17 +58,22 @@ const Pagination = ({ rowsPerPage, totalRows, paginate }) => {
             <ul className="pagination">
                 {pageNumbers.map((number, index) => (
                     <li key={index} className="page-item">
-                        <a
-                            onClick={(e) => {
-                                paginate(number);
-                                setPageLol(number);
-                                e.preventDefault();
-                            }}
-                            href=""
-                            className="page-link"
-                        >
-                            {number}
-                        </a>
+                        {number != "..." && (
+                            <a
+                                onClick={(e) => {
+                                    paginate(number);
+                                    setPageLol(number);
+                                    e.preventDefault();
+                                }}
+                                href=""
+                                className="page-link"
+                            >
+                                {number}
+                            </a>
+                        )}
+                        {number === "..." && (
+                            <div className="page-link">...</div>
+                        )}
                     </li>
                 ))}
             </ul>

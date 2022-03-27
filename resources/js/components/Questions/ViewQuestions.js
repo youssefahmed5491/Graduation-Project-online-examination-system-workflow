@@ -42,8 +42,7 @@ const ViewQuestions = (divheight) => {
     const currentRows = rows.slice(indexOfFirstRow, indexOfLastRow);
 
     const paginate = (pageNumber) => {
-        if (pageNumber === "...") {
-        } else {
+        if (pageNumber != "...") {
             setCurrentPage(pageNumber);
         }
     };

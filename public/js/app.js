@@ -7084,6 +7084,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Pagination = function Pagination(_ref) {
   var rowsPerPage = _ref.rowsPerPage,
       totalRows = _ref.totalRows,
@@ -7152,9 +7153,9 @@ var Pagination = function Pagination(_ref) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
       className: "pagination",
       children: pageNumbers.map(function (number, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
           className: "page-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          children: [number != "..." && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             onClick: function onClick(e) {
               paginate(number);
               setPageLol(number);
@@ -7163,7 +7164,10 @@ var Pagination = function Pagination(_ref) {
             href: "",
             className: "page-link",
             children: number
-          })
+          }), number === "..." && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "page-link",
+            children: "..."
+          })]
         }, index);
       })
     })
@@ -7269,7 +7273,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
   var currentRows = rows.slice(indexOfFirstRow, indexOfLastRow);
 
   var paginate = function paginate(pageNumber) {
-    if (pageNumber === "...") {} else {
+    if (pageNumber != "...") {
       setCurrentPage(pageNumber);
     }
   };
