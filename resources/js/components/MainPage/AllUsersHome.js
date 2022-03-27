@@ -465,37 +465,6 @@ const AllUsersHome = () => {
                                 <AddQuestions />
                             </div>
                         )}
-
-                    {/* <div className="col m-5 ">
-            <div
-              style={{
-                height: "30%",
-                width: "100%",
-                backgroundColor: "#FFA701",
-                borderRadius: "5%",
-              }}
-            >
-              <div className="text-light fw-bolder  fs-2 p-3">
-                Completed Exams
-              </div>
-              <div className="row">
-                <div
-                  className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
-                  style={{ fontSize: "60px" }}
-                >
-                  6
-                </div>
-                <div className="col">
-                  <img
-                    src={check}
-                    alt=""
-                    className=""
-                    style={{ height: "100%", width: "60%" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div> */}
                 </div>
             </div>
         </>

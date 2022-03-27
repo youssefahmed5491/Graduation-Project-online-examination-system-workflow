@@ -5501,7 +5501,6 @@ var App = function App() {
 
     setDays(daysArr);
   }, [events, nav]);
-  console.log(clicked);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "row",
@@ -7089,17 +7088,16 @@ var Pagination = function Pagination(_ref) {
   var rowsPerPage = _ref.rowsPerPage,
       totalRows = _ref.totalRows,
       paginate = _ref.paginate;
-  var pageNumbers = []; // for (let i = 1; i <= Math.ceil(totalRows / rowsPerPage); i++) {
-  //     pageNumbers.push(i);
-  // }
+  var pageNumbers = [];
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
       _useState2 = _slicedToArray(_useState, 2),
       pageLol = _useState2[0],
       setPageLol = _useState2[1];
 
+  var lol = [1, 2, 3];
+
   if (Math.ceil(totalRows / rowsPerPage) > 4) {
-    //if the page number i was on was samller than 5 then ... will be added after the fifth page and only the last page will be visible
     if (pageLol < 5) {
       for (var i = 1; i <= 5; i++) {
         pageNumbers.push(i);
@@ -7108,42 +7106,52 @@ var Pagination = function Pagination(_ref) {
       pageNumbers.push("...");
       pageNumbers.push(Math.ceil(totalRows / rowsPerPage));
     } else {
-      //else if the current page number was bigger than the numbers of remaining pages then ... will be added after the first page and only the last 5 pages will be visible
       var limit = Math.ceil(totalRows / rowsPerPage) - 5;
 
       if (pageLol > limit) {
-        pageNumbers.push("1");
-        pageNumbers.push("...");
+        if (pageLol != Math.ceil(totalRows / rowsPerPage) - 4) {
+          pageNumbers.push("1");
+          pageNumbers.push("...");
 
-        for (var _i2 = limit + 1; _i2 <= Math.ceil(totalRows / rowsPerPage); _i2++) {
-          pageNumbers.push(_i2);
+          for (var _i2 = limit + 1; _i2 <= Math.ceil(totalRows / rowsPerPage); _i2++) {
+            pageNumbers.push(_i2);
+          }
+        } else {
+          pageNumbers.push("1");
+          pageNumbers.push("...");
+
+          for (var _i3 = pageLol - 1; _i3 <= pageLol + 1; _i3++) {
+            pageNumbers.push(_i3);
+          }
+
+          pageNumbers.push("...");
+          pageNumbers.push(Math.ceil(totalRows / rowsPerPage));
+          console.log("looooooooooooool");
         }
-      } //...will be added left after the first page and right befor the last page
-      else {
+      } else {
         pageNumbers.push("1");
         pageNumbers.push("...");
 
-        for (var _i3 = pageLol - 1; _i3 <= pageLol + 1; _i3++) {
-          pageNumbers.push(_i3);
+        for (var _i4 = pageLol - 1; _i4 <= pageLol + 1; _i4++) {
+          pageNumbers.push(_i4);
         }
 
         pageNumbers.push("...");
         pageNumbers.push(Math.ceil(totalRows / rowsPerPage));
       }
     }
-  } //else if the total number of pages was less than 4 then all of the pages will be visible (no ...)
-  //the code inside this else was sufficient but if large data was added the links lenght would be to long so i decided to add ... to decrease it's length
-  else {
-    for (var _i4 = 1; _i4 <= Math.ceil(totalRows / rowsPerPage); _i4++) {
-      pageNumbers.push(_i4);
+  } else {
+    for (var _i5 = 1; _i5 <= Math.ceil(totalRows / rowsPerPage); _i5++) {
+      pageNumbers.push(_i5);
     }
   }
 
+  console.log(pageNumbers);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
     className: "float",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
       className: "pagination",
-      children: pageNumbers.map(function (number) {
+      children: pageNumbers.map(function (number, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
           className: "page-item",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
@@ -7156,7 +7164,7 @@ var Pagination = function Pagination(_ref) {
             className: "page-link",
             children: number
           })
-        }, number);
+        }, index);
       })
     })
   });
@@ -7252,7 +7260,7 @@ var ViewQuestions = function ViewQuestions(divheight) {
     Status: "Active"
   };
 
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 200; i++) {
     rows.push(row);
   }
 
@@ -7261,7 +7269,9 @@ var ViewQuestions = function ViewQuestions(divheight) {
   var currentRows = rows.slice(indexOfFirstRow, indexOfLastRow);
 
   var paginate = function paginate(pageNumber) {
-    setCurrentPage(pageNumber);
+    if (pageNumber === "...") {} else {
+      setCurrentPage(pageNumber);
+    }
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {

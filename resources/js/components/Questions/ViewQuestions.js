@@ -34,7 +34,7 @@ const ViewQuestions = (divheight) => {
         Duration: "10 min",
         Status: "Active",
     };
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 200; i++) {
         rows.push(row);
     }
     const indexOfLastRow = currentPage * rowsPerPage;
@@ -42,7 +42,10 @@ const ViewQuestions = (divheight) => {
     const currentRows = rows.slice(indexOfFirstRow, indexOfLastRow);
 
     const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber);
+        if (pageNumber === "...") {
+        } else {
+            setCurrentPage(pageNumber);
+        }
     };
     return (
         <>
