@@ -5,8 +5,6 @@ const Pagination = ({ rowsPerPage, totalRows, paginate }) => {
 
     const [pageLol, setPageLol] = useState(1);
 
-    const lol = [1, 2, 3];
-
     if (Math.ceil(totalRows / rowsPerPage) > 4) {
         if (pageLol < 5) {
             for (let i = 1; i <= 5; i++) {
@@ -35,7 +33,6 @@ const Pagination = ({ rowsPerPage, totalRows, paginate }) => {
                     }
                     pageNumbers.push("...");
                     pageNumbers.push(Math.ceil(totalRows / rowsPerPage));
-                    console.log("looooooooooooool");
                 }
             } else {
                 pageNumbers.push("1");
@@ -52,7 +49,6 @@ const Pagination = ({ rowsPerPage, totalRows, paginate }) => {
             pageNumbers.push(i);
         }
     }
-    console.log(pageNumbers);
     return (
         <nav className="float">
             <ul className="pagination">

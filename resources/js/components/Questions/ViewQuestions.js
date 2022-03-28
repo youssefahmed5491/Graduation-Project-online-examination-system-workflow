@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Pagination from "./Pagination";
 import EditQuestions from "./EditQuestions";
+import AddQuestions from "./AddQuestions";
 
 import guiViewIcon from "./viewquestions/gui_view_icon_158340.png";
 import edit from "./viewquestions/edit.png";
@@ -49,7 +50,7 @@ const ViewQuestions = (divheight) => {
     return (
         <>
             <div className={displaynone}>
-                <h3>Question Bank List</h3>
+                <h3 className="fw-bold">Question Bank List</h3>
                 <div
                     style={{
                         width: "81%",

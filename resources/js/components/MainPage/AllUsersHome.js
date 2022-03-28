@@ -303,7 +303,10 @@ const AllUsersHome = () => {
                         !examClicked &&
                         !viewQuestionsClicked &&
                         !addQuestionsClicked && (
-                            <div className="col m-5 ">
+                            <div
+                                className="col p-5 "
+                                style={{ background: "#ebebeb" }}
+                            >
                                 <div
                                     style={{
                                         width: "100%",
@@ -341,7 +344,10 @@ const AllUsersHome = () => {
                         !examClicked &&
                         !viewQuestionsClicked &&
                         !addQuestionsClicked && (
-                            <div className="col m-5 ">
+                            <div
+                                className="col p-5 "
+                                style={{ background: "#ebebeb" }}
+                            >
                                 <div
                                     style={{
                                         width: "100%",
@@ -379,7 +385,10 @@ const AllUsersHome = () => {
                         !examClicked &&
                         !viewQuestionsClicked &&
                         !addQuestionsClicked && (
-                            <div className="col m-5 ">
+                            <div
+                                className="col p-5 "
+                                style={{ background: "#ebebeb" }}
+                            >
                                 <div
                                     style={{
                                         width: "100%",
@@ -421,7 +430,10 @@ const AllUsersHome = () => {
                         !addQuestionsClicked && (
                             <div
                                 className="col"
-                                style={{ marginLeft: `${divwidth}px` }}
+                                style={{
+                                    paddingLeft: `${divwidth}px`,
+                                    background: "#ebebeb",
+                                }}
                             >
                                 <App />
                             </div>
@@ -434,11 +446,32 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         !adjustClicked &&
                         examClicked && <h1 className="col m-5 ">exam</h1>}
+                    {!homeClicked &&
+                        !scheduleClicked &&
+                        viewQuestionsClicked &&
+                        !addQuestionsClicked && (
+                            // !scheduleClicked &&
+                            //     !adjustClicked &&
+                            //     !examClicked &&
+                            //     !viewQuestionsClicked &&
+                            //     !addQuestionsClicked &&
+                            <div
+                                className="col"
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                            >
+                                <ViewQuestions divheight={divheight} />
+                            </div>
+                        )}
                     {
                         // !homeClicked &&
                         //     !scheduleClicked &&
-                        //     viewQuestionsClicked &&
-                        //     !addQuestionsClicked &&
+                        //     !viewQuestionsClicked &&
+                        //     addQuestionsClicked && (
                         !scheduleClicked &&
                             !adjustClicked &&
                             !examClicked &&
@@ -453,18 +486,10 @@ const AllUsersHome = () => {
                                         height: "100%",
                                     }}
                                 >
-                                    <ViewQuestions divheight={divheight} />
+                                    <AddQuestions divheight={divheight} />
                                 </div>
                             )
                     }
-                    {!homeClicked &&
-                        !scheduleClicked &&
-                        !viewQuestionsClicked &&
-                        addQuestionsClicked && (
-                            <div className="col m-5 ">
-                                <AddQuestions />
-                            </div>
-                        )}
                 </div>
             </div>
         </>
