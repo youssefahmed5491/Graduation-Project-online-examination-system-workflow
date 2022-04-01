@@ -446,52 +446,48 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         !adjustClicked &&
                         examClicked && <h1 className="col m-5 ">exam</h1>}
-                    {
-                        // !homeClicked &&
-                        //     !scheduleClicked &&
-                        //     viewQuestionsClicked &&
-                        //     !addQuestionsClicked && (
+                    {!homeClicked &&
                         !scheduleClicked &&
-                            !adjustClicked &&
-                            !examClicked &&
-                            !viewQuestionsClicked &&
-                            !addQuestionsClicked && (
-                                <div
-                                    className="col"
-                                    style={{
-                                        paddingTop: "5px",
-                                        paddingLeft: "1rem",
-                                        background: "#ebebeb",
-                                        height: "100%",
-                                    }}
-                                >
-                                    <ViewQuestions divheight={divheight} />
-                                </div>
-                            )
-                    }
-                    {
-                        // !homeClicked &&
-                        //     !scheduleClicked &&
-                        //     !viewQuestionsClicked &&
-                        //     addQuestionsClicked && (
+                        viewQuestionsClicked &&
+                        !addQuestionsClicked && (
+                            // !scheduleClicked &&
+                            //     !adjustClicked &&
+                            //     !examClicked &&
+                            //     !viewQuestionsClicked &&
+                            //     !addQuestionsClicked && (
+                            <div
+                                className="col"
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                            >
+                                <ViewQuestions divheight={divheight} />
+                            </div>
+                        )}
+                    {!homeClicked &&
                         !scheduleClicked &&
-                            !adjustClicked &&
-                            !examClicked &&
-                            !viewQuestionsClicked &&
-                            !addQuestionsClicked && (
-                                <div
-                                    className="col"
-                                    style={{
-                                        paddingTop: "5px",
-                                        paddingLeft: "1rem",
-                                        background: "#ebebeb",
-                                        height: "100%",
-                                    }}
-                                >
-                                    <AddQuestions divheight={divheight} />
-                                </div>
-                            )
-                    }
+                        !viewQuestionsClicked &&
+                        addQuestionsClicked && (
+                            // !scheduleClicked &&
+                            //     !adjustClicked &&
+                            //     !examClicked &&
+                            //     !viewQuestionsClicked &&
+                            //     !addQuestionsClicked && (
+                            <div
+                                className="col"
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                            >
+                                <AddQuestions divheight={divheight} />
+                            </div>
+                        )}
                 </div>
             </div>
         </>

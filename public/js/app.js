@@ -8717,6 +8717,114 @@ var AllUsersHome = function AllUsersHome() {
               children: "Add Questions"
             })
           })]
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#3eba3e",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+              className: "text-light fw-bolder Exams-font-size  p-3",
+              children: "Remaining Exams"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "row ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: "6"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                className: "col",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+                  src: _remaining_png__WEBPACK_IMPORTED_MODULE_10__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "70%"
+                  }
+                })
+              })]
+            })]
+          })
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#fe4545",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+              className: "text-light fw-bolder  Exams-font-size p-3",
+              children: "Upcoming Exam"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: "6"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                className: "col p-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+                  src: _alertupcoming_png__WEBPACK_IMPORTED_MODULE_11__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "60%"
+                  }
+                })
+              })]
+            })]
+          })
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#f0a400",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+              className: "text-light fw-bolder  Exams-font-size p-3",
+              children: "Completed Exam"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: "6"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                className: "col p-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+                  src: _check_mark_png__WEBPACK_IMPORTED_MODULE_12__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "60%"
+                  }
+                })
+              })]
+            })]
+          })
         }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
           className: "col",
           style: {
@@ -8736,7 +8844,7 @@ var AllUsersHome = function AllUsersHome() {
         //     !adjustClicked &&
         //     !examClicked &&
         //     !viewQuestionsClicked &&
-        //     !addQuestionsClicked &&
+        //     !addQuestionsClicked && (
         (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
           className: "col",
           style: {
@@ -8748,11 +8856,14 @@ var AllUsersHome = function AllUsersHome() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_16__["default"], {
             divheight: divheight
           })
-        }), // !homeClicked &&
-        //     !scheduleClicked &&
+        }), !homeClicked && !scheduleClicked && !viewQuestionsClicked && addQuestionsClicked &&
+        /*#__PURE__*/
+        // !scheduleClicked &&
+        //     !adjustClicked &&
+        //     !examClicked &&
         //     !viewQuestionsClicked &&
-        //     addQuestionsClicked && (
-        !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+        //     !addQuestionsClicked && (
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
