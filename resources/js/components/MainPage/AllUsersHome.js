@@ -298,7 +298,7 @@ const AllUsersHome = () => {
                             </button>
                         )}
                     </div>
-                    {/* {!scheduleClicked &&
+                    {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
@@ -420,7 +420,7 @@ const AllUsersHome = () => {
                                     </div>
                                 </div>
                             </div>
-                        )} */}
+                        )}
 
                     {!homeClicked &&
                         scheduleClicked &&
@@ -446,27 +446,29 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         !adjustClicked &&
                         examClicked && <h1 className="col m-5 ">exam</h1>}
-                    {!homeClicked &&
+                    {
+                        // !homeClicked &&
+                        //     !scheduleClicked &&
+                        //     viewQuestionsClicked &&
+                        //     !addQuestionsClicked && (
                         !scheduleClicked &&
-                        viewQuestionsClicked &&
-                        !addQuestionsClicked && (
-                            // !scheduleClicked &&
-                            //     !adjustClicked &&
-                            //     !examClicked &&
-                            //     !viewQuestionsClicked &&
-                            //     !addQuestionsClicked &&
-                            <div
-                                className="col"
-                                style={{
-                                    paddingTop: "5px",
-                                    paddingLeft: "1rem",
-                                    background: "#ebebeb",
-                                    height: "100%",
-                                }}
-                            >
-                                <ViewQuestions divheight={divheight} />
-                            </div>
-                        )}
+                            !adjustClicked &&
+                            !examClicked &&
+                            !viewQuestionsClicked &&
+                            !addQuestionsClicked && (
+                                <div
+                                    className="col"
+                                    style={{
+                                        paddingTop: "5px",
+                                        paddingLeft: "1rem",
+                                        background: "#ebebeb",
+                                        height: "100%",
+                                    }}
+                                >
+                                    <ViewQuestions divheight={divheight} />
+                                </div>
+                            )
+                    }
                     {
                         // !homeClicked &&
                         //     !scheduleClicked &&

@@ -47,6 +47,13 @@
 .show {
     display: block;
 }
+.error {
+    border-style: solid;
+    border-color: red;
+}
+.emptyfield {
+    color: red;
+}
 @media only screen and (max-height: 605px) {
     .hideat600 {
         display: none;

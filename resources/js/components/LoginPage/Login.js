@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import img from "./image.png";
 import eye from "./eye.png";
 import hiddeneye from "./hidden eye.png";
-import { Link } from "react-router-dom";
-
+import Select from "react-select";
 const Login = () => {
     const [height, setHeigt] = useState(window.innerHeight);
     const [width, setWidth] = useState(window.innerWidth);
@@ -11,6 +10,9 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [radio, setRadio] = useState("");
+    const [userNameError, setUserNameError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [radioError, setRadioError] = useState("");
     console.log(username, password, radio);
     let size = 100;
 
@@ -46,8 +48,19 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        document.getElementById("nameForm").submit();
+        if (username && password && radio) {
+            document.getElementById("nameForm").submit();
+        } else {
+            if (!username) {
+                setUserNameError("error");
+            }
+            if (!password) {
+                setPasswordError("error");
+            }
+            if (!radio) {
+                setRadioError("error");
+            }
+        }
     };
     const eyetoggle = (e) => {
         e.preventDefault();
@@ -121,7 +134,7 @@ const Login = () => {
                         <div className="mb-3 mt-5">
                             <input
                                 type="text"
-                                className="form-control"
+                                className={`form-control ${userNameError}`}
                                 id="inputUsername"
                                 placeholder="UserName"
                                 style={{
@@ -131,14 +144,21 @@ const Login = () => {
                                     borderTop: "none",
                                     borderRadius: "0",
                                 }}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
+                                onChange={(e) => {
+                                    setUsername(e.target.value),
+                                        setUserNameError("");
+                                }}
                             />
+                            {userNameError && (
+                                <div className="emptyfield">
+                                    Please enter username
+                                </div>
+                            )}
                         </div>
-                        <div className="mb-3 mt-5 ">
+                        <div className="mb-3 mt-4 ">
                             <input
                                 type={toggle ? "password" : "text"}
-                                className="form-control form-check-inline"
+                                className={`form-control form-check-inline ${passwordError}`}
                                 id="inputPassword"
                                 placeholder="Password"
                                 style={{
@@ -152,8 +172,10 @@ const Login = () => {
                                     padding: "0",
                                     height: "38px",
                                 }}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
+                                onChange={(e) => {
+                                    setPassword(e.target.value),
+                                        setPasswordError("");
+                                }}
                             />
                             <button
                                 className="form-check-inline"
@@ -183,92 +205,41 @@ const Login = () => {
                                     />
                                 )}
                             </button>
+                            {passwordError && (
+                                <div className="emptyfield">
+                                    Please enter password
+                                </div>
+                            )}
                         </div>
-                        {/* <div className="form-check form-check-inline mt-5">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="Student"
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio1">
-                Student
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="Doctor"
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio2">
-                Doctor
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio3"
-                value="System Manager"
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio3">
-                System Manager
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input "
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio3"
-                value="Proctor"
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio3">
-                Proctor
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio3"
-                value="Supervisor"
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio3">
-                Supervisor
-              </label>
-            </div> */}
+                        <div className="mt-4">
+                            <Select
+                                className={radioError}
+                                options={[
+                                    { value: "Student", label: "Student" },
+                                    { value: "Doctor", label: "Doctor" },
+                                    {
+                                        value: "System Manager",
+                                        label: "System Manager",
+                                    },
+                                    { value: "Proctor", label: "Proctor" },
+                                    {
+                                        value: "Supervisor",
+                                        label: "Supervisor",
+                                    },
+                                ]}
+                                placeholder={"eg:Student"}
+                                onChange={(e) => {
+                                    setRadio(e.value), setRadioError("");
+                                }}
+                            />
+                            {radioError && (
+                                <div className="emptyfield">
+                                    Please select one option
+                                </div>
+                            )}
+                        </div>
 
-                        <select
-                            className="form-select"
-                            id="validationCustom04"
-                            onChange={(e) => setRadio(e.target.value)}
-                            required
-                        >
-                            <option selected disabled value="">
-                                ...
-                            </option>
-                            <option value="Student">Student</option>
-                            <option value="Doctor">Doctor</option>
-                            <option value="System Manager">
-                                System Manager
-                            </option>
-                            <option value="Proctor">Proctor</option>
-                            <option value="Supervisor">Supervisor</option>
-                        </select>
-
-                        <div className="mt-5 ">
+                        <div className="mt-4 ">
                             <button
                                 type="submit"
                                 className="btn btn-primary px-5 pt-1"
