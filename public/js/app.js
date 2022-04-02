@@ -7069,7 +7069,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components_HomePage_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/HomePage/App */ "./resources/js/components/HomePage/App.js");
 /* harmony import */ var _components_MainPage_AllUsersHome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/MainPage/AllUsersHome */ "./resources/js/components/MainPage/AllUsersHome.js");
-/* harmony import */ var _components_ExamPaper_ExamPaper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/ExamPaper/ExamPaper */ "./resources/js/components/ExamPaper/ExamPaper.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/ExamPaper/ExamPaper'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -7110,7 +7110,7 @@ if (document.getElementById("app")) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           exact: true,
           path: "/:username/exam",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ExamPaper_ExamPaper__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/ExamPaper/ExamPaper'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           exact: true,
           path: "/:username-:radio",
@@ -7695,1759 +7695,6 @@ var NewEventModal = function NewEventModal(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewEventModal);
-
-/***/ }),
-
-/***/ "./resources/js/components/CreateExam/CreateExam.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/CreateExam/CreateExam.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var CreateExam = function CreateExam() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "hi"
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreateExam);
-
-/***/ }),
-
-/***/ "./resources/js/components/ExamPaper/ExamPaper.js":
-/*!********************************************************!*\
-  !*** ./resources/js/components/ExamPaper/ExamPaper.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-timer-hook */ "./node_modules/react-timer-hook/dist/index.js");
-/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_timer_hook__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_paginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-paginate */ "./node_modules/react-paginate/dist/react-paginate.js");
-/* harmony import */ var react_paginate__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_paginate__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../HomePage/2560px-Adidas_Logo.svg.png */ "./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png");
-/* harmony import */ var _chronograph_160753_1280_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./chronograph-160753_1280.png */ "./resources/js/components/ExamPaper/chronograph-160753_1280.png");
-/* harmony import */ var _MainPage_whiteTriangle_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../MainPage/whiteTriangle.png */ "./resources/js/components/MainPage/whiteTriangle.png");
-/* harmony import */ var _Timer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Timer */ "./resources/js/components/ExamPaper/Timer.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-var ExamPaper = function ExamPaper() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
-      username = _useParams.username;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
-    login: "mojombo",
-    id: 1,
-    node_id: "MDQ6VXNlcjE=",
-    avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/mojombo",
-    html_url: "https://github.com/mojombo",
-    followers_url: "https://api.github.com/users/mojombo/followers",
-    following_url: "https://api.github.com/users/mojombo/following{/other_user}",
-    gists_url: "https://api.github.com/users/mojombo/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/mojombo/subscriptions",
-    organizations_url: "https://api.github.com/users/mojombo/orgs",
-    repos_url: "https://api.github.com/users/mojombo/repos",
-    events_url: "https://api.github.com/users/mojombo/events{/privacy}",
-    received_events_url: "https://api.github.com/users/mojombo/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "defunkt",
-    id: 2,
-    node_id: "MDQ6VXNlcjI=",
-    avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/defunkt",
-    html_url: "https://github.com/defunkt",
-    followers_url: "https://api.github.com/users/defunkt/followers",
-    following_url: "https://api.github.com/users/defunkt/following{/other_user}",
-    gists_url: "https://api.github.com/users/defunkt/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/defunkt/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/defunkt/subscriptions",
-    organizations_url: "https://api.github.com/users/defunkt/orgs",
-    repos_url: "https://api.github.com/users/defunkt/repos",
-    events_url: "https://api.github.com/users/defunkt/events{/privacy}",
-    received_events_url: "https://api.github.com/users/defunkt/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "pjhyett",
-    id: 3,
-    node_id: "MDQ6VXNlcjM=",
-    avatar_url: "https://avatars.githubusercontent.com/u/3?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/pjhyett",
-    html_url: "https://github.com/pjhyett",
-    followers_url: "https://api.github.com/users/pjhyett/followers",
-    following_url: "https://api.github.com/users/pjhyett/following{/other_user}",
-    gists_url: "https://api.github.com/users/pjhyett/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/pjhyett/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/pjhyett/subscriptions",
-    organizations_url: "https://api.github.com/users/pjhyett/orgs",
-    repos_url: "https://api.github.com/users/pjhyett/repos",
-    events_url: "https://api.github.com/users/pjhyett/events{/privacy}",
-    received_events_url: "https://api.github.com/users/pjhyett/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "wycats",
-    id: 4,
-    node_id: "MDQ6VXNlcjQ=",
-    avatar_url: "https://avatars.githubusercontent.com/u/4?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/wycats",
-    html_url: "https://github.com/wycats",
-    followers_url: "https://api.github.com/users/wycats/followers",
-    following_url: "https://api.github.com/users/wycats/following{/other_user}",
-    gists_url: "https://api.github.com/users/wycats/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/wycats/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/wycats/subscriptions",
-    organizations_url: "https://api.github.com/users/wycats/orgs",
-    repos_url: "https://api.github.com/users/wycats/repos",
-    events_url: "https://api.github.com/users/wycats/events{/privacy}",
-    received_events_url: "https://api.github.com/users/wycats/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "ezmobius",
-    id: 5,
-    node_id: "MDQ6VXNlcjU=",
-    avatar_url: "https://avatars.githubusercontent.com/u/5?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/ezmobius",
-    html_url: "https://github.com/ezmobius",
-    followers_url: "https://api.github.com/users/ezmobius/followers",
-    following_url: "https://api.github.com/users/ezmobius/following{/other_user}",
-    gists_url: "https://api.github.com/users/ezmobius/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/ezmobius/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/ezmobius/subscriptions",
-    organizations_url: "https://api.github.com/users/ezmobius/orgs",
-    repos_url: "https://api.github.com/users/ezmobius/repos",
-    events_url: "https://api.github.com/users/ezmobius/events{/privacy}",
-    received_events_url: "https://api.github.com/users/ezmobius/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "ivey",
-    id: 6,
-    node_id: "MDQ6VXNlcjY=",
-    avatar_url: "https://avatars.githubusercontent.com/u/6?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/ivey",
-    html_url: "https://github.com/ivey",
-    followers_url: "https://api.github.com/users/ivey/followers",
-    following_url: "https://api.github.com/users/ivey/following{/other_user}",
-    gists_url: "https://api.github.com/users/ivey/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/ivey/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/ivey/subscriptions",
-    organizations_url: "https://api.github.com/users/ivey/orgs",
-    repos_url: "https://api.github.com/users/ivey/repos",
-    events_url: "https://api.github.com/users/ivey/events{/privacy}",
-    received_events_url: "https://api.github.com/users/ivey/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "evanphx",
-    id: 7,
-    node_id: "MDQ6VXNlcjc=",
-    avatar_url: "https://avatars.githubusercontent.com/u/7?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/evanphx",
-    html_url: "https://github.com/evanphx",
-    followers_url: "https://api.github.com/users/evanphx/followers",
-    following_url: "https://api.github.com/users/evanphx/following{/other_user}",
-    gists_url: "https://api.github.com/users/evanphx/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/evanphx/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/evanphx/subscriptions",
-    organizations_url: "https://api.github.com/users/evanphx/orgs",
-    repos_url: "https://api.github.com/users/evanphx/repos",
-    events_url: "https://api.github.com/users/evanphx/events{/privacy}",
-    received_events_url: "https://api.github.com/users/evanphx/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "vanpelt",
-    id: 17,
-    node_id: "MDQ6VXNlcjE3",
-    avatar_url: "https://avatars.githubusercontent.com/u/17?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/vanpelt",
-    html_url: "https://github.com/vanpelt",
-    followers_url: "https://api.github.com/users/vanpelt/followers",
-    following_url: "https://api.github.com/users/vanpelt/following{/other_user}",
-    gists_url: "https://api.github.com/users/vanpelt/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/vanpelt/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/vanpelt/subscriptions",
-    organizations_url: "https://api.github.com/users/vanpelt/orgs",
-    repos_url: "https://api.github.com/users/vanpelt/repos",
-    events_url: "https://api.github.com/users/vanpelt/events{/privacy}",
-    received_events_url: "https://api.github.com/users/vanpelt/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "wayneeseguin",
-    id: 18,
-    node_id: "MDQ6VXNlcjE4",
-    avatar_url: "https://avatars.githubusercontent.com/u/18?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/wayneeseguin",
-    html_url: "https://github.com/wayneeseguin",
-    followers_url: "https://api.github.com/users/wayneeseguin/followers",
-    following_url: "https://api.github.com/users/wayneeseguin/following{/other_user}",
-    gists_url: "https://api.github.com/users/wayneeseguin/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/wayneeseguin/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/wayneeseguin/subscriptions",
-    organizations_url: "https://api.github.com/users/wayneeseguin/orgs",
-    repos_url: "https://api.github.com/users/wayneeseguin/repos",
-    events_url: "https://api.github.com/users/wayneeseguin/events{/privacy}",
-    received_events_url: "https://api.github.com/users/wayneeseguin/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "brynary",
-    id: 19,
-    node_id: "MDQ6VXNlcjE5",
-    avatar_url: "https://avatars.githubusercontent.com/u/19?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/brynary",
-    html_url: "https://github.com/brynary",
-    followers_url: "https://api.github.com/users/brynary/followers",
-    following_url: "https://api.github.com/users/brynary/following{/other_user}",
-    gists_url: "https://api.github.com/users/brynary/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/brynary/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/brynary/subscriptions",
-    organizations_url: "https://api.github.com/users/brynary/orgs",
-    repos_url: "https://api.github.com/users/brynary/repos",
-    events_url: "https://api.github.com/users/brynary/events{/privacy}",
-    received_events_url: "https://api.github.com/users/brynary/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "kevinclark",
-    id: 20,
-    node_id: "MDQ6VXNlcjIw",
-    avatar_url: "https://avatars.githubusercontent.com/u/20?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/kevinclark",
-    html_url: "https://github.com/kevinclark",
-    followers_url: "https://api.github.com/users/kevinclark/followers",
-    following_url: "https://api.github.com/users/kevinclark/following{/other_user}",
-    gists_url: "https://api.github.com/users/kevinclark/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/kevinclark/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/kevinclark/subscriptions",
-    organizations_url: "https://api.github.com/users/kevinclark/orgs",
-    repos_url: "https://api.github.com/users/kevinclark/repos",
-    events_url: "https://api.github.com/users/kevinclark/events{/privacy}",
-    received_events_url: "https://api.github.com/users/kevinclark/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "technoweenie",
-    id: 21,
-    node_id: "MDQ6VXNlcjIx",
-    avatar_url: "https://avatars.githubusercontent.com/u/21?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/technoweenie",
-    html_url: "https://github.com/technoweenie",
-    followers_url: "https://api.github.com/users/technoweenie/followers",
-    following_url: "https://api.github.com/users/technoweenie/following{/other_user}",
-    gists_url: "https://api.github.com/users/technoweenie/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/technoweenie/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/technoweenie/subscriptions",
-    organizations_url: "https://api.github.com/users/technoweenie/orgs",
-    repos_url: "https://api.github.com/users/technoweenie/repos",
-    events_url: "https://api.github.com/users/technoweenie/events{/privacy}",
-    received_events_url: "https://api.github.com/users/technoweenie/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "macournoyer",
-    id: 22,
-    node_id: "MDQ6VXNlcjIy",
-    avatar_url: "https://avatars.githubusercontent.com/u/22?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/macournoyer",
-    html_url: "https://github.com/macournoyer",
-    followers_url: "https://api.github.com/users/macournoyer/followers",
-    following_url: "https://api.github.com/users/macournoyer/following{/other_user}",
-    gists_url: "https://api.github.com/users/macournoyer/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/macournoyer/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/macournoyer/subscriptions",
-    organizations_url: "https://api.github.com/users/macournoyer/orgs",
-    repos_url: "https://api.github.com/users/macournoyer/repos",
-    events_url: "https://api.github.com/users/macournoyer/events{/privacy}",
-    received_events_url: "https://api.github.com/users/macournoyer/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "takeo",
-    id: 23,
-    node_id: "MDQ6VXNlcjIz",
-    avatar_url: "https://avatars.githubusercontent.com/u/23?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/takeo",
-    html_url: "https://github.com/takeo",
-    followers_url: "https://api.github.com/users/takeo/followers",
-    following_url: "https://api.github.com/users/takeo/following{/other_user}",
-    gists_url: "https://api.github.com/users/takeo/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/takeo/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/takeo/subscriptions",
-    organizations_url: "https://api.github.com/users/takeo/orgs",
-    repos_url: "https://api.github.com/users/takeo/repos",
-    events_url: "https://api.github.com/users/takeo/events{/privacy}",
-    received_events_url: "https://api.github.com/users/takeo/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "caged",
-    id: 25,
-    node_id: "MDQ6VXNlcjI1",
-    avatar_url: "https://avatars.githubusercontent.com/u/25?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/caged",
-    html_url: "https://github.com/caged",
-    followers_url: "https://api.github.com/users/caged/followers",
-    following_url: "https://api.github.com/users/caged/following{/other_user}",
-    gists_url: "https://api.github.com/users/caged/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/caged/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/caged/subscriptions",
-    organizations_url: "https://api.github.com/users/caged/orgs",
-    repos_url: "https://api.github.com/users/caged/repos",
-    events_url: "https://api.github.com/users/caged/events{/privacy}",
-    received_events_url: "https://api.github.com/users/caged/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "topfunky",
-    id: 26,
-    node_id: "MDQ6VXNlcjI2",
-    avatar_url: "https://avatars.githubusercontent.com/u/26?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/topfunky",
-    html_url: "https://github.com/topfunky",
-    followers_url: "https://api.github.com/users/topfunky/followers",
-    following_url: "https://api.github.com/users/topfunky/following{/other_user}",
-    gists_url: "https://api.github.com/users/topfunky/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/topfunky/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/topfunky/subscriptions",
-    organizations_url: "https://api.github.com/users/topfunky/orgs",
-    repos_url: "https://api.github.com/users/topfunky/repos",
-    events_url: "https://api.github.com/users/topfunky/events{/privacy}",
-    received_events_url: "https://api.github.com/users/topfunky/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "anotherjesse",
-    id: 27,
-    node_id: "MDQ6VXNlcjI3",
-    avatar_url: "https://avatars.githubusercontent.com/u/27?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/anotherjesse",
-    html_url: "https://github.com/anotherjesse",
-    followers_url: "https://api.github.com/users/anotherjesse/followers",
-    following_url: "https://api.github.com/users/anotherjesse/following{/other_user}",
-    gists_url: "https://api.github.com/users/anotherjesse/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/anotherjesse/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/anotherjesse/subscriptions",
-    organizations_url: "https://api.github.com/users/anotherjesse/orgs",
-    repos_url: "https://api.github.com/users/anotherjesse/repos",
-    events_url: "https://api.github.com/users/anotherjesse/events{/privacy}",
-    received_events_url: "https://api.github.com/users/anotherjesse/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "roland",
-    id: 28,
-    node_id: "MDQ6VXNlcjI4",
-    avatar_url: "https://avatars.githubusercontent.com/u/28?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/roland",
-    html_url: "https://github.com/roland",
-    followers_url: "https://api.github.com/users/roland/followers",
-    following_url: "https://api.github.com/users/roland/following{/other_user}",
-    gists_url: "https://api.github.com/users/roland/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/roland/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/roland/subscriptions",
-    organizations_url: "https://api.github.com/users/roland/orgs",
-    repos_url: "https://api.github.com/users/roland/repos",
-    events_url: "https://api.github.com/users/roland/events{/privacy}",
-    received_events_url: "https://api.github.com/users/roland/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "lukas",
-    id: 29,
-    node_id: "MDQ6VXNlcjI5",
-    avatar_url: "https://avatars.githubusercontent.com/u/29?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/lukas",
-    html_url: "https://github.com/lukas",
-    followers_url: "https://api.github.com/users/lukas/followers",
-    following_url: "https://api.github.com/users/lukas/following{/other_user}",
-    gists_url: "https://api.github.com/users/lukas/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/lukas/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/lukas/subscriptions",
-    organizations_url: "https://api.github.com/users/lukas/orgs",
-    repos_url: "https://api.github.com/users/lukas/repos",
-    events_url: "https://api.github.com/users/lukas/events{/privacy}",
-    received_events_url: "https://api.github.com/users/lukas/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "fanvsfan",
-    id: 30,
-    node_id: "MDQ6VXNlcjMw",
-    avatar_url: "https://avatars.githubusercontent.com/u/30?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/fanvsfan",
-    html_url: "https://github.com/fanvsfan",
-    followers_url: "https://api.github.com/users/fanvsfan/followers",
-    following_url: "https://api.github.com/users/fanvsfan/following{/other_user}",
-    gists_url: "https://api.github.com/users/fanvsfan/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/fanvsfan/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/fanvsfan/subscriptions",
-    organizations_url: "https://api.github.com/users/fanvsfan/orgs",
-    repos_url: "https://api.github.com/users/fanvsfan/repos",
-    events_url: "https://api.github.com/users/fanvsfan/events{/privacy}",
-    received_events_url: "https://api.github.com/users/fanvsfan/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "tomtt",
-    id: 31,
-    node_id: "MDQ6VXNlcjMx",
-    avatar_url: "https://avatars.githubusercontent.com/u/31?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/tomtt",
-    html_url: "https://github.com/tomtt",
-    followers_url: "https://api.github.com/users/tomtt/followers",
-    following_url: "https://api.github.com/users/tomtt/following{/other_user}",
-    gists_url: "https://api.github.com/users/tomtt/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/tomtt/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/tomtt/subscriptions",
-    organizations_url: "https://api.github.com/users/tomtt/orgs",
-    repos_url: "https://api.github.com/users/tomtt/repos",
-    events_url: "https://api.github.com/users/tomtt/events{/privacy}",
-    received_events_url: "https://api.github.com/users/tomtt/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "railsjitsu",
-    id: 32,
-    node_id: "MDQ6VXNlcjMy",
-    avatar_url: "https://avatars.githubusercontent.com/u/32?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/railsjitsu",
-    html_url: "https://github.com/railsjitsu",
-    followers_url: "https://api.github.com/users/railsjitsu/followers",
-    following_url: "https://api.github.com/users/railsjitsu/following{/other_user}",
-    gists_url: "https://api.github.com/users/railsjitsu/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/railsjitsu/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/railsjitsu/subscriptions",
-    organizations_url: "https://api.github.com/users/railsjitsu/orgs",
-    repos_url: "https://api.github.com/users/railsjitsu/repos",
-    events_url: "https://api.github.com/users/railsjitsu/events{/privacy}",
-    received_events_url: "https://api.github.com/users/railsjitsu/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "nitay",
-    id: 34,
-    node_id: "MDQ6VXNlcjM0",
-    avatar_url: "https://avatars.githubusercontent.com/u/34?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/nitay",
-    html_url: "https://github.com/nitay",
-    followers_url: "https://api.github.com/users/nitay/followers",
-    following_url: "https://api.github.com/users/nitay/following{/other_user}",
-    gists_url: "https://api.github.com/users/nitay/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/nitay/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/nitay/subscriptions",
-    organizations_url: "https://api.github.com/users/nitay/orgs",
-    repos_url: "https://api.github.com/users/nitay/repos",
-    events_url: "https://api.github.com/users/nitay/events{/privacy}",
-    received_events_url: "https://api.github.com/users/nitay/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "kevwil",
-    id: 35,
-    node_id: "MDQ6VXNlcjM1",
-    avatar_url: "https://avatars.githubusercontent.com/u/35?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/kevwil",
-    html_url: "https://github.com/kevwil",
-    followers_url: "https://api.github.com/users/kevwil/followers",
-    following_url: "https://api.github.com/users/kevwil/following{/other_user}",
-    gists_url: "https://api.github.com/users/kevwil/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/kevwil/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/kevwil/subscriptions",
-    organizations_url: "https://api.github.com/users/kevwil/orgs",
-    repos_url: "https://api.github.com/users/kevwil/repos",
-    events_url: "https://api.github.com/users/kevwil/events{/privacy}",
-    received_events_url: "https://api.github.com/users/kevwil/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "KirinDave",
-    id: 36,
-    node_id: "MDQ6VXNlcjM2",
-    avatar_url: "https://avatars.githubusercontent.com/u/36?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/KirinDave",
-    html_url: "https://github.com/KirinDave",
-    followers_url: "https://api.github.com/users/KirinDave/followers",
-    following_url: "https://api.github.com/users/KirinDave/following{/other_user}",
-    gists_url: "https://api.github.com/users/KirinDave/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/KirinDave/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/KirinDave/subscriptions",
-    organizations_url: "https://api.github.com/users/KirinDave/orgs",
-    repos_url: "https://api.github.com/users/KirinDave/repos",
-    events_url: "https://api.github.com/users/KirinDave/events{/privacy}",
-    received_events_url: "https://api.github.com/users/KirinDave/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "jamesgolick",
-    id: 37,
-    node_id: "MDQ6VXNlcjM3",
-    avatar_url: "https://avatars.githubusercontent.com/u/37?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/jamesgolick",
-    html_url: "https://github.com/jamesgolick",
-    followers_url: "https://api.github.com/users/jamesgolick/followers",
-    following_url: "https://api.github.com/users/jamesgolick/following{/other_user}",
-    gists_url: "https://api.github.com/users/jamesgolick/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/jamesgolick/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/jamesgolick/subscriptions",
-    organizations_url: "https://api.github.com/users/jamesgolick/orgs",
-    repos_url: "https://api.github.com/users/jamesgolick/repos",
-    events_url: "https://api.github.com/users/jamesgolick/events{/privacy}",
-    received_events_url: "https://api.github.com/users/jamesgolick/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "atmos",
-    id: 38,
-    node_id: "MDQ6VXNlcjM4",
-    avatar_url: "https://avatars.githubusercontent.com/u/38?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/atmos",
-    html_url: "https://github.com/atmos",
-    followers_url: "https://api.github.com/users/atmos/followers",
-    following_url: "https://api.github.com/users/atmos/following{/other_user}",
-    gists_url: "https://api.github.com/users/atmos/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/atmos/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/atmos/subscriptions",
-    organizations_url: "https://api.github.com/users/atmos/orgs",
-    repos_url: "https://api.github.com/users/atmos/repos",
-    events_url: "https://api.github.com/users/atmos/events{/privacy}",
-    received_events_url: "https://api.github.com/users/atmos/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "errfree",
-    id: 44,
-    node_id: "MDEyOk9yZ2FuaXphdGlvbjQ0",
-    avatar_url: "https://avatars.githubusercontent.com/u/44?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/errfree",
-    html_url: "https://github.com/errfree",
-    followers_url: "https://api.github.com/users/errfree/followers",
-    following_url: "https://api.github.com/users/errfree/following{/other_user}",
-    gists_url: "https://api.github.com/users/errfree/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/errfree/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/errfree/subscriptions",
-    organizations_url: "https://api.github.com/users/errfree/orgs",
-    repos_url: "https://api.github.com/users/errfree/repos",
-    events_url: "https://api.github.com/users/errfree/events{/privacy}",
-    received_events_url: "https://api.github.com/users/errfree/received_events",
-    type: "Organization",
-    site_admin: false
-  }, {
-    login: "mojodna",
-    id: 45,
-    node_id: "MDQ6VXNlcjQ1",
-    avatar_url: "https://avatars.githubusercontent.com/u/45?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/mojodna",
-    html_url: "https://github.com/mojodna",
-    followers_url: "https://api.github.com/users/mojodna/followers",
-    following_url: "https://api.github.com/users/mojodna/following{/other_user}",
-    gists_url: "https://api.github.com/users/mojodna/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/mojodna/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/mojodna/subscriptions",
-    organizations_url: "https://api.github.com/users/mojodna/orgs",
-    repos_url: "https://api.github.com/users/mojodna/repos",
-    events_url: "https://api.github.com/users/mojodna/events{/privacy}",
-    received_events_url: "https://api.github.com/users/mojodna/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "bmizerany",
-    id: 46,
-    node_id: "MDQ6VXNlcjQ2",
-    avatar_url: "https://avatars.githubusercontent.com/u/46?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/bmizerany",
-    html_url: "https://github.com/bmizerany",
-    followers_url: "https://api.github.com/users/bmizerany/followers",
-    following_url: "https://api.github.com/users/bmizerany/following{/other_user}",
-    gists_url: "https://api.github.com/users/bmizerany/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/bmizerany/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/bmizerany/subscriptions",
-    organizations_url: "https://api.github.com/users/bmizerany/orgs",
-    repos_url: "https://api.github.com/users/bmizerany/repos",
-    events_url: "https://api.github.com/users/bmizerany/events{/privacy}",
-    received_events_url: "https://api.github.com/users/bmizerany/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "mojombo",
-    id: 1,
-    node_id: "MDQ6VXNlcjE=",
-    avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/mojombo",
-    html_url: "https://github.com/mojombo",
-    followers_url: "https://api.github.com/users/mojombo/followers",
-    following_url: "https://api.github.com/users/mojombo/following{/other_user}",
-    gists_url: "https://api.github.com/users/mojombo/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/mojombo/subscriptions",
-    organizations_url: "https://api.github.com/users/mojombo/orgs",
-    repos_url: "https://api.github.com/users/mojombo/repos",
-    events_url: "https://api.github.com/users/mojombo/events{/privacy}",
-    received_events_url: "https://api.github.com/users/mojombo/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "defunkt",
-    id: 2,
-    node_id: "MDQ6VXNlcjI=",
-    avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/defunkt",
-    html_url: "https://github.com/defunkt",
-    followers_url: "https://api.github.com/users/defunkt/followers",
-    following_url: "https://api.github.com/users/defunkt/following{/other_user}",
-    gists_url: "https://api.github.com/users/defunkt/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/defunkt/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/defunkt/subscriptions",
-    organizations_url: "https://api.github.com/users/defunkt/orgs",
-    repos_url: "https://api.github.com/users/defunkt/repos",
-    events_url: "https://api.github.com/users/defunkt/events{/privacy}",
-    received_events_url: "https://api.github.com/users/defunkt/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "pjhyett",
-    id: 3,
-    node_id: "MDQ6VXNlcjM=",
-    avatar_url: "https://avatars.githubusercontent.com/u/3?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/pjhyett",
-    html_url: "https://github.com/pjhyett",
-    followers_url: "https://api.github.com/users/pjhyett/followers",
-    following_url: "https://api.github.com/users/pjhyett/following{/other_user}",
-    gists_url: "https://api.github.com/users/pjhyett/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/pjhyett/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/pjhyett/subscriptions",
-    organizations_url: "https://api.github.com/users/pjhyett/orgs",
-    repos_url: "https://api.github.com/users/pjhyett/repos",
-    events_url: "https://api.github.com/users/pjhyett/events{/privacy}",
-    received_events_url: "https://api.github.com/users/pjhyett/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "wycats",
-    id: 4,
-    node_id: "MDQ6VXNlcjQ=",
-    avatar_url: "https://avatars.githubusercontent.com/u/4?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/wycats",
-    html_url: "https://github.com/wycats",
-    followers_url: "https://api.github.com/users/wycats/followers",
-    following_url: "https://api.github.com/users/wycats/following{/other_user}",
-    gists_url: "https://api.github.com/users/wycats/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/wycats/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/wycats/subscriptions",
-    organizations_url: "https://api.github.com/users/wycats/orgs",
-    repos_url: "https://api.github.com/users/wycats/repos",
-    events_url: "https://api.github.com/users/wycats/events{/privacy}",
-    received_events_url: "https://api.github.com/users/wycats/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "ezmobius",
-    id: 5,
-    node_id: "MDQ6VXNlcjU=",
-    avatar_url: "https://avatars.githubusercontent.com/u/5?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/ezmobius",
-    html_url: "https://github.com/ezmobius",
-    followers_url: "https://api.github.com/users/ezmobius/followers",
-    following_url: "https://api.github.com/users/ezmobius/following{/other_user}",
-    gists_url: "https://api.github.com/users/ezmobius/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/ezmobius/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/ezmobius/subscriptions",
-    organizations_url: "https://api.github.com/users/ezmobius/orgs",
-    repos_url: "https://api.github.com/users/ezmobius/repos",
-    events_url: "https://api.github.com/users/ezmobius/events{/privacy}",
-    received_events_url: "https://api.github.com/users/ezmobius/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "ivey",
-    id: 6,
-    node_id: "MDQ6VXNlcjY=",
-    avatar_url: "https://avatars.githubusercontent.com/u/6?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/ivey",
-    html_url: "https://github.com/ivey",
-    followers_url: "https://api.github.com/users/ivey/followers",
-    following_url: "https://api.github.com/users/ivey/following{/other_user}",
-    gists_url: "https://api.github.com/users/ivey/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/ivey/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/ivey/subscriptions",
-    organizations_url: "https://api.github.com/users/ivey/orgs",
-    repos_url: "https://api.github.com/users/ivey/repos",
-    events_url: "https://api.github.com/users/ivey/events{/privacy}",
-    received_events_url: "https://api.github.com/users/ivey/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "evanphx",
-    id: 7,
-    node_id: "MDQ6VXNlcjc=",
-    avatar_url: "https://avatars.githubusercontent.com/u/7?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/evanphx",
-    html_url: "https://github.com/evanphx",
-    followers_url: "https://api.github.com/users/evanphx/followers",
-    following_url: "https://api.github.com/users/evanphx/following{/other_user}",
-    gists_url: "https://api.github.com/users/evanphx/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/evanphx/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/evanphx/subscriptions",
-    organizations_url: "https://api.github.com/users/evanphx/orgs",
-    repos_url: "https://api.github.com/users/evanphx/repos",
-    events_url: "https://api.github.com/users/evanphx/events{/privacy}",
-    received_events_url: "https://api.github.com/users/evanphx/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "vanpelt",
-    id: 17,
-    node_id: "MDQ6VXNlcjE3",
-    avatar_url: "https://avatars.githubusercontent.com/u/17?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/vanpelt",
-    html_url: "https://github.com/vanpelt",
-    followers_url: "https://api.github.com/users/vanpelt/followers",
-    following_url: "https://api.github.com/users/vanpelt/following{/other_user}",
-    gists_url: "https://api.github.com/users/vanpelt/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/vanpelt/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/vanpelt/subscriptions",
-    organizations_url: "https://api.github.com/users/vanpelt/orgs",
-    repos_url: "https://api.github.com/users/vanpelt/repos",
-    events_url: "https://api.github.com/users/vanpelt/events{/privacy}",
-    received_events_url: "https://api.github.com/users/vanpelt/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "wayneeseguin",
-    id: 18,
-    node_id: "MDQ6VXNlcjE4",
-    avatar_url: "https://avatars.githubusercontent.com/u/18?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/wayneeseguin",
-    html_url: "https://github.com/wayneeseguin",
-    followers_url: "https://api.github.com/users/wayneeseguin/followers",
-    following_url: "https://api.github.com/users/wayneeseguin/following{/other_user}",
-    gists_url: "https://api.github.com/users/wayneeseguin/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/wayneeseguin/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/wayneeseguin/subscriptions",
-    organizations_url: "https://api.github.com/users/wayneeseguin/orgs",
-    repos_url: "https://api.github.com/users/wayneeseguin/repos",
-    events_url: "https://api.github.com/users/wayneeseguin/events{/privacy}",
-    received_events_url: "https://api.github.com/users/wayneeseguin/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "brynary",
-    id: 19,
-    node_id: "MDQ6VXNlcjE5",
-    avatar_url: "https://avatars.githubusercontent.com/u/19?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/brynary",
-    html_url: "https://github.com/brynary",
-    followers_url: "https://api.github.com/users/brynary/followers",
-    following_url: "https://api.github.com/users/brynary/following{/other_user}",
-    gists_url: "https://api.github.com/users/brynary/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/brynary/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/brynary/subscriptions",
-    organizations_url: "https://api.github.com/users/brynary/orgs",
-    repos_url: "https://api.github.com/users/brynary/repos",
-    events_url: "https://api.github.com/users/brynary/events{/privacy}",
-    received_events_url: "https://api.github.com/users/brynary/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "kevinclark",
-    id: 20,
-    node_id: "MDQ6VXNlcjIw",
-    avatar_url: "https://avatars.githubusercontent.com/u/20?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/kevinclark",
-    html_url: "https://github.com/kevinclark",
-    followers_url: "https://api.github.com/users/kevinclark/followers",
-    following_url: "https://api.github.com/users/kevinclark/following{/other_user}",
-    gists_url: "https://api.github.com/users/kevinclark/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/kevinclark/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/kevinclark/subscriptions",
-    organizations_url: "https://api.github.com/users/kevinclark/orgs",
-    repos_url: "https://api.github.com/users/kevinclark/repos",
-    events_url: "https://api.github.com/users/kevinclark/events{/privacy}",
-    received_events_url: "https://api.github.com/users/kevinclark/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "technoweenie",
-    id: 21,
-    node_id: "MDQ6VXNlcjIx",
-    avatar_url: "https://avatars.githubusercontent.com/u/21?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/technoweenie",
-    html_url: "https://github.com/technoweenie",
-    followers_url: "https://api.github.com/users/technoweenie/followers",
-    following_url: "https://api.github.com/users/technoweenie/following{/other_user}",
-    gists_url: "https://api.github.com/users/technoweenie/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/technoweenie/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/technoweenie/subscriptions",
-    organizations_url: "https://api.github.com/users/technoweenie/orgs",
-    repos_url: "https://api.github.com/users/technoweenie/repos",
-    events_url: "https://api.github.com/users/technoweenie/events{/privacy}",
-    received_events_url: "https://api.github.com/users/technoweenie/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "macournoyer",
-    id: 22,
-    node_id: "MDQ6VXNlcjIy",
-    avatar_url: "https://avatars.githubusercontent.com/u/22?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/macournoyer",
-    html_url: "https://github.com/macournoyer",
-    followers_url: "https://api.github.com/users/macournoyer/followers",
-    following_url: "https://api.github.com/users/macournoyer/following{/other_user}",
-    gists_url: "https://api.github.com/users/macournoyer/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/macournoyer/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/macournoyer/subscriptions",
-    organizations_url: "https://api.github.com/users/macournoyer/orgs",
-    repos_url: "https://api.github.com/users/macournoyer/repos",
-    events_url: "https://api.github.com/users/macournoyer/events{/privacy}",
-    received_events_url: "https://api.github.com/users/macournoyer/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "takeo",
-    id: 23,
-    node_id: "MDQ6VXNlcjIz",
-    avatar_url: "https://avatars.githubusercontent.com/u/23?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/takeo",
-    html_url: "https://github.com/takeo",
-    followers_url: "https://api.github.com/users/takeo/followers",
-    following_url: "https://api.github.com/users/takeo/following{/other_user}",
-    gists_url: "https://api.github.com/users/takeo/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/takeo/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/takeo/subscriptions",
-    organizations_url: "https://api.github.com/users/takeo/orgs",
-    repos_url: "https://api.github.com/users/takeo/repos",
-    events_url: "https://api.github.com/users/takeo/events{/privacy}",
-    received_events_url: "https://api.github.com/users/takeo/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "caged",
-    id: 25,
-    node_id: "MDQ6VXNlcjI1",
-    avatar_url: "https://avatars.githubusercontent.com/u/25?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/caged",
-    html_url: "https://github.com/caged",
-    followers_url: "https://api.github.com/users/caged/followers",
-    following_url: "https://api.github.com/users/caged/following{/other_user}",
-    gists_url: "https://api.github.com/users/caged/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/caged/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/caged/subscriptions",
-    organizations_url: "https://api.github.com/users/caged/orgs",
-    repos_url: "https://api.github.com/users/caged/repos",
-    events_url: "https://api.github.com/users/caged/events{/privacy}",
-    received_events_url: "https://api.github.com/users/caged/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "topfunky",
-    id: 26,
-    node_id: "MDQ6VXNlcjI2",
-    avatar_url: "https://avatars.githubusercontent.com/u/26?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/topfunky",
-    html_url: "https://github.com/topfunky",
-    followers_url: "https://api.github.com/users/topfunky/followers",
-    following_url: "https://api.github.com/users/topfunky/following{/other_user}",
-    gists_url: "https://api.github.com/users/topfunky/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/topfunky/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/topfunky/subscriptions",
-    organizations_url: "https://api.github.com/users/topfunky/orgs",
-    repos_url: "https://api.github.com/users/topfunky/repos",
-    events_url: "https://api.github.com/users/topfunky/events{/privacy}",
-    received_events_url: "https://api.github.com/users/topfunky/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "anotherjesse",
-    id: 27,
-    node_id: "MDQ6VXNlcjI3",
-    avatar_url: "https://avatars.githubusercontent.com/u/27?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/anotherjesse",
-    html_url: "https://github.com/anotherjesse",
-    followers_url: "https://api.github.com/users/anotherjesse/followers",
-    following_url: "https://api.github.com/users/anotherjesse/following{/other_user}",
-    gists_url: "https://api.github.com/users/anotherjesse/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/anotherjesse/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/anotherjesse/subscriptions",
-    organizations_url: "https://api.github.com/users/anotherjesse/orgs",
-    repos_url: "https://api.github.com/users/anotherjesse/repos",
-    events_url: "https://api.github.com/users/anotherjesse/events{/privacy}",
-    received_events_url: "https://api.github.com/users/anotherjesse/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "roland",
-    id: 28,
-    node_id: "MDQ6VXNlcjI4",
-    avatar_url: "https://avatars.githubusercontent.com/u/28?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/roland",
-    html_url: "https://github.com/roland",
-    followers_url: "https://api.github.com/users/roland/followers",
-    following_url: "https://api.github.com/users/roland/following{/other_user}",
-    gists_url: "https://api.github.com/users/roland/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/roland/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/roland/subscriptions",
-    organizations_url: "https://api.github.com/users/roland/orgs",
-    repos_url: "https://api.github.com/users/roland/repos",
-    events_url: "https://api.github.com/users/roland/events{/privacy}",
-    received_events_url: "https://api.github.com/users/roland/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "lukas",
-    id: 29,
-    node_id: "MDQ6VXNlcjI5",
-    avatar_url: "https://avatars.githubusercontent.com/u/29?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/lukas",
-    html_url: "https://github.com/lukas",
-    followers_url: "https://api.github.com/users/lukas/followers",
-    following_url: "https://api.github.com/users/lukas/following{/other_user}",
-    gists_url: "https://api.github.com/users/lukas/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/lukas/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/lukas/subscriptions",
-    organizations_url: "https://api.github.com/users/lukas/orgs",
-    repos_url: "https://api.github.com/users/lukas/repos",
-    events_url: "https://api.github.com/users/lukas/events{/privacy}",
-    received_events_url: "https://api.github.com/users/lukas/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "fanvsfan",
-    id: 30,
-    node_id: "MDQ6VXNlcjMw",
-    avatar_url: "https://avatars.githubusercontent.com/u/30?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/fanvsfan",
-    html_url: "https://github.com/fanvsfan",
-    followers_url: "https://api.github.com/users/fanvsfan/followers",
-    following_url: "https://api.github.com/users/fanvsfan/following{/other_user}",
-    gists_url: "https://api.github.com/users/fanvsfan/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/fanvsfan/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/fanvsfan/subscriptions",
-    organizations_url: "https://api.github.com/users/fanvsfan/orgs",
-    repos_url: "https://api.github.com/users/fanvsfan/repos",
-    events_url: "https://api.github.com/users/fanvsfan/events{/privacy}",
-    received_events_url: "https://api.github.com/users/fanvsfan/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "tomtt",
-    id: 31,
-    node_id: "MDQ6VXNlcjMx",
-    avatar_url: "https://avatars.githubusercontent.com/u/31?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/tomtt",
-    html_url: "https://github.com/tomtt",
-    followers_url: "https://api.github.com/users/tomtt/followers",
-    following_url: "https://api.github.com/users/tomtt/following{/other_user}",
-    gists_url: "https://api.github.com/users/tomtt/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/tomtt/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/tomtt/subscriptions",
-    organizations_url: "https://api.github.com/users/tomtt/orgs",
-    repos_url: "https://api.github.com/users/tomtt/repos",
-    events_url: "https://api.github.com/users/tomtt/events{/privacy}",
-    received_events_url: "https://api.github.com/users/tomtt/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "railsjitsu",
-    id: 32,
-    node_id: "MDQ6VXNlcjMy",
-    avatar_url: "https://avatars.githubusercontent.com/u/32?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/railsjitsu",
-    html_url: "https://github.com/railsjitsu",
-    followers_url: "https://api.github.com/users/railsjitsu/followers",
-    following_url: "https://api.github.com/users/railsjitsu/following{/other_user}",
-    gists_url: "https://api.github.com/users/railsjitsu/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/railsjitsu/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/railsjitsu/subscriptions",
-    organizations_url: "https://api.github.com/users/railsjitsu/orgs",
-    repos_url: "https://api.github.com/users/railsjitsu/repos",
-    events_url: "https://api.github.com/users/railsjitsu/events{/privacy}",
-    received_events_url: "https://api.github.com/users/railsjitsu/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "nitay",
-    id: 34,
-    node_id: "MDQ6VXNlcjM0",
-    avatar_url: "https://avatars.githubusercontent.com/u/34?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/nitay",
-    html_url: "https://github.com/nitay",
-    followers_url: "https://api.github.com/users/nitay/followers",
-    following_url: "https://api.github.com/users/nitay/following{/other_user}",
-    gists_url: "https://api.github.com/users/nitay/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/nitay/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/nitay/subscriptions",
-    organizations_url: "https://api.github.com/users/nitay/orgs",
-    repos_url: "https://api.github.com/users/nitay/repos",
-    events_url: "https://api.github.com/users/nitay/events{/privacy}",
-    received_events_url: "https://api.github.com/users/nitay/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "kevwil",
-    id: 35,
-    node_id: "MDQ6VXNlcjM1",
-    avatar_url: "https://avatars.githubusercontent.com/u/35?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/kevwil",
-    html_url: "https://github.com/kevwil",
-    followers_url: "https://api.github.com/users/kevwil/followers",
-    following_url: "https://api.github.com/users/kevwil/following{/other_user}",
-    gists_url: "https://api.github.com/users/kevwil/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/kevwil/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/kevwil/subscriptions",
-    organizations_url: "https://api.github.com/users/kevwil/orgs",
-    repos_url: "https://api.github.com/users/kevwil/repos",
-    events_url: "https://api.github.com/users/kevwil/events{/privacy}",
-    received_events_url: "https://api.github.com/users/kevwil/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "KirinDave",
-    id: 36,
-    node_id: "MDQ6VXNlcjM2",
-    avatar_url: "https://avatars.githubusercontent.com/u/36?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/KirinDave",
-    html_url: "https://github.com/KirinDave",
-    followers_url: "https://api.github.com/users/KirinDave/followers",
-    following_url: "https://api.github.com/users/KirinDave/following{/other_user}",
-    gists_url: "https://api.github.com/users/KirinDave/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/KirinDave/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/KirinDave/subscriptions",
-    organizations_url: "https://api.github.com/users/KirinDave/orgs",
-    repos_url: "https://api.github.com/users/KirinDave/repos",
-    events_url: "https://api.github.com/users/KirinDave/events{/privacy}",
-    received_events_url: "https://api.github.com/users/KirinDave/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "jamesgolick",
-    id: 37,
-    node_id: "MDQ6VXNlcjM3",
-    avatar_url: "https://avatars.githubusercontent.com/u/37?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/jamesgolick",
-    html_url: "https://github.com/jamesgolick",
-    followers_url: "https://api.github.com/users/jamesgolick/followers",
-    following_url: "https://api.github.com/users/jamesgolick/following{/other_user}",
-    gists_url: "https://api.github.com/users/jamesgolick/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/jamesgolick/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/jamesgolick/subscriptions",
-    organizations_url: "https://api.github.com/users/jamesgolick/orgs",
-    repos_url: "https://api.github.com/users/jamesgolick/repos",
-    events_url: "https://api.github.com/users/jamesgolick/events{/privacy}",
-    received_events_url: "https://api.github.com/users/jamesgolick/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "atmos",
-    id: 38,
-    node_id: "MDQ6VXNlcjM4",
-    avatar_url: "https://avatars.githubusercontent.com/u/38?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/atmos",
-    html_url: "https://github.com/atmos",
-    followers_url: "https://api.github.com/users/atmos/followers",
-    following_url: "https://api.github.com/users/atmos/following{/other_user}",
-    gists_url: "https://api.github.com/users/atmos/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/atmos/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/atmos/subscriptions",
-    organizations_url: "https://api.github.com/users/atmos/orgs",
-    repos_url: "https://api.github.com/users/atmos/repos",
-    events_url: "https://api.github.com/users/atmos/events{/privacy}",
-    received_events_url: "https://api.github.com/users/atmos/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "errfree",
-    id: 44,
-    node_id: "MDEyOk9yZ2FuaXphdGlvbjQ0",
-    avatar_url: "https://avatars.githubusercontent.com/u/44?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/errfree",
-    html_url: "https://github.com/errfree",
-    followers_url: "https://api.github.com/users/errfree/followers",
-    following_url: "https://api.github.com/users/errfree/following{/other_user}",
-    gists_url: "https://api.github.com/users/errfree/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/errfree/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/errfree/subscriptions",
-    organizations_url: "https://api.github.com/users/errfree/orgs",
-    repos_url: "https://api.github.com/users/errfree/repos",
-    events_url: "https://api.github.com/users/errfree/events{/privacy}",
-    received_events_url: "https://api.github.com/users/errfree/received_events",
-    type: "Organization",
-    site_admin: false
-  }, {
-    login: "mojodna",
-    id: 45,
-    node_id: "MDQ6VXNlcjQ1",
-    avatar_url: "https://avatars.githubusercontent.com/u/45?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/mojodna",
-    html_url: "https://github.com/mojodna",
-    followers_url: "https://api.github.com/users/mojodna/followers",
-    following_url: "https://api.github.com/users/mojodna/following{/other_user}",
-    gists_url: "https://api.github.com/users/mojodna/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/mojodna/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/mojodna/subscriptions",
-    organizations_url: "https://api.github.com/users/mojodna/orgs",
-    repos_url: "https://api.github.com/users/mojodna/repos",
-    events_url: "https://api.github.com/users/mojodna/events{/privacy}",
-    received_events_url: "https://api.github.com/users/mojodna/received_events",
-    type: "User",
-    site_admin: false
-  }, {
-    login: "bmizerany",
-    id: 46,
-    node_id: "MDQ6VXNlcjQ2",
-    avatar_url: "https://avatars.githubusercontent.com/u/46?v=4",
-    gravatar_id: "",
-    url: "https://api.github.com/users/bmizerany",
-    html_url: "https://github.com/bmizerany",
-    followers_url: "https://api.github.com/users/bmizerany/followers",
-    following_url: "https://api.github.com/users/bmizerany/following{/other_user}",
-    gists_url: "https://api.github.com/users/bmizerany/gists{/gist_id}",
-    starred_url: "https://api.github.com/users/bmizerany/starred{/owner}{/repo}",
-    subscriptions_url: "https://api.github.com/users/bmizerany/subscriptions",
-    organizations_url: "https://api.github.com/users/bmizerany/orgs",
-    repos_url: "https://api.github.com/users/bmizerany/repos",
-    events_url: "https://api.github.com/users/bmizerany/events{/privacy}",
-    received_events_url: "https://api.github.com/users/bmizerany/received_events",
-    type: "User",
-    site_admin: false
-  }]),
-      _useState2 = _slicedToArray(_useState, 2),
-      users = _useState2[0],
-      setUsers = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      check = _useState4[0],
-      setCheck = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
-      _useState6 = _slicedToArray(_useState5, 2),
-      ind = _useState6[0],
-      setInd = _useState6[1];
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(users.length).fill(1)),
-      _useState8 = _slicedToArray(_useState7, 2),
-      arraylol = _useState8[0],
-      setArraylol = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["a", "b", "c", "d"]),
-      _useState10 = _slicedToArray(_useState9, 2),
-      answersArray = _useState10[0],
-      setAnswersArray = _useState10[1];
-
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(users.length)),
-      _useState12 = _slicedToArray(_useState11, 2),
-      questionAnswer = _useState12[0],
-      setQuestionAnswer = _useState12[1];
-
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([false, false, false, false, false, false]),
-      _useState14 = _slicedToArray(_useState13, 2),
-      tryChecks = _useState14[0],
-      setTryChecks = _useState14[1];
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var temp = _toConsumableArray(arraylol);
-
-    temp[1] = 2;
-    console.log("temp", temp);
-    setArraylol(temp);
-  }, []);
-
-  var handleNext = function handleNext() {
-    setCheck(false);
-
-    if (ind > users.length) {
-      setInd(0);
-      handleSquares(0);
-    } else {
-      setInd(ind + 1); // let temp = [...arraylol];
-      // temp[ind + 1] = 2;
-      // setArraylol(temp);
-
-      handleSquares(ind + 1);
-    }
-  };
-
-  var handlePrevious = function handlePrevious() {
-    setCheck(false);
-
-    if (ind === 1) {
-      setInd(users.length); // let temp = [...arraylol];
-      // temp[users.length - 1] = 2;
-      // setArraylol(temp);
-
-      handleSquares(users.length);
-    } else {
-      setInd(ind - 1); // let temp = [...arraylol];
-      // temp[ind - 1] = 2;
-      // setArraylol(temp);
-
-      handleSquares(ind - 1);
-    }
-  };
-
-  var handleSquares = function handleSquares(number) {
-    if (arraylol[number] === 3) {
-      setInd(number);
-      var x = questionAnswer[number];
-      var temp3 = [false, false, false, false, false, false];
-      console.log("the x we need");
-      console.log(x);
-      temp3[x - 1] = true;
-      console.log("temp3");
-      console.log(temp3);
-      setTryChecks(temp3);
-      console.log("el mafrood yetba3 true");
-      console.log(tryChecks[x - 1]);
-      console.log(tryChecks);
-    } else {
-      var _temp = [false, false, false, false, false, false];
-      setTryChecks(_temp);
-      console.log("what we need");
-      console.log(questionAnswer);
-      setCheck(false);
-
-      var temp = _toConsumableArray(arraylol);
-
-      temp[number] = 2;
-      setArraylol(temp);
-      setInd(number);
-    }
-  }; //display certain object given a number
-
-
-  var displayuser = function displayuser(number) {
-    return users.find(function (user) {
-      return user.id === number;
-    });
-  };
-
-  var handleRadio = function handleRadio(e) {
-    // console.log("option value");
-    // console.log("ggg", e.target.value);
-    var temp2 = questionAnswer;
-    temp2[ind] = e.target.value;
-    setQuestionAnswer(temp2);
-    console.log(questionAnswer);
-    setCheck(true);
-
-    var temp = _toConsumableArray(arraylol);
-
-    temp[ind] = 3;
-    setArraylol(temp);
-    var x = questionAnswer[ind];
-    var temp3 = [false, false, false, false, false, false];
-    temp3[x - 1] = true;
-    setTryChecks(temp3);
-    console.log(tryChecks);
-  };
-
-  var time = new Date();
-  time.setMinutes(time.getMinutes() + 6);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-    className: "container-fluid vh-100 vw-100",
-    style: {
-      overflow: "hidden"
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "row bg-primary ",
-      style: {
-        height: "7%"
-      },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "  d-flex  align-items-center h-100 ",
-        style: {
-          backgroundColor: "#6bfff5"
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-            src: _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_3__["default"],
-            alt: "",
-            style: {
-              width: "5%"
-            },
-            className: "h-50  m-5"
-          }), "Subject:Math Name:youssef ahmed Id:5491"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "float",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-            src: _chronograph_160753_1280_png__WEBPACK_IMPORTED_MODULE_4__["default"],
-            alt: "",
-            className: "h-75  m-5"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "float",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Timer__WEBPACK_IMPORTED_MODULE_6__["default"], {
-            expiryTimestamp: time
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-      className: "row",
-      style: {
-        height: "93%"
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "col",
-        style: {
-          backgroundColor: "#EBEBEB",
-          height: "100%"
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "row",
-          style: {
-            height: "90%",
-            display: "flex",
-            flexDirection: "column",
-            overflow: "auto"
-          },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              style: {
-                padding: "10px",
-                height: "50px"
-              },
-              children: "Question" + displayuser(ind).id
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              style: {
-                backgroundColor: "white",
-                borderStyle: "solid",
-                borderRadius: "10px",
-                margin: "10px",
-                width: "98%"
-              },
-              children: displayuser(ind).avatar_url
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              style: {
-                backgroundColor: "white",
-                borderStyle: "solid",
-                borderRadius: "10px",
-                margin: "10px",
-                width: "98%"
-              },
-              children: Array.from(Array(parseInt(answersArray.length)), function (e, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                      className: "form-check form-check-inline mt-4 mb-4",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                        className: "form-check-input",
-                        type: "radio",
-                        id: i,
-                        name: "inlineRadioOptions",
-                        value: i + 1,
-                        checked: tryChecks[i],
-                        onChange: function onChange(e) {
-                          return handleRadio(e);
-                        },
-                        required: true
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                        className: "form-check-label",
-                        htmlFor: i,
-                        children: answersArray[i]
-                      })]
-                    })
-                  }, i)
-                });
-              })
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "row",
-          style: {
-            height: "3%"
-          },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            style: {
-              display: "flex",
-              justifyContent: "flex-end",
-              position: "absolute",
-              width: "80%",
-              bottom: "7%",
-              right: "20%"
-            },
-            children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut unde, dolore in"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "row",
-          style: {
-            height: "7%",
-            background: "grey"
-          },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-            onClick: handlePrevious,
-            style: {
-              width: "150px",
-              background: "grey",
-              border: "0",
-              padding: "0"
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: ["Previous", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-                src: _MainPage_whiteTriangle_png__WEBPACK_IMPORTED_MODULE_5__["default"],
-                alt: "",
-                className: "float",
-                style: {
-                  height: "30px",
-                  transform: "rotate(180deg)"
-                }
-              })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-            onClick: handleNext,
-            style: {
-              width: "100px",
-              background: "grey",
-              border: "0",
-              padding: "0"
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-                src: _MainPage_whiteTriangle_png__WEBPACK_IMPORTED_MODULE_5__["default"],
-                alt: "",
-                style: {
-                  "float": "left",
-                  height: "30px"
-                }
-              }), "Next"]
-            })
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "col-3  ",
-        style: {
-          height: "100%",
-          width: "20%"
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "row",
-          style: {
-            backgroundColor: "#EBEBEB",
-            borderStyle: "solid",
-            borderRight: "0px",
-            borderTop: "0px",
-            borderColor: "white",
-            overflow: "auto",
-            height: "50%"
-          },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              style: {
-                display: "flex",
-                justifyContent: "space-around",
-                margin: "10px"
-              },
-              children: "Questions"
-            }), users.map(function (user, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                className: "",
-                style: {
-                  height: "25px",
-                  width: "25px",
-                  backgroundColor: "".concat(arraylol[user.id] === 1 ? "grey" : arraylol[user.id] === 2 ? "red" : "green"),
-                  margin: "5px",
-                  display: "flex",
-                  "float": "left",
-                  justifyContent: "space-around",
-                  borderRadius: "5px",
-                  color: "white"
-                },
-                onClick: function onClick() {
-                  return handleSquares(user.id);
-                },
-                children: user.id
-              }, index);
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "row h-50",
-          style: {
-            backgroundColor: "#EBEBEB",
-            borderStyle: "solid",
-            borderRight: "0px",
-            borderTop: "0px",
-            borderBottom: "0px",
-            borderColor: "white"
-          },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              margin: "20%",
-              width: "60%",
-              padding: "0"
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                style: {
-                  height: "30px",
-                  width: "30px",
-                  backgroundColor: "green",
-                  marginBottom: "10px",
-                  display: "flex",
-                  "float": "left",
-                  justifyContent: "space-around",
-                  borderRadius: "5px",
-                  color: "white",
-                  paddingTop: "2px"
-                },
-                children: arraylol.filter(function (e) {
-                  return e === 3;
-                }).length
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                style: {
-                  paddingLeft: "10px",
-                  paddingTop: "2px"
-                },
-                children: "Attempted"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                style: {
-                  height: "30px",
-                  width: "30px",
-                  backgroundColor: "grey",
-                  marginBottom: "10px",
-                  display: "flex",
-                  "float": "left",
-                  justifyContent: "space-around",
-                  borderRadius: "5px",
-                  color: "white",
-                  paddingTop: "2px"
-                },
-                children: arraylol.filter(function (e) {
-                  return e === 1;
-                }).length
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                style: {
-                  paddingLeft: "10px",
-                  paddingTop: "2px"
-                },
-                children: "Not Attempted"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                style: {
-                  height: "30px",
-                  width: "30px",
-                  backgroundColor: "red",
-                  marginBottom: "10px",
-                  display: "flex",
-                  "float": "left",
-                  justifyContent: "space-around",
-                  borderRadius: "5px",
-                  color: "white",
-                  paddingTop: "2px"
-                },
-                children: arraylol.filter(function (e) {
-                  return e === 2;
-                }).length
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                style: {
-                  paddingLeft: "10px",
-                  paddingTop: "2px"
-                },
-                children: "Left Empty"
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            style: {
-              display: "flex",
-              alignItems: "flex-end",
-              marginBottom: "5px"
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-              style: {
-                width: "80%",
-                height: "35%",
-                marginLeft: "10%",
-                fontSize: "140%",
-                background: "blue",
-                borderRadius: "10px"
-              },
-              children: "Submit Exam"
-            })
-          })]
-        })]
-      })]
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ExamPaper);
-
-/***/ }),
-
-/***/ "./resources/js/components/ExamPaper/Timer.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/ExamPaper/Timer.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-timer-hook */ "./node_modules/react-timer-hook/dist/index.js");
-/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_timer_hook__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var Timer = function Timer(_ref) {
-  var expiryTimestamp = _ref.expiryTimestamp;
-
-  var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_1__.useTimer)({
-    expiryTimestamp: expiryTimestamp,
-    onExpire: function onExpire() {
-      return console.warn("onExpire called");
-    }
-  }),
-      seconds = _useTimer.seconds,
-      minutes = _useTimer.minutes,
-      hours = _useTimer.hours,
-      days = _useTimer.days,
-      isRunning = _useTimer.isRunning,
-      start = _useTimer.start,
-      pause = _useTimer.pause,
-      resume = _useTimer.resume,
-      restart = _useTimer.restart;
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      style: {
-        fontSize: "30px"
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        children: days
-      }), ":", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        children: hours
-      }), ":", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        children: minutes
-      }), ":", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        children: seconds
-      })]
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timer);
 
 /***/ }),
 
@@ -10091,7 +8338,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../HomePage/2560px-Adidas_Logo.svg.png */ "./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png");
 /* harmony import */ var _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile icon.png */ "./resources/js/components/MainPage/profile icon.png");
 /* harmony import */ var _notif_bell_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notif bell.png */ "./resources/js/components/MainPage/notif bell.png");
@@ -10108,9 +8355,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Calendar_calenderstyle_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Calendar/calenderstyle.css */ "./resources/js/components/Calendar/calenderstyle.css");
 /* harmony import */ var _Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Questions/AddQuestions */ "./resources/js/components/Questions/AddQuestions.js");
 /* harmony import */ var _Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Questions/ViewQuestions */ "./resources/js/components/Questions/ViewQuestions.js");
-/* harmony import */ var _ProfilePage_ProfilePage__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../ProfilePage/ProfilePage */ "./resources/js/components/ProfilePage/ProfilePage.js");
-/* harmony import */ var _CreateExam_CreateExam__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../CreateExam/CreateExam */ "./resources/js/components/CreateExam/CreateExam.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../ProfilePage/ProfilePage'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../CreateExam/CreateExam'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -10149,7 +8396,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var AllUsersHome = function AllUsersHome() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_20__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_19__.useParams)(),
       username = _useParams.username,
       radio = _useParams.radio;
 
@@ -10237,41 +8484,41 @@ var AllUsersHome = function AllUsersHome() {
   var divwidth = (width - 16 / 100 * width - 630) / 2;
   var divheight = height - 7 / 100 * height - 65;
   console.log(divwidth, divheight);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
       className: "container-fluid vh-100 ",
       style: {
         overflow: "hidden"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
         className: "row bg-primary ",
         style: {
           height: "7%"
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
           className: "col-2  d-flex align-items-center h-100 ",
           style: {
             backgroundColor: "#3dbfb6"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
             src: _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__["default"],
             alt: "",
             className: "h-75 w-25 m-5"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
           className: "col d-flex align-items-center flex-row-reverse  h-100",
           style: {
             backgroundColor: "#6bfff5"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
             src: _settings_png__WEBPACK_IMPORTED_MODULE_4__["default"],
             className: "px-2 h-50  ",
             alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
             src: _notif_bell_png__WEBPACK_IMPORTED_MODULE_3__["default"],
             className: "px-2 h-50 ",
             alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("button", {
             className: "h-75",
             style: {
               all: "unset",
@@ -10288,34 +8535,34 @@ var AllUsersHome = function AllUsersHome() {
               setProfileClicked(true);
               setCreateExamClicked(false);
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
               alt: "",
               className: "h-100 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: "px-2 fw-bolder fs-4",
               children: "name"
             })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
         className: "row  ",
         style: {
           height: "93%"
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
           className: "col-2  p-0 h-100 ",
           style: {
             backgroundColor: "#19736c"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
             className: "row ",
             style: {
               height: "10%"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
               className: "col-3 h-100  d-flex align-items-center",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
                 src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
                 alt: "",
                 className: " bg-light   rounded-circle m-3 p-1",
@@ -10324,17 +8571,17 @@ var AllUsersHome = function AllUsersHome() {
                   width: "65%"
                 }
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
               className: "col   ",
               style: {
                 marginTop: "5%"
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
                 className: "fw-bolder  name-size text-light",
                 children: "Mahmoud"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("div", {
                 className: "d-flex align-items-center  ",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
                   style: {
                     height: "10px",
                     width: "10px",
@@ -10342,7 +8589,7 @@ var AllUsersHome = function AllUsersHome() {
                     borderRadius: "50%",
                     display: "inline-block"
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
                   className: "text-light fw-bolder ps-3",
                   style: {
                     fontSize: "13px"
@@ -10351,7 +8598,7 @@ var AllUsersHome = function AllUsersHome() {
                 })]
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(true);
               setScheduleClicked(false);
@@ -10373,15 +8620,15 @@ var AllUsersHome = function AllUsersHome() {
               borderColor: "#6bfff5",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _home_png__WEBPACK_IMPORTED_MODULE_5__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Home"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(true);
@@ -10400,15 +8647,15 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _schedule_png__WEBPACK_IMPORTED_MODULE_6__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Schedule"
             })]
-          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10423,15 +8670,15 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _camera_png__WEBPACK_IMPORTED_MODULE_7__["default"],
               alt: "",
               className: "h-75"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Adjust Camera"
             })]
-          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10446,15 +8693,15 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Exam Rules"
             })]
-          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10469,14 +8716,14 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Questions"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _whiteTriangle_png__WEBPACK_IMPORTED_MODULE_9__["default"],
               alt: "",
               className: "float",
@@ -10487,7 +8734,7 @@ var AllUsersHome = function AllUsersHome() {
                 marginTop: "3%"
               }
             })]
-          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("button", {
+          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10503,11 +8750,11 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: VquestionsClassName,
               children: "View Questions"
             })
-          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("button", {
+          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10523,11 +8770,11 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: AquestionsClassName,
               children: "Add Questions"
             })
-          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10542,35 +8789,35 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("img", {
               src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Create Exam"
             })]
           })]
-        }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+        }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
           className: "col",
           style: {
             paddingLeft: "".concat(divwidth, "px"),
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-        }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+        }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
           className: "col p-0",
           style: {
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_ProfilePage_ProfilePage__WEBPACK_IMPORTED_MODULE_17__["default"], {})
-        }), !homeClicked && !scheduleClicked && adjustClicked && !examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("h1", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../ProfilePage/ProfilePage'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})
+        }), !homeClicked && !scheduleClicked && adjustClicked && !examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("h1", {
           className: "col m-5 ",
           children: "adjust"
-        }), !homeClicked && !scheduleClicked && !adjustClicked && examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("h1", {
+        }), !homeClicked && !scheduleClicked && !adjustClicked && examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("h1", {
           className: "col m-5 ",
           children: "exam"
-        }), !homeClicked && !scheduleClicked && viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
@@ -10578,10 +8825,10 @@ var AllUsersHome = function AllUsersHome() {
             background: "#ebebeb",
             height: "100%"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_16__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_16__["default"], {
             divheight: divheight
           })
-        }), !homeClicked && !scheduleClicked && !viewQuestionsClicked && addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && !viewQuestionsClicked && addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
@@ -10589,7 +8836,7 @@ var AllUsersHome = function AllUsersHome() {
             background: "#ebebeb",
             height: "100%"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_15__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_15__["default"], {
             divheight: divheight
           })
         }), // !homeClicked &&
@@ -10598,7 +8845,7 @@ var AllUsersHome = function AllUsersHome() {
         //     !addQuestionsClicked &&
         //     !profileClicked &&
         //     createExamClicked &&
-        !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+        !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
@@ -10606,7 +8853,7 @@ var AllUsersHome = function AllUsersHome() {
             background: "#ebebeb",
             height: "100%"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_CreateExam_CreateExam__WEBPACK_IMPORTED_MODULE_18__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../CreateExam/CreateExam'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})
         })]
       })]
     })
@@ -10701,172 +8948,6 @@ var Navbar = function Navbar() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
-
-/***/ }),
-
-/***/ "./resources/js/components/ProfilePage/ProfilePage.js":
-/*!************************************************************!*\
-  !*** ./resources/js/components/ProfilePage/ProfilePage.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _111_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./111.png */ "./resources/js/components/ProfilePage/111.png");
-/* harmony import */ var _7oda_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./7oda.png */ "./resources/js/components/ProfilePage/7oda.png");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-var ProfilePage = function ProfilePage() {
-  var user = {
-    FirstName: "Mahmoud Mohamed Mostafa",
-    ID: "5560",
-    Email: "loria@loria",
-    University: "Software engineering",
-    College: "Engeneer",
-    Departement: "Computer"
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "position-absolute ",
-      style: {
-        height: "25%",
-        top: "20%",
-        left: "50%"
-      },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: "h-100 rounded-circle",
-        src: _7oda_png__WEBPACK_IMPORTED_MODULE_2__["default"],
-        alt: "",
-        style: {
-          border: "solid 3px white"
-        }
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "  ",
-      style: {
-        height: "20%"
-      },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: "h-100 w-100",
-        src: _111_png__WEBPACK_IMPORTED_MODULE_1__["default"],
-        alt: ""
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "row  h-100",
-      style: {
-        marginTop: "20%"
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "col m-3 h-50",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-          children: "Basic Information"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "h-50",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row  mx-1 mb-1 d-flex align-items-center",
-            style: {
-              height: "33.33%",
-              backgroundColor: "white"
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: "First Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: user.FirstName
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row  mx-1 mb-1 d-flex align-items-center",
-            style: {
-              height: "33.33%",
-              backgroundColor: "white"
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: "ID"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: user.ID
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row  mx-1 mb-1 d-flex align-items-center",
-            style: {
-              height: "33.33%",
-              backgroundColor: "white"
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: "Email"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: user.Email
-            })]
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "col m-3 h-50",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-          children: "College Information"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "h-50",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row  mx-1 mb-1 d-flex align-items-center",
-            style: {
-              height: "33.33%",
-              backgroundColor: "white"
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: "University"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: user.University
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row  mx-1 mb-1 d-flex align-items-center",
-            style: {
-              height: "33.33%",
-              backgroundColor: "white"
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: "College"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: user.College
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row  mx-1 mb-1 d-flex align-items-center",
-            style: {
-              height: "33.33%",
-              backgroundColor: "white"
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: "Departement"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col",
-              children: user.Departement
-            })]
-          })]
-        })]
-      })]
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfilePage);
 
 /***/ }),
 
@@ -17261,21 +15342,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/ExamPaper/chronograph-160753_1280.png":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/ExamPaper/chronograph-160753_1280.png ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/chronograph-160753_1280.png?3d999f8d116d000cf62ce93ed661cdf2");
-
-/***/ }),
-
 /***/ "./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png ***!
@@ -17543,36 +15609,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/whiteTriangle.png?833da3f9cb3b901f1e20d9e2144ad3ca");
-
-/***/ }),
-
-/***/ "./resources/js/components/ProfilePage/111.png":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/ProfilePage/111.png ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/111.png?40a8b11fbd8cf89849795c92bede50b0");
-
-/***/ }),
-
-/***/ "./resources/js/components/ProfilePage/7oda.png":
-/*!******************************************************!*\
-  !*** ./resources/js/components/ProfilePage/7oda.png ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/7oda.png?82adc8a42e0328bbbb201ef42d2989cf");
 
 /***/ }),
 
@@ -62655,17 +60691,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-paginate/dist/react-paginate.js":
-/*!************************************************************!*\
-  !*** ./node_modules/react-paginate/dist/react-paginate.js ***!
-  \************************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-!function(e,t){ true?module.exports=t(__webpack_require__(/*! react */ "./node_modules/react/index.js")):0}(this,(function(__WEBPACK_EXTERNAL_MODULE__98__){return(()=>{var __webpack_modules__={759:(e,t,a)=>{"use strict";a.d(t,{Z:()=>c});var r,o=a(98),_=a.n(o),n=a(697),i=a.n(n);function s(){return s=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var r in a)Object.prototype.hasOwnProperty.call(a,r)&&(e[r]=a[r])}return e},s.apply(this,arguments)}e=a.hmd(e),(r="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&r(e),"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var l=function(e){var t=e.breakLabel,a=e.breakClassName,r=e.breakLinkClassName,o=e.breakHandler,n=e.getEventListener,i=a||"break";return _().createElement("li",{className:i},_().createElement("a",s({className:r,role:"button",tabIndex:"0",onKeyPress:o},n(o)),t))};l.propTypes={breakLabel:i().oneOfType([i().string,i().node]),breakClassName:i().string,breakLinkClassName:i().string,breakHandler:i().func.isRequired,getEventListener:i().func.isRequired};var p=l;const c=p;var d,u;(d="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&(d.register(l,"BreakView","/home/yoan/work/oss/react-paginate/react_components/BreakView.js"),d.register(p,"default","/home/yoan/work/oss/react-paginate/react_components/BreakView.js")),(u="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&u(e)},770:(e,t,a)=>{"use strict";a.d(t,{Z:()=>c});var r,o=a(98),_=a.n(o),n=a(697),i=a.n(n);function s(){return s=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var r in a)Object.prototype.hasOwnProperty.call(a,r)&&(e[r]=a[r])}return e},s.apply(this,arguments)}e=a.hmd(e),(r="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&r(e),"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var l=function(e){var t=e.pageClassName,a=e.pageLinkClassName,r=e.page,o=e.selected,n=e.activeClassName,i=e.activeLinkClassName,l=e.getEventListener,p=e.pageSelectedHandler,c=e.href,d=e.extraAriaContext,u=e.pageLabelBuilder,f=e.rel,g=e.ariaLabel||"Page "+r+(d?" "+d:""),P=null;return o&&(P="page",g=e.ariaLabel||"Page "+r+" is your current page",t=void 0!==t?t+" "+n:n,void 0!==a?void 0!==i&&(a=a+" "+i):a=i),_().createElement("li",{className:t},_().createElement("a",s({rel:f,role:c?void 0:"button",className:a,href:c,tabIndex:o?"-1":"0","aria-label":g,"aria-current":P,onKeyPress:p},l(p)),u(r)))};l.propTypes={pageSelectedHandler:i().func.isRequired,selected:i().bool.isRequired,pageClassName:i().string,pageLinkClassName:i().string,activeClassName:i().string,activeLinkClassName:i().string,extraAriaContext:i().string,href:i().string,ariaLabel:i().string,page:i().number.isRequired,getEventListener:i().func.isRequired,pageLabelBuilder:i().func.isRequired,rel:i().string};var p=l;const c=p;var d,u;(d="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&(d.register(l,"PageView","/home/yoan/work/oss/react-paginate/react_components/PageView.js"),d.register(p,"default","/home/yoan/work/oss/react-paginate/react_components/PageView.js")),(u="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&u(e)},214:(module,__webpack_exports__,__nested_webpack_require_3517__)=>{"use strict";__nested_webpack_require_3517__.d(__webpack_exports__,{Z:()=>PaginationBoxView});var react__WEBPACK_IMPORTED_MODULE_0__=__nested_webpack_require_3517__(98),react__WEBPACK_IMPORTED_MODULE_0___default=__nested_webpack_require_3517__.n(react__WEBPACK_IMPORTED_MODULE_0__),prop_types__WEBPACK_IMPORTED_MODULE_1__=__nested_webpack_require_3517__(697),prop_types__WEBPACK_IMPORTED_MODULE_1___default=__nested_webpack_require_3517__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__),_PageView__WEBPACK_IMPORTED_MODULE_2__=__nested_webpack_require_3517__(770),_BreakView__WEBPACK_IMPORTED_MODULE_3__=__nested_webpack_require_3517__(759),_utils__WEBPACK_IMPORTED_MODULE_4__=__nested_webpack_require_3517__(923),enterModule;function _typeof(e){return _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},_typeof(e)}function _extends(){return _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var r in a)Object.prototype.hasOwnProperty.call(a,r)&&(e[r]=a[r])}return e},_extends.apply(this,arguments)}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _defineProperties(e,t){for(var a=0;a<t.length;a++){var r=t[a];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function _createClass(e,t,a){return t&&_defineProperties(e.prototype,t),a&&_defineProperties(e,a),e}function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&_setPrototypeOf(e,t)}function _setPrototypeOf(e,t){return _setPrototypeOf=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},_setPrototypeOf(e,t)}function _createSuper(e){var t=_isNativeReflectConstruct();return function(){var a,r=_getPrototypeOf(e);if(t){var o=_getPrototypeOf(this).constructor;a=Reflect.construct(r,arguments,o)}else a=r.apply(this,arguments);return _possibleConstructorReturn(this,a)}}function _possibleConstructorReturn(e,t){if(t&&("object"===_typeof(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return _assertThisInitialized(e)}function _assertThisInitialized(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function _isNativeReflectConstruct(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}function _getPrototypeOf(e){return _getPrototypeOf=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},_getPrototypeOf(e)}function _defineProperty(e,t,a){return t in e?Object.defineProperty(e,t,{value:a,enumerable:!0,configurable:!0,writable:!0}):e[t]=a,e}module=__nested_webpack_require_3517__.hmd(module),enterModule="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0,enterModule&&enterModule(module);var __signature__="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default.signature:function(e){return e},PaginationBoxView=function(_Component){_inherits(PaginationBoxView,_Component);var _super=_createSuper(PaginationBoxView);function PaginationBoxView(e){var t,a;return _classCallCheck(this,PaginationBoxView),_defineProperty(_assertThisInitialized(t=_super.call(this,e)),"handlePreviousPage",(function(e){var a=t.state.selected;t.handleClick(e,null,a>0?a-1:void 0,{isPrevious:!0})})),_defineProperty(_assertThisInitialized(t),"handleNextPage",(function(e){var a=t.state.selected,r=t.props.pageCount;t.handleClick(e,null,a<r-1?a+1:void 0,{isNext:!0})})),_defineProperty(_assertThisInitialized(t),"handlePageSelected",(function(e,a){if(t.state.selected===e)return t.callActiveCallback(e),void t.handleClick(a,null,void 0,{isActive:!0});t.handleClick(a,null,e)})),_defineProperty(_assertThisInitialized(t),"handlePageChange",(function(e){t.state.selected!==e&&(t.setState({selected:e}),t.callCallback(e))})),_defineProperty(_assertThisInitialized(t),"getEventListener",(function(e){return _defineProperty({},t.props.eventListener,e)})),_defineProperty(_assertThisInitialized(t),"handleClick",(function(e,a,r){var o=arguments.length>3&&void 0!==arguments[3]?arguments[3]:{},_=o.isPrevious,n=void 0!==_&&_,i=o.isNext,s=void 0!==i&&i,l=o.isBreak,p=void 0!==l&&l,c=o.isActive,d=void 0!==c&&c;e.preventDefault?e.preventDefault():e.returnValue=!1;var u=t.state.selected,f=t.props.onClick,g=r;if(f){var P=f({index:a,selected:u,nextSelectedPage:r,event:e,isPrevious:n,isNext:s,isBreak:p,isActive:d});if(!1===P)return;Number.isInteger(P)&&(g=P)}void 0!==g&&t.handlePageChange(g)})),_defineProperty(_assertThisInitialized(t),"handleBreakClick",(function(e,a){var r=t.state.selected;t.handleClick(a,e,r<e?t.getForwardJump():t.getBackwardJump(),{isBreak:!0})})),_defineProperty(_assertThisInitialized(t),"callCallback",(function(e){void 0!==t.props.onPageChange&&"function"==typeof t.props.onPageChange&&t.props.onPageChange({selected:e})})),_defineProperty(_assertThisInitialized(t),"callActiveCallback",(function(e){void 0!==t.props.onPageActive&&"function"==typeof t.props.onPageActive&&t.props.onPageActive({selected:e})})),_defineProperty(_assertThisInitialized(t),"getElementPageRel",(function(e){var a=t.state.selected,r=t.props,o=r.nextPageRel,_=r.prevPageRel,n=r.selectedPageRel;return a-1===e?_:a===e?n:a+1===e?o:void 0})),_defineProperty(_assertThisInitialized(t),"pagination",(function(){var e=[],a=t.props,r=a.pageRangeDisplayed,o=a.pageCount,_=a.marginPagesDisplayed,n=a.breakLabel,i=a.breakClassName,s=a.breakLinkClassName,l=t.state.selected;if(o<=r)for(var p=0;p<o;p++)e.push(t.getPageElement(p));else{var c=r/2,d=r-c;l>o-r/2?c=r-(d=o-l):l<r/2&&(d=r-(c=l));var u,f,g=function(e){return t.getPageElement(e)},P=[];for(u=0;u<o;u++){var E=u+1;E<=_||E>o-_||u>=l-c&&u<=l+(0===l&&r>1?d-1:d)?P.push({type:"page",index:u,display:g(u)}):n&&P.length>0&&P[P.length-1].display!==f&&(r>0||_>0)&&(f=react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_BreakView__WEBPACK_IMPORTED_MODULE_3__.Z,{key:u,breakLabel:n,breakClassName:i,breakLinkClassName:s,breakHandler:t.handleBreakClick.bind(null,u),getEventListener:t.getEventListener}),P.push({type:"break",index:u,display:f}))}P.forEach((function(t,a){var r=t;"break"===t.type&&P[a-1]&&"page"===P[a-1].type&&P[a+1]&&"page"===P[a+1].type&&P[a+1].index-P[a-1].index<=2&&(r={type:"page",index:t.index,display:g(t.index)}),e.push(r.display)}))}return e})),void 0!==e.initialPage&&void 0!==e.forcePage&&console.warn("(react-paginate): Both initialPage (".concat(e.initialPage,") and forcePage (").concat(e.forcePage,") props are provided, which is discouraged.")+" Use exclusively forcePage prop for a controlled component.\nSee https://reactjs.org/docs/forms.html#controlled-components"),a=e.initialPage?e.initialPage:e.forcePage?e.forcePage:0,t.state={selected:a},t}return _createClass(PaginationBoxView,[{key:"componentDidMount",value:function(){var e=this.props,t=e.initialPage,a=e.disableInitialCallback,r=e.extraAriaContext,o=e.pageCount,_=e.forcePage;void 0===t||a||this.callCallback(t),r&&console.warn("DEPRECATED (react-paginate): The extraAriaContext prop is deprecated. You should now use the ariaLabelBuilder instead."),Number.isInteger(o)||console.warn("(react-paginate): The pageCount prop value provided is not an integer (".concat(o,"). Did you forget a Math.ceil()?")),void 0!==t&&t>o-1&&console.warn("(react-paginate): The initialPage prop provided is greater than the maximum page index from pageCount prop (".concat(t," > ").concat(o-1,").")),void 0!==_&&_>o-1&&console.warn("(react-paginate): The forcePage prop provided is greater than the maximum page index from pageCount prop (".concat(_," > ").concat(o-1,")."))}},{key:"componentDidUpdate",value:function(e){void 0!==this.props.forcePage&&this.props.forcePage!==e.forcePage&&(this.props.forcePage>this.props.pageCount-1&&console.warn("(react-paginate): The forcePage prop provided is greater than the maximum page index from pageCount prop (".concat(this.props.forcePage," > ").concat(this.props.pageCount-1,").")),this.setState({selected:this.props.forcePage})),Number.isInteger(e.pageCount)&&!Number.isInteger(this.props.pageCount)&&console.warn("(react-paginate): The pageCount prop value provided is not an integer (".concat(this.props.pageCount,"). Did you forget a Math.ceil()?"))}},{key:"getForwardJump",value:function(){var e=this.state.selected,t=this.props,a=t.pageCount,r=e+t.pageRangeDisplayed;return r>=a?a-1:r}},{key:"getBackwardJump",value:function(){var e=this.state.selected-this.props.pageRangeDisplayed;return e<0?0:e}},{key:"getElementHref",value:function(e){var t=this.props,a=t.hrefBuilder,r=t.pageCount,o=t.hrefAllControls;if(a)return o||e>=0&&e<r?a(e+1,r,this.state.selected):void 0}},{key:"ariaLabelBuilder",value:function(e){var t=e===this.state.selected;if(this.props.ariaLabelBuilder&&e>=0&&e<this.props.pageCount){var a=this.props.ariaLabelBuilder(e+1,t);return this.props.extraAriaContext&&!t&&(a=a+" "+this.props.extraAriaContext),a}}},{key:"getPageElement",value:function(e){var t=this.state.selected,a=this.props,r=a.pageClassName,o=a.pageLinkClassName,_=a.activeClassName,n=a.activeLinkClassName,i=a.extraAriaContext,s=a.pageLabelBuilder;return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_PageView__WEBPACK_IMPORTED_MODULE_2__.Z,{key:e,pageSelectedHandler:this.handlePageSelected.bind(null,e),selected:t===e,rel:this.getElementPageRel(e),pageClassName:r,pageLinkClassName:o,activeClassName:_,activeLinkClassName:n,extraAriaContext:i,href:this.getElementHref(e),ariaLabel:this.ariaLabelBuilder(e),page:e+1,pageLabelBuilder:s,getEventListener:this.getEventListener})}},{key:"render",value:function(){var e=this.props.renderOnZeroPageCount;if(0===this.props.pageCount&&void 0!==e)return e?e(this.props):e;var t=this.props,a=t.disabledClassName,r=t.disabledLinkClassName,o=t.pageCount,_=t.className,n=t.containerClassName,i=t.previousLabel,s=t.previousClassName,l=t.previousLinkClassName,p=t.previousAriaLabel,c=t.prevRel,d=t.nextLabel,u=t.nextClassName,f=t.nextLinkClassName,g=t.nextAriaLabel,P=t.nextRel,E=this.state.selected,b=0===E,y=E===o-1,v="".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(s)).concat(b?" ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(a)):""),C="".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(u)).concat(y?" ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(a)):""),O="".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(l)).concat(b?" ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(r)):""),m="".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(f)).concat(y?" ".concat((0,_utils__WEBPACK_IMPORTED_MODULE_4__.m)(r)):""),L=b?"true":"false",h=y?"true":"false";return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul",{className:_||n},react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li",{className:v},react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a",_extends({className:O,href:this.getElementHref(E-1),tabIndex:b?"-1":"0",role:"button",onKeyPress:this.handlePreviousPage,"aria-disabled":L,"aria-label":p,rel:c},this.getEventListener(this.handlePreviousPage)),i)),this.pagination(),react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li",{className:C},react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a",_extends({className:m,href:this.getElementHref(E+1),tabIndex:y?"-1":"0",role:"button",onKeyPress:this.handleNextPage,"aria-disabled":h,"aria-label":g,rel:P},this.getEventListener(this.handleNextPage)),d)))}},{key:"__reactstandin__regenerateByEval",value:function __reactstandin__regenerateByEval(key,code){this[key]=eval(code)}}]),PaginationBoxView}(react__WEBPACK_IMPORTED_MODULE_0__.Component),reactHotLoader,leaveModule;_defineProperty(PaginationBoxView,"propTypes",{pageCount:prop_types__WEBPACK_IMPORTED_MODULE_1___default().number.isRequired,pageRangeDisplayed:prop_types__WEBPACK_IMPORTED_MODULE_1___default().number,marginPagesDisplayed:prop_types__WEBPACK_IMPORTED_MODULE_1___default().number,previousLabel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().node,previousAriaLabel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,prevPageRel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,prevRel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,nextLabel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().node,nextAriaLabel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,nextPageRel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,nextRel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,breakLabel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,prop_types__WEBPACK_IMPORTED_MODULE_1___default().node]),hrefBuilder:prop_types__WEBPACK_IMPORTED_MODULE_1___default().func,hrefAllControls:prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool,onPageChange:prop_types__WEBPACK_IMPORTED_MODULE_1___default().func,onPageActive:prop_types__WEBPACK_IMPORTED_MODULE_1___default().func,onClick:prop_types__WEBPACK_IMPORTED_MODULE_1___default().func,initialPage:prop_types__WEBPACK_IMPORTED_MODULE_1___default().number,forcePage:prop_types__WEBPACK_IMPORTED_MODULE_1___default().number,disableInitialCallback:prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool,containerClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,className:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,pageClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,pageLinkClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,pageLabelBuilder:prop_types__WEBPACK_IMPORTED_MODULE_1___default().func,activeClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,activeLinkClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,previousClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,nextClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,previousLinkClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,nextLinkClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,disabledClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,disabledLinkClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,breakClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,breakLinkClassName:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,extraAriaContext:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,ariaLabelBuilder:prop_types__WEBPACK_IMPORTED_MODULE_1___default().func,eventListener:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string,renderOnZeroPageCount:prop_types__WEBPACK_IMPORTED_MODULE_1___default().func,selectedPageRel:prop_types__WEBPACK_IMPORTED_MODULE_1___default().string}),_defineProperty(PaginationBoxView,"defaultProps",{pageRangeDisplayed:2,marginPagesDisplayed:3,activeClassName:"selected",previousLabel:"Previous",previousClassName:"previous",previousAriaLabel:"Previous page",prevPageRel:"prev",prevRel:"prev",nextLabel:"Next",nextClassName:"next",nextAriaLabel:"Next page",nextPageRel:"next",nextRel:"next",breakLabel:"...",disabledClassName:"disabled",disableInitialCallback:!1,pageLabelBuilder:function(e){return e},eventListener:"onClick",renderOnZeroPageCount:void 0,selectedPageRel:"canonical",hrefAllControls:!1}),reactHotLoader="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0,reactHotLoader&&reactHotLoader.register(PaginationBoxView,"PaginationBoxView","/home/yoan/work/oss/react-paginate/react_components/PaginationBoxView.js"),leaveModule="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0,leaveModule&&leaveModule(module)},351:(e,t,a)=>{"use strict";a.r(t),a.d(t,{default:()=>n});var r,o=a(214);e=a.hmd(e),(r="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&r(e),"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var _=o.Z;const n=_;var i,s;(i="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&i.register(_,"default","/home/yoan/work/oss/react-paginate/react_components/index.js"),(s="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&s(e)},923:(e,t,a)=>{"use strict";var r,o,_;function n(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"";return null!=e?e:t}a.d(t,{m:()=>n}),e=a.hmd(e),(r="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&r(e),"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature,(o="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&o.register(n,"classNameIfDefined","/home/yoan/work/oss/react-paginate/react_components/utils.js"),(_="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&_(e)},703:(e,t,a)=>{"use strict";var r=a(414);function o(){}function _(){}_.resetWarningCache=o,e.exports=function(){function e(e,t,a,o,_,n){if(n!==r){var i=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw i.name="Invariant Violation",i}}function t(){return e}e.isRequired=e;var a={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,elementType:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t,checkPropTypes:_,resetWarningCache:o};return a.PropTypes=a,a}},697:(e,t,a)=>{e.exports=a(703)()},414:e=>{"use strict";e.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"},98:e=>{"use strict";e.exports=__WEBPACK_EXTERNAL_MODULE__98__}},__webpack_module_cache__={};function __nested_webpack_require_21573__(e){var t=__webpack_module_cache__[e];if(void 0!==t)return t.exports;var a=__webpack_module_cache__[e]={id:e,loaded:!1,exports:{}};return __webpack_modules__[e](a,a.exports,__nested_webpack_require_21573__),a.loaded=!0,a.exports}__nested_webpack_require_21573__.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return __nested_webpack_require_21573__.d(t,{a:t}),t},__nested_webpack_require_21573__.d=(e,t)=>{for(var a in t)__nested_webpack_require_21573__.o(t,a)&&!__nested_webpack_require_21573__.o(e,a)&&Object.defineProperty(e,a,{enumerable:!0,get:t[a]})},__nested_webpack_require_21573__.hmd=e=>((e=Object.create(e)).children||(e.children=[]),Object.defineProperty(e,"exports",{enumerable:!0,set:()=>{throw new Error("ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: "+e.id)}}),e),__nested_webpack_require_21573__.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),__nested_webpack_require_21573__.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})};var __webpack_exports__=__nested_webpack_require_21573__(351);return __webpack_exports__})()}));
-//# sourceMappingURL=react-paginate.js.map
-
-/***/ }),
-
 /***/ "./node_modules/react-router-dom/index.js":
 /*!************************************************!*\
   !*** ./node_modules/react-router-dom/index.js ***!
@@ -68712,16 +66737,6 @@ function useStateManager(_ref) {
 
 
 
-
-/***/ }),
-
-/***/ "./node_modules/react-timer-hook/dist/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/react-timer-hook/dist/index.js ***!
-  \*****************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-!function(e,t){ true?module.exports=t(__webpack_require__(/*! react */ "./node_modules/react/index.js")):0}("undefined"!=typeof self?self:this,function(e){return function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=3)}([function(t,r){t.exports=e},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Validate=t.Time=void 0;var n=u(r(5)),o=u(r(6));function u(e){return e&&e.__esModule?e:{default:e}}t.Time=n.default,t.Validate=o.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.useInterval=void 0;var n=function(e){return e&&e.__esModule?e:{default:e}}(r(7));t.useInterval=n.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.useTime=t.useStopwatch=t.useTimer=void 0;var n=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e};t.default=function(e){if((0,o.useEffect)(function(){console.warn("react-timer-hook: default export useTimer is deprecated, use named exports { useTimer, useStopwatch, useTime } instead")},[]),e.expiryTimestamp){var t=(0,u.default)(e);return n({},t,{startTimer:t.start,stopTimer:t.pause,resetTimer:function(){}})}var r=(0,i.default)(e);return n({},r,{startTimer:r.start,stopTimer:r.pause,resetTimer:r.reset})};var o=r(0),u=c(r(4)),i=c(r(8)),a=c(r(9));function c(e){return e&&e.__esModule?e:{default:e}}t.useTimer=u.default,t.useStopwatch=i.default,t.useTime=a.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},o=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var r=[],n=!0,o=!1,u=void 0;try{for(var i,a=e[Symbol.iterator]();!(n=(i=a.next()).done)&&(r.push(i.value),!t||r.length!==t);n=!0);}catch(e){o=!0,u=e}finally{try{!n&&a.return&&a.return()}finally{if(o)throw u}}return r}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();t.default=function(e){var t=e.expiryTimestamp,r=e.onExpire,s=e.autoStart,l=void 0===s||s,d=(0,u.useState)(t),m=o(d,2),v=m[0],p=m[1],y=(0,u.useState)(i.Time.getSecondsFromExpiry(v)),T=o(y,2),g=T[0],b=T[1],h=(0,u.useState)(l),S=o(h,2),w=S[0],O=S[1],j=(0,u.useState)(l),x=o(j,2),_=x[0],M=x[1],P=(0,u.useState)(f(v)),F=o(P,2),E=F[0],k=F[1];function I(e){var t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];k(f(e)),M(t),O(t),p(e),b(i.Time.getSecondsFromExpiry(e))}function D(){var e=new Date;e.setMilliseconds(e.getMilliseconds()+1e3*g),I(e)}return(0,a.useInterval)(function(){E!==c&&k(c);var e=i.Time.getSecondsFromExpiry(v);b(e),e<=0&&(i.Validate.onExpire(r)&&r(),O(!1),k(null))},w?E:null),n({},i.Time.getTimeFromSeconds(g),{start:function(){_?(b(i.Time.getSecondsFromExpiry(v)),O(!0)):D()},pause:function(){O(!1)},resume:D,restart:I,isRunning:w})};var u=r(0),i=r(1),a=r(2),c=1e3;function f(e){if(!i.Validate.expiryTimestamp(e))return null;var t=i.Time.getSecondsFromExpiry(e),r=Math.floor(1e3*(t-Math.floor(t)));return r>0?r:c}},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}();var o=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}return n(e,null,[{key:"getTimeFromSeconds",value:function(e){var t=Math.ceil(e),r=Math.floor(t/86400),n=Math.floor(t%86400/3600),o=Math.floor(t%3600/60);return{seconds:Math.floor(t%60),minutes:o,hours:n,days:r}}},{key:"getSecondsFromExpiry",value:function(e,t){var r=e-(new Date).getTime();if(r>0){var n=r/1e3;return t?Math.round(n):n}return 0}},{key:"getSecondsFromPrevTime",value:function(e,t){var r=(new Date).getTime()-e;if(r>0){var n=r/1e3;return t?Math.round(n):n}return 0}},{key:"getSecondsFromTimeNow",value:function(){var e=new Date;return e.getTime()/1e3-60*e.getTimezoneOffset()}},{key:"getFormattedTimeFromSeconds",value:function(t,r){var n=e.getTimeFromSeconds(t),o=n.seconds,u=n.minutes,i=n.hours,a="",c=i;return"12-hour"===r&&(a=i>=12?"pm":"am",c=i%12),{seconds:o,minutes:u,hours:c,ampm:a}}}]),e}();t.default=o},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}();var o=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}return n(e,null,[{key:"expiryTimestamp",value:function(e){var t=new Date(e).getTime()>0;return t||console.warn("react-timer-hook: { useTimer } Invalid expiryTimestamp settings",e),t}},{key:"onExpire",value:function(e){var t=e&&"function"==typeof e;return e&&!t&&console.warn("react-timer-hook: { useTimer } Invalid onExpire settings function",e),t}}]),e}();t.default=o},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e,t){var r=(0,n.useRef)();(0,n.useEffect)(function(){r.current=e}),(0,n.useEffect)(function(){if(!t)return function(){};var e=setInterval(function(){r.current&&r.current()},t);return function(){return clearInterval(e)}},[t])};var n=r(0)},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},o=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var r=[],n=!0,o=!1,u=void 0;try{for(var i,a=e[Symbol.iterator]();!(n=(i=a.next()).done)&&(r.push(i.value),!t||r.length!==t);n=!0);}catch(e){o=!0,u=e}finally{try{!n&&a.return&&a.return()}finally{if(o)throw u}}return r}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();t.default=function(e){var t=e.autoStart,r=e.offsetTimestamp,c=(0,u.useState)(i.Time.getSecondsFromExpiry(r,!0)||0),f=o(c,2),s=f[0],l=f[1],d=(0,u.useState)(new Date),m=o(d,2),v=m[0],p=m[1],y=(0,u.useState)(s+i.Time.getSecondsFromPrevTime(v||0,!0)),T=o(y,2),g=T[0],b=T[1],h=(0,u.useState)(t),S=o(h,2),w=S[0],O=S[1];return(0,a.useInterval)(function(){b(s+i.Time.getSecondsFromPrevTime(v,!0))},w?1e3:null),n({},i.Time.getTimeFromSeconds(g),{start:function(){var e=new Date;p(e),O(!0),b(s+i.Time.getSecondsFromPrevTime(e,!0))},pause:function(){l(g),O(!1)},reset:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:0,t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1],r=i.Time.getSecondsFromExpiry(e,!0)||0,n=new Date;p(n),l(r),O(t),b(r+i.Time.getSecondsFromPrevTime(n,!0))},isRunning:w})};var u=r(0),i=r(1),a=r(2)},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},o=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var r=[],n=!0,o=!1,u=void 0;try{for(var i,a=e[Symbol.iterator]();!(n=(i=a.next()).done)&&(r.push(i.value),!t||r.length!==t);n=!0);}catch(e){o=!0,u=e}finally{try{!n&&a.return&&a.return()}finally{if(o)throw u}}return r}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();t.default=function(e){var t=e.format,r=(0,u.useState)(i.Time.getSecondsFromTimeNow()),c=o(r,2),f=c[0],s=c[1];return(0,a.useInterval)(function(){s(i.Time.getSecondsFromTimeNow())},1e3),n({},i.Time.getFormattedTimeFromSeconds(f,t))};var u=r(0),i=r(1),a=r(2)}])});
 
 /***/ }),
 
@@ -75272,7 +73287,7 @@ function combine (array, callback) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\programming\\\\project\\\\laravel-react","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_from":"axios@^0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21.4","name":"axios","escapedName":"axios","rawSpec":"^0.21.4","saveSpec":null,"fetchSpec":"^0.21.4"},"_requiredBy":["#DEV:/","#USER","/localtunnel"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21.4","_where":"D:\\\\subjects\\\\term10\\\\senior project\\\\online_examination","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
