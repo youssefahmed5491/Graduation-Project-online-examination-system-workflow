@@ -625,6 +625,7 @@ const AllUsersHome = () => {
                             >
                                 <AddQuestions divheight={divheight} />
                             </div>
+<<<<<<< HEAD
                         )}
                     {
                         // !homeClicked &&
@@ -652,6 +653,13 @@ const AllUsersHome = () => {
                                     <CreateExam />
                                 </div>
                             )
+=======
+                        )}{" "}
+                </div>{" "}
+            </div>{" "}
+        </>
+    );
+>>>>>>> 0362a94 (tony is here)
 =======
     return ( <
         >
@@ -1168,7 +1176,10 @@ const AllUsersHome = () => {
                         paddingLeft: "1rem",
                         background: "#ebebeb",
                         height: "100%",
+<<<<<<< HEAD
 >>>>>>> 5cbb207 (tony is here)
+=======
+>>>>>>> 0362a94 (tony is here)
                     }
                 } >
                 <
@@ -1181,6 +1192,10 @@ const AllUsersHome = () => {
     div > <
         />
 );
+<<<<<<< HEAD
+=======
+>>>>>>> 5cbb207 (tony is here)
+>>>>>>> 0362a94 (tony is here)
 };
 
 export default AllUsersHome;
