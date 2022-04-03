@@ -22,6 +22,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 if (document.getElementById("app")) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     ReactDOM.render(
         <React.StrictMode>
             <Router>
@@ -43,6 +44,8 @@ if (document.getElementById("app")) {
             </Router>
         </React.StrictMode>,
 =======
+=======
+>>>>>>> 5cbb207 (tony is here)
     ReactDOM.render( <
         React.StrictMode >
         <
@@ -62,7 +65,10 @@ if (document.getElementById("app")) {
         Routes > <
         /Router> < /
         React.StrictMode > ,
+<<<<<<< HEAD
 >>>>>>> 80a5fa3 (tony is here)
+=======
+>>>>>>> 5cbb207 (tony is here)
 
         document.getElementById("app")
     );
