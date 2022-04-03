@@ -86,20 +86,22 @@ const AllUsersHome = () => {
                 className="container-fluid vh-100 "
                 style={{ overflow: "hidden" }}
             >
-                {/* navbar section */}
+                {" "}
+                {/* navbar section */}{" "}
                 <div className="row bg-primary " style={{ height: "7%" }}>
                     <div
                         className="col-2  d-flex align-items-center h-100 "
                         style={{ backgroundColor: "#3dbfb6" }}
                     >
                         <img src={logo} alt="" className="h-75 w-25 m-5" />
-                    </div>
+                    </div>{" "}
                     <div
                         className="col d-flex align-items-center flex-row-reverse  h-100"
                         style={{ backgroundColor: "#6bfff5" }}
                     >
                         <img src={settings} className="px-2 h-50  " alt="" />
                         <img src={notification} className="px-2 h-50 " alt="" />
+<<<<<<< HEAD
                         <button
                             className="h-75"
                             style={{ all: "unset", cursor: "pointer" }}
@@ -121,6 +123,13 @@ const AllUsersHome = () => {
                     </div>
                 </div>
                 {/* navbar section */}
+=======
+                        <span className="px-2 fw-bolder fs-4"> name </span>{" "}
+                        <img src={profile} alt="" className="h-75  " />
+                    </div>{" "}
+                </div>{" "}
+                {/* navbar section */}{" "}
+>>>>>>> 80a5fa3 (tony is here)
                 <div className="row  " style={{ height: "93%" }}>
                     <div
                         className="col-2  p-0 h-100 "
@@ -133,12 +142,12 @@ const AllUsersHome = () => {
                                     alt=""
                                     className=" bg-light   rounded-circle m-3 p-1"
                                     style={{ height: "55%", width: "65%" }}
-                                />
-                            </div>
+                                />{" "}
+                            </div>{" "}
                             <div className="col   " style={{ marginTop: "5%" }}>
                                 <div className="fw-bolder  name-size text-light">
-                                    Mahmoud
-                                </div>
+                                    Mahmoud{" "}
+                                </div>{" "}
                                 <div className="d-flex align-items-center  ">
                                     <div
                                         style={{
@@ -148,17 +157,16 @@ const AllUsersHome = () => {
                                             borderRadius: "50%",
                                             display: "inline-block",
                                         }}
-                                    ></div>
+                                    ></div>{" "}
                                     <span
                                         className="text-light fw-bolder ps-3"
                                         style={{ fontSize: "13px" }}
                                     >
-                                        online
-                                    </span>
-                                </div>
-                            </div>
+                                        online{" "}
+                                    </span>{" "}
+                                </div>{" "}
+                            </div>{" "}
                         </div>
-
                         <button
                             onClick={() => {
                                 setHomeClicked(true);
@@ -184,9 +192,9 @@ const AllUsersHome = () => {
                         >
                             <img src={home} alt="" className="h-75 " />
                             <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
-                                Home
-                            </span>
-                        </button>
+                                Home{" "}
+                            </span>{" "}
+                        </button>{" "}
                         <button
                             onClick={() => {
                                 setHomeClicked(false);
@@ -209,9 +217,9 @@ const AllUsersHome = () => {
                         >
                             <img src={schedule} alt="" className="h-75 " />
                             <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
-                                Schedule
-                            </span>
-                        </button>
+                                Schedule{" "}
+                            </span>{" "}
+                        </button>{" "}
                         {radio === "Student" && (
                             <button
                                 onClick={() => {
@@ -231,10 +239,10 @@ const AllUsersHome = () => {
                             >
                                 <img src={camera} alt="" className="h-75" />
                                 <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
-                                    Adjust Camera
-                                </span>
+                                    Adjust Camera{" "}
+                                </span>{" "}
                             </button>
-                        )}
+                        )}{" "}
                         {radio === "Student" && (
                             <button
                                 onClick={() => {
@@ -254,10 +262,10 @@ const AllUsersHome = () => {
                             >
                                 <img src={rules} alt="" className="h-75 " />
                                 <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
-                                    Exam Rules
-                                </span>
+                                    Exam Rules{" "}
+                                </span>{" "}
                             </button>
-                        )}
+                        )}{" "}
                         {radio === "Doctor" && (
                             <button
                                 onClick={() => {
@@ -277,8 +285,8 @@ const AllUsersHome = () => {
                             >
                                 <img src={rules} alt="" className="h-75 " />
                                 <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
-                                    Questions
-                                </span>
+                                    Questions{" "}
+                                </span>{" "}
                                 <img
                                     src={whiteTriangle}
                                     alt=""
@@ -289,9 +297,9 @@ const AllUsersHome = () => {
                                         marginLeft: "25%",
                                         marginTop: "3%",
                                     }}
-                                />
+                                />{" "}
                             </button>
-                        )}
+                        )}{" "}
                         {radio === "Doctor" && questionsClicked && (
                             <button
                                 onClick={() => {
@@ -311,10 +319,10 @@ const AllUsersHome = () => {
                                 }}
                             >
                                 <span className={VquestionsClassName}>
-                                    View Questions
-                                </span>
+                                    View Questions{" "}
+                                </span>{" "}
                             </button>
-                        )}
+                        )}{" "}
                         {radio === "Doctor" && questionsClicked && (
                             <button
                                 onClick={() => {
@@ -334,9 +342,10 @@ const AllUsersHome = () => {
                                 }}
                             >
                                 <span className={AquestionsClassName}>
-                                    Add Questions
-                                </span>
+                                    Add Questions{" "}
+                                </span>{" "}
                             </button>
+<<<<<<< HEAD
                         )}
                         {radio === "Doctor" && (
                             <button
@@ -363,6 +372,11 @@ const AllUsersHome = () => {
                         )}
                     </div>
                     {/* {!scheduleClicked &&
+=======
+                        )}{" "}
+                    </div>{" "}
+                    {!scheduleClicked &&
+>>>>>>> 80a5fa3 (tony is here)
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
@@ -381,15 +395,15 @@ const AllUsersHome = () => {
                                     }}
                                 >
                                     <div className="text-light fw-bolder Exams-font-size  p-3">
-                                        Remaining Exams
-                                    </div>
+                                        Remaining Exams{" "}
+                                    </div>{" "}
                                     <div className="row ">
                                         <div
                                             className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
                                             style={{ fontSize: "60px" }}
                                         >
-                                            6
-                                        </div>
+                                            6{" "}
+                                        </div>{" "}
                                         <div className="col">
                                             <img
                                                 src={remaining}
@@ -399,12 +413,12 @@ const AllUsersHome = () => {
                                                     height: "80%",
                                                     width: "70%",
                                                 }}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+                                            />{" "}
+                                        </div>{" "}
+                                    </div>{" "}
+                                </div>{" "}
                             </div>
-                        )}
+                        )}{" "}
                     {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
@@ -421,6 +435,7 @@ const AllUsersHome = () => {
                                     className="bol"
                                     href=""
                                 >
+<<<<<<< HEAD
                                     <div
                                         style={{
                                             width: "100%",
@@ -452,8 +467,33 @@ const AllUsersHome = () => {
                                         </div>
                                     </div>
                                 </Link>
+=======
+                                    <div className="text-light fw-bolder  Exams-font-size p-3">
+                                        Upcoming Exam{" "}
+                                    </div>{" "}
+                                    <div className="row">
+                                        <div
+                                            className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
+                                            style={{ fontSize: "60px" }}
+                                        >
+                                            6{" "}
+                                        </div>{" "}
+                                        <div className="col p-2">
+                                            <img
+                                                src={danger}
+                                                alt=""
+                                                className=" "
+                                                style={{
+                                                    height: "80%",
+                                                    width: "60%",
+                                                }}
+                                            />{" "}
+                                        </div>{" "}
+                                    </div>{" "}
+                                </div>{" "}
+>>>>>>> 80a5fa3 (tony is here)
                             </div>
-                        )}
+                        )}{" "}
                     {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
@@ -473,15 +513,15 @@ const AllUsersHome = () => {
                                     }}
                                 >
                                     <div className="text-light fw-bolder  Exams-font-size p-3">
-                                        Completed Exam
-                                    </div>
+                                        Completed Exam{" "}
+                                    </div>{" "}
                                     <div className="row">
                                         <div
                                             className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
                                             style={{ fontSize: "60px" }}
                                         >
-                                            6
-                                        </div>
+                                            6{" "}
+                                        </div>{" "}
                                         <div className="col p-2">
                                             <img
                                                 src={check}
@@ -491,13 +531,17 @@ const AllUsersHome = () => {
                                                     height: "80%",
                                                     width: "60%",
                                                 }}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+                                            />{" "}
+                                        </div>{" "}
+                                    </div>{" "}
+                                </div>{" "}
                             </div>
+<<<<<<< HEAD
                         )} */}
 
+=======
+                        )}
+>>>>>>> 80a5fa3 (tony is here)
                     {!homeClicked &&
                         scheduleClicked &&
                         !adjustClicked &&
