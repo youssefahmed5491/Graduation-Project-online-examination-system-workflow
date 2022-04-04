@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 ////////// test
+=======
+Route::get('login', [App\Http\Controllers\LoginController::class,"login"]);
+>>>>>>> f5387e8 (api created)

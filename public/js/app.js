@@ -8008,11 +8008,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _image_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./image.png */ "./resources/js/components/LoginPage/image.png");
-/* harmony import */ var _eye_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./eye.png */ "./resources/js/components/LoginPage/eye.png");
-/* harmony import */ var _hidden_eye_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hidden eye.png */ "./resources/js/components/LoginPage/hidden eye.png");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _image_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./image.png */ "./resources/js/components/LoginPage/image.png");
+/* harmony import */ var _eye_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./eye.png */ "./resources/js/components/LoginPage/eye.png");
+/* harmony import */ var _hidden_eye_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hidden eye.png */ "./resources/js/components/LoginPage/hidden eye.png");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -8024,6 +8026,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -8079,7 +8082,6 @@ var Login = function Login() {
       radioError = _useState18[0],
       setRadioError = _useState18[1];
 
-  console.log(username, password, radio);
   var size = 100;
 
   var checkSize = function checkSize() {
@@ -8116,9 +8118,15 @@ var Login = function Login() {
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
+    var request = {
+      email: username,
+      password: password,
+      type: radio
+    }; /////////////////////////////api
 
     if (username && password && radio) {
-      document.getElementById("nameForm").submit();
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/login", request).then(function (response) {//console.log(response);
+      }); // document.getElementById("nameForm").submit();
     } else {
       if (!username) {
         setUserNameError("error");
@@ -8139,27 +8147,27 @@ var Login = function Login() {
     setToggle(!toggle);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
     className: "container",
     style: {
       height: "100vh",
       width: "100vw"
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       id: "first-square",
       className: "w-75 position-absolute top-0 end-0 me-5 opacity-50",
       style: {
         backgroundColor: "#3dbfb6",
         height: "33%"
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       id: "last-square",
       className: "w-75 position-absolute bottom-0 opacity-50 start-0 ms-5",
       style: {
         backgroundColor: "#c64200",
         height: "33%"
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       id: "image-form",
       className: row,
       style: {
@@ -8170,28 +8178,28 @@ var Login = function Login() {
         left: "50%",
         transform: "translate(-50%, -50%)"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: col,
         style: {
           height: "".concat(size, "%"),
           padding: "0px"
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-          src: _image_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+          src: _image_png__WEBPACK_IMPORTED_MODULE_2__["default"],
           alt: "",
           className: "w-100 h-100 ",
           style: {
             objectFit: "cover"
           }
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: col,
         style: {
           width: "100%",
           height: "100%",
           backgroundColor: "#F8F9FA"
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
           className: "pt-5 ",
           id: "nameForm",
           action: "/".concat(username, "-").concat(radio) // ${radio === "Student" ? `/${username}-${radio}` : ""}`}
@@ -8200,13 +8208,13 @@ var Login = function Login() {
             paddingLeft: "5%"
           },
           onSubmit: handleSubmit,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
               children: "Login"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "mb-3 mt-5",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               type: "text",
               className: "form-control ".concat(userNameError),
               id: "inputUsername",
@@ -8221,13 +8229,13 @@ var Login = function Login() {
               onChange: function onChange(e) {
                 setUsername(e.target.value), setUserNameError("");
               }
-            }), userNameError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), userNameError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "emptyfield",
               children: "Please enter username"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "mb-3 mt-4 ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               type: toggle ? "password" : "text",
               className: "form-control form-check-inline ".concat(passwordError),
               id: "inputPassword",
@@ -8246,7 +8254,7 @@ var Login = function Login() {
               onChange: function onChange(e) {
                 setPassword(e.target.value), setPasswordError("");
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               className: "form-check-inline",
               onClick: eyetoggle,
               style: {
@@ -8256,27 +8264,27 @@ var Login = function Login() {
                 padding: "0",
                 height: "38px"
               },
-              children: toggle ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                src: _eye_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+              children: toggle ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                src: _eye_png__WEBPACK_IMPORTED_MODULE_3__["default"],
                 alt: "",
                 style: {
                   width: "25px"
                 }
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                src: _hidden_eye_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                src: _hidden_eye_png__WEBPACK_IMPORTED_MODULE_4__["default"],
                 alt: "",
                 style: {
                   width: "25px",
                   height: "18px"
                 }
               })
-            }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "emptyfield",
               children: "Please enter password"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "mt-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_6__["default"], {
               className: radioError,
               options: [{
                 value: "Student",
@@ -8298,13 +8306,13 @@ var Login = function Login() {
               onChange: function onChange(e) {
                 setRadio(e.value), setRadioError("");
               }
-            }), radioError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), radioError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "emptyfield",
               children: "Please select one option"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "mt-4 ",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               type: "submit",
               className: "btn btn-primary px-5 pt-1",
               style: {
@@ -8403,6 +8411,7 @@ var AllUsersHome = function AllUsersHome() {
       _useState4 = _slicedToArray(_useState3, 2),
       scheduleClicked = _useState4[0],
       setScheduleClicked = _useState4[1];
+<<<<<<< HEAD
 
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState6 = _slicedToArray(_useState5, 2),
@@ -8886,6 +8895,491 @@ var AllUsersHome = function AllUsersHome() {
   });
 };
 
+=======
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      adjustClicked = _useState6[0],
+      setAdjustClicked = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      examClicked = _useState8[0],
+      setExamClicked = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      questionsClicked = _useState10[0],
+      setQuestionsClicked = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState12 = _slicedToArray(_useState11, 2),
+      viewQuestionsClicked = _useState12[0],
+      setViewQuestionsClicked = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState14 = _slicedToArray(_useState13, 2),
+      addQuestionsClicked = _useState14[0],
+      setAddQuestionsClicked = _useState14[1];
+
+  var homeClassName = "d-flex align-items-center ps-3 my-button ".concat(homeClicked ? "clickedbuttom" : "");
+  var scheduleClassName = "d-flex align-items-center ps-3 my-button ".concat(scheduleClicked ? "clickedbuttom" : "");
+  var adjustClassName = "d-flex align-items-center ps-3 my-button ".concat(adjustClicked ? "clickedbuttom" : "");
+  var examClassName = "d-flex align-items-center ps-3 my-button ".concat(examClicked ? "clickedbuttom" : "");
+  var questionsClassName = "d-flex align-items-center ps-3 my-button ".concat(questionsClicked ? "clickedbuttom" : "");
+  var VquestionsClassName = "fw-bolder  nav-bar-text-size text-light mt-3 ms-2 \n    ".concat(questionsClicked ? "clickedbuttom" : "", " \n    ").concat(viewQuestionsClicked ? "setopacity" : "cancelopacity");
+  var AquestionsClassName = "fw-bolder  nav-bar-text-size text-light   ms-2\n    ".concat(questionsClicked ? "clickedbuttom" : "", " \n    ").concat(addQuestionsClicked ? "setopacity" : "cancelopacity");
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerWidth),
+      _useState16 = _slicedToArray(_useState15, 2),
+      width = _useState16[0],
+      setWidth = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerHeight),
+      _useState18 = _slicedToArray(_useState17, 2),
+      height = _useState18[0],
+      setHeight = _useState18[1];
+
+  var checkSize = function checkSize() {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    window.addEventListener("resize", checkSize);
+    return function () {
+      window.removeEventListener("resize", checkSize);
+    };
+  }, [height, width]); // 16+50=66
+
+  var divwidth = (width - 16 / 100 * width - 630) / 2;
+  var divheight = height - 7 / 100 * height - 65;
+  console.log(divwidth, divheight);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+      className: "container-fluid vh-100 ",
+      style: {
+        overflow: "hidden"
+      },
+      children: [" ", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+        className: "row bg-primary ",
+        style: {
+          height: "7%"
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+          className: "col-2  d-flex align-items-center h-100 ",
+          style: {
+            backgroundColor: "#3dbfb6"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+            src: _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+            alt: "",
+            className: "h-75 w-25 m-5"
+          })
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+          className: "col d-flex align-items-center flex-row-reverse  h-100",
+          style: {
+            backgroundColor: "#6bfff5"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+            src: _settings_png__WEBPACK_IMPORTED_MODULE_4__["default"],
+            className: "px-2 h-50  ",
+            alt: ""
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+            src: _notif_bell_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+            className: "px-2 h-50 ",
+            alt: ""
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
+            className: "px-2 fw-bolder fs-4",
+            children: " name "
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+            src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+            alt: "",
+            className: "h-75  "
+          })]
+        }), " "]
+      }), " ", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+        className: "row  ",
+        style: {
+          height: "93%"
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+          className: "col-2  p-0 h-100 ",
+          style: {
+            backgroundColor: "#19736c"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            className: "row ",
+            style: {
+              height: "10%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "col-3 h-100  d-flex align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+                src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+                alt: "",
+                className: " bg-light   rounded-circle m-3 p-1",
+                style: {
+                  height: "55%",
+                  width: "65%"
+                }
+              }), " "]
+            }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "col   ",
+              style: {
+                marginTop: "5%"
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "fw-bolder  name-size text-light",
+                children: ["Mahmoud", " "]
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "d-flex align-items-center  ",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                  style: {
+                    height: "10px",
+                    width: "10px",
+                    backgroundColor: "#59eb00",
+                    borderRadius: "50%",
+                    display: "inline-block"
+                  }
+                }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+                  className: "text-light fw-bolder ps-3",
+                  style: {
+                    fontSize: "13px"
+                  },
+                  children: ["online", " "]
+                }), " "]
+              }), " "]
+            }), " "]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(true);
+              setScheduleClicked(false);
+              setAdjustClicked(false);
+              setExamClicked(false);
+              setQuestionsClicked(false);
+              setViewQuestionsClicked(false);
+              setAddQuestionsClicked(false);
+            },
+            className: homeClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              borderLeft: "0",
+              borderRight: "0",
+              borderBottom: "0",
+              borderColor: "#6bfff5",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+              src: _home_png__WEBPACK_IMPORTED_MODULE_5__["default"],
+              alt: "",
+              className: "h-75 "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+              className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
+              children: ["Home", " "]
+            }), " "]
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(true);
+              setAdjustClicked(false);
+              setExamClicked(false);
+              setQuestionsClicked(false);
+              setViewQuestionsClicked(false);
+              setAddQuestionsClicked(false);
+            },
+            className: scheduleClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              border: "0",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+              src: _schedule_png__WEBPACK_IMPORTED_MODULE_6__["default"],
+              alt: "",
+              className: "h-75 "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+              className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
+              children: ["Schedule", " "]
+            }), " "]
+          }), " ", radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(false);
+              setAdjustClicked(true);
+              setExamClicked(false);
+            },
+            className: adjustClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              border: "0",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+              src: _camera_png__WEBPACK_IMPORTED_MODULE_7__["default"],
+              alt: "",
+              className: "h-75"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+              className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
+              children: ["Adjust Camera", " "]
+            }), " "]
+          }), " ", radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(false);
+              setAdjustClicked(false);
+              setExamClicked(true);
+            },
+            className: examClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              border: "0",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+              src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
+              alt: "",
+              className: "h-75 "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+              className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
+              children: ["Exam Rules", " "]
+            }), " "]
+          }), " ", radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(false);
+              setQuestionsClicked(true);
+            },
+            className: questionsClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              border: "0",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+              src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
+              alt: "",
+              className: "h-75 "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+              className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
+              children: ["Questions", " "]
+            }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+              src: _whiteTriangle_png__WEBPACK_IMPORTED_MODULE_9__["default"],
+              alt: "",
+              className: "float",
+              style: {
+                height: "30%",
+                transform: "rotate(90deg)",
+                marginLeft: "25%",
+                marginTop: "3%"
+              }
+            }), " "]
+          }), " ", radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(false);
+              setViewQuestionsClicked(true);
+              setAddQuestionsClicked(false);
+            },
+            className: questionsClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              border: "0",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+              className: VquestionsClassName,
+              children: ["View Questions", " "]
+            }), " "]
+          }), " ", radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(false);
+              setViewQuestionsClicked(false);
+              setAddQuestionsClicked(true);
+            },
+            className: questionsClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              border: "0",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
+              className: AquestionsClassName,
+              children: ["Add Questions", " "]
+            }), " "]
+          }), " "]
+        }), " ", !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#3eba3e",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "text-light fw-bolder Exams-font-size  p-3",
+              children: ["Remaining Exams", " "]
+            }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "row ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: ["6", " "]
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "col",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+                  src: _remaining_png__WEBPACK_IMPORTED_MODULE_10__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "70%"
+                  }
+                }), " "]
+              }), " "]
+            }), " "]
+          }), " "]
+        }), " ", !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#fe4545",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "text-light fw-bolder  Exams-font-size p-3",
+              children: ["Upcoming Exam", " "]
+            }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: ["6", " "]
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "col p-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+                  src: _alertupcoming_png__WEBPACK_IMPORTED_MODULE_11__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "60%"
+                  }
+                }), " "]
+              }), " "]
+            }), " "]
+          }), " "]
+        }), " ", !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#f0a400",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "text-light fw-bolder  Exams-font-size p-3",
+              children: ["Completed Exam", " "]
+            }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+              className: "row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: ["6", " "]
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "col p-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
+                  src: _check_mark_png__WEBPACK_IMPORTED_MODULE_12__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "60%"
+                  }
+                }), " "]
+              }), " "]
+            }), " "]
+          }), " "]
+        }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+          className: "col",
+          style: {
+            paddingLeft: "".concat(divwidth, "px"),
+            background: "#ebebeb"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+        }), " ", !homeClicked && !scheduleClicked && adjustClicked && !examClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h1", {
+          className: "col m-5 ",
+          children: " adjust "
+        }), " ", !homeClicked && !scheduleClicked && !adjustClicked && examClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h1", {
+          className: "col m-5 ",
+          children: " exam "
+        }), " ", !homeClicked && !scheduleClicked && viewQuestionsClicked && !addQuestionsClicked &&
+        /*#__PURE__*/
+        // !scheduleClicked &&
+        //     !adjustClicked &&
+        //     !examClicked &&
+        //     !viewQuestionsClicked &&
+        //     !addQuestionsClicked && (
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+          className: "col",
+          style: {
+            paddingTop: "5px",
+            paddingLeft: "1rem",
+            background: "#ebebeb",
+            height: "100%"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_16__["default"], {
+            divheight: divheight
+          }), " "]
+        }), " ", !homeClicked && !scheduleClicked && !viewQuestionsClicked && addQuestionsClicked &&
+        /*#__PURE__*/
+        // !scheduleClicked &&
+        //     !adjustClicked &&
+        //     !examClicked &&
+        //     !viewQuestionsClicked &&
+        //     !addQuestionsClicked && (
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+          className: "col",
+          style: {
+            paddingTop: "5px",
+            paddingLeft: "1rem",
+            background: "#ebebeb",
+            height: "100%"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_15__["default"], {
+            divheight: divheight
+          }), " "]
+        }), " "]
+      }), " "]
+    }), " "]
+  });
+};
+
+>>>>>>> f5387e8 (api created)
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllUsersHome);
 
 /***/ }),

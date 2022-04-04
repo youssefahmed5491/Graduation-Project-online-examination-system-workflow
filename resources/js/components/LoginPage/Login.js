@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import img from "./image.png";
 import eye from "./eye.png";
 import hiddeneye from "./hidden eye.png";
@@ -13,7 +14,7 @@ const Login = () => {
     const [userNameError, setUserNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [radioError, setRadioError] = useState("");
-    console.log(username, password, radio);
+
     let size = 100;
 
     const checkSize = () => {
@@ -48,8 +49,17 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const request = {
+            email: username,
+            password: password,
+            type: radio,
+        };
+        /////////////////////////////api
         if (username && password && radio) {
-            document.getElementById("nameForm").submit();
+            axios.get("api/login", request).then((response) => {
+                //console.log(response);
+            });
+            // document.getElementById("nameForm").submit();
         } else {
             if (!username) {
                 setUserNameError("error");
