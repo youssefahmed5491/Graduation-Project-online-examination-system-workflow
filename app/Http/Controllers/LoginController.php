@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use App\Models\student;
 use App\Models\professor;
 use App\Models\proctor;
 use App\Models\supervisor;
 use App\Models\system_manager;
+=======
+>>>>>>> d5f7117 (api created)
 
 class LoginController extends Controller
 {
     function login (Request $request){
+<<<<<<< HEAD
         
         if($request->type=="Student"){
             $username=student::where('username',$request->username);
@@ -52,3 +56,8 @@ if($request->type=="System Manager"){
 }
     }
     }
+=======
+
+    }
+}
+>>>>>>> d5f7117 (api created)

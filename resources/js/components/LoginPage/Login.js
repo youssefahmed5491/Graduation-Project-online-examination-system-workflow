@@ -51,12 +51,17 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const request = {
+<<<<<<< HEAD
             username: username,
+=======
+            email: username,
+>>>>>>> d5f7117 (api created)
             password: password,
             type: radio,
         };
         /////////////////////////////api
         if (username && password && radio) {
+<<<<<<< HEAD
             axios.post("/api/login", request).then((response) => {
                 console.log({ response });
                 if (response.data == "exists") {
@@ -65,6 +70,12 @@ const Login = () => {
                     alert("Invalid Username or Password");
                 }
             });
+=======
+            axios.get("api/login", request).then((response) => {
+                //console.log(response);
+            });
+            // document.getElementById("nameForm").submit();
+>>>>>>> d5f7117 (api created)
         } else {
             if (!username) {
                 setUserNameError("error");
