@@ -13,7 +13,7 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::connection("mysql2")->create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('subject_id')->unsigned();
             $table->timestamps();

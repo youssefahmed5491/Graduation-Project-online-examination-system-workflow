@@ -13,7 +13,7 @@ class CreateProfessorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('professors', function (Blueprint $table) {
+        Schema::connection("mysql2")->create('professors', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('subject_id')->unsigned();
             $table->timestamps();

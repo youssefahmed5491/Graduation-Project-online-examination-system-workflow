@@ -13,7 +13,7 @@ class CreateSystemManagersTable extends Migration
      */
     public function up()
     {
-        Schema::create('system_managers', function (Blueprint $table) {
+        Schema::connection("mysql2")->create('system_managers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         

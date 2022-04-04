@@ -13,7 +13,7 @@ class CreateSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::connection("mysql2")->create('subjects', function (Blueprint $table) {
             $table->increments('id');
             //remember 3 forign keys
             $table->string('subject_name');

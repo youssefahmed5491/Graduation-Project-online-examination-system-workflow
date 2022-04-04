@@ -13,7 +13,7 @@ class CreateProctorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('proctors', function (Blueprint $table) {
+        Schema::connection("mysql2")->create('proctors', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
