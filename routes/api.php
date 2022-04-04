@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -47,3 +48,12 @@ Route::middleware('auth:api')->group( function (){
 =======
 Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
 >>>>>>> d78440b (base controller)
+=======
+Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
+=======
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+////////// test
+>>>>>>> 34a8fae (test)
+>>>>>>> 520b583 (test)
