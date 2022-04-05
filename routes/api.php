@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -22,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 =======
 Route::get('login', [App\Http\Controllers\LoginController::class,"login"]);
 >>>>>>> f5387e8 (api created)
+=======
+Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
+>>>>>>> 3dd7033 (a5r t3delat)

@@ -8119,13 +8119,20 @@ var Login = function Login() {
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     var request = {
-      email: username,
+      username: username,
       password: password,
       type: radio
     }; /////////////////////////////api
 
     if (username && password && radio) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/login", request).then(function (response) {//console.log(response);
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/login", request).then(function (response) {
+        console.log({
+          response: response
+        });
+
+        if (response.data == "exists") {
+          console.log("i am here");
+        }
       }); // document.getElementById("nameForm").submit();
     } else {
       if (!username) {

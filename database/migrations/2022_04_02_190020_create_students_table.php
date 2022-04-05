@@ -15,6 +15,8 @@ class CreateStudentsTable extends Migration
     {
         Schema::connection("mysql2")->create('students', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('username');
+            $table->string('password');
             $table->integer('subject_id')->unsigned();
             $table->timestamps();
            

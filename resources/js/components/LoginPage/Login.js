@@ -50,14 +50,17 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const request = {
-            email: username,
+            username: username,
             password: password,
             type: radio,
         };
         /////////////////////////////api
         if (username && password && radio) {
-            axios.get("api/login", request).then((response) => {
-                //console.log(response);
+            axios.post("/api/login", request).then((response) => {
+                console.log({ response });
+                if (response.data == "exists") {
+                    console.log("i am here");
+                }
             });
             // document.getElementById("nameForm").submit();
         } else {
