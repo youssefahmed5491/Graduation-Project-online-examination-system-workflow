@@ -52,15 +52,20 @@ const Login = () => {
         e.preventDefault();
         const request = {
 <<<<<<< HEAD
+<<<<<<< HEAD
             username: username,
 =======
             email: username,
 >>>>>>> d5f7117 (api created)
+=======
+            username: username,
+>>>>>>> dd51ca4 (a5r t3delat)
             password: password,
             type: radio,
         };
         /////////////////////////////api
         if (username && password && radio) {
+<<<<<<< HEAD
 <<<<<<< HEAD
             axios.post("/api/login", request).then((response) => {
                 console.log({ response });
@@ -73,6 +78,13 @@ const Login = () => {
 =======
             axios.get("api/login", request).then((response) => {
                 //console.log(response);
+=======
+            axios.post("/api/login", request).then((response) => {
+                console.log({ response });
+                if (response.data == "exists") {
+                    console.log("i am here");
+                }
+>>>>>>> dd51ca4 (a5r t3delat)
             });
             // document.getElementById("nameForm").submit();
 >>>>>>> d5f7117 (api created)

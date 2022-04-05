@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -52,10 +53,14 @@ Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
 =======
 =======
 >>>>>>> 01965ed (api created)
+=======
+>>>>>>> 88c764f (a5r t3delat)
 Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
 =======
 =======
 >>>>>>> d5f7117 (api created)
+=======
+>>>>>>> dd51ca4 (a5r t3delat)
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -69,5 +74,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 =======
 Route::get('login', [App\Http\Controllers\LoginController::class,"login"]);
 >>>>>>> f5387e8 (api created)
+<<<<<<< HEAD
 >>>>>>> d5f7117 (api created)
+<<<<<<< HEAD
 >>>>>>> 01965ed (api created)
+=======
+=======
+=======
+Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
+>>>>>>> 3dd7033 (a5r t3delat)
+>>>>>>> dd51ca4 (a5r t3delat)
+>>>>>>> 88c764f (a5r t3delat)
