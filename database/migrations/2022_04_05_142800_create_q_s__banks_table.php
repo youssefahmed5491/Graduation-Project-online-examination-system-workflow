@@ -14,13 +14,21 @@ class CreateQSBanksTable extends Migration
     public function up()
     {
         Schema::create('qs_banks', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->increments('id');
+=======
+            $table->id();
+>>>>>>> aaad6dd (all DB tables added)
             $table->integer('subject_id')->unsigned();
             $table->string('Qs_Text');
             $table->string('Qs_Ans');
             $table->integer("Difficulty_Level");
+<<<<<<< HEAD
             
             //$table->foreign('subject_id')->references('id')->on('subjects');
+=======
+            $table->foreign('subject_id')->references('id')->on('subjects');
+>>>>>>> aaad6dd (all DB tables added)
             $table->timestamps();
         });
     }

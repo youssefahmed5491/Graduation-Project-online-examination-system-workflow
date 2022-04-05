@@ -83,6 +83,8 @@ const Login = () => {
                 console.log({ response });
                 if (response.data == "exists") {
                     document.getElementById("nameForm").submit();
+                } else {
+                    alert("Invalid Username or Password");
                 }
 >>>>>>> dd51ca4 (a5r t3delat)
             });
