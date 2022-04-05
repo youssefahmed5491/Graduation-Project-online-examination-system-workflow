@@ -4,6 +4,7 @@ import img from "./image.png";
 import eye from "./eye.png";
 import hiddeneye from "./hidden eye.png";
 import Select from "react-select";
+
 const Login = () => {
     const [height, setHeigt] = useState(window.innerHeight);
     const [width, setWidth] = useState(window.innerWidth);
@@ -60,6 +61,8 @@ const Login = () => {
                 console.log({ response });
                 if (response.data == "exists") {
                     document.getElementById("nameForm").submit();
+                } else {
+                    alert("Invalid Username or Password");
                 }
             });
         } else {

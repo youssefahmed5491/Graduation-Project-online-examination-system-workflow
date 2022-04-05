@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class professor extends Model
 {
     protected $connection="mysql2";
-    protected $fillable =[
-        "username",
-        "email",
-        "passowrd"
-    ];
+    // protected $fillable =[
+    //     "username",
+    //     "email",
+    //     "passowrd"
+    // ];
     use HasFactory;
+ 
 }

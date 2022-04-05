@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProctorsTable extends Migration
+class CreateExamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateProctorsTable extends Migration
      */
     public function up()
     {
-        Schema::connection("mysql2")->create('proctors', function (Blueprint $table) {
+        Schema::create('exams', function (Blueprint $table) {
             $table->increments('id');
-            
-            //for one to many relation
-            $table->integer('system_manager_id');
+            $table->integer("Qs_id")->unsigned();
+            $table->foreign("Qs_id")->references("id")->on("qs_banks");
             $table->integer('subject_id');
-            
-            $table->string('username');
-            $table->string('password');
-
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ class CreateProctorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proctors');
+        Schema::dropIfExists('exams');
     }
 }

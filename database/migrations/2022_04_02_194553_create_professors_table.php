@@ -21,7 +21,6 @@ class CreateProfessorsTable extends Migration
             $table->integer('subject_id')->unsigned();
             $table->timestamps();
 
-           $table->foreign('subject_id')->references('id')->on('subjects');
         });
     }
 

@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->integer('subject_id')->unsigned();
             $table->timestamps();
            
-           $table->foreign('subject_id')->references('id')->on('subjects');
+           //$table->foreign('subject_id')->references('id')->on('subjects');
         });
     }
 

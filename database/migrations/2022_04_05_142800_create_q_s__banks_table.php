@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProctorsTable extends Migration
+class CreateQSBanksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateProctorsTable extends Migration
      */
     public function up()
     {
-        Schema::connection("mysql2")->create('proctors', function (Blueprint $table) {
+        Schema::create('qs_banks', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('subject_id')->unsigned();
+            $table->string('Qs_Text');
+            $table->string('Qs_Ans');
+            $table->integer("Difficulty_Level");
             
-            //for one to many relation
-            $table->integer('system_manager_id');
-            $table->integer('subject_id');
-            
-            $table->string('username');
-            $table->string('password');
-
+            //$table->foreign('subject_id')->references('id')->on('subjects');
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ class CreateProctorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proctors');
+        Schema::dropIfExists('q_s__banks');
     }
 }
