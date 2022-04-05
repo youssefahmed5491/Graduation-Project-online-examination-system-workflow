@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class supervisor extends Model
 {
+    protected $connection="mysql2";
     use HasFactory;
 }

@@ -8131,9 +8131,9 @@ var Login = function Login() {
         });
 
         if (response.data == "exists") {
-          console.log("i am here");
+          document.getElementById("nameForm").submit();
         }
-      }); // document.getElementById("nameForm").submit();
+      });
     } else {
       if (!username) {
         setUserNameError("error");

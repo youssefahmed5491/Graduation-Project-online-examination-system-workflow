@@ -59,10 +59,9 @@ const Login = () => {
             axios.post("/api/login", request).then((response) => {
                 console.log({ response });
                 if (response.data == "exists") {
-                    console.log("i am here");
+                    document.getElementById("nameForm").submit();
                 }
             });
-            // document.getElementById("nameForm").submit();
         } else {
             if (!username) {
                 setUserNameError("error");

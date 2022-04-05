@@ -15,6 +15,9 @@ class CreateProfessorsTable extends Migration
     {
         Schema::connection("mysql2")->create('professors', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('username');
+            $table->string('email');
+            $table->string('password');
             $table->integer('subject_id')->unsigned();
             $table->timestamps();
 
