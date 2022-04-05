@@ -15,11 +15,11 @@ class CreateProctorsTable extends Migration
     {
         Schema::connection("mysql2")->create('proctors', function (Blueprint $table) {
             $table->increments('id');
-            
+
             //for one to many relation
             $table->integer('system_manager_id');
             $table->integer('subject_id');
-            
+
             $table->string('username');
             $table->string('password');
 

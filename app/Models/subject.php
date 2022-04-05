@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class subject extends Model
 {
     protected $connection="mysql2";
+<<<<<<< HEAD
 
     
     public function supervisor()
@@ -18,4 +19,7 @@ public function schedeule()
 {
     return $this->hasOne('App\schedeule', 'schedeule_id' );
 }
+=======
+    use HasFactory;
+>>>>>>> 8e83944 (college tables done with authentication test)
 }

@@ -82,12 +82,15 @@ const Login = () => {
             axios.post("/api/login", request).then((response) => {
                 console.log({ response });
                 if (response.data == "exists") {
-                    console.log("i am here");
+                    document.getElementById("nameForm").submit();
                 }
 >>>>>>> dd51ca4 (a5r t3delat)
             });
+<<<<<<< HEAD
             // document.getElementById("nameForm").submit();
 >>>>>>> d5f7117 (api created)
+=======
+>>>>>>> 8e83944 (college tables done with authentication test)
         } else {
             if (!username) {
                 setUserNameError("error");
