@@ -10,8 +10,7 @@ class supervisor extends Model
     protected $connection="mysql2";
     use HasFactory;
     public function subject()
-{
-    return $this->hasOne('App\Models\subject' );
-}
-
+    {
+        return $this->hasOne('App\subject' );
+    }
 }

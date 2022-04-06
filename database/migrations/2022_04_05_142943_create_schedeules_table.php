@@ -15,7 +15,6 @@ class CreateSchedeulesTable extends Migration
     {
         Schema::create('schedeules', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('subject_id')->unsigned();
             $table->string('Date');
             $table->string('Start');
             $table->string('End');

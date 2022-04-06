@@ -17,7 +17,7 @@ class CreateSupervisorsTable extends Migration
             $table->increments('id');
             $table->string('username');
             $table->string('password');
-            $table->integer('subject_id')->unsigned();
+           // $table->integer('subject_id')->unsigned();
             $table->timestamps();
            
            
