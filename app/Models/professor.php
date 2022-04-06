@@ -9,6 +9,7 @@ class professor extends Model
 {
     protected $connection="mysql2";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     protected $fillable =[
@@ -17,6 +18,9 @@ class professor extends Model
         "passowrd"
     ];
 >>>>>>> 8e83944 (college tables done with authentication test)
+=======
+   
+>>>>>>> 16050d7 (AllUsersHome.js b2t fl main bs <3)
     use HasFactory;
  
 }
