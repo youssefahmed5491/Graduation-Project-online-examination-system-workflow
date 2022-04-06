@@ -9,7 +9,13 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
-{
+{public function run()
+    {
+        User::factory()
+                ->count(50)
+                ->hasPosts(1)
+                ->create();
+    }
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

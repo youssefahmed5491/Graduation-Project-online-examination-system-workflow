@@ -128,6 +128,11 @@ const AddQuestion = (divheight) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+        const request = {
+            username: username,
+            password: password,
+            type: radio,
+        };
         if (
             subject &&
             questionType &&
@@ -223,7 +228,7 @@ const AddQuestion = (divheight) => {
                         <div className="fs-5 fw-bold mb-2">Select Chapter</div>
                         <Select
                             className={chapterNumberError}
-                            options={whattochoose}
+                            options={[{ value: "ch1", label: "ch1" }]}
                             placeholder={"eg:ch 10"}
                             value={options.find(
                                 (obj) => obj.value === chapterNumber

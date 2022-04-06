@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use phpDocumentor\Reflection\Types\Integer;
 
 class professor extends Seeder
 {
@@ -16,10 +17,11 @@ class professor extends Seeder
      */
     public function run()
     {
-        DB::connection("mysql2")->table('professor')->insert([
-            'name' => Str::make("elmoungi"),
-            'email' => Str::make("elmoungi@gmail.com"),
-            'password' => Str::make('123456789'),
+        DB::table('professors')->insert([
+            'username' => ("tony"),
+            'email' => 'tonyfayez@gmail.com',
+            'password' => ('123456789'),
+            "subject_id"=>('123'),
         ]);
     }
 }
