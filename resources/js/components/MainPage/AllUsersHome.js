@@ -80,7 +80,6 @@ const AllUsersHome = () => {
     const divwidth = (width - (16 / 100) * width - 630) / 2;
     const divheight = height - (7 / 100) * height - 65;
     console.log(divwidth, divheight);
-<<<<<<< HEAD
     return (
         <>
             <div
@@ -659,6 +658,7 @@ const AllUsersHome = () => {
             </div>{" "}
         </>
     );
+<<<<<<< HEAD
 >>>>>>> 0362a94 (tony is here)
 =======
     return ( <
@@ -1196,6 +1196,8 @@ const AllUsersHome = () => {
 =======
 >>>>>>> 5cbb207 (tony is here)
 >>>>>>> 0362a94 (tony is here)
+=======
+>>>>>>> a6d259d (rebased with master)
 };
 
 export default AllUsersHome;
