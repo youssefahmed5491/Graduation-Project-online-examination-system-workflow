@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -58,6 +59,8 @@ Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
 >>>>>>> 88c764f (a5r t3delat)
 =======
 >>>>>>> a6d259d (rebased with master)
+=======
+>>>>>>> 0b8d04d (add QS and back of view)
 Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
 =======
 =======
@@ -93,4 +96,13 @@ Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
 =======
 Route::post('login', [App\Http\Controllers\LoginController::class,"login"]);
 >>>>>>> 36eaeac (rebased with master)
+<<<<<<< HEAD
 >>>>>>> a6d259d (rebased with master)
+=======
+=======
+Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
+
+Route::post('AddQS', [App\Http\Controllers\QSBankController::class, "addqS"]);
+Route::get('viewqs', [App\Http\Controllers\QSBankController::class, "viewqs"]);
+>>>>>>> 5fbe4e0 (add QS and back of view)
+>>>>>>> 0b8d04d (add QS and back of view)

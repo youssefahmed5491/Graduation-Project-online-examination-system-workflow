@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import axios from "axios";
+import { isArray } from "lodash";
 
 const AddQuestion = (divheight) => {
     const [subject, setSubject] = useState();
@@ -9,7 +11,7 @@ const AddQuestion = (divheight) => {
     const [questionType, setQuestionType] = useState();
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
-    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
+    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2", "123"];
     const wantedarray = [];
     const addvalue = (getarray) => {
         for (let index = 0; index < getarray.length; index++) {
@@ -25,9 +27,9 @@ const AddQuestion = (divheight) => {
             return option0 && option1;
         } else if (actualNumberOfChoices === 3) {
             return option0 && option1 && option2;
-        } else if (actualNumberOfChoices === 3) {
+        } else if (actualNumberOfChoices === 4) {
             return option0 && option1 && option2 && option3;
-        } else if (actualNumberOfChoices === 3) {
+        } else if (actualNumberOfChoices === 5) {
             return option0 && option1 && option2 && option3 && option4;
         } else {
             return (
@@ -66,7 +68,7 @@ const AddQuestion = (divheight) => {
     const [option4, setOption4] = useState("");
     const [option5, setOption5] = useState("");
     const [question, setQuestion] = useState("");
-
+    const [ar, setAr] = useState([]);
     const handleoption = (e, index) => {
         //2e3mel switch
         switch (index) {
@@ -126,13 +128,11 @@ const AddQuestion = (divheight) => {
             return `form-control ${answerOptionError5}`;
         }
     };
+    ///// COMMENT ->       Select subject should be textfield to write the subject code bec we cant
+    ///////////             handle all subject codes choises
     const handleSubmit = (e) => {
         e.preventDefault();
-        const request = {
-            username: username,
-            password: password,
-            type: radio,
-        };
+
         if (
             subject &&
             questionType &&
@@ -142,7 +142,30 @@ const AddQuestion = (divheight) => {
             questionText &&
             (answerText || (actualNumberOfChoices && radio && howManyOptions()))
         ) {
-            document.getElementById("nameForm").submit();
+            var data = [actualNumberOfChoices];
+            var i;
+            for (i = 0; i < actualNumberOfChoices; i++) {
+                data[i] = eval("option" + i);
+            }
+            var mcqcorrectans = data[radio - 1];
+            const request = {
+                subject: subject,
+                chapterNumber: chapterNumber,
+                difficulty: difficulty,
+                duration: duration,
+                questionText: questionText,
+                answerText: answerText,
+                actualNumberOfChoices: actualNumberOfChoices,
+                answersarray: data,
+                type: questionType,
+                mcqcorrectans: mcqcorrectans,
+            };
+
+            console.log({ data });
+            //document.getElementById("nameForm").submit();
+            axios.post("/api/AddQS", request).then((response) => {
+                console.log({ response });
+            });
         } else {
             if (!subject) {
                 setSubjectError("error");
@@ -204,7 +227,7 @@ const AddQuestion = (divheight) => {
                 <div className="fs-1 fw-bold m-2">Add Question</div>
                 {/*First Form-Slect */}
 
-                <form onSubmit={handleSubmit} id="nameForm" action="/login">
+                <form onSubmit={handleSubmit} id="nameForm">
                     <div className="ms-5" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">Select Subject</div>
 
