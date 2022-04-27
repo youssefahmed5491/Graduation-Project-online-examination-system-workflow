@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import logo from "../HomePage/2560px-Adidas_Logo.svg.png";
 import profile from "./profile icon.png";
@@ -218,9 +219,11 @@ const AllUsersHome = () => {
                                 }}
                             >
                                 <img src={rules} alt="" className="h-75 " />
-                                <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
-                                    Exam Rules
-                                </span>
+                                <Link to={`/${username}/exam`} href="">
+                                    <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
+                                        Exam Rules
+                                    </span>
+                                </Link>
                             </button>
                         )}
                         {radio === "Doctor" && (

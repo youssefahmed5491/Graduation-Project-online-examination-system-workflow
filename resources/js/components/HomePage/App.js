@@ -32,12 +32,12 @@ function App() {
     }
     return (
         <>
-            <section className="container-fluid">
+            <section className="">
                 {/* ////////////First Screen///////////// */}
 
                 <div
                     id="wrap-logo-navbar-photo"
-                    className="container  "
+                    className=""
                     style={{ height: "100vh" }}
                 >
                     <Navbar />

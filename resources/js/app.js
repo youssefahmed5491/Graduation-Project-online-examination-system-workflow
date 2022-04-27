@@ -17,6 +17,7 @@ import Login from "./components/LoginPage/Login";
 import React from "react";
 import App from "./components/HomePage/App";
 import AllUsersHome from "./components/MainPage/AllUsersHome";
+import ExamPaper from "./components/ExamPaper/ExamPaper";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 if (document.getElementById("app")) {
@@ -26,6 +27,11 @@ if (document.getElementById("app")) {
                 <Routes>
                     <Route exact path="/" element={<App />} />
                     <Route exact path="/login" element={<Login />} />
+                    <Route
+                        exact
+                        path="/:username/exam"
+                        element={<ExamPaper />}
+                    />
                     <Route
                         exact
                         path="/:username-:radio"
