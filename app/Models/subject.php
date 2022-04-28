@@ -7,19 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class subject extends Model
 {
-    protected $connection="mysql2";
-<<<<<<< HEAD
+    protected $connection = "mysql2";
 
-    
+
     public function supervisor()
-{
-    return $this->belongsTo('App\supervisor', 'supervisor_id' );
-}
-public function schedeule()
-{
-    return $this->hasOne('App\schedeule', 'schedeule_id' );
-}
-=======
-    use HasFactory;
->>>>>>> 8e83944 (college tables done with authentication test)
+    {
+        return $this->belongsTo('App\supervisor', 'supervisor_id');
+    }
+    public function schedeule()
+    {
+        return $this->hasOne('App\schedeule', 'schedeule_id');
+    }
 }

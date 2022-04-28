@@ -71,13 +71,8 @@ return [
             'username' => env('DB_USERNAME_2', 'forge'),
             'password' => env('DB_PASSWORD_2', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-<<<<<<< HEAD
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
-=======
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
->>>>>>> 36eaeac (rebased with master)
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,

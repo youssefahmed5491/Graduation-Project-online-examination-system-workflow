@@ -14,16 +14,9 @@ class CreateExamsTable extends Migration
     public function up()
     {
         Schema::create('exams', function (Blueprint $table) {
-<<<<<<< HEAD
-            $table->increments('id');
-            $table->integer("Qs_id")->unsigned();
-            $table->foreign("Qs_id")->references("id")->on("qs_banks");
-            $table->integer('subject_id');
-=======
             $table->id();
             $table->integer("Qs_id")->unsigned();
             $table->foreign("Qs_id")->references("id")->on("qs_banks");
->>>>>>> aaad6dd (all DB tables added)
             $table->timestamps();
         });
     }

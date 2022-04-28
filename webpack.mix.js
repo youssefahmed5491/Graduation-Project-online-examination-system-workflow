@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,17 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js("resources/js/app.js", "public/js")
     .react()
-<<<<<<< HEAD
-<<<<<<< HEAD
-    .sass('resources/sass/app.scss', 'public/css')
-    .browserSync("127.0.0.1:8000");
-=======
     .sass("resources/sass/app.scss", "public/css")
     .browserSync("127.0.0.1:8000");
->>>>>>> fe1d5ca (tony is here)
-=======
-    .sass('resources/sass/app.scss', 'public/css')
-    .browserSync("127.0.0.1:8000");
->>>>>>> 81de63e (tony is here)

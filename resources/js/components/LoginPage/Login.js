@@ -51,22 +51,17 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const request = {
-<<<<<<< HEAD
-<<<<<<< HEAD
             username: username,
-=======
+
             email: username,
->>>>>>> d5f7117 (api created)
-=======
+
             username: username,
->>>>>>> dd51ca4 (a5r t3delat)
+
             password: password,
             type: radio,
         };
         /////////////////////////////api
         if (username && password && radio) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             axios.post("/api/login", request).then((response) => {
                 console.log({ response });
                 if (response.data == "exists") {
@@ -75,10 +70,7 @@ const Login = () => {
                     alert("Invalid Username or Password");
                 }
             });
-=======
-            axios.get("api/login", request).then((response) => {
-                //console.log(response);
-=======
+
             axios.post("/api/login", request).then((response) => {
                 console.log({ response });
                 if (response.data == "exists") {
@@ -86,13 +78,8 @@ const Login = () => {
                 } else {
                     alert("Invalid Username or Password");
                 }
->>>>>>> dd51ca4 (a5r t3delat)
             });
-<<<<<<< HEAD
             // document.getElementById("nameForm").submit();
->>>>>>> d5f7117 (api created)
-=======
->>>>>>> 8e83944 (college tables done with authentication test)
         } else {
             if (!username) {
                 setUserNameError("error");

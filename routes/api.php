@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -106,3 +107,6 @@ Route::post('AddQS', [App\Http\Controllers\QSBankController::class, "addqS"]);
 Route::get('viewqs', [App\Http\Controllers\QSBankController::class, "viewqs"]);
 >>>>>>> 5fbe4e0 (add QS and back of view)
 >>>>>>> 0b8d04d (add QS and back of view)
+=======
+Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
+>>>>>>> ca824be ( not complete changes)
