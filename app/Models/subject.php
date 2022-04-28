@@ -14,12 +14,8 @@ class subject extends Model
 {
     return $this->belongsTo('App\supervisor', 'supervisor_id' );
 }
-public function professor()
-{
-    return $this->belongsTo('App\professor', 'professor_id' );
-}
 public function schedeule()
 {
-    return $this->belongsTo('App\schedeule', 'schedeule_id' );
+    return $this->hasOne('App\schedeule', 'schedeule_id' );
 }
 }
