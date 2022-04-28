@@ -18,4 +18,14 @@ class professor extends Model
     {
         return $this->belongsToMany('App\Models\QS_Bank');
     }
+
+    public function subject()
+    {
+        return $this->belongsToMany('App\Models\subject');
+    }
+
+    public function proctor()
+    {
+        return $this->belongsToMany('App\Models\proctor');
+    }
 }

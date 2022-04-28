@@ -20,6 +20,8 @@ class CreateQSBanksTable extends Migration
             $table->string('Qs_Ans');
             $table->integer("Difficulty_Level");
             $table->foreign('subject_id')->references('id')->on('subjects');
+
+
             $table->timestamps();
         });
     }

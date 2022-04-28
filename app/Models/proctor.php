@@ -19,5 +19,8 @@ class proctor extends Model
         return $this->belongsTo('App\Models\subject', 'subject_id' );
     }
     
-
+    public function professor()
+    {
+        return $this->belongsToMany('App\Models\professor' );
+    }
 }

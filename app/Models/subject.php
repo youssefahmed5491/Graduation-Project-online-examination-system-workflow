@@ -22,4 +22,9 @@ class subject extends Model
     {
         return $this->hasOne('App\schedeule', 'schedeule_id');
     }
+
+    public function professor()
+    {
+        return $this->belongsToMany('App\Models\professor');
+    }
 }
