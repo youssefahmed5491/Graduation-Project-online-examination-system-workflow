@@ -22,7 +22,7 @@ class LoginController extends Controller
             }
         }
         if ($request->type == "Doctor") {
-            $username = professor::where('username', $request->username);
+            $username = professor::where('email', $request->username);
             $password = professor::where('password', $request->password);
             if ($username->exists() && $password->exists()) {
                 return response()->json(["exists"]);

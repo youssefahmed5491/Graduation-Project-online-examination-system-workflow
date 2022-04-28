@@ -52,15 +52,10 @@ const Login = () => {
         e.preventDefault();
         const request = {
             username: username,
-
-            email: username,
-
-            username: username,
-
             password: password,
             type: radio,
         };
-        /////////////////////////////api
+        console.log(request);
         if (username && password && radio) {
             axios.post("/api/login", request).then((response) => {
                 console.log({ response });
@@ -70,16 +65,6 @@ const Login = () => {
                     alert("Invalid Username or Password");
                 }
             });
-
-            axios.post("/api/login", request).then((response) => {
-                console.log({ response });
-                if (response.data == "exists") {
-                    document.getElementById("nameForm").submit();
-                } else {
-                    alert("Invalid Username or Password");
-                }
-            });
-            // document.getElementById("nameForm").submit();
         } else {
             if (!username) {
                 setUserNameError("error");

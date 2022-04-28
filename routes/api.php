@@ -109,4 +109,9 @@ Route::get('viewqs', [App\Http\Controllers\QSBankController::class, "viewqs"]);
 >>>>>>> 0b8d04d (add QS and back of view)
 =======
 Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
+<<<<<<< HEAD
 >>>>>>> ca824be ( not complete changes)
+=======
+Route::post('AddQS', [App\Http\Controllers\QSBankController::class, "addqS"]);
+Route::get('viewqs', [App\Http\Controllers\QSBankController::class, "viewqs"]);
+>>>>>>> cf7d7e9 ( tony + ahmed)

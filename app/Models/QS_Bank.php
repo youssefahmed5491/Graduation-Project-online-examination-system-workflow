@@ -16,8 +16,6 @@ class QS_Bank extends Model
     }
 
 
-    protected $connection = "mysql";
-
     protected $casts = [
         "QS_TEXT",
         "QS_Ans" => 'array',
