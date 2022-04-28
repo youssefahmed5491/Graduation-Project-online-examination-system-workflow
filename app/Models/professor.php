@@ -14,4 +14,8 @@ class professor extends Model
         "passowrd"
     ];
     use HasFactory;
+    public function QS_Bank()
+    {
+        return $this->belongsToMany('App\Models\QS_Bank');
+    }
 }

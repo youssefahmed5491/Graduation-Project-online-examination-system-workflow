@@ -22,4 +22,8 @@ class QS_Bank extends Model
         "Duration",
         "chapter",
     ];
+    public function professor()
+    {
+        return $this->belongsToMany('App\Models\professor');
+    }
 }

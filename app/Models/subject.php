@@ -10,6 +10,10 @@ class subject extends Model
     protected $connection = "mysql2";
 
 
+    public function student()
+    {
+        return $this->belongsTo('App\App\Models\student', 'student_id');
+    }
     public function supervisor()
     {
         return $this->belongsTo('App\supervisor', 'supervisor_id');
