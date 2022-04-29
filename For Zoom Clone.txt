@@ -1,0 +1,13 @@
+
+====================================Setup====================================
+1)npm install --save simple-peer pusher-js
+2)composer require pusher/pusher-php-server
+3)ne3mel database(gowa .env 8ayart esm el database le zoom ba3deen ro7t le phpmyadmin 3amalt create le database esmaha zoom ba3deen 3amalt php artisan migrate)
+4)hwa 3amal 7aga esmaha
+ 1)php artisan ui react --auth
+2)npm install && npm run dev bs dah 3amaly moshkela fa ha3mel undo lel changes beta3et webpack we ly app.js eshta8al tmm
+ dah 3shan neshtery dema8na men el registration wel login wel routing beta3 el user dah lw ana msh mohtam 2a3melha b nafsy bs f 7aletna lazem ne3melha b nafsena bs ana fel project dah ha3melha zayo
+=============================================================================================================
+1)Create some users 
+2)3amalna el MediaHandler.js
+3)ne3mel saf7a 3shan neshoof howa samaha app ana hasameeha Zoom
