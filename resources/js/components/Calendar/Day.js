@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const Day = ({ day, onClick }) => {
     //const className = `day  ${day.isCurrentDay ? "currentDay" : ""} `;
     const className = `day  ${day.isCurrentDay ? "currentDay" : ""} `;
+
     //${day.value === "padding" ? "padding" : ""}
     //${day.value != "padding" && day.event.length > 0 ? "redDiv" : ""}
     // can be added up

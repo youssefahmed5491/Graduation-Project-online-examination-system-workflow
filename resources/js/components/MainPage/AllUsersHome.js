@@ -22,6 +22,10 @@ import ViewQuestions from "../Questions/ViewQuestions";
 const AllUsersHome = () => {
     const { username, radio } = useParams();
 
+    const x = 2;
+    const y = 3;
+    const z = x.toString() + y.toString();
+    console.log(z);
     const [homeClicked, setHomeClicked] = useState(false);
     const [scheduleClicked, setScheduleClicked] = useState(false);
     const [adjustClicked, setAdjustClicked] = useState(false);
@@ -219,11 +223,9 @@ const AllUsersHome = () => {
                                 }}
                             >
                                 <img src={rules} alt="" className="h-75 " />
-                                <Link to={`/${username}/exam`} href="">
-                                    <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
-                                        Exam Rules
-                                    </span>
-                                </Link>
+                                <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
+                                    Exam Rules
+                                </span>
                             </button>
                         )}
                         {radio === "Doctor" && (
@@ -351,36 +353,42 @@ const AllUsersHome = () => {
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
                             >
-                                <div
-                                    style={{
-                                        width: "100%",
-                                        backgroundColor: "#fe4545",
-                                        borderRadius: "5%",
-                                    }}
+                                <Link
+                                    to={`/${username}/exam`}
+                                    className="bol"
+                                    href=""
                                 >
-                                    <div className="text-light fw-bolder  Exams-font-size p-3">
-                                        Upcoming Exam
-                                    </div>
-                                    <div className="row">
-                                        <div
-                                            className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
-                                            style={{ fontSize: "60px" }}
-                                        >
-                                            6
+                                    <div
+                                        style={{
+                                            width: "100%",
+                                            backgroundColor: "#fe4545",
+                                            borderRadius: "5%",
+                                        }}
+                                    >
+                                        <div className="text-light fw-bolder  Exams-font-size p-3">
+                                            Upcoming Exam
                                         </div>
-                                        <div className="col p-2">
-                                            <img
-                                                src={danger}
-                                                alt=""
-                                                className=" "
-                                                style={{
-                                                    height: "80%",
-                                                    width: "60%",
-                                                }}
-                                            />
+                                        <div className="row">
+                                            <div
+                                                className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
+                                                style={{ fontSize: "60px" }}
+                                            >
+                                                6
+                                            </div>
+                                            <div className="col p-2">
+                                                <img
+                                                    src={danger}
+                                                    alt=""
+                                                    className=" "
+                                                    style={{
+                                                        height: "80%",
+                                                        width: "60%",
+                                                    }}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         )}
                     {!scheduleClicked &&

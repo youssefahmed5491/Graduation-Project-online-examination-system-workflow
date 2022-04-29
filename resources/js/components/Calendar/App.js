@@ -97,6 +97,7 @@ const App = () => {
         }
         setDays(daysArr);
     }, [events, nav]);
+    console.log(days);
     return (
         <>
             <div
