@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Profiler, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -18,6 +18,7 @@ import App from "../Calendar/App";
 import calenderstyle from "../Calendar/calenderstyle.css";
 import AddQuestions from "../Questions/AddQuestions";
 import ViewQuestions from "../Questions/ViewQuestions";
+import ProfilePage from "../ProfilePage/ProfilePage";
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
@@ -33,6 +34,8 @@ const AllUsersHome = () => {
     const [questionsClicked, setQuestionsClicked] = useState(false);
     const [viewQuestionsClicked, setViewQuestionsClicked] = useState(false);
     const [addQuestionsClicked, setAddQuestionsClicked] = useState(false);
+    const [profileClicked, setProfileClicked] = useState(false);
+
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
     }`;
@@ -92,8 +95,23 @@ const AllUsersHome = () => {
                     >
                         <img src={settings} className="px-2 h-50  " alt="" />
                         <img src={notification} className="px-2 h-50 " alt="" />
-                        <span className="px-2 fw-bolder fs-4">name</span>
-                        <img src={profile} alt="" className="h-75  " />
+                        <button
+                            className="h-75"
+                            style={{ all: "unset", cursor: "pointer" }}
+                            onClick={() => {
+                                setHomeClicked(false);
+                                setScheduleClicked(false);
+                                setAdjustClicked(false);
+                                setExamClicked(false);
+                                setQuestionsClicked(false);
+                                setViewQuestionsClicked(false);
+                                setAddQuestionsClicked(false);
+                                setProfileClicked(true);
+                            }}
+                        >
+                            <img src={profile} alt="" className="h-100 " />
+                            <span className="px-2 fw-bolder fs-4">name</span>
+                        </button>
                     </div>
                 </div>
                 {/* navbar section */}
@@ -144,6 +162,7 @@ const AllUsersHome = () => {
                                 setQuestionsClicked(false);
                                 setViewQuestionsClicked(false);
                                 setAddQuestionsClicked(false);
+                                setProfileClicked(false);
                             }}
                             className={homeClassName}
                             style={{
@@ -170,6 +189,7 @@ const AllUsersHome = () => {
                                 setQuestionsClicked(false);
                                 setViewQuestionsClicked(false);
                                 setAddQuestionsClicked(false);
+                                setProfileClicked(false);
                             }}
                             className={scheduleClassName}
                             style={{
@@ -191,6 +211,7 @@ const AllUsersHome = () => {
                                     setScheduleClicked(false);
                                     setAdjustClicked(true);
                                     setExamClicked(false);
+                                    setProfileClicked(false);
                                 }}
                                 className={adjustClassName}
                                 style={{
@@ -213,6 +234,7 @@ const AllUsersHome = () => {
                                     setScheduleClicked(false);
                                     setAdjustClicked(false);
                                     setExamClicked(true);
+                                    setProfileClicked(false);
                                 }}
                                 className={examClassName}
                                 style={{
@@ -234,6 +256,7 @@ const AllUsersHome = () => {
                                     setHomeClicked(false);
                                     setScheduleClicked(false);
                                     setQuestionsClicked(true);
+                                    setProfileClicked(false);
                                 }}
                                 className={questionsClassName}
                                 style={{
@@ -267,6 +290,7 @@ const AllUsersHome = () => {
                                     setScheduleClicked(false);
                                     setViewQuestionsClicked(true);
                                     setAddQuestionsClicked(false);
+                                    setProfileClicked(false);
                                 }}
                                 className={questionsClassName}
                                 style={{
@@ -288,6 +312,7 @@ const AllUsersHome = () => {
                                     setScheduleClicked(false);
                                     setViewQuestionsClicked(false);
                                     setAddQuestionsClicked(true);
+                                    setProfileClicked(false);
                                 }}
                                 className={questionsClassName}
                                 style={{
@@ -307,7 +332,8 @@ const AllUsersHome = () => {
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
-                        !addQuestionsClicked && (
+                        !addQuestionsClicked &&
+                        !profileClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -348,7 +374,8 @@ const AllUsersHome = () => {
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
-                        !addQuestionsClicked && (
+                        !addQuestionsClicked &&
+                        !profileClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -395,7 +422,8 @@ const AllUsersHome = () => {
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
-                        !addQuestionsClicked && (
+                        !addQuestionsClicked &&
+                        !profileClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -438,7 +466,8 @@ const AllUsersHome = () => {
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
-                        !addQuestionsClicked && (
+                        !addQuestionsClicked &&
+                        !profileClicked && (
                             <div
                                 className="col"
                                 style={{
@@ -449,18 +478,39 @@ const AllUsersHome = () => {
                                 <App />
                             </div>
                         )}
-                    {!homeClicked &&
-                        !scheduleClicked &&
-                        adjustClicked &&
-                        !examClicked && <h1 className="col m-5 ">adjust</h1>}
+
                     {!homeClicked &&
                         !scheduleClicked &&
                         !adjustClicked &&
-                        examClicked && <h1 className="col m-5 ">exam</h1>}
+                        !examClicked &&
+                        !viewQuestionsClicked &&
+                        !addQuestionsClicked &&
+                        profileClicked && (
+                            <div
+                                className="col p-0"
+                                style={{
+                                    background: "#ebebeb",
+                                }}
+                            >
+                                <ProfilePage />
+                            </div>
+                        )}
+
+                    {!homeClicked &&
+                        !scheduleClicked &&
+                        adjustClicked &&
+                        !examClicked &&
+                        !profileClicked && <h1 className="col m-5 ">adjust</h1>}
+                    {!homeClicked &&
+                        !scheduleClicked &&
+                        !adjustClicked &&
+                        examClicked &&
+                        !profileClicked && <h1 className="col m-5 ">exam</h1>}
                     {!homeClicked &&
                         !scheduleClicked &&
                         viewQuestionsClicked &&
-                        !addQuestionsClicked && (
+                        !addQuestionsClicked &&
+                        !profileClicked && (
                             // !scheduleClicked &&
                             //     !adjustClicked &&
                             //     !examClicked &&
@@ -481,7 +531,8 @@ const AllUsersHome = () => {
                     {!homeClicked &&
                         !scheduleClicked &&
                         !viewQuestionsClicked &&
-                        addQuestionsClicked && (
+                        addQuestionsClicked &&
+                        !profileClicked && (
                             // !scheduleClicked &&
                             //     !adjustClicked &&
                             //     !examClicked &&
