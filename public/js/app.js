@@ -10577,8 +10577,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../HomePage/2560px-Adidas_Logo.svg.png */ "./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png");
 /* harmony import */ var _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile icon.png */ "./resources/js/components/MainPage/profile icon.png");
 /* harmony import */ var _notif_bell_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notif bell.png */ "./resources/js/components/MainPage/notif bell.png");
@@ -10592,13 +10592,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _alertupcoming_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./alertupcoming.png */ "./resources/js/components/MainPage/alertupcoming.png");
 /* harmony import */ var _check_mark_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./check mark.png */ "./resources/js/components/MainPage/check mark.png");
 /* harmony import */ var _createexam_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./createexam.png */ "./resources/js/components/MainPage/createexam.png");
-/* harmony import */ var _Calendar_App__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Calendar/App */ "./resources/js/components/Calendar/App.js");
-/* harmony import */ var _Calendar_calenderstyle_css__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Calendar/calenderstyle.css */ "./resources/js/components/Calendar/calenderstyle.css");
-/* harmony import */ var _Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Questions/AddQuestions */ "./resources/js/components/Questions/AddQuestions.js");
-/* harmony import */ var _Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Questions/ViewQuestions */ "./resources/js/components/Questions/ViewQuestions.js");
-/* harmony import */ var _ProfilePage_ProfilePage__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../ProfilePage/ProfilePage */ "./resources/js/components/ProfilePage/ProfilePage.js");
-/* harmony import */ var _CreateExamPage_CreateExamPage__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../CreateExamPage/CreateExamPage */ "./resources/js/components/CreateExamPage/CreateExamPage.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _AssignProctorWhite_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./AssignProctorWhite.png */ "./resources/js/components/MainPage/AssignProctorWhite.png");
+/* harmony import */ var _Calendar_App__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Calendar/App */ "./resources/js/components/Calendar/App.js");
+/* harmony import */ var _Calendar_calenderstyle_css__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Calendar/calenderstyle.css */ "./resources/js/components/Calendar/calenderstyle.css");
+/* harmony import */ var _Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Questions/AddQuestions */ "./resources/js/components/Questions/AddQuestions.js");
+/* harmony import */ var _Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Questions/ViewQuestions */ "./resources/js/components/Questions/ViewQuestions.js");
+/* harmony import */ var _ProfilePage_ProfilePage__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../ProfilePage/ProfilePage */ "./resources/js/components/ProfilePage/ProfilePage.js");
+/* harmony import */ var _CreateExamPage_CreateExamPage__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../CreateExamPage/CreateExamPage */ "./resources/js/components/CreateExamPage/CreateExamPage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -10637,8 +10638,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var AllUsersHome = function AllUsersHome() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_21__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_22__.useParams)(),
       username = _useParams.username,
       radio = _useParams.radio;
 
@@ -10692,6 +10694,11 @@ var AllUsersHome = function AllUsersHome() {
       createExamClicked = _useState18[0],
       setCreateExamClicked = _useState18[1];
 
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState20 = _slicedToArray(_useState19, 2),
+      assignProctorClicked = _useState20[0],
+      setAssignProctorClicked = _useState20[1];
+
   var homeClassName = "d-flex align-items-center ps-3 my-button ".concat(homeClicked ? "clickedbuttom" : "");
   var scheduleClassName = "d-flex align-items-center ps-3 my-button ".concat(scheduleClicked ? "clickedbuttom" : "");
   var adjustClassName = "d-flex align-items-center ps-3 my-button ".concat(adjustClicked ? "clickedbuttom" : "");
@@ -10700,16 +10707,17 @@ var AllUsersHome = function AllUsersHome() {
   var VquestionsClassName = "fw-bolder  nav-bar-text-size text-light mt-3 ms-2 \n    ".concat(questionsClicked ? "clickedbuttom" : "", " \n    ").concat(viewQuestionsClicked ? "setopacity" : "cancelopacity");
   var AquestionsClassName = "fw-bolder  nav-bar-text-size text-light   ms-2\n    ".concat(questionsClicked ? "clickedbuttom" : "", " \n    ").concat(addQuestionsClicked ? "setopacity" : "cancelopacity");
   var createExamClassName = "d-flex align-items-center ps-3 my-button ".concat(createExamClicked ? "clickedbuttom" : "");
+  var assignProctorClassName = "d-flex align-items-center ps-3 my-button ".concat(assignProctorClicked ? "clickedbuttom" : "");
 
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerWidth),
-      _useState20 = _slicedToArray(_useState19, 2),
-      width = _useState20[0],
-      setWidth = _useState20[1];
-
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerHeight),
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerWidth),
       _useState22 = _slicedToArray(_useState21, 2),
-      height = _useState22[0],
-      setHeight = _useState22[1];
+      width = _useState22[0],
+      setWidth = _useState22[1];
+
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerHeight),
+      _useState24 = _slicedToArray(_useState23, 2),
+      height = _useState24[0],
+      setHeight = _useState24[1];
 
   var checkSize = function checkSize() {
     setWidth(window.innerWidth);
@@ -10726,41 +10734,41 @@ var AllUsersHome = function AllUsersHome() {
   var divwidth = (width - 16 / 100 * width - 630) / 2;
   var divheight = height - 7 / 100 * height - 65;
   console.log(divwidth, divheight);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
       className: "container-fluid vh-100 ",
       style: {
         overflow: "hidden"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
         className: "row bg-primary ",
         style: {
           height: "7%"
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col-2  d-flex align-items-center h-100 ",
           style: {
             backgroundColor: "#3dbfb6"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
             src: _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__["default"],
             alt: "",
             className: "h-75 w-25 m-5"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
           className: "col d-flex align-items-center flex-row-reverse  h-100",
           style: {
             backgroundColor: "#6bfff5"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
             src: _settings_png__WEBPACK_IMPORTED_MODULE_4__["default"],
             className: "px-2 h-50  ",
             alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
             src: _notif_bell_png__WEBPACK_IMPORTED_MODULE_3__["default"],
             className: "px-2 h-50 ",
             alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
             className: "h-75",
             style: {
               all: "unset",
@@ -10777,34 +10785,34 @@ var AllUsersHome = function AllUsersHome() {
               setProfileClicked(true);
               setCreateExamClicked(false);
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
               alt: "",
               className: "h-100 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: "px-2 fw-bolder fs-4",
               children: "name"
             })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
         className: "row  ",
         style: {
           height: "93%"
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
           className: "col-2  p-0 h-100 ",
           style: {
             backgroundColor: "#19736c"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
             className: "row ",
             style: {
               height: "10%"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
               className: "col-3 h-100  d-flex align-items-center",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
                 src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
                 alt: "",
                 className: " bg-light   rounded-circle m-3 p-1",
@@ -10813,17 +10821,17 @@ var AllUsersHome = function AllUsersHome() {
                   width: "65%"
                 }
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
               className: "col   ",
               style: {
                 marginTop: "5%"
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                 className: "fw-bolder  name-size text-light",
                 children: "Mahmoud"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
                 className: "d-flex align-items-center  ",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                   style: {
                     height: "10px",
                     width: "10px",
@@ -10831,7 +10839,7 @@ var AllUsersHome = function AllUsersHome() {
                     borderRadius: "50%",
                     display: "inline-block"
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
                   className: "text-light fw-bolder ps-3",
                   style: {
                     fontSize: "13px"
@@ -10840,7 +10848,7 @@ var AllUsersHome = function AllUsersHome() {
                 })]
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(true);
               setScheduleClicked(false);
@@ -10862,15 +10870,15 @@ var AllUsersHome = function AllUsersHome() {
               borderColor: "#6bfff5",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _home_png__WEBPACK_IMPORTED_MODULE_5__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Home"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(true);
@@ -10889,15 +10897,15 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _schedule_png__WEBPACK_IMPORTED_MODULE_6__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Schedule"
             })]
-          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("button", {
+          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10912,15 +10920,15 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _camera_png__WEBPACK_IMPORTED_MODULE_7__["default"],
               alt: "",
               className: "h-75"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Adjust Camera"
             })]
-          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("button", {
+          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10935,15 +10943,15 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Exam Rules"
             })]
-          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("button", {
+          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10958,14 +10966,14 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Questions"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _whiteTriangle_png__WEBPACK_IMPORTED_MODULE_9__["default"],
               alt: "",
               className: "float",
@@ -10976,7 +10984,7 @@ var AllUsersHome = function AllUsersHome() {
                 marginTop: "3%"
               }
             })]
-          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("button", {
+          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10992,11 +11000,11 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: VquestionsClassName,
               children: "View Questions"
             })
-          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("button", {
+          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -11012,11 +11020,11 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: AquestionsClassName,
               children: "Add Questions"
             })
-          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("button", {
+          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -11033,40 +11041,62 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
               src: _createexam_png__WEBPACK_IMPORTED_MODULE_13__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
               children: "Create Exam"
             })]
+          }), radio === "Supervisor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("button", {
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(false);
+              setProfileClicked(false);
+              setAssignProctorClicked(true);
+            },
+            className: assignProctorClassName,
+            style: {
+              height: "7%",
+              width: "100%",
+              border: "0",
+              background: "#19736c"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
+              src: _AssignProctorWhite_png__WEBPACK_IMPORTED_MODULE_14__["default"],
+              alt: "",
+              className: "h-75 "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("span", {
+              className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
+              children: "Assign Proctor"
+            })]
           })]
-        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col p-5 ",
           style: {
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
             style: {
               width: "100%",
               backgroundColor: "#3eba3e",
               borderRadius: "5%"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
               className: "text-light fw-bolder Exams-font-size  p-3",
               children: "Remaining Exams"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
               className: "row ",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                 className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
                 style: {
                   fontSize: "60px"
                 },
                 children: "6"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                 className: "col",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
                   src: _remaining_png__WEBPACK_IMPORTED_MODULE_10__["default"],
                   alt: "",
                   className: " ",
@@ -11078,35 +11108,35 @@ var AllUsersHome = function AllUsersHome() {
               })]
             })]
           })
-        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col p-5 ",
           style: {
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_23__.Link, {
             to: "/".concat(username, "/exam"),
             className: "bol",
             href: "",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
               style: {
                 width: "100%",
                 backgroundColor: "#fe4545",
                 borderRadius: "5%"
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                 className: "text-light fw-bolder  Exams-font-size p-3",
                 children: "Upcoming Exam"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
                 className: "row",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                   className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
                   style: {
                     fontSize: "60px"
                   },
                   children: "6"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                   className: "col p-2",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
                     src: _alertupcoming_png__WEBPACK_IMPORTED_MODULE_11__["default"],
                     alt: "",
                     className: " ",
@@ -11119,31 +11149,31 @@ var AllUsersHome = function AllUsersHome() {
               })]
             })
           })
-        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col p-5 ",
           style: {
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
             style: {
               width: "100%",
               backgroundColor: "#f0a400",
               borderRadius: "5%"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
               className: "text-light fw-bolder  Exams-font-size p-3",
               children: "Completed Exam"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
               className: "row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                 className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
                 style: {
                   fontSize: "60px"
                 },
                 children: "6"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
                 className: "col p-2",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("img", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
                   src: _check_mark_png__WEBPACK_IMPORTED_MODULE_12__["default"],
                   alt: "",
                   className: " ",
@@ -11155,26 +11185,26 @@ var AllUsersHome = function AllUsersHome() {
               })]
             })]
           })
-        }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col",
           style: {
             paddingLeft: "".concat(divwidth, "px"),
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_14__["default"], {})
-        }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+        }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col ",
           style: {
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_ProfilePage_ProfilePage__WEBPACK_IMPORTED_MODULE_18__["default"], {})
-        }), !homeClicked && !scheduleClicked && adjustClicked && !examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("h1", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_ProfilePage_ProfilePage__WEBPACK_IMPORTED_MODULE_19__["default"], {})
+        }), !homeClicked && !scheduleClicked && adjustClicked && !examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("h1", {
           className: "col m-5 ",
           children: "adjust"
-        }), !homeClicked && !scheduleClicked && !adjustClicked && examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("h1", {
+        }), !homeClicked && !scheduleClicked && !adjustClicked && examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("h1", {
           className: "col m-5 ",
           children: "exam"
-        }), !homeClicked && !scheduleClicked && viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
@@ -11182,10 +11212,10 @@ var AllUsersHome = function AllUsersHome() {
             background: "#ebebeb",
             height: "100%"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_17__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Questions_ViewQuestions__WEBPACK_IMPORTED_MODULE_18__["default"], {
             divheight: divheight
           })
-        }), !homeClicked && !scheduleClicked && !viewQuestionsClicked && addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && !viewQuestionsClicked && addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
@@ -11193,10 +11223,10 @@ var AllUsersHome = function AllUsersHome() {
             background: "#ebebeb",
             height: "100%"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_16__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Questions_AddQuestions__WEBPACK_IMPORTED_MODULE_17__["default"], {
             divheight: divheight
           })
-        }), !homeClicked && !scheduleClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
@@ -11205,7 +11235,16 @@ var AllUsersHome = function AllUsersHome() {
             height: "100%",
             overflow: "auto"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_CreateExamPage_CreateExamPage__WEBPACK_IMPORTED_MODULE_19__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_CreateExamPage_CreateExamPage__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+        }), !homeClicked && !scheduleClicked && !profileClicked && assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
+          className: "col",
+          style: {
+            paddingTop: "5px",
+            paddingLeft: "1rem",
+            background: "#ebebeb",
+            height: "100%"
+          },
+          children: "hi"
         })]
       })]
     })
@@ -17977,6 +18016,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image.png?b45bdc3ebb3a9aaaf597443bb8a0d80f");
+
+/***/ }),
+
+/***/ "./resources/js/components/MainPage/AssignProctorWhite.png":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/MainPage/AssignProctorWhite.png ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/AssignProctorWhite.png?c74775bd37367b55207164fd4bd92937");
 
 /***/ }),
 

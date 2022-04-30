@@ -15,6 +15,7 @@ import remaining from "./remaining.png";
 import danger from "./alertupcoming.png";
 import check from "./check mark.png";
 import createexam from "./createexam.png";
+import AssignProctorWhite from "./AssignProctorWhite.png";
 import App from "../Calendar/App";
 import calenderstyle from "../Calendar/calenderstyle.css";
 import AddQuestions from "../Questions/AddQuestions";
@@ -38,6 +39,7 @@ const AllUsersHome = () => {
     const [addQuestionsClicked, setAddQuestionsClicked] = useState(false);
     const [profileClicked, setProfileClicked] = useState(false);
     const [createExamClicked, setCreateExamClicked] = useState(false);
+    const [assignProctorClicked, setAssignProctorClicked] = useState(false);
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
@@ -62,6 +64,9 @@ const AllUsersHome = () => {
     ${addQuestionsClicked ? "setopacity" : "cancelopacity"}`;
     const createExamClassName = `d-flex align-items-center ps-3 my-button ${
         createExamClicked ? "clickedbuttom" : ""
+    }`;
+    const assignProctorClassName = `d-flex align-items-center ps-3 my-button ${
+        assignProctorClicked ? "clickedbuttom" : ""
     }`;
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
@@ -368,6 +373,32 @@ const AllUsersHome = () => {
                                 </span>
                             </button>
                         )}
+                        {radio === "Supervisor" && (
+                            <button
+                                onClick={() => {
+                                    setHomeClicked(false);
+                                    setScheduleClicked(false);
+                                    setProfileClicked(false);
+                                    setAssignProctorClicked(true);
+                                }}
+                                className={assignProctorClassName}
+                                style={{
+                                    height: "7%",
+                                    width: "100%",
+                                    border: "0",
+                                    background: "#19736c",
+                                }}
+                            >
+                                <img
+                                    src={AssignProctorWhite}
+                                    alt=""
+                                    className="h-75 "
+                                />
+                                <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
+                                    Assign Proctor
+                                </span>
+                            </button>
+                        )}
                     </div>
                     {!scheduleClicked &&
                         !adjustClicked &&
@@ -375,7 +406,8 @@ const AllUsersHome = () => {
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
                         !profileClicked &&
-                        !createExamClicked && (
+                        !createExamClicked &&
+                        !assignProctorClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -418,7 +450,8 @@ const AllUsersHome = () => {
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
                         !profileClicked &&
-                        !createExamClicked && (
+                        !createExamClicked &&
+                        !assignProctorClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -467,7 +500,8 @@ const AllUsersHome = () => {
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
                         !profileClicked &&
-                        !createExamClicked && (
+                        !createExamClicked &&
+                        !assignProctorClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -512,7 +546,8 @@ const AllUsersHome = () => {
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
                         !profileClicked &&
-                        !createExamClicked && (
+                        !createExamClicked &&
+                        !assignProctorClicked && (
                             <div
                                 className="col"
                                 style={{
@@ -530,7 +565,9 @@ const AllUsersHome = () => {
                         !examClicked &&
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
-                        profileClicked && (
+                        profileClicked &&
+                        !createExamClicked &&
+                        !assignProctorClicked && (
                             <div
                                 className="col "
                                 style={{
@@ -604,6 +641,22 @@ const AllUsersHome = () => {
                                 }}
                             >
                                 <CreateExamPage />
+                            </div>
+                        )}
+                    {!homeClicked &&
+                        !scheduleClicked &&
+                        !profileClicked &&
+                        assignProctorClicked && (
+                            <div
+                                className="col"
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                            >
+                                hi
                             </div>
                         )}
                 </div>
