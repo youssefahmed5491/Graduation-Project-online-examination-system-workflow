@@ -19,6 +19,7 @@ import calenderstyle from "../Calendar/calenderstyle.css";
 import AddQuestions from "../Questions/AddQuestions";
 import ViewQuestions from "../Questions/ViewQuestions";
 import ProfilePage from "../ProfilePage/ProfilePage";
+import CreateExamPage from "../CreateExamPage/CreateExamPage";
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
@@ -328,7 +329,7 @@ const AllUsersHome = () => {
                             </button>
                         )}
                     </div>
-                    {!scheduleClicked &&
+                    {/* {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
@@ -459,7 +460,7 @@ const AllUsersHome = () => {
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        )} */}
 
                     {!homeClicked &&
                         scheduleClicked &&
@@ -479,20 +480,26 @@ const AllUsersHome = () => {
                             </div>
                         )}
 
-                    {!homeClicked &&
+                    {/* {!homeClicked &&
                         !scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
-                        profileClicked && (
+                        profileClicked && */}
+                    {!scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !viewQuestionsClicked &&
+                        !addQuestionsClicked &&
+                        !profileClicked && (
                             <div
-                                className="col p-0"
+                                className="col "
                                 style={{
                                     background: "#ebebeb",
                                 }}
                             >
-                                <ProfilePage />
+                                <CreateExamPage />
                             </div>
                         )}
 
