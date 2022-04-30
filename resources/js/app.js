@@ -21,8 +21,6 @@ import ExamPaper from "./components/ExamPaper/ExamPaper";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 if (document.getElementById("app")) {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ReactDOM.render(
         <React.StrictMode>
             <Router>
@@ -43,32 +41,6 @@ if (document.getElementById("app")) {
                 </Routes>
             </Router>
         </React.StrictMode>,
-=======
-=======
->>>>>>> 5cbb207 (tony is here)
-    ReactDOM.render( <
-        React.StrictMode >
-        <
-        Router >
-        <
-        Routes >
-        <
-        Route exact path = "/"
-        element = { < App / > }
-        /> <
-        Route exact path = "/login"
-        element = { < Login / > }
-        /> <
-        Route exact path = "/:username-:radio"
-        element = { < AllUsersHome / > }
-        /> < /
-        Routes > <
-        /Router> < /
-        React.StrictMode > ,
-<<<<<<< HEAD
->>>>>>> 80a5fa3 (tony is here)
-=======
->>>>>>> 5cbb207 (tony is here)
 
         document.getElementById("app")
     );
