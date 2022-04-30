@@ -1837,13 +1837,10 @@ const ExamPaper = () => {
                         <div
                             style={{
                                 display: "flex",
-                                justifyContent: "flex-start",
-                                alignItems: "center",
-                                flexWrap: "wrap",
-                                alignContent: "center",
-                                marginLeft: "20%",
-                                marginRight: "20%",
+                                flexDirection: "column",
+                                margin: "20%",
                                 width: "60%",
+                                padding: "0",
                             }}
                         >
                             <div>
