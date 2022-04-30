@@ -14,6 +14,7 @@ import whiteTriangle from "./whiteTriangle.png";
 import remaining from "./remaining.png";
 import danger from "./alertupcoming.png";
 import check from "./check mark.png";
+import createexam from "./createexam.png";
 import App from "../Calendar/App";
 import calenderstyle from "../Calendar/calenderstyle.css";
 import AddQuestions from "../Questions/AddQuestions";
@@ -344,6 +345,8 @@ const AllUsersHome = () => {
                                     setHomeClicked(false);
                                     setScheduleClicked(false);
                                     setQuestionsClicked(false);
+                                    setViewQuestionsClicked(false);
+                                    setAddQuestionsClicked(false);
                                     setProfileClicked(false);
                                     setCreateExamClicked(true);
                                 }}
@@ -355,7 +358,11 @@ const AllUsersHome = () => {
                                     background: "#19736c",
                                 }}
                             >
-                                <img src={rules} alt="" className="h-75 " />
+                                <img
+                                    src={createexam}
+                                    alt=""
+                                    className="h-75 "
+                                />
                                 <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
                                     Create Exam
                                 </span>
@@ -593,6 +600,7 @@ const AllUsersHome = () => {
                                     paddingLeft: "1rem",
                                     background: "#ebebeb",
                                     height: "100%",
+                                    overflow: "auto",
                                 }}
                             >
                                 <CreateExamPage />

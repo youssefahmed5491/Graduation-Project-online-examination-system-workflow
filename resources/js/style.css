@@ -50,6 +50,7 @@
 .error {
     border-style: solid;
     border-color: red;
+    border-radius: 7px;
 }
 .emptyfield {
     color: red;
