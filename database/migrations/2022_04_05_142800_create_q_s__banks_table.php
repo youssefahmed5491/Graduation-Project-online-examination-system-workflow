@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Psy\Util\Json;
 
 class CreateQSBanksTable extends Migration
 {
@@ -15,14 +16,15 @@ class CreateQSBanksTable extends Migration
     {
         Schema::create('q_s__banks', function (Blueprint $table) {
             $table->id();
-            $table->integer('subject_id')->unsigned();
+            $table->string('subject_id');
             $table->string('Qs_Text');
-            $table->string('Qs_Ans');
-            $table->integer("Difficulty_Level");
+            $table->json("QS_Ans")->nullable();
+            $table->string("Difficulty_Level");
+            $table->string("Duration");
+            $table->string("chapter");
+            $table->string("correct_Ans")->nullable();
+            $table->string("type");
             $table->foreign('subject_id')->references('id')->on('subjects');
-
-
-            $table->timestamps();
         });
     }
 

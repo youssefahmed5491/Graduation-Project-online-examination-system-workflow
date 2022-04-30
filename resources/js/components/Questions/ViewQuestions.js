@@ -64,387 +64,372 @@ const ViewQuestions = (divheight) => {
     };
     if (!data) return <h1>tony</h1>;
     return (
-        console.log(data),
-        (
-            <>
-                {data?.map((item) => {
-                    return (
-                        <>
-                            <div className={displaynone}>
-                                <h3 className="fw-bold">{displaynone}</h3>
+        <>
+            {data?.map((item) => {
+                return (
+                    <>
+                        <div className={displaynone}>
+                            <h3 className="fw-bold">{displaynone}</h3>
+                            <div
+                                style={{
+                                    width: "81%",
+                                    height: `${divheight.divheight}px`,
+                                    background: "white",
+                                    position: "absolute",
+                                }}
+                            >
                                 <div
                                     style={{
-                                        width: "81%",
-                                        height: `${divheight.divheight}px`,
-                                        background: "white",
-                                        position: "absolute",
+                                        width: "98%",
+                                        height: "92%",
+                                        margin: "1%",
                                     }}
                                 >
                                     <div
+                                        className="col"
                                         style={{
-                                            width: "98%",
-                                            height: "92%",
                                             margin: "1%",
+                                            height: "100%",
+                                            width: "100%",
                                         }}
                                     >
                                         <div
-                                            className="col"
+                                            className="row w-100  "
                                             style={{
-                                                margin: "1%",
-                                                height: "100%",
-                                                width: "100%",
+                                                overflowY: "auto",
+                                                height: "107%",
                                             }}
                                         >
-                                            <div
-                                                className="row w-100  "
-                                                style={{
-                                                    overflowY: "auto",
-                                                    height: "107%",
-                                                }}
-                                            >
-                                                <div>
-                                                    <table className="table table-borderless">
-                                                        <thead
-                                                            style={{
-                                                                height: `${tableRowHeight}px`,
-                                                                lineHeight:
-                                                                    "100%",
-                                                                background:
-                                                                    "#ebebeb",
-                                                            }}
-                                                        >
-                                                            <tr>
-                                                                <th
-                                                                    scope="col"
-                                                                    style={{
-                                                                        borderRight:
-                                                                            "1px",
-                                                                        borderStyle:
-                                                                            "solid",
-                                                                        borderColor:
-                                                                            "white",
-                                                                    }}
-                                                                >
-                                                                    #
-                                                                </th>
-                                                                <th
-                                                                    scope="col"
-                                                                    style={{
-                                                                        borderRight:
-                                                                            "1px",
-                                                                        borderStyle:
-                                                                            "solid",
-                                                                        borderColor:
-                                                                            "white",
-                                                                    }}
-                                                                >
-                                                                    Questions
-                                                                </th>
-                                                                <th
-                                                                    scope="col"
-                                                                    style={{
-                                                                        borderRight:
-                                                                            "1px",
-                                                                        borderStyle:
-                                                                            "solid",
-                                                                        borderColor:
-                                                                            "white",
-                                                                    }}
-                                                                >
-                                                                    Answer
-                                                                </th>
-                                                                <th
-                                                                    scope="col"
-                                                                    style={{
-                                                                        borderRight:
-                                                                            "1px",
-                                                                        borderStyle:
-                                                                            "solid",
-                                                                        borderColor:
-                                                                            "white",
-                                                                    }}
-                                                                >
-                                                                    Subject
-                                                                </th>
-                                                                <th
-                                                                    scope="col"
-                                                                    style={{
-                                                                        borderRight:
-                                                                            "1px",
-                                                                        borderStyle:
-                                                                            "solid",
-                                                                        borderColor:
-                                                                            "white",
-                                                                    }}
-                                                                >
-                                                                    Difficulty
-                                                                </th>
-                                                                <th
-                                                                    scope="col"
-                                                                    style={{
-                                                                        borderRight:
-                                                                            "1px",
-                                                                        borderStyle:
-                                                                            "solid",
-                                                                        borderColor:
-                                                                            "white",
-                                                                    }}
-                                                                >
-                                                                    Duration
-                                                                </th>
-                                                                <th
-                                                                    scope="col"
-                                                                    style={{
-                                                                        borderRight:
-                                                                            "1px",
-                                                                        borderStyle:
-                                                                            "solid",
-                                                                        borderColor:
-                                                                            "white",
-                                                                    }}
-                                                                >
-                                                                    Status
-                                                                </th>
-                                                                <th scope="col">
-                                                                    Actions
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
+                                            <div>
+                                                <table className="table table-borderless">
+                                                    <thead
+                                                        style={{
+                                                            height: `${tableRowHeight}px`,
+                                                            lineHeight: "100%",
+                                                            background:
+                                                                "#ebebeb",
+                                                        }}
+                                                    >
+                                                        <tr>
+                                                            <th
+                                                                scope="col"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                #
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                Questions
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                Answer
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                Subject
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                Difficulty
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                Duration
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                Status
+                                                            </th>
+                                                            <th scope="col">
+                                                                Actions
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
 
-                                                        <tbody>
-                                                            {currentRows.map(
-                                                                (
-                                                                    row,
-                                                                    index
-                                                                ) => (
-                                                                    <tr
+                                                    <tbody>
+                                                        {currentRows.map(
+                                                            (row, index) => (
+                                                                <tr
+                                                                    style={{
+                                                                        background: `${
+                                                                            index %
+                                                                                2 ==
+                                                                            0
+                                                                                ? "#f7f7f7"
+                                                                                : "#ebebeb"
+                                                                        }`,
+                                                                        height: `${tableRowHeight}px`,
+                                                                        lineHeight:
+                                                                            "100%",
+                                                                    }}
+                                                                    key={index}
+                                                                >
+                                                                    <th
+                                                                        scope="row"
                                                                         style={{
-                                                                            background: `${
-                                                                                index %
-                                                                                    2 ==
-                                                                                0
-                                                                                    ? "#f7f7f7"
-                                                                                    : "#ebebeb"
-                                                                            }`,
-                                                                            height: `${tableRowHeight}px`,
-                                                                            lineHeight:
-                                                                                "100%",
+                                                                            borderRight:
+                                                                                "1px",
+                                                                            borderStyle:
+                                                                                "solid",
+                                                                            borderColor:
+                                                                                "white",
                                                                         }}
-                                                                        key={
-                                                                            index
-                                                                        }
                                                                     >
-                                                                        <th
-                                                                            scope="row"
-                                                                            style={{
-                                                                                borderRight:
-                                                                                    "1px",
-                                                                                borderStyle:
-                                                                                    "solid",
-                                                                                borderColor:
-                                                                                    "white",
-                                                                            }}
-                                                                        >
-                                                                            {
-                                                                                index
+                                                                        {index}
+                                                                    </th>
+                                                                    <td
+                                                                        style={{
+                                                                            borderRight:
+                                                                                "1px",
+                                                                            borderStyle:
+                                                                                "solid",
+                                                                            borderColor:
+                                                                                "white",
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            row.Questions
+                                                                        }
+                                                                    </td>
+                                                                    <td
+                                                                        style={{
+                                                                            borderRight:
+                                                                                "1px",
+                                                                            borderStyle:
+                                                                                "solid",
+                                                                            borderColor:
+                                                                                "white",
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            row.Answer
+                                                                        }
+                                                                    </td>
+                                                                    <td
+                                                                        style={{
+                                                                            borderRight:
+                                                                                "1px",
+                                                                            borderStyle:
+                                                                                "solid",
+                                                                            borderColor:
+                                                                                "white",
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            row.Subject
+                                                                        }
+                                                                    </td>
+                                                                    <td
+                                                                        style={{
+                                                                            borderRight:
+                                                                                "1px",
+                                                                            borderStyle:
+                                                                                "solid",
+                                                                            borderColor:
+                                                                                "white",
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            row.Difficulty
+                                                                        }
+                                                                    </td>
+                                                                    <td
+                                                                        style={{
+                                                                            borderRight:
+                                                                                "1px",
+                                                                            borderStyle:
+                                                                                "solid",
+                                                                            borderColor:
+                                                                                "white",
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            row.Duration
+                                                                        }
+                                                                    </td>
+                                                                    <td
+                                                                        style={{
+                                                                            borderRight:
+                                                                                "1px",
+                                                                            borderStyle:
+                                                                                "solid",
+                                                                            borderColor:
+                                                                                "white",
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            row.Status
+                                                                        }
+                                                                    </td>
+                                                                    <td
+                                                                        style={{
+                                                                            width: "10%",
+                                                                        }}
+                                                                    >
+                                                                        <img
+                                                                            src={
+                                                                                guiViewIcon
                                                                             }
-                                                                        </th>
-                                                                        <td
-                                                                            style={{
-                                                                                borderRight:
-                                                                                    "1px",
-                                                                                borderStyle:
-                                                                                    "solid",
-                                                                                borderColor:
-                                                                                    "white",
+                                                                            onClick={() => {
+                                                                                setGuiViewIconClicked(
+                                                                                    true
+                                                                                );
+                                                                                setEditClicked(
+                                                                                    false
+                                                                                );
+                                                                                setdeleteClicked(
+                                                                                    false
+                                                                                );
                                                                             }}
-                                                                        >
-                                                                            {
-                                                                                row.Questions
+                                                                            alt=""
+                                                                            style={{
+                                                                                width: "30%",
+                                                                                marginRight:
+                                                                                    "13%",
+                                                                            }}
+                                                                            data-bs-toggle="tooltip"
+                                                                            data-bs-placement="bottom"
+                                                                            title="view"
+                                                                        />
+                                                                        <img
+                                                                            src={
+                                                                                edit
                                                                             }
-                                                                        </td>
-                                                                        <td
-                                                                            style={{
-                                                                                borderRight:
-                                                                                    "1px",
-                                                                                borderStyle:
-                                                                                    "solid",
-                                                                                borderColor:
-                                                                                    "white",
+                                                                            onClick={() => {
+                                                                                setGuiViewIconClicked(
+                                                                                    false
+                                                                                );
+                                                                                setEditClicked(
+                                                                                    true
+                                                                                );
+                                                                                setdeleteClicked(
+                                                                                    false
+                                                                                );
+                                                                                setSelectedRow(
+                                                                                    row
+                                                                                );
                                                                             }}
-                                                                        >
-                                                                            {
-                                                                                row.Answer
+                                                                            alt=""
+                                                                            style={{
+                                                                                width: "25%",
+                                                                                marginRight:
+                                                                                    "10%",
+                                                                            }}
+                                                                            data-bs-toggle="tooltip"
+                                                                            data-bs-placement="bottom"
+                                                                            title="edit"
+                                                                        />
+                                                                        <img
+                                                                            src={
+                                                                                Delete
                                                                             }
-                                                                        </td>
-                                                                        <td
-                                                                            style={{
-                                                                                borderRight:
-                                                                                    "1px",
-                                                                                borderStyle:
-                                                                                    "solid",
-                                                                                borderColor:
-                                                                                    "white",
+                                                                            onClick={() => {
+                                                                                setGuiViewIconClicked(
+                                                                                    false
+                                                                                );
+                                                                                setEditClicked(
+                                                                                    false
+                                                                                );
+                                                                                setdeleteClicked(
+                                                                                    true
+                                                                                );
                                                                             }}
-                                                                        >
-                                                                            {
-                                                                                row.Subject
-                                                                            }
-                                                                        </td>
-                                                                        <td
+                                                                            alt=""
                                                                             style={{
-                                                                                borderRight:
-                                                                                    "1px",
-                                                                                borderStyle:
-                                                                                    "solid",
-                                                                                borderColor:
-                                                                                    "white",
+                                                                                width: "20%",
                                                                             }}
-                                                                        >
-                                                                            {
-                                                                                row.Difficulty
-                                                                            }
-                                                                        </td>
-                                                                        <td
-                                                                            style={{
-                                                                                borderRight:
-                                                                                    "1px",
-                                                                                borderStyle:
-                                                                                    "solid",
-                                                                                borderColor:
-                                                                                    "white",
-                                                                            }}
-                                                                        >
-                                                                            {
-                                                                                row.Duration
-                                                                            }
-                                                                        </td>
-                                                                        <td
-                                                                            style={{
-                                                                                borderRight:
-                                                                                    "1px",
-                                                                                borderStyle:
-                                                                                    "solid",
-                                                                                borderColor:
-                                                                                    "white",
-                                                                            }}
-                                                                        >
-                                                                            {
-                                                                                row.Status
-                                                                            }
-                                                                        </td>
-                                                                        <td
-                                                                            style={{
-                                                                                width: "10%",
-                                                                            }}
-                                                                        >
-                                                                            <img
-                                                                                src={
-                                                                                    guiViewIcon
-                                                                                }
-                                                                                onClick={() => {
-                                                                                    setGuiViewIconClicked(
-                                                                                        true
-                                                                                    );
-                                                                                    setEditClicked(
-                                                                                        false
-                                                                                    );
-                                                                                    setdeleteClicked(
-                                                                                        false
-                                                                                    );
-                                                                                }}
-                                                                                alt=""
-                                                                                style={{
-                                                                                    width: "30%",
-                                                                                    marginRight:
-                                                                                        "13%",
-                                                                                }}
-                                                                                data-bs-toggle="tooltip"
-                                                                                data-bs-placement="bottom"
-                                                                                title="view"
-                                                                            />
-                                                                            <img
-                                                                                src={
-                                                                                    edit
-                                                                                }
-                                                                                onClick={() => {
-                                                                                    setGuiViewIconClicked(
-                                                                                        false
-                                                                                    );
-                                                                                    setEditClicked(
-                                                                                        true
-                                                                                    );
-                                                                                    setdeleteClicked(
-                                                                                        false
-                                                                                    );
-                                                                                    setSelectedRow(
-                                                                                        row
-                                                                                    );
-                                                                                }}
-                                                                                alt=""
-                                                                                style={{
-                                                                                    width: "25%",
-                                                                                    marginRight:
-                                                                                        "10%",
-                                                                                }}
-                                                                                data-bs-toggle="tooltip"
-                                                                                data-bs-placement="bottom"
-                                                                                title="edit"
-                                                                            />
-                                                                            <img
-                                                                                src={
-                                                                                    Delete
-                                                                                }
-                                                                                onClick={() => {
-                                                                                    setGuiViewIconClicked(
-                                                                                        false
-                                                                                    );
-                                                                                    setEditClicked(
-                                                                                        false
-                                                                                    );
-                                                                                    setdeleteClicked(
-                                                                                        true
-                                                                                    );
-                                                                                }}
-                                                                                alt=""
-                                                                                style={{
-                                                                                    width: "20%",
-                                                                                }}
-                                                                                data-bs-toggle="tooltip"
-                                                                                data-bs-placement="bottom"
-                                                                                title="delete"
-                                                                            />
-                                                                        </td>
-                                                                    </tr>
-                                                                )
-                                                            )}
-                                                        </tbody>
-                                                    </table>
-                                                    <Pagination
-                                                        rowsPerPage={
-                                                            rowsPerPage
-                                                        }
-                                                        totalRows={rows.length}
-                                                        paginate={paginate}
-                                                    />
-                                                </div>
+                                                                            data-bs-toggle="tooltip"
+                                                                            data-bs-placement="bottom"
+                                                                            title="delete"
+                                                                        />
+                                                                    </td>
+                                                                </tr>
+                                                            )
+                                                        )}
+                                                    </tbody>
+                                                </table>
+                                                <Pagination
+                                                    rowsPerPage={rowsPerPage}
+                                                    totalRows={rows.length}
+                                                    paginate={paginate}
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className={guiViewIconclassname}>
-                                view clicked
-                            </div>
-                            <div className={editclassname}>
-                                <EditQuestions selectedRow={selectedRow} />
-                            </div>
-                            <div className={deletelassname}>delete clicked</div>
-                        </>
-                    );
-                })}
-            </>
-        )
+                        </div>
+                        <div className={guiViewIconclassname}>view clicked</div>
+                        <div className={editclassname}>
+                            <EditQuestions selectedRow={selectedRow} />
+                        </div>
+                        <div className={deletelassname}>delete clicked</div>
+                    </>
+                );
+            })}
+        </>
     );
 };
 
