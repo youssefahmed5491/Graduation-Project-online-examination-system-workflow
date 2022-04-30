@@ -19,11 +19,7 @@ import calenderstyle from "../Calendar/calenderstyle.css";
 import AddQuestions from "../Questions/AddQuestions";
 import ViewQuestions from "../Questions/ViewQuestions";
 import ProfilePage from "../ProfilePage/ProfilePage";
-<<<<<<< HEAD
 import CreateExamPage from "../CreateExamPage/CreateExamPage";
-=======
-import CreateExam from "../CreateExam/CreateExam";
->>>>>>> 5bbdd0a1056d4ceb145461874109524cc26ec9a7
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
@@ -366,7 +362,7 @@ const AllUsersHome = () => {
                             </button>
                         )}
                     </div>
-                    {/* {!scheduleClicked &&
+                    {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
@@ -500,7 +496,7 @@ const AllUsersHome = () => {
                                     </div>
                                 </div>
                             </div>
-                        )} */}
+                        )}
 
                     {!homeClicked &&
                         scheduleClicked &&
@@ -521,31 +517,20 @@ const AllUsersHome = () => {
                             </div>
                         )}
 
-                    {/* {!homeClicked &&
+                    {!homeClicked &&
                         !scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
-<<<<<<< HEAD
-                        profileClicked && */}
-                    {!scheduleClicked &&
-                        !adjustClicked &&
-                        !examClicked &&
-                        !viewQuestionsClicked &&
-                        !addQuestionsClicked &&
-                        !profileClicked && (
-=======
-                        profileClicked &&
-                        !createExamClicked && (
->>>>>>> 5bbdd0a1056d4ceb145461874109524cc26ec9a7
+                        profileClicked && (
                             <div
                                 className="col "
                                 style={{
                                     background: "#ebebeb",
                                 }}
                             >
-                                <CreateExamPage />
+                                <ProfilePage />
                             </div>
                         )}
 
@@ -595,33 +580,24 @@ const AllUsersHome = () => {
                                 <AddQuestions divheight={divheight} />
                             </div>
                         )}
-                    {
-                        // !homeClicked &&
-                        //     !scheduleClicked &&
-                        //     !viewQuestionsClicked &&
-                        //     !addQuestionsClicked &&
-                        //     !profileClicked &&
-                        //     createExamClicked &&
+                    {!homeClicked &&
                         !scheduleClicked &&
-                            !adjustClicked &&
-                            !examClicked &&
-                            !viewQuestionsClicked &&
-                            !addQuestionsClicked &&
-                            !profileClicked &&
-                            !createExamClicked && (
-                                <div
-                                    className="col"
-                                    style={{
-                                        paddingTop: "5px",
-                                        paddingLeft: "1rem",
-                                        background: "#ebebeb",
-                                        height: "100%",
-                                    }}
-                                >
-                                    <CreateExam />
-                                </div>
-                            )
-                    }
+                        !viewQuestionsClicked &&
+                        !addQuestionsClicked &&
+                        !profileClicked &&
+                        createExamClicked && (
+                            <div
+                                className="col"
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                            >
+                                <CreateExamPage />
+                            </div>
+                        )}
                 </div>
             </div>
         </>
