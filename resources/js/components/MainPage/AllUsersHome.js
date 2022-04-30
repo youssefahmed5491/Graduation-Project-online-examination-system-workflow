@@ -527,7 +527,6 @@ const AllUsersHome = () => {
                         !examClicked &&
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
-<<<<<<< HEAD
                         profileClicked && */}
                     {!scheduleClicked &&
                         !adjustClicked &&
@@ -535,10 +534,6 @@ const AllUsersHome = () => {
                         !viewQuestionsClicked &&
                         !addQuestionsClicked &&
                         !profileClicked && (
-=======
-                        profileClicked &&
-                        !createExamClicked && (
->>>>>>> 5bbdd0a1056d4ceb145461874109524cc26ec9a7
                             <div
                                 className="col "
                                 style={{
