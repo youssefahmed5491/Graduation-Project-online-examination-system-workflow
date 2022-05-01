@@ -17,7 +17,7 @@ const CreateExamPage = () => {
     const [dateError, setDateError] = useState("");
     const [timeError, setTimeError] = useState("");
     const [numberOfModelsError, setNumberOfModelsError] = useState("");
-    const options = [];
+
     const selectSubjectOptions = [
         "...",
         "Math",
@@ -30,6 +30,19 @@ const CreateExamPage = () => {
     const MCQAmount = ["...", 2, 3, 4, 5, 6];
     const [togleMCQAmount, setTogleMCQAmount] = useState(false);
 
+    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
+    let wantedarray = [];
+    const addvalue = (getarray) => {
+        wantedarray = [];
+        for (let index = 0; index < getarray.length; index++) {
+            wantedarray.push({
+                value: getarray[index],
+                label: getarray[index],
+            });
+        }
+        return wantedarray;
+    };
+    const options = addvalue(getarray);
     const handleChangeSelectSubject = (e) => {
         console.log(e.target.value);
     };
@@ -133,13 +146,7 @@ const CreateExamPage = () => {
                         <div className="fs-5 fw-bold mb-2">Select Subject</div>
                         <Select
                             className={subjectError}
-                            options={[
-                                { value: "Math", label: "Math" },
-                                { value: "Graph", label: "Graph" },
-                                { value: "Physics1", label: "Physics1" },
-                                { value: "Physics2", label: "Physics2" },
-                                { value: "Graph2", label: "Graph2" },
-                            ]}
+                            options={options}
                             placeholder={"eg:Math"}
                             value={options.find((obj) => obj.value === subject)}
                             onChange={(e) => {

@@ -8066,7 +8066,6 @@ var CreateExamPage = function CreateExamPage() {
       numberOfModelsError = _useState28[0],
       setNumberOfModelsError = _useState28[1];
 
-  var options = [];
   var selectSubjectOptions = ["...", "Math", "Graph", "Physics1", "Physics2", "Graph2"];
   var selectExamType = ["...", "MCQ", "Text Question"];
   var MCQAmount = ["...", 2, 3, 4, 5, 6];
@@ -8075,6 +8074,24 @@ var CreateExamPage = function CreateExamPage() {
       _useState30 = _slicedToArray(_useState29, 2),
       togleMCQAmount = _useState30[0],
       setTogleMCQAmount = _useState30[1];
+
+  var getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
+  var wantedarray = [];
+
+  var addvalue = function addvalue(getarray) {
+    wantedarray = [];
+
+    for (var index = 0; index < getarray.length; index++) {
+      wantedarray.push({
+        value: getarray[index],
+        label: getarray[index]
+      });
+    }
+
+    return wantedarray;
+  };
+
+  var options = addvalue(getarray);
 
   var handleChangeSelectSubject = function handleChangeSelectSubject(e) {
     console.log(e.target.value);
@@ -8194,22 +8211,7 @@ var CreateExamPage = function CreateExamPage() {
             children: "Select Subject"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
             className: subjectError,
-            options: [{
-              value: "Math",
-              label: "Math"
-            }, {
-              value: "Graph",
-              label: "Graph"
-            }, {
-              value: "Physics1",
-              label: "Physics1"
-            }, {
-              value: "Physics2",
-              label: "Physics2"
-            }, {
-              value: "Graph2",
-              label: "Graph2"
-            }],
+            options: options,
             placeholder: "eg:Math",
             value: options.find(function (obj) {
               return obj.value === subject;
@@ -10843,6 +10845,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../HomePage/2560px-Adidas_Logo.svg.png */ "./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png");
 /* harmony import */ var _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile icon.png */ "./resources/js/components/MainPage/profile icon.png");
 /* harmony import */ var _notif_bell_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notif bell.png */ "./resources/js/components/MainPage/notif bell.png");
@@ -11371,6 +11374,119 @@ var AllUsersHome = function AllUsersHome() {
               children: "Assign Proctor"
             })]
           })]
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#3eba3e",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+              className: "text-light fw-bolder Exams-font-size  p-3",
+              children: "Remaining Exams"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+              className: "row ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: "6"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                className: "col",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("img", {
+                  src: _remaining_png__WEBPACK_IMPORTED_MODULE_10__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "70%"
+                  }
+                })
+              })]
+            })]
+          })
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Link, {
+            to: "/".concat(username, "/exam"),
+            className: "bol",
+            href: "",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+              style: {
+                width: "100%",
+                backgroundColor: "#fe4545",
+                borderRadius: "5%"
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                className: "text-light fw-bolder  Exams-font-size p-3",
+                children: "Upcoming Exam"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+                className: "row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                  className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                  style: {
+                    fontSize: "60px"
+                  },
+                  children: "6"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                  className: "col p-2",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("img", {
+                    src: _alertupcoming_png__WEBPACK_IMPORTED_MODULE_11__["default"],
+                    alt: "",
+                    className: " ",
+                    style: {
+                      height: "80%",
+                      width: "60%"
+                    }
+                  })
+                })]
+              })]
+            })
+          })
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+          className: "col p-5 ",
+          style: {
+            background: "#ebebeb"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+            style: {
+              width: "100%",
+              backgroundColor: "#f0a400",
+              borderRadius: "5%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+              className: "text-light fw-bolder  Exams-font-size p-3",
+              children: "Completed Exam"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+              className: "row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                className: "col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  ",
+                style: {
+                  fontSize: "60px"
+                },
+                children: "6"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                className: "col p-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("img", {
+                  src: _check_mark_png__WEBPACK_IMPORTED_MODULE_12__["default"],
+                  alt: "",
+                  className: " ",
+                  style: {
+                    height: "80%",
+                    width: "60%"
+                  }
+                })
+              })]
+            })]
+          })
         }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col",
           style: {
@@ -11438,13 +11554,7 @@ var AllUsersHome = function AllUsersHome() {
             overflow: "auto"
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_CreateExamPage_CreateExamPage__WEBPACK_IMPORTED_MODULE_20__["default"], {})
-        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked &&
-        /*#__PURE__*/
-        // !homeClicked &&
-        //     !scheduleClicked &&
-        //     !profileClicked &&
-        //     assignProctorClicked &&
-        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && !profileClicked && assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col",
           style: {
             paddingTop: "5px",
@@ -11788,6 +11898,8 @@ var AddQuestion = function AddQuestion(divheight) {
   var wantedarray = [];
 
   var addvalue = function addvalue(getarray) {
+    wantedarray = [];
+
     for (var index = 0; index < getarray.length; index++) {
       wantedarray.push({
         value: getarray[index],

@@ -10,8 +10,9 @@ const AddQuestion = (divheight) => {
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
     const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
-    const wantedarray = [];
+    let wantedarray = [];
     const addvalue = (getarray) => {
+        wantedarray = [];
         for (let index = 0; index < getarray.length; index++) {
             wantedarray.push({
                 value: getarray[index],

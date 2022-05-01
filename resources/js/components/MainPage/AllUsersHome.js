@@ -429,7 +429,7 @@ const AllUsersHome = () => {
                             </button>
                         )}
                     </div>
-                    {/* {!scheduleClicked &&
+                    {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
@@ -566,7 +566,7 @@ const AllUsersHome = () => {
                                     </div>
                                 </div>
                             </div>
-                        )} */}
+                        )}
 
                     {!homeClicked &&
                         scheduleClicked &&
@@ -698,18 +698,10 @@ const AllUsersHome = () => {
                                 <CreateExamPage />
                             </div>
                         )}
-                    {!scheduleClicked &&
-                        !adjustClicked &&
-                        !examClicked &&
-                        !viewQuestionsClicked &&
-                        !addQuestionsClicked &&
+                    {!homeClicked &&
+                        !scheduleClicked &&
                         !profileClicked &&
-                        !createExamClicked &&
-                        !assignProctorClicked && (
-                            // !homeClicked &&
-                            //     !scheduleClicked &&
-                            //     !profileClicked &&
-                            //     assignProctorClicked &&
+                        assignProctorClicked && (
                             <div
                                 className="col"
                                 style={{
