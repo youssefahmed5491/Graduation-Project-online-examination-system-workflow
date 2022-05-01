@@ -22,6 +22,8 @@ import AddQuestions from "../Questions/AddQuestions";
 import ViewQuestions from "../Questions/ViewQuestions";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import CreateExamPage from "../CreateExamPage/CreateExamPage";
+import { auto } from "@popperjs/core";
+import AssignProcror from "../AssignProctor/AssignProcror";
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
@@ -86,6 +88,28 @@ const AllUsersHome = () => {
     const divwidth = (width - (16 / 100) * width - 630) / 2;
     const divheight = height - (7 / 100) * height - 65;
     console.log(divwidth, divheight);
+
+    const [playing, setPlaying] = useState(false);
+    const startVideo = () => {
+        setPlaying(true);
+        navigator.getUserMedia(
+            {
+                video: true,
+            },
+            (stream) => {
+                let video = document.getElementsByClassName("myvideo")[0];
+                if (video) {
+                    video.srcObject = stream;
+                }
+            },
+            (err) => console.log(err)
+        );
+    };
+    const stopVideo = () => {
+        setPlaying(false);
+        let video = document.getElementsByClassName("myvideo")[0];
+        video.srcObject.getTracks()[0].stop();
+    };
     return (
         <>
             <div
@@ -119,6 +143,7 @@ const AllUsersHome = () => {
                                 setAddQuestionsClicked(false);
                                 setProfileClicked(true);
                                 setCreateExamClicked(false);
+                                stopVideo();
                             }}
                         >
                             <img src={profile} alt="" className="h-100 " />
@@ -176,6 +201,7 @@ const AllUsersHome = () => {
                                 setAddQuestionsClicked(false);
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
+                                stopVideo();
                             }}
                             className={homeClassName}
                             style={{
@@ -204,6 +230,7 @@ const AllUsersHome = () => {
                                 setAddQuestionsClicked(false);
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
+                                stopVideo();
                             }}
                             className={scheduleClassName}
                             style={{
@@ -221,6 +248,7 @@ const AllUsersHome = () => {
                         {radio === "Student" && (
                             <button
                                 onClick={() => {
+                                    startVideo();
                                     setHomeClicked(false);
                                     setScheduleClicked(false);
                                     setAdjustClicked(true);
@@ -249,6 +277,7 @@ const AllUsersHome = () => {
                                     setAdjustClicked(false);
                                     setExamClicked(true);
                                     setProfileClicked(false);
+                                    stopVideo();
                                 }}
                                 className={examClassName}
                                 style={{
@@ -400,7 +429,7 @@ const AllUsersHome = () => {
                             </button>
                         )}
                     </div>
-                    {!scheduleClicked &&
+                    {/* {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !viewQuestionsClicked &&
@@ -537,7 +566,7 @@ const AllUsersHome = () => {
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        )} */}
 
                     {!homeClicked &&
                         scheduleClicked &&
@@ -582,7 +611,33 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         adjustClicked &&
                         !examClicked &&
-                        !profileClicked && <h1 className="col m-5 ">adjust</h1>}
+                        !profileClicked && (
+                            <div
+                                className="col  "
+                                style={{
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                    width: "100%",
+                                    padding: "0",
+                                }}
+                            >
+                                <>
+                                    <div>
+                                        <video
+                                            className="myvideo"
+                                            height={
+                                                height - (7 / 100) * height - 10
+                                            }
+                                            width={
+                                                width - (16 / 100) * width - 15
+                                            }
+                                            muted
+                                            autoPlay
+                                        ></video>
+                                    </div>
+                                </>
+                            </div>
+                        )}
                     {!homeClicked &&
                         !scheduleClicked &&
                         !adjustClicked &&
@@ -643,10 +698,18 @@ const AllUsersHome = () => {
                                 <CreateExamPage />
                             </div>
                         )}
-                    {!homeClicked &&
-                        !scheduleClicked &&
+                    {!scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !viewQuestionsClicked &&
+                        !addQuestionsClicked &&
                         !profileClicked &&
-                        assignProctorClicked && (
+                        !createExamClicked &&
+                        !assignProctorClicked && (
+                            // !homeClicked &&
+                            //     !scheduleClicked &&
+                            //     !profileClicked &&
+                            //     assignProctorClicked &&
                             <div
                                 className="col"
                                 style={{
@@ -654,9 +717,10 @@ const AllUsersHome = () => {
                                     paddingLeft: "1rem",
                                     background: "#ebebeb",
                                     height: "100%",
+                                    overflow: "auto",
                                 }}
                             >
-                                hi
+                                <AssignProcror />
                             </div>
                         )}
                 </div>
