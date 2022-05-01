@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\professor;
 use Illuminate\Http\Request;
 
-class ProfessorController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,6 @@ class ProfessorController extends Controller
     {
         //
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -33,23 +30,22 @@ class ProfessorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\professor  $professor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(professor $professor)
+    public function show($id)
     {
         //
     }
-
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\professor  $professor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, professor $professor)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -57,10 +53,10 @@ class ProfessorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\professor  $professor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(professor $professor)
+    public function destroy($id)
     {
         //
     }

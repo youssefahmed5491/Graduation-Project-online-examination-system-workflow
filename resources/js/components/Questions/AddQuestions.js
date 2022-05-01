@@ -163,7 +163,7 @@ const AddQuestion = (divheight) => {
 
             console.log({ data });
             //document.getElementById("nameForm").submit();
-            axios.post("/api/AddQS", request).then((response) => {
+            axios.post("/api/QSBank", request).then((response) => {
                 console.log({ response });
             });
         } else {

@@ -15,6 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
-
-Route::post('AddQS', [App\Http\Controllers\QSBankController::class, "addqS"]);
-Route::get('viewqs', [App\Http\Controllers\QSBankController::class, "viewqs"]);
+Route::apiResource("QSBank", QSBankController::class);

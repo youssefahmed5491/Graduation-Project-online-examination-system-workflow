@@ -5,10 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+
 class QS_Bank extends Model
 {
 
+
     use HasFactory;
+
 
     public function subject()
     {
@@ -17,6 +21,7 @@ class QS_Bank extends Model
 
 
     protected $casts = [
+        "id",
         "QS_TEXT",
         "QS_Ans" => 'array',
         "Duration",

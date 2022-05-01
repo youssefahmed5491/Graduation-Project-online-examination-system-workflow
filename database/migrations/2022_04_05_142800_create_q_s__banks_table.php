@@ -15,7 +15,7 @@ class CreateQSBanksTable extends Migration
     public function up()
     {
         Schema::create('q_s__banks', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('subject_id');
             $table->string('Qs_Text');
             $table->json("QS_Ans")->nullable();

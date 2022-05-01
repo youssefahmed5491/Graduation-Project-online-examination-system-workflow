@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class student extends Model
 {
-    protected $connection="mysql2";
+    protected $connection = "mysql2";
     use HasFactory;
 }

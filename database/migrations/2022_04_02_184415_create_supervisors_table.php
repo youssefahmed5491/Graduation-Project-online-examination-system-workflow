@@ -14,10 +14,10 @@ class CreateSupervisorsTable extends Migration
     public function up()
     {
         Schema::connection("mysql2")->create('supervisors', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->primary();
             $table->string('username');
             $table->string('password');
-            $table->integer('subject_id')->unsigned();
+            $table->string('subject_id');
             $table->timestamps();
         });
     }

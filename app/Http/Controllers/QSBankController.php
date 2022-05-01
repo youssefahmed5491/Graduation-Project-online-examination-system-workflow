@@ -12,12 +12,7 @@ use function PHPUnit\Framework\assertJson;
 
 class QSBankController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    function addqs(Request $request)
+    function store(Request $request)
     {
 
         if ($request->type == "written") {
@@ -29,8 +24,6 @@ class QSBankController extends Controller
                 "Difficulty_Level" => $request->difficulty,
                 "Duration" => $request->duration,
                 "type" => $request->type,
-
-
             ]);
         } else {
             QS_Bank::insert([
@@ -50,39 +43,19 @@ class QSBankController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
-    public function viewqs()
+    public function index()
     {
-        $Questions = QS_Bank::all();
-        $response = json_decode($Questions, true);
-
-
-        //$converted_selected =  explode('""', $response[0]);
-
-        return  $response;
+        $questions = QS_Bank::all();
+        return  response()->json($questions);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\QS_Bank  $qS_Bank
-     * @return \Illuminate\Http\Response
-     */
-    public function show(QS_Bank $qS_Bank)
+    public function show(QS_Bank $QSBank)
     {
-        //
+
+        return response()->json($QSBank);
     }
 
     /**

@@ -14,7 +14,7 @@ class CreateProctorsTable extends Migration
     public function up()
     {
         Schema::connection("mysql2")->create('proctors', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->primary();
 
             //for one to many relation
             $table->integer('system_manager_id');
