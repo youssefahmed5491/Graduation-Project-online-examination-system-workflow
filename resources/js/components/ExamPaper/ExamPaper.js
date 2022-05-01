@@ -1932,11 +1932,12 @@ const ExamPaper = () => {
                             <button
                                 style={{
                                     width: "80%",
-                                    height: "35%",
+                                    height: "50%",
                                     marginLeft: "10%",
                                     fontSize: "140%",
                                     background: "blue",
                                     borderRadius: "10px",
+                                    paddingBottom: "10px",
                                 }}
                             >
                                 Submit Exam

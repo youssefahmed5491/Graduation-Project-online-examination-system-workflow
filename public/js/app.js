@@ -10124,11 +10124,12 @@ var ExamPaper = function ExamPaper() {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
               style: {
                 width: "80%",
-                height: "35%",
+                height: "50%",
                 marginLeft: "10%",
                 fontSize: "140%",
                 background: "blue",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                paddingBottom: "10px"
               },
               children: "Submit Exam"
             })

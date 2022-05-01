@@ -1,3 +1,0 @@
-green 3eba3e
-orange f0a400
-red fe4545
