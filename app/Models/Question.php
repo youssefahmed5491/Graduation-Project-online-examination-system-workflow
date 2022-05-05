@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class QS_Bank extends Model
+class Question extends Model
 {
 
 

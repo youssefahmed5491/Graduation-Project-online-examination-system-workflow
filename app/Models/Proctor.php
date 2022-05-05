@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class proctor extends Model
+class Proctor extends Model
 {
     protected $connection="mysql2";
     use HasFactory;
@@ -18,7 +18,7 @@ class proctor extends Model
     {
         return $this->belongsTo('App\Models\subject', 'subject_id' );
     }
-    
+
     public function professor()
     {
         return $this->belongsToMany('App\Models\professor' );

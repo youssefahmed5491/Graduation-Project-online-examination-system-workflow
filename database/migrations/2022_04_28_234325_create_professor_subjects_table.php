@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProfessorSubject extends Migration
+class CreateProfessorSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class ProfessorSubject extends Migration
      */
     public function up()
     {
-        Schema::create('professor_subject', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('subject_id');
-            $table->integer('professor_id');
+        Schema::connection("mysql2")->create('professor_subjects', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(\App\Models\Professor::class);
+            $table->foreignIdFor(\App\Models\Subject::class);
             $table->timestamps();
         });
     }

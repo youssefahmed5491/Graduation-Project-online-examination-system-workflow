@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProfessorProctor extends Migration
+class CreateExamQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class ProfessorProctor extends Migration
      */
     public function up()
     {
-        Schema::create('professor_proctor', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('proctor_id');
-            $table->integer('professor_id');
+
+        Schema::create('exam_questions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(\App\Models\Exam::class);
+            $table->foreignIdFor(\App\Models\Question::class);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class ProfessorProctor extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('exam_questions');
     }
 }

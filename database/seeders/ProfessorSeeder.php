@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
-use phpDocumentor\Reflection\Types\Integer;
+use App\Models\Professor;
 
 class ProfessorSeeder extends Seeder
 {
@@ -17,22 +14,18 @@ class ProfessorSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection("mysql2")->table('professors')->insert(
+        Professor::create(
             [
-                [
-                    "id" => "123",
-                    'username' => ("tony"),
-                    'email' => 'tonyfayez@gmail.com',
-                    'password' => ('123456789'),
-                    "subject_id" => ('Math'),
-                ],
-                [
-                    "id" => "456",
-                    'username' => ("ahmed"),
-                    'email' => 'ahmed@gmail.com',
-                    'password' => ('123456789'),
-                    "subject_id" => ('physics1'),
-                ]
+                'username' => "ahmed",
+                'email' => 'ahmed@gmail.com',
+                'password' => '123456789',
+            ]
+        );
+        Professor::create(
+            [
+                'username' => 'tony',
+                'email' => 'tonyfayez@gmail.com',
+                'password' => '123456789',
             ]
         );
     }

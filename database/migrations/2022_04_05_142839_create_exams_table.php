@@ -15,8 +15,7 @@ class CreateExamsTable extends Migration
     {
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
-            $table->integer("Qs_id")->unsigned();
-            $table->foreign("Qs_id")->references("id")->on("qs_banks");
+            $table->foreignIdFor(\App\Models\Subject::class);
             $table->timestamps();
         });
     }

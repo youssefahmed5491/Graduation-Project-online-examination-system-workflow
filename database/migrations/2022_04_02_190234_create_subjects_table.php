@@ -13,35 +13,25 @@ class CreateSubjectsTable extends Migration
      */
     public function up()
     {
+        // subjects:
+        // id: 1, name: 'Math'
+        // id: 2, name: 'Mechanics'
+
+        // students:
+        // id: 1, name: 'Tony
+        // id: 2, name: 'Ray'
+
+        // subject_students: 'pivot table'
+        // id: 1, student_id: 2, subject_id: 1
+        // id: 2, student_id: 2, subject_id: 2
+        // id: 3, student_id: 1, subject_id: 1
         Schema::connection("mysql2")->create('subjects', function (Blueprint $table) {
-
-            $table->string('id')->primary();
-            // for one to one relation
-
-            $table->integer('supervisor_id')->unsigned();
-
-            //////////////////////////
-            $table->integer('Exam_id')->unsigned();
-            $table->integer('StudentExam_id')->unsigned();
-            $table->integer('student_id');
-            $table->string('subject_name');
-            $table->string('subject_supervisor');
-            $table->string('professor'); // we want to make this array of strings
-            $table->longText('set_of_crieria'); // we want to make this array of strings
-            $table->integer('student_num');
+            $table->id();
+            $table->foreignIdFor(\App\Models\Supervisor::class);
+            $table->string('title');
+            $table->string('uid');
+            $table->longText('set_of_criteria'); // we want to make this array of strings
             $table->timestamps();
-
-            //checked (for one to one relation)
-
-
-            $table->foreign('supervisor_id')->references('id')->on('college.supervisors')
-                ->onDelete('cascade');
-            ///////////////////////////////////
-
-            // $table->foreign('Exam_id')->references('id')->on('Emax')->onDelete('cascade');
-
-            // $table->foreign('StudentExam_id')->references('id')->on('StudentExam')->onDelete('cascade');
-
         });
     }
 

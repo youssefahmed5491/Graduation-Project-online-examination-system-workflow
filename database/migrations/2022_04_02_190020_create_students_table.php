@@ -14,13 +14,10 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::connection("mysql2")->create('students', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->id();
             $table->string('username');
             $table->string('password');
-            $table->string('subject_id');
             $table->timestamps();
-
-            //$table->foreign('subject_id')->references('id')->on('subjects');
         });
     }
 

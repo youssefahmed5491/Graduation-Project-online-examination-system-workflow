@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Supervisor;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Subject;
 
 class SubjectsSeeder extends Seeder
 {
@@ -14,20 +15,21 @@ class SubjectsSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection("mysql2")->table('subjects')->insert([
-            "id" => "Math",
-            "supervisor_id" => 1,
-            "Exam_id" => 1,
-            "StudentExam_id" => 1,
-            "student_id" => 1,
-            "subject_name" => "Math",
-            "subject_supervisor" => "Dr ahmed",
-            "professor" => "dr maro",
-            "set_of_crieria" => "anything",
-            "student_num" => 150,
-
-
-
+        $subject1 = new Subject([
+            "title" => "Math",
+            'uid' => 'M101',
+            'set_of_criteria' => ['C1', 'C2', 'C3'],
         ]);
+        Supervisor::find(1)->subject()->save($subject1);
+
+        $subject2 = new Subject([
+            "title" => "Mechanics",
+            'uid' => 'Mech101',
+            'set_of_criteria' => ['C4', 'C5', 'C6']
+        ]);
+
+        Supervisor::find(2)->subject()->save($subject2);
+
+
     }
 }

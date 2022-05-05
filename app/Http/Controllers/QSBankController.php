@@ -2,38 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QS_Bank;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Nette\Utils\Json;
 
 use function PHPUnit\Framework\assertJson;
+use App\Models\Subject;
 
 class QSBankController extends Controller
 {
     function store(Request $request)
     {
-
+        $subjectdetails = Subject::where("title", "=", $request->subject)->get;
+        info($subjectdetails);
         if ($request->type == "written") {
-            QS_Bank::insert([
-                "correct_Ans" => $request->answerText,
-                "subject_id" => $request->subject,
+            Question::insert([
+                "correct_answer" => $request->answerText,
+                "subject_id" => $subjectdetails->id,
                 "chapter" => $request->chapterNumber,
-                "Qs_Text" => $request->questionText,
-                "Difficulty_Level" => $request->difficulty,
-                "Duration" => $request->duration,
+                "text" => $request->questionText,
+                "difficulty_level" => $request->difficulty,
+                "duration" => $request->duration,
                 "type" => $request->type,
             ]);
         } else {
-            QS_Bank::insert([
-                "QS_Ans" => json_encode($request->answersarray),
-                "correct_Ans" => $request->mcqcorrectans,
-                "subject_id" => $request->subject,
+            Question::insert([
+                "mcq_answers" => json_encode($request->answersarray),
+                "correct_answer" => $request->mcqcorrectans,
+                "subject_id" => $subjectdetails->id,
                 "chapter" => $request->chapterNumber,
-                "Qs_Text" => $request->questionText,
-                "Difficulty_Level" => $request->difficulty,
-                "Duration" => $request->duration,
+                "text" => $request->questionText,
+                "difficulty_level" => $request->difficulty,
+                "duration" => $request->duration,
                 "type" => $request->type,
 
             ]);
@@ -47,12 +49,12 @@ class QSBankController extends Controller
      */
     public function index()
     {
-        $questions = QS_Bank::all();
+        $questions = Question::all();
         return  response()->json($questions);
     }
 
 
-    public function show(QS_Bank $QSBank)
+    public function show(Question $QSBank)
     {
 
         return response()->json($QSBank);
@@ -61,10 +63,10 @@ class QSBankController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\QS_Bank  $qS_Bank
+     * @param  \App\Models\Question  $qS_Bank
      * @return \Illuminate\Http\Response
      */
-    public function edit(QS_Bank $qS_Bank)
+    public function edit(Question $qS_Bank)
     {
         //
     }
@@ -73,10 +75,10 @@ class QSBankController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\QS_Bank  $qS_Bank
+     * @param  \App\Models\Question  $qS_Bank
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QS_Bank $qS_Bank)
+    public function update(Request $request, Question $qS_Bank)
     {
         //
     }
@@ -84,10 +86,10 @@ class QSBankController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\QS_Bank  $qS_Bank
+     * @param  \App\Models\Question  $qS_Bank
      * @return \Illuminate\Http\Response
      */
-    public function destroy(QS_Bank $qS_Bank)
+    public function destroy(Question $qS_Bank)
     {
         //
     }

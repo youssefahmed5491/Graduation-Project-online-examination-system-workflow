@@ -11218,19 +11218,17 @@ var AddQuestion = function AddQuestion(divheight) {
       var mcqcorrectans = data[radio - 1];
       var request = {
         subject: subject,
-        chapterNumber: chapterNumber,
+        chapterNumber: parseInt(chapterNumber),
         difficulty: difficulty,
-        duration: duration,
+        duration: parseInt(duration),
         questionText: questionText,
         answerText: answerText,
         actualNumberOfChoices: actualNumberOfChoices,
         answersarray: data,
         type: questionType,
         mcqcorrectans: mcqcorrectans
-      };
-      console.log({
-        data: data
-      }); //document.getElementById("nameForm").submit();
+      }; // console.log(request.difficulty);
+      //document.getElementById("nameForm").submit();
 
       axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/QSBank", request).then(function (response) {
         console.log({
@@ -11348,7 +11346,7 @@ var AddQuestion = function AddQuestion(divheight) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: chapterNumberError,
             options: [{
-              value: "ch1",
+              value: "1",
               label: "ch1"
             }],
             placeholder: "eg:ch 10",
@@ -11373,13 +11371,13 @@ var AddQuestion = function AddQuestion(divheight) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: difficultyError,
             options: [{
-              value: "easy",
+              value: "0",
               label: "Eazy"
             }, {
-              value: "medium",
+              value: "1",
               label: "Medium"
             }, {
-              value: "hard",
+              value: "2",
               label: "Hard"
             }],
             placeholder: "eg:easy",
@@ -11830,7 +11828,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var ViewQuestions = function ViewQuestions(divheight) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get("/api/QSBank/{id}").then(function (response) {
+    axios.get("/api/QSBank").then(function (response) {
       var data = response.data;
 
       if (data) {

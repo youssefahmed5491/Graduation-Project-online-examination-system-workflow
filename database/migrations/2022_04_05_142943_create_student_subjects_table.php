@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudentExamsTable extends Migration
+class CreateStudentSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateStudentExamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('student_exams', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('student_subjects', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(\App\Models\Subject::class);
             $table->foreignIdFor(\App\Models\Student::class);
             $table->foreignIdFor(\App\Models\Exam::class);
-            $table->text('answers');
-            $table->string('model');
+            $table->dateTime('date_time');
+            $table->float('duration');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateStudentExamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_exams');
+        Schema::dropIfExists('schedeules');
     }
 }

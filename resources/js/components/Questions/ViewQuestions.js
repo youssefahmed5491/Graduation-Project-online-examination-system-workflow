@@ -10,7 +10,7 @@ import Delete from "./viewquestions/Delete-Alt-256.png";
 
 const ViewQuestions = (divheight) => {
     useEffect(() => {
-        axios.get("/api/QSBank/{id}").then((response) => {
+        axios.get("/api/QSBank").then((response) => {
             const data = response.data;
             if (data) {
                 setData(data);

@@ -150,9 +150,9 @@ const AddQuestion = (divheight) => {
             var mcqcorrectans = data[radio - 1];
             const request = {
                 subject: subject,
-                chapterNumber: chapterNumber,
+                chapterNumber: parseInt(chapterNumber),
                 difficulty: difficulty,
-                duration: duration,
+                duration: parseInt(duration),
                 questionText: questionText,
                 answerText: answerText,
                 actualNumberOfChoices: actualNumberOfChoices,
@@ -161,7 +161,7 @@ const AddQuestion = (divheight) => {
                 mcqcorrectans: mcqcorrectans,
             };
 
-            console.log({ data });
+            // console.log(request.difficulty);
             //document.getElementById("nameForm").submit();
             axios.post("/api/QSBank", request).then((response) => {
                 console.log({ response });
@@ -251,7 +251,7 @@ const AddQuestion = (divheight) => {
                         <div className="fs-5 fw-bold mb-2">Select Chapter</div>
                         <Select
                             className={chapterNumberError}
-                            options={[{ value: "ch1", label: "ch1" }]}
+                            options={[{ value: "1", label: "ch1" }]}
                             placeholder={"eg:ch 10"}
                             value={options.find(
                                 (obj) => obj.value === chapterNumber
@@ -274,9 +274,9 @@ const AddQuestion = (divheight) => {
                         <Select
                             className={difficultyError}
                             options={[
-                                { value: "easy", label: "Eazy" },
-                                { value: "medium", label: "Medium" },
-                                { value: "hard", label: "Hard" },
+                                { value: "0", label: "Eazy" },
+                                { value: "1", label: "Medium" },
+                                { value: "2", label: "Hard" },
                             ]}
                             placeholder={"eg:easy"}
                             value={options.find(
