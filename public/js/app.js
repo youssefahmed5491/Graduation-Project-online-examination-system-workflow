@@ -10961,7 +10961,17 @@ var AddQuestion = function AddQuestion(divheight) {
       answerText = _useState14[0],
       setAnswerText = _useState14[1];
 
-  var getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2", "123"];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      getarray = _useState16[0],
+      setGetArray = _useState16[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/professors/1").then(function (response) {
+      console.log(response.data);
+      setGetArray(response.data);
+    });
+  }, []);
   var wantedarray = [];
 
   var addvalue = function addvalue(getarray) {
@@ -11030,45 +11040,45 @@ var AddQuestion = function AddQuestion(divheight) {
     whattochoose = DataStructureoptions;
   }
 
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState16 = _slicedToArray(_useState15, 2),
-      option0 = _useState16[0],
-      setOption0 = _useState16[1];
-
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState18 = _slicedToArray(_useState17, 2),
-      option1 = _useState18[0],
-      setOption1 = _useState18[1];
+      option0 = _useState18[0],
+      setOption0 = _useState18[1];
 
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState20 = _slicedToArray(_useState19, 2),
-      option2 = _useState20[0],
-      setOption2 = _useState20[1];
+      option1 = _useState20[0],
+      setOption1 = _useState20[1];
 
   var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState22 = _slicedToArray(_useState21, 2),
-      option3 = _useState22[0],
-      setOption3 = _useState22[1];
+      option2 = _useState22[0],
+      setOption2 = _useState22[1];
 
   var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState24 = _slicedToArray(_useState23, 2),
-      option4 = _useState24[0],
-      setOption4 = _useState24[1];
+      option3 = _useState24[0],
+      setOption3 = _useState24[1];
 
   var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState26 = _slicedToArray(_useState25, 2),
-      option5 = _useState26[0],
-      setOption5 = _useState26[1];
+      option4 = _useState26[0],
+      setOption4 = _useState26[1];
 
   var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState28 = _slicedToArray(_useState27, 2),
-      question = _useState28[0],
-      setQuestion = _useState28[1];
+      option5 = _useState28[0],
+      setOption5 = _useState28[1];
 
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState30 = _slicedToArray(_useState29, 2),
-      ar = _useState30[0],
-      setAr = _useState30[1];
+      question = _useState30[0],
+      setQuestion = _useState30[1];
+
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState32 = _slicedToArray(_useState31, 2),
+      ar = _useState32[0],
+      setAr = _useState32[1];
 
   var handleoption = function handleoption(e, index) {
     //2e3mel switch
@@ -11099,92 +11109,92 @@ var AddQuestion = function AddQuestion(divheight) {
     }
   };
 
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState32 = _slicedToArray(_useState31, 2),
-      radio = _useState32[0],
-      setRadio = _useState32[1];
-
-  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState34 = _slicedToArray(_useState33, 2),
-      actualNumberOfChoices = _useState34[0],
-      setActualNumberOfChoices = _useState34[1];
+      radio = _useState34[0],
+      setRadio = _useState34[1];
+
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState36 = _slicedToArray(_useState35, 2),
+      actualNumberOfChoices = _useState36[0],
+      setActualNumberOfChoices = _useState36[1];
 
   var DivHeight = divheight.divheight * (107 / 100);
 
-  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState36 = _slicedToArray(_useState35, 2),
-      subjectError = _useState36[0],
-      setSubjectError = _useState36[1];
-
   var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState38 = _slicedToArray(_useState37, 2),
-      chapterNumberError = _useState38[0],
-      setChapterNumberError = _useState38[1];
+      subjectError = _useState38[0],
+      setSubjectError = _useState38[1];
 
   var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState40 = _slicedToArray(_useState39, 2),
-      difficultyError = _useState40[0],
-      setDifficultyError = _useState40[1];
+      chapterNumberError = _useState40[0],
+      setChapterNumberError = _useState40[1];
 
   var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState42 = _slicedToArray(_useState41, 2),
-      durationError = _useState42[0],
-      setDurationError = _useState42[1];
+      difficultyError = _useState42[0],
+      setDifficultyError = _useState42[1];
 
   var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState44 = _slicedToArray(_useState43, 2),
-      questionTypeError = _useState44[0],
-      setQuestionTypeError = _useState44[1];
+      durationError = _useState44[0],
+      setDurationError = _useState44[1];
 
   var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState46 = _slicedToArray(_useState45, 2),
-      questionTextError = _useState46[0],
-      setQuestionTextError = _useState46[1];
+      questionTypeError = _useState46[0],
+      setQuestionTypeError = _useState46[1];
 
   var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState48 = _slicedToArray(_useState47, 2),
-      answerTextError = _useState48[0],
-      setAnswerTextError = _useState48[1];
+      questionTextError = _useState48[0],
+      setQuestionTextError = _useState48[1];
 
   var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState50 = _slicedToArray(_useState49, 2),
-      actualNumberOfChoicesError = _useState50[0],
-      setActualNumberOfChoicesError = _useState50[1];
+      answerTextError = _useState50[0],
+      setAnswerTextError = _useState50[1];
 
   var _useState51 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState52 = _slicedToArray(_useState51, 2),
-      answerOptionError0 = _useState52[0],
-      setAnswerOptionError0 = _useState52[1];
+      actualNumberOfChoicesError = _useState52[0],
+      setActualNumberOfChoicesError = _useState52[1];
 
   var _useState53 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState54 = _slicedToArray(_useState53, 2),
-      answerOptionError1 = _useState54[0],
-      setAnswerOptionError1 = _useState54[1];
+      answerOptionError0 = _useState54[0],
+      setAnswerOptionError0 = _useState54[1];
 
   var _useState55 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState56 = _slicedToArray(_useState55, 2),
-      answerOptionError2 = _useState56[0],
-      setAnswerOptionError2 = _useState56[1];
+      answerOptionError1 = _useState56[0],
+      setAnswerOptionError1 = _useState56[1];
 
   var _useState57 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState58 = _slicedToArray(_useState57, 2),
-      answerOptionError3 = _useState58[0],
-      setAnswerOptionError3 = _useState58[1];
+      answerOptionError2 = _useState58[0],
+      setAnswerOptionError2 = _useState58[1];
 
   var _useState59 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState60 = _slicedToArray(_useState59, 2),
-      answerOptionError4 = _useState60[0],
-      setAnswerOptionError4 = _useState60[1];
+      answerOptionError3 = _useState60[0],
+      setAnswerOptionError3 = _useState60[1];
 
   var _useState61 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState62 = _slicedToArray(_useState61, 2),
-      answerOptionError5 = _useState62[0],
-      setAnswerOptionError5 = _useState62[1];
+      answerOptionError4 = _useState62[0],
+      setAnswerOptionError4 = _useState62[1];
 
   var _useState63 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState64 = _slicedToArray(_useState63, 2),
-      radioError = _useState64[0],
-      setRadioError = _useState64[1];
+      answerOptionError5 = _useState64[0],
+      setAnswerOptionError5 = _useState64[1];
+
+  var _useState65 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState66 = _slicedToArray(_useState65, 2),
+      radioError = _useState66[0],
+      setRadioError = _useState66[1];
 
   var setclassname = function setclassname(i) {
     if (i === 0) {
@@ -11231,7 +11241,7 @@ var AddQuestion = function AddQuestion(divheight) {
       //document.getElementById("nameForm").submit();
 
       axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/QSBank", request).then(function (response) {
-        console.log({
+        ({
           response: response
         });
       });

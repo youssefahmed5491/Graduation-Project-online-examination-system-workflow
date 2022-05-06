@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\professor;
 use Illuminate\Http\Request;
+use App\Models\ProfessorSubject;
+use App\Models\Subject;
 
 class ProfessorController extends Controller
 {
@@ -36,9 +38,21 @@ class ProfessorController extends Controller
      * @param  \App\Models\professor  $professor
      * @return \Illuminate\Http\Response
      */
-    public function show(professor $professor)
+    public function show(Professor $professor)
     {
-        //
+        $professorsubject = ProfessorSubject::where("professor_id", $professor->id)->get();
+
+        $subjectsid = $professorsubject->map(function ($item, $key) {
+            return strtoupper($item->subject_id);
+        });
+
+        $subject = Subject::whereIn("id", $subjectsid)->get();
+
+        $subjects_title = $subject->map(function ($item, $key) {
+            return strtoupper($item->title);
+        });
+
+        return response($subjects_title);
     }
 
 

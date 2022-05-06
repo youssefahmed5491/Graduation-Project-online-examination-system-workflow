@@ -13,7 +13,7 @@ class CreateProfessorSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::connection("mysql2")->create('professor_subjects', function (Blueprint $table) {
+        Schema::connection("mysql2")->create('professor_subject', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Professor::class);
             $table->foreignIdFor(\App\Models\Subject::class);

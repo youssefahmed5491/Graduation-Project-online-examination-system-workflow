@@ -8,15 +8,18 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Nette\Utils\Json;
 
+use function PHPSTORM_META\map;
 use function PHPUnit\Framework\assertJson;
 use App\Models\Subject;
+use App\Models\Professor;
+use App\Models\ProfessorSubject;
 
-class QSBankController extends Controller
+class QuestionsController extends Controller
 {
     function store(Request $request)
     {
-        $subjectdetails = Subject::where("title", "=", $request->subject)->get;
-        info($subjectdetails);
+        $subjectdetails = Subject::where("title", $request->subject)->first();
+        // dd($subjectdetails->id);
         if ($request->type == "written") {
             Question::insert([
                 "correct_answer" => $request->answerText,
@@ -49,15 +52,27 @@ class QSBankController extends Controller
      */
     public function index()
     {
+
         $questions = Question::all();
         return  response()->json($questions);
     }
 
 
-    public function show(Question $QSBank)
+    public function show(Professor $QSBank)
     {
-
-        return response()->json($QSBank);
+        $professorsubject = ProfessorSubject::where("professor_id", $QSBank->id)->get();
+        //////////////////////////////////////////
+        $subjectsid = $professorsubject->map(function ($item, $key) {
+            return strtoupper($item->subject_id);
+        });
+        ///////////////////////////////////////
+        $subject = Subject::whereIn("id", $subjectsid)->get();
+        ///////////////////////////////////////////////
+        $subjects_title = $subject->map(function ($item, $key) {
+            return strtoupper($item->title);
+        });
+        //////////////////////////////////////////////////
+        return response()->json($subjects_title);
     }
 
     /**

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import axios from "axios";
 import { isArray } from "lodash";
@@ -11,7 +11,14 @@ const AddQuestion = (divheight) => {
     const [questionType, setQuestionType] = useState();
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
-    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2", "123"];
+    const [getarray, setGetArray] = useState([]);
+    useEffect(() => {
+        axios.get("/api/professors/1").then((response) => {
+            console.log(response.data);
+            setGetArray(response.data);
+        });
+    }, []);
+
     const wantedarray = [];
     const addvalue = (getarray) => {
         for (let index = 0; index < getarray.length; index++) {
@@ -22,6 +29,7 @@ const AddQuestion = (divheight) => {
         }
         return wantedarray;
     };
+
     const howManyOptions = () => {
         if (actualNumberOfChoices === 2) {
             return option0 && option1;
@@ -164,7 +172,7 @@ const AddQuestion = (divheight) => {
             // console.log(request.difficulty);
             //document.getElementById("nameForm").submit();
             axios.post("/api/QSBank", request).then((response) => {
-                console.log({ response });
+                ({ response });
             });
         } else {
             if (!subject) {

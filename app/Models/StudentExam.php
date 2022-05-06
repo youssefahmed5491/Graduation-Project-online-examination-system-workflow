@@ -10,6 +10,6 @@ class StudentExam extends Model
     use HasFactory;
     public function subject()
     {
-        return $this->belongsTo('App\Models\subject', 'subject_id');
+        return $this->belongsTo(Subject::class, 'subject_id');
     }
 }

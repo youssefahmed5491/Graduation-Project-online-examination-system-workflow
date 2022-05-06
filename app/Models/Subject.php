@@ -13,13 +13,29 @@ class Subject extends Model
         'set_of_criteria' => 'array'
     ];
 
-    public function supervisor(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function supervisor()
     {
         return $this->belongsTo(Supervisor::class);
     }
 
-    public function questions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function questions()
     {
         return $this->hasMany(Question::class);
+    }
+    public function studentexams()
+    {
+        return $this->hasMany(StudentExam::class);
+    }
+    public function exams()
+    {
+        return $this->hasMany(Exam::class); //////////////////////////////exam modele
+    }
+    public function professors()
+    {
+        return $this->belongsToMany(Professor::class);
+    }
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
     }
 }

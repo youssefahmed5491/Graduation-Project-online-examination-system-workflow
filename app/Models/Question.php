@@ -16,19 +16,18 @@ class Question extends Model
 
     public function subject()
     {
-        return $this->belongsTo('App\Models\subject', 'subject_id');
+        return $this->belongsTo(Subject::class, 'subject_id');
     }
 
 
     protected $casts = [
-        "id",
-        "QS_TEXT",
-        "QS_Ans" => 'array',
-        "Duration",
+        "text",
+        "mcq_answers" => 'array',
+        "duration",
         "chapter",
     ];
     public function professor()
     {
-        return $this->belongsToMany('App\Models\professor');
+        return $this->belongsToMany(Professor::class);
     }
 }

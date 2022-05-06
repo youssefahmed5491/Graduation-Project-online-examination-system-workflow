@@ -13,8 +13,8 @@ class Professor extends Model
     protected $fillable = ['*'];
 
 
-    public function subjects(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'professor_subjects');
+        return $this->hasManyThrough(Subject::class, 'professor_subjects', "professor_id", 'subject_id"');
     }
 }
