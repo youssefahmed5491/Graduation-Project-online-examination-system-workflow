@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-////////// test
+Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
+Route::apiResource('professors.subjects', ProfessorSubjectController::class);
+Route::apiResource("QSBank", QSBankController::class);

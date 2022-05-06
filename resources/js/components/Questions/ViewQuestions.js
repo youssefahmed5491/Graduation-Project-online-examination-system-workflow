@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Pagination from "./Pagination";
 import EditQuestions from "./EditQuestions";
@@ -9,6 +9,21 @@ import edit from "./viewquestions/edit.png";
 import Delete from "./viewquestions/Delete-Alt-256.png";
 
 const ViewQuestions = (divheight) => {
+    useEffect(() => {
+        axios.get("/api/QSBank").then((response) => {
+            const data = response.data;
+            if (data) {
+                setData(data);
+                console.log(data);
+            }
+            // Object.keys(data).map(function (key, index) {
+            //     console.log(data[key]);
+            // });
+        });
+    }, []);
+
+    const [data, setData] = useState(undefined);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage] = useState(13);
     const [selectedRow, setSelectedRow] = useState({});

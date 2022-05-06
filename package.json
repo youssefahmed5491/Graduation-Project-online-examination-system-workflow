@@ -26,6 +26,8 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "react-alert": "^7.0.3",
+        "react-alert-template-basic": "^1.0.2",
         "react-hook-form": "^7.29.0",
         "react-hook-form-input": "^1.1.10",
         "react-paginate": "^8.1.3",

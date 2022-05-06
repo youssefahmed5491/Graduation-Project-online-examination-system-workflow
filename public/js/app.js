@@ -9762,11 +9762,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _image_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./image.png */ "./resources/js/components/LoginPage/image.png");
-/* harmony import */ var _eye_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./eye.png */ "./resources/js/components/LoginPage/eye.png");
-/* harmony import */ var _hidden_eye_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hidden eye.png */ "./resources/js/components/LoginPage/hidden eye.png");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _image_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./image.png */ "./resources/js/components/LoginPage/image.png");
+/* harmony import */ var _eye_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./eye.png */ "./resources/js/components/LoginPage/eye.png");
+/* harmony import */ var _hidden_eye_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hidden eye.png */ "./resources/js/components/LoginPage/hidden eye.png");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -9778,6 +9780,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -9833,7 +9836,6 @@ var Login = function Login() {
       radioError = _useState18[0],
       setRadioError = _useState18[1];
 
-  console.log(username, password, radio);
   var size = 100;
 
   var checkSize = function checkSize() {
@@ -9870,9 +9872,25 @@ var Login = function Login() {
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
+    var request = {
+      username: username,
+      password: password,
+      type: radio
+    };
+    console.log(request);
 
     if (username && password && radio) {
-      document.getElementById("nameForm").submit();
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/login", request).then(function (response) {
+        console.log({
+          response: response
+        });
+
+        if (response.data == "exists") {
+          document.getElementById("nameForm").submit();
+        } else {
+          alert("Invalid Username or Password");
+        }
+      });
     } else {
       if (!username) {
         setUserNameError("error");
@@ -9893,27 +9911,27 @@ var Login = function Login() {
     setToggle(!toggle);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
     className: "container",
     style: {
       height: "100vh",
       width: "100vw"
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       id: "first-square",
       className: "w-75 position-absolute top-0 end-0 me-5 opacity-50",
       style: {
         backgroundColor: "#3dbfb6",
         height: "33%"
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       id: "last-square",
       className: "w-75 position-absolute bottom-0 opacity-50 start-0 ms-5",
       style: {
         backgroundColor: "#c64200",
         height: "33%"
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       id: "image-form",
       className: row,
       style: {
@@ -9924,28 +9942,28 @@ var Login = function Login() {
         left: "50%",
         transform: "translate(-50%, -50%)"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: col,
         style: {
           height: "".concat(size, "%"),
           padding: "0px"
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-          src: _image_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+          src: _image_png__WEBPACK_IMPORTED_MODULE_2__["default"],
           alt: "",
           className: "w-100 h-100 ",
           style: {
             objectFit: "cover"
           }
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: col,
         style: {
           width: "100%",
           height: "100%",
           backgroundColor: "#F8F9FA"
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
           className: "pt-5 ",
           id: "nameForm",
           action: "/".concat(username, "-").concat(radio) // ${radio === "Student" ? `/${username}-${radio}` : ""}`}
@@ -9954,13 +9972,13 @@ var Login = function Login() {
             paddingLeft: "5%"
           },
           onSubmit: handleSubmit,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
               children: "Login"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "mb-3 mt-5",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               type: "text",
               className: "form-control ".concat(userNameError),
               id: "inputUsername",
@@ -9975,13 +9993,13 @@ var Login = function Login() {
               onChange: function onChange(e) {
                 setUsername(e.target.value), setUserNameError("");
               }
-            }), userNameError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), userNameError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "emptyfield",
               children: "Please enter username"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "mb-3 mt-4 ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               type: toggle ? "password" : "text",
               className: "form-control form-check-inline ".concat(passwordError),
               id: "inputPassword",
@@ -10000,7 +10018,7 @@ var Login = function Login() {
               onChange: function onChange(e) {
                 setPassword(e.target.value), setPasswordError("");
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               className: "form-check-inline",
               onClick: eyetoggle,
               style: {
@@ -10010,27 +10028,27 @@ var Login = function Login() {
                 padding: "0",
                 height: "38px"
               },
-              children: toggle ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                src: _eye_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+              children: toggle ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                src: _eye_png__WEBPACK_IMPORTED_MODULE_3__["default"],
                 alt: "",
                 style: {
                   width: "25px"
                 }
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                src: _hidden_eye_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                src: _hidden_eye_png__WEBPACK_IMPORTED_MODULE_4__["default"],
                 alt: "",
                 style: {
                   width: "25px",
                   height: "18px"
                 }
               })
-            }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "emptyfield",
               children: "Please enter password"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "mt-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_6__["default"], {
               className: radioError,
               options: [{
                 value: "Student",
@@ -10052,13 +10070,13 @@ var Login = function Login() {
               onChange: function onChange(e) {
                 setRadio(e.value), setRadioError("");
               }
-            }), radioError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), radioError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "emptyfield",
               children: "Please select one option"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "mt-4 ",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               type: "submit",
               className: "btn btn-primary px-5 pt-1",
               style: {
@@ -10243,7 +10261,7 @@ var AllUsersHome = function AllUsersHome() {
       style: {
         overflow: "hidden"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+      children: [" ", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
         className: "row bg-primary ",
         style: {
           height: "7%"
@@ -10258,7 +10276,7 @@ var AllUsersHome = function AllUsersHome() {
             alt: "",
             className: "h-75 w-25 m-5"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
           className: "col d-flex align-items-center flex-row-reverse  h-100",
           style: {
             backgroundColor: "#6bfff5"
@@ -10313,9 +10331,9 @@ var AllUsersHome = function AllUsersHome() {
             style: {
               height: "10%"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
               className: "col-3 h-100  d-flex align-items-center",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
                 src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
                 alt: "",
                 className: " bg-light   rounded-circle m-3 p-1",
@@ -10323,16 +10341,16 @@ var AllUsersHome = function AllUsersHome() {
                   height: "55%",
                   width: "65%"
                 }
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+              }), " "]
+            }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
               className: "col   ",
               style: {
                 marginTop: "5%"
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
                 className: "fw-bolder  name-size text-light",
-                children: "Mahmoud"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+                children: ["Mahmoud", " "]
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
                 className: "d-flex align-items-center  ",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
                   style: {
@@ -10342,15 +10360,15 @@ var AllUsersHome = function AllUsersHome() {
                     borderRadius: "50%",
                     display: "inline-block"
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+                }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
                   className: "text-light fw-bolder ps-3",
                   style: {
                     fontSize: "13px"
                   },
-                  children: "online"
-                })]
-              })]
-            })]
+                  children: ["online", " "]
+                }), " "]
+              }), " "]
+            }), " "]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(true);
@@ -10377,11 +10395,11 @@ var AllUsersHome = function AllUsersHome() {
               src: _home_png__WEBPACK_IMPORTED_MODULE_5__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
-              children: "Home"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+              children: ["Home", " "]
+            }), " "]
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(true);
@@ -10404,11 +10422,11 @@ var AllUsersHome = function AllUsersHome() {
               src: _schedule_png__WEBPACK_IMPORTED_MODULE_6__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
-              children: "Schedule"
-            })]
-          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+              children: ["Schedule", " "]
+            }), " "]
+          }), " ", radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10427,11 +10445,11 @@ var AllUsersHome = function AllUsersHome() {
               src: _camera_png__WEBPACK_IMPORTED_MODULE_7__["default"],
               alt: "",
               className: "h-75"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
-              children: "Adjust Camera"
-            })]
-          }), radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+              children: ["Adjust Camera", " "]
+            }), " "]
+          }), " ", radio === "Student" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10450,11 +10468,11 @@ var AllUsersHome = function AllUsersHome() {
               src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
-              children: "Exam Rules"
-            })]
-          }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
+              children: ["Exam Rules", " "]
+            }), " "]
+          }), " ", radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10473,10 +10491,10 @@ var AllUsersHome = function AllUsersHome() {
               src: _exam_rules_png__WEBPACK_IMPORTED_MODULE_8__["default"],
               alt: "",
               className: "h-75 "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
               className: "fw-bolder  nav-bar-text-size text-light mt-3 ms-2",
-              children: "Questions"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
+              children: ["Questions", " "]
+            }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("img", {
               src: _whiteTriangle_png__WEBPACK_IMPORTED_MODULE_9__["default"],
               alt: "",
               className: "float",
@@ -10486,8 +10504,8 @@ var AllUsersHome = function AllUsersHome() {
                 marginLeft: "25%",
                 marginTop: "3%"
               }
-            })]
-          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("button", {
+            }), " "]
+          }), " ", radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10503,11 +10521,11 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
               className: VquestionsClassName,
-              children: "View Questions"
-            })
-          }), radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("button", {
+              children: ["View Questions", " "]
+            }), " "]
+          }), " ", radio === "Doctor" && questionsClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
               setScheduleClicked(false);
@@ -10523,10 +10541,10 @@ var AllUsersHome = function AllUsersHome() {
               border: "0",
               background: "#19736c"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("span", {
               className: AquestionsClassName,
-              children: "Add Questions"
-            })
+              children: ["Add Questions", " "]
+            }), " "]
           }), radio === "Doctor" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("button", {
             onClick: function onClick() {
               setHomeClicked(false);
@@ -10882,8 +10900,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -10895,6 +10917,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -10937,7 +10961,7 @@ var AddQuestion = function AddQuestion(divheight) {
       answerText = _useState14[0],
       setAnswerText = _useState14[1];
 
-  var getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
+  var getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2", "123"];
   var wantedarray = [];
 
   var addvalue = function addvalue(getarray) {
@@ -10956,9 +10980,9 @@ var AddQuestion = function AddQuestion(divheight) {
       return option0 && option1;
     } else if (actualNumberOfChoices === 3) {
       return option0 && option1 && option2;
-    } else if (actualNumberOfChoices === 3) {
+    } else if (actualNumberOfChoices === 4) {
       return option0 && option1 && option2 && option3;
-    } else if (actualNumberOfChoices === 3) {
+    } else if (actualNumberOfChoices === 5) {
       return option0 && option1 && option2 && option3 && option4;
     } else {
       return option0 && option1 && option2 && option3 && option4 && option5;
@@ -11041,6 +11065,11 @@ var AddQuestion = function AddQuestion(divheight) {
       question = _useState28[0],
       setQuestion = _useState28[1];
 
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState30 = _slicedToArray(_useState29, 2),
+      ar = _useState30[0],
+      setAr = _useState30[1];
+
   var handleoption = function handleoption(e, index) {
     //2e3mel switch
     switch (index) {
@@ -11070,92 +11099,92 @@ var AddQuestion = function AddQuestion(divheight) {
     }
   };
 
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState30 = _slicedToArray(_useState29, 2),
-      radio = _useState30[0],
-      setRadio = _useState30[1];
-
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState32 = _slicedToArray(_useState31, 2),
-      actualNumberOfChoices = _useState32[0],
-      setActualNumberOfChoices = _useState32[1];
+      radio = _useState32[0],
+      setRadio = _useState32[1];
+
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState34 = _slicedToArray(_useState33, 2),
+      actualNumberOfChoices = _useState34[0],
+      setActualNumberOfChoices = _useState34[1];
 
   var DivHeight = divheight.divheight * (107 / 100);
 
-  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState34 = _slicedToArray(_useState33, 2),
-      subjectError = _useState34[0],
-      setSubjectError = _useState34[1];
-
   var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState36 = _slicedToArray(_useState35, 2),
-      chapterNumberError = _useState36[0],
-      setChapterNumberError = _useState36[1];
+      subjectError = _useState36[0],
+      setSubjectError = _useState36[1];
 
   var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState38 = _slicedToArray(_useState37, 2),
-      difficultyError = _useState38[0],
-      setDifficultyError = _useState38[1];
+      chapterNumberError = _useState38[0],
+      setChapterNumberError = _useState38[1];
 
   var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState40 = _slicedToArray(_useState39, 2),
-      durationError = _useState40[0],
-      setDurationError = _useState40[1];
+      difficultyError = _useState40[0],
+      setDifficultyError = _useState40[1];
 
   var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState42 = _slicedToArray(_useState41, 2),
-      questionTypeError = _useState42[0],
-      setQuestionTypeError = _useState42[1];
+      durationError = _useState42[0],
+      setDurationError = _useState42[1];
 
   var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState44 = _slicedToArray(_useState43, 2),
-      questionTextError = _useState44[0],
-      setQuestionTextError = _useState44[1];
+      questionTypeError = _useState44[0],
+      setQuestionTypeError = _useState44[1];
 
   var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState46 = _slicedToArray(_useState45, 2),
-      answerTextError = _useState46[0],
-      setAnswerTextError = _useState46[1];
+      questionTextError = _useState46[0],
+      setQuestionTextError = _useState46[1];
 
   var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState48 = _slicedToArray(_useState47, 2),
-      actualNumberOfChoicesError = _useState48[0],
-      setActualNumberOfChoicesError = _useState48[1];
+      answerTextError = _useState48[0],
+      setAnswerTextError = _useState48[1];
 
   var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState50 = _slicedToArray(_useState49, 2),
-      answerOptionError0 = _useState50[0],
-      setAnswerOptionError0 = _useState50[1];
+      actualNumberOfChoicesError = _useState50[0],
+      setActualNumberOfChoicesError = _useState50[1];
 
   var _useState51 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState52 = _slicedToArray(_useState51, 2),
-      answerOptionError1 = _useState52[0],
-      setAnswerOptionError1 = _useState52[1];
+      answerOptionError0 = _useState52[0],
+      setAnswerOptionError0 = _useState52[1];
 
   var _useState53 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState54 = _slicedToArray(_useState53, 2),
-      answerOptionError2 = _useState54[0],
-      setAnswerOptionError2 = _useState54[1];
+      answerOptionError1 = _useState54[0],
+      setAnswerOptionError1 = _useState54[1];
 
   var _useState55 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState56 = _slicedToArray(_useState55, 2),
-      answerOptionError3 = _useState56[0],
-      setAnswerOptionError3 = _useState56[1];
+      answerOptionError2 = _useState56[0],
+      setAnswerOptionError2 = _useState56[1];
 
   var _useState57 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState58 = _slicedToArray(_useState57, 2),
-      answerOptionError4 = _useState58[0],
-      setAnswerOptionError4 = _useState58[1];
+      answerOptionError3 = _useState58[0],
+      setAnswerOptionError3 = _useState58[1];
 
   var _useState59 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState60 = _slicedToArray(_useState59, 2),
-      answerOptionError5 = _useState60[0],
-      setAnswerOptionError5 = _useState60[1];
+      answerOptionError4 = _useState60[0],
+      setAnswerOptionError4 = _useState60[1];
 
   var _useState61 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState62 = _slicedToArray(_useState61, 2),
-      radioError = _useState62[0],
-      setRadioError = _useState62[1];
+      answerOptionError5 = _useState62[0],
+      setAnswerOptionError5 = _useState62[1];
+
+  var _useState63 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState64 = _slicedToArray(_useState63, 2),
+      radioError = _useState64[0],
+      setRadioError = _useState64[1];
 
   var setclassname = function setclassname(i) {
     if (i === 0) {
@@ -11171,13 +11200,41 @@ var AddQuestion = function AddQuestion(divheight) {
     } else if (i === 5) {
       return "form-control ".concat(answerOptionError5);
     }
-  };
+  }; ///// COMMENT ->       Select subject should be textfield to write the subject code bec we cant
+  ///////////             handle all subject codes choises
+
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
 
     if (subject && questionType && chapterNumber && difficulty && duration && questionText && (answerText || actualNumberOfChoices && radio && howManyOptions())) {
-      document.getElementById("nameForm").submit();
+      var data = [actualNumberOfChoices];
+      var i;
+
+      for (i = 0; i < actualNumberOfChoices; i++) {
+        data[i] = eval("option" + i);
+      }
+
+      var mcqcorrectans = data[radio - 1];
+      var request = {
+        subject: subject,
+        chapterNumber: parseInt(chapterNumber),
+        difficulty: difficulty,
+        duration: parseInt(duration),
+        questionText: questionText,
+        answerText: answerText,
+        actualNumberOfChoices: actualNumberOfChoices,
+        answersarray: data,
+        type: questionType,
+        mcqcorrectans: mcqcorrectans
+      }; // console.log(request.difficulty);
+      //document.getElementById("nameForm").submit();
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/QSBank", request).then(function (response) {
+        console.log({
+          response: response
+        });
+      });
     } else {
       if (!subject) {
         setSubjectError("error");
@@ -11241,30 +11298,29 @@ var AddQuestion = function AddQuestion(divheight) {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     style: {
       backgroundColor: "#ebebeb",
       overflowY: "auto",
       height: "".concat(DivHeight, "px")
     },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "col",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "fs-1 fw-bold m-2",
         children: "Add Question"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: handleSubmit,
         id: "nameForm",
-        action: "/login",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5",
           style: {
             width: "90%"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Select Subject"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
             id: "validationCustom04",
             className: subjectError,
             options: options,
@@ -11275,21 +11331,24 @@ var AddQuestion = function AddQuestion(divheight) {
             onChange: function onChange(e) {
               setSubject(e.value), setSubjectError("");
             }
-          }), subjectError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), subjectError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "emptyfield",
             children: "must enter feiled"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5 m-2",
           style: {
             width: "90%"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Select Chapter"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: chapterNumberError,
-            options: whattochoose,
+            options: [{
+              value: "1",
+              label: "ch1"
+            }],
             placeholder: "eg:ch 10",
             value: options.find(function (obj) {
               return obj.value === chapterNumber;
@@ -11297,28 +11356,28 @@ var AddQuestion = function AddQuestion(divheight) {
             onChange: function onChange(e) {
               setChapterNumber(e.value), setChapterNumberError("");
             }
-          }), chapterNumberError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), chapterNumberError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "emptyfield",
             children: "must enter feiled"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5 m-2",
           style: {
             width: "90%"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Select Difficulty"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: difficultyError,
             options: [{
-              value: "easy",
+              value: "0",
               label: "Eazy"
             }, {
-              value: "medium",
+              value: "1",
               label: "Medium"
             }, {
-              value: "hard",
+              value: "2",
               label: "Hard"
             }],
             placeholder: "eg:easy",
@@ -11328,19 +11387,19 @@ var AddQuestion = function AddQuestion(divheight) {
             onChange: function onChange(e) {
               setDifficulty(e.value), setDifficultyError("");
             }
-          }), difficultyError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), difficultyError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "emptyfield",
             children: "must enter feiled"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5 m-2",
           style: {
             width: "90%"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Enter Duration"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: durationError,
             options: [{
               value: "1",
@@ -11359,19 +11418,19 @@ var AddQuestion = function AddQuestion(divheight) {
             onChange: function onChange(e) {
               setDuration(e.value), setDurationError("");
             }
-          }), durationError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), durationError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "emptyfield",
             children: "must enter feiled"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5 m-2",
           style: {
             width: "90%"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Select Question Type"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: questionTypeError,
             options: [{
               value: "mcq",
@@ -11387,18 +11446,18 @@ var AddQuestion = function AddQuestion(divheight) {
               setQuestionType(e.value), setQuestionTypeError("");
             },
             placeholder: "eg:MCQ"
-          }), questionTypeError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), questionTypeError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "emptyfield",
             children: "must enter feiled"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5 m-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Question Text"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "form-group mt-2",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
               className: "form-control ".concat(questionTextError),
               id: "questiontextarea",
               rows: "5",
@@ -11410,20 +11469,20 @@ var AddQuestion = function AddQuestion(divheight) {
                 setQuestionText(e.target.value), setQuestionTextError("");
               }
             })
-          }), questionTextError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), questionTextError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "emptyfield",
             children: "must enter feiled"
           })]
-        }), questionType === "mcq" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), questionType === "mcq" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5 m-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Select Number Of Options"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             style: {
               width: "95%"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
               className: actualNumberOfChoicesError,
               options: [{
                 value: 2,
@@ -11449,11 +11508,11 @@ var AddQuestion = function AddQuestion(divheight) {
               },
               placeholder: "eg:2",
               menuPlacement: "auto"
-            }), actualNumberOfChoicesError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), actualNumberOfChoicesError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "emptyfield",
               children: "must enter feiled"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "row",
             style: {
               width: "97%"
@@ -11461,14 +11520,14 @@ var AddQuestion = function AddQuestion(divheight) {
             children: Array.from({
               length: actualNumberOfChoices
             }, function (_, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "col-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "d-inline me-5 fs-4 fw-bold",
                   children: ["Option ", i + 1]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "form-check form-check-inline mt-5",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                     className: "form-check-input ",
                     type: "radio",
                     name: "inlineRadioOptions",
@@ -11478,17 +11537,17 @@ var AddQuestion = function AddQuestion(divheight) {
                       setRadio(e.target.value);
                       setRadioError("");
                     }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
                     className: "form-check-label",
                     htmlFor: i,
                     children: "select as correct option"
-                  }), radioError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  }), radioError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                     className: "emptyfield",
                     children: "must select one correct answer"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "form-group mt-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
                     className: setclassname(i),
                     id: "exampleFormControlTextarea1",
                     rows: "5",
@@ -11520,7 +11579,7 @@ var AddQuestion = function AddQuestion(divheight) {
                         setAnswerOptionError5("");
                       }
                     }
-                  }), (i === 0 && answerOptionError0 || i === 1 && answerOptionError1 || i === 2 && answerOptionError2 || i === 3 && answerOptionError3 || i === 4 && answerOptionError4 || i === 5 && answerOptionError5) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  }), (i === 0 && answerOptionError0 || i === 1 && answerOptionError1 || i === 2 && answerOptionError2 || i === 3 && answerOptionError3 || i === 4 && answerOptionError4 || i === 5 && answerOptionError5) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                     className: "emptyfield",
                     children: "must enter feiled"
                   })]
@@ -11528,14 +11587,14 @@ var AddQuestion = function AddQuestion(divheight) {
               }, i);
             })
           })]
-        }), questionType === "written" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), questionType === "written" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "ms-5 m-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
             children: "Answer Text"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "form-group mt-2",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
               className: "form-control ".concat(answerTextError),
               id: "questiontextarea",
               rows: "5",
@@ -11546,18 +11605,18 @@ var AddQuestion = function AddQuestion(divheight) {
               onChange: function onChange(e) {
                 setAnswerText(e.target.value), setAnswerTextError("");
               }
-            }), answerTextError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), answerTextError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "emptyfield",
               children: "must enter feiled"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "me-5 ",
           style: {
             display: "flex",
             justifyContent: "flex-end"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             type: "submit",
             onClick: function onClick(e) {
               console.log(subject);
@@ -11768,34 +11827,53 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var ViewQuestions = function ViewQuestions(divheight) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios.get("/api/QSBank").then(function (response) {
+      var data = response.data;
+
+      if (data) {
+        setData(data);
+        console.log(data);
+      } // Object.keys(data).map(function (key, index) {
+      //     console.log(data[key]);
+      // });
+
+    });
+  }, []);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
-      currentPage = _useState2[0],
-      setCurrentPage = _useState2[1];
+      data = _useState2[0],
+      setData = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(13),
-      _useState4 = _slicedToArray(_useState3, 1),
-      rowsPerPage = _useState4[0];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+      _useState4 = _slicedToArray(_useState3, 2),
+      currentPage = _useState4[0],
+      setCurrentPage = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-      _useState6 = _slicedToArray(_useState5, 2),
-      selectedRow = _useState6[0],
-      setSelectedRow = _useState6[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(13),
+      _useState6 = _slicedToArray(_useState5, 1),
+      rowsPerPage = _useState6[0];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState8 = _slicedToArray(_useState7, 2),
-      guiViewIconClicked = _useState8[0],
-      setGuiViewIconClicked = _useState8[1];
+      selectedRow = _useState8[0],
+      setSelectedRow = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
-      editClicked = _useState10[0],
-      setEditClicked = _useState10[1];
+      guiViewIconClicked = _useState10[0],
+      setGuiViewIconClicked = _useState10[1];
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState12 = _slicedToArray(_useState11, 2),
-      deleteClicked = _useState12[0],
-      setdeleteClicked = _useState12[1];
+      editClicked = _useState12[0],
+      setEditClicked = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState14 = _slicedToArray(_useState13, 2),
+      deleteClicked = _useState14[0],
+      setdeleteClicked = _useState14[1];
 
   var tableRowHeight = divheight.divheight * (92 / 100) * (6.25 / 100);
   var displaynone = "".concat(guiViewIconClicked || editClicked || deleteClicked ? "displaynone" : "");
@@ -75272,7 +75350,7 @@ function combine (array, callback) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\programming\\\\project\\\\laravel-react","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_from":"axios@^0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21.4","name":"axios","escapedName":"axios","rawSpec":"^0.21.4","saveSpec":null,"fetchSpec":"^0.21.4"},"_requiredBy":["#DEV:/","#USER","/localtunnel"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21.4","_where":"D:\\\\subjects\\\\term10\\\\senior project\\\\online_examination","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
