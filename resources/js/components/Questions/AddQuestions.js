@@ -26,9 +26,9 @@ const AddQuestion = ({ divheight }) => {
             return option0 && option1;
         } else if (actualNumberOfChoices === 3) {
             return option0 && option1 && option2;
-        } else if (actualNumberOfChoices === 3) {
+        } else if (actualNumberOfChoices === 4) {
             return option0 && option1 && option2 && option3;
-        } else if (actualNumberOfChoices === 3) {
+        } else if (actualNumberOfChoices === 5) {
             return option0 && option1 && option2 && option3 && option4;
         } else {
             return (
