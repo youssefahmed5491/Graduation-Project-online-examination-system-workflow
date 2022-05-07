@@ -2,38 +2,38 @@ import React, { useState } from "react";
 
 import Pagination from "./Pagination";
 import EditQuestions from "./EditQuestions";
-import AddQuestions from "./AddQuestions";
+import ViewAQuestion from "./ViewAQuestion";
 
 import guiViewIcon from "./viewquestions/gui_view_icon_158340.png";
 import edit from "./viewquestions/edit.png";
 import Delete from "./viewquestions/Delete-Alt-256.png";
 
-const ViewQuestions = (divheight) => {
+const ViewQuestions = ({ divheight }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage] = useState(13);
     const [selectedRow, setSelectedRow] = useState({});
     const [guiViewIconClicked, setGuiViewIconClicked] = useState(false);
     const [editClicked, setEditClicked] = useState(false);
-    const [deleteClicked, setdeleteClicked] = useState(false);
-    const tableRowHeight = divheight.divheight * (92 / 100) * (6.25 / 100);
+    const [deleteClicked, setDeleteClicked] = useState(false);
+    const tableRowHeight = divheight * (92 / 100) * (6.25 / 100);
     const displaynone = `${
         guiViewIconClicked || editClicked || deleteClicked ? "displaynone" : ""
     }`;
-    const guiViewIconclassname = `${
-        guiViewIconClicked ? "show" : "displaynone"
-    }`;
-    const editclassname = `${editClicked ? "show" : "displaynone"}`;
-    const deletelassname = `${deleteClicked ? "show" : "displaynone"}`;
 
     var rows = [];
     const row = {
         id: 1,
         Questions: "Lorem Epsium Lorem Epsium",
-        Answer: "Lorem Epsium",
-        Subject: "Software engineering",
+        Answer: "a",
+        Subject: "Physics1",
         Difficulty: "Hard",
         Duration: "10 min",
         Status: "Active",
+        QuestionType: "MCQ",
+        Chapter: "10",
+        // choices: 2,
+        radio: "2",
+        choices: ["a", "b", "c", "d"],
     };
     for (var i = 0; i < 200; i++) {
         rows.push(row);
@@ -54,7 +54,7 @@ const ViewQuestions = (divheight) => {
                 <div
                     style={{
                         width: "81%",
-                        height: `${divheight.divheight}px`,
+                        height: `${divheight}px`,
                         background: "white",
                         position: "absolute",
                     }}
@@ -266,8 +266,11 @@ const ViewQuestions = (divheight) => {
                                                                 setEditClicked(
                                                                     false
                                                                 );
-                                                                setdeleteClicked(
+                                                                setDeleteClicked(
                                                                     false
+                                                                );
+                                                                setSelectedRow(
+                                                                    row
                                                                 );
                                                             }}
                                                             alt=""
@@ -289,7 +292,7 @@ const ViewQuestions = (divheight) => {
                                                                 setEditClicked(
                                                                     true
                                                                 );
-                                                                setdeleteClicked(
+                                                                setDeleteClicked(
                                                                     false
                                                                 );
                                                                 setSelectedRow(
@@ -315,7 +318,7 @@ const ViewQuestions = (divheight) => {
                                                                 setEditClicked(
                                                                     false
                                                                 );
-                                                                setdeleteClicked(
+                                                                setDeleteClicked(
                                                                     true
                                                                 );
                                                             }}
@@ -343,11 +346,27 @@ const ViewQuestions = (divheight) => {
                     </div>
                 </div>
             </div>
-            <div className={guiViewIconclassname}>view clicked</div>
-            <div className={editclassname}>
-                <EditQuestions selectedRow={selectedRow} />
-            </div>
-            <div className={deletelassname}>delete clicked</div>
+
+            {guiViewIconClicked && !editClicked && !deleteClicked && (
+                <div>
+                    <ViewAQuestion
+                        selectedRow={selectedRow}
+                        divheight={divheight}
+                    />
+                </div>
+            )}
+
+            {!guiViewIconClicked && editClicked && !deleteClicked && (
+                <div>
+                    <EditQuestions
+                        selectedRow={selectedRow}
+                        divheight={divheight}
+                    />
+                </div>
+            )}
+            {!guiViewIconClicked && !editClicked && deleteClicked && (
+                <div>delete clicked</div>
+            )}
         </>
     );
 };

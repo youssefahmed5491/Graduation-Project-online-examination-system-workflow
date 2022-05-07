@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 
-const AddQuestion = (divheight) => {
+const AddQuestion = ({ divheight }) => {
     const [subject, setSubject] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [difficulty, setDifficulty] = useState();
@@ -94,7 +94,7 @@ const AddQuestion = (divheight) => {
 
     const [radio, setRadio] = useState("");
     const [actualNumberOfChoices, setActualNumberOfChoices] = useState(0);
-    const DivHeight = divheight.divheight * (107 / 100);
+    const DivHeight = divheight * (107 / 100);
 
     const [subjectError, setSubjectError] = useState("");
     const [chapterNumberError, setChapterNumberError] = useState("");
@@ -129,6 +129,28 @@ const AddQuestion = (divheight) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(
+            "subject",
+            subject,
+            "questionType",
+            questionType,
+            "chapterNumber",
+            chapterNumber,
+            "difficulty",
+            difficulty,
+            "duration",
+            duration,
+            "questionText",
+            questionText,
+            "answerText",
+            answerText,
+            "actualNumberOfChoices",
+            actualNumberOfChoices,
+            "radio",
+            radio,
+            "howManyOptions",
+            howManyOptions()
+        );
         if (
             subject &&
             questionType &&
@@ -222,18 +244,18 @@ const AddQuestion = (divheight) => {
                     {/* Form-Slect */}
                     <div className="ms-5 m-2" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">Select Chapter</div>
-                        <Select
+
+                        <textarea
+                            id="questiontextarea"
                             className={chapterNumberError}
-                            options={whattochoose}
-                            placeholder={"eg:ch 10"}
-                            value={options.find(
-                                (obj) => obj.value === chapterNumber
-                            )}
+                            rows={1}
+                            placeholder={"eg:10"}
+                            style={{ width: "100%" }}
                             onChange={(e) => {
-                                setChapterNumber(e.value),
+                                setChapterNumber(e.target.value),
                                     setChapterNumberError("");
                             }}
-                        />
+                        ></textarea>
                         {chapterNumberError && (
                             <div className="emptyfield">must enter feiled</div>
                         )}
