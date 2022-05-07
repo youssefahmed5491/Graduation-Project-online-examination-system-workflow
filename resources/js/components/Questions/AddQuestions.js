@@ -19,9 +19,8 @@ const AddQuestion = (divheight) => {
         });
     }, []);
 
-    const wantedarray = [];
+    let wantedarray = [];
     const addvalue = (getarray) => {
-        wantedarray = [];
         for (let index = 0; index < getarray.length; index++) {
             wantedarray.push({
                 value: getarray[index],

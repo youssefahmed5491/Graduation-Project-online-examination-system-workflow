@@ -58,22 +58,7 @@ class QuestionsController extends Controller
     }
 
 
-    public function show(Professor $QSBank)
-    {
-        $professorsubject = ProfessorSubject::where("professor_id", $QSBank->id)->get();
-        //////////////////////////////////////////
-        $subjectsid = $professorsubject->map(function ($item, $key) {
-            return strtoupper($item->subject_id);
-        });
-        ///////////////////////////////////////
-        $subject = Subject::whereIn("id", $subjectsid)->get();
-        ///////////////////////////////////////////////
-        $subjects_title = $subject->map(function ($item, $key) {
-            return strtoupper($item->title);
-        });
-        //////////////////////////////////////////////////
-        return response()->json($subjects_title);
-    }
+
 
     /**
      * Show the form for editing the specified resource.

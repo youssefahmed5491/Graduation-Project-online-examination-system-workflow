@@ -11876,8 +11876,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
-
 
 
 
@@ -11935,8 +11933,6 @@ var AddQuestion = function AddQuestion(divheight) {
   var wantedarray = [];
 
   var addvalue = function addvalue(getarray) {
-    [], _readOnlyError("wantedarray");
-
     for (var index = 0; index < getarray.length; index++) {
       wantedarray.push({
         value: getarray[index],
