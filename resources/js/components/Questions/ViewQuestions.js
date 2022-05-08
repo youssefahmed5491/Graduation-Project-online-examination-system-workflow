@@ -9,6 +9,7 @@ import edit from "./viewquestions/edit.png";
 import Delete from "./viewquestions/Delete-Alt-256.png";
 
 const ViewQuestions = (divheight, professorid) => {
+    console.log(divheight.professorid);
     useEffect(() => {
         axios
             .get(`/api//professors/${divheight.professorid}`)

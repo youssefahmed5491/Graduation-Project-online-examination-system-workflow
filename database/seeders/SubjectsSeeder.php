@@ -18,18 +18,16 @@ class SubjectsSeeder extends Seeder
         $subject1 = new Subject([
             "title" => "Math",
             'uid' => 'M101',
-            'set_of_criteria' => ['C1', 'C2', 'C3'],
+            'set_of_criteria' => ['1', '2', '3'],
         ]);
         Supervisor::find(1)->subject()->save($subject1);
 
         $subject2 = new Subject([
             "title" => "Mechanics",
             'uid' => 'Mech101',
-            'set_of_criteria' => ['C4', 'C5', 'C6']
+            'set_of_criteria' => ['4', '5', '6']
         ]);
 
         Supervisor::find(2)->subject()->save($subject2);
-
-
     }
 }

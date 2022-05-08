@@ -41,7 +41,7 @@ const AllUsersHome = () => {
     const x = 2;
     const y = 3;
     const z = x.toString() + y.toString();
-    console.log(z);
+    //console.log(z);
     const [professorid, setProfessorid] = useState(undefined);
     const [homeClicked, setHomeClicked] = useState(false);
     const [scheduleClicked, setScheduleClicked] = useState(false);
@@ -98,7 +98,7 @@ const AllUsersHome = () => {
     // 16+50=66
     const divwidth = (width - (16 / 100) * width - 630) / 2;
     const divheight = height - (7 / 100) * height - 65;
-    console.log(divwidth, divheight);
+    // console.log(divwidth, divheight);
 
     const [playing, setPlaying] = useState(false);
     const startVideo = () => {
@@ -709,7 +709,7 @@ const AllUsersHome = () => {
                                     overflow: "auto",
                                 }}
                             >
-                                <CreateExamPage />
+                                <CreateExamPage professorid={professorid} />
                             </div>
                         )}
                     {!homeClicked &&

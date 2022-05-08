@@ -7995,7 +7995,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var CreateExamPage = function CreateExamPage() {
+var CreateExamPage = function CreateExamPage(professorid) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       subject = _useState2[0],
@@ -8066,16 +8066,42 @@ var CreateExamPage = function CreateExamPage() {
       numberOfModelsError = _useState28[0],
       setNumberOfModelsError = _useState28[1];
 
-  var selectSubjectOptions = ["...", "Math", "Graph", "Physics1", "Physics2", "Graph2"];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState30 = _slicedToArray(_useState29, 2),
+      getarray = _useState30[0],
+      setGetArray = _useState30[1];
+
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState32 = _slicedToArray(_useState31, 2),
+      easyNumberQuestions = _useState32[0],
+      setEasyNumberQuestions = _useState32[1];
+
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState34 = _slicedToArray(_useState33, 2),
+      mediumNumberQuestions = _useState34[0],
+      setMediumNumberQuestions = _useState34[1];
+
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState36 = _slicedToArray(_useState35, 2),
+      hardNumberQuestions = _useState36[0],
+      setHardNumberQuestions = _useState36[1];
+
+  var selectSubjectOptions = ["...", "Math", "Graph", "Physics1", "Physics2", "Graph2"]; // console.log(professorid.professorid);
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios.get("/api/professors/".concat(professorid.professorid, "/subjects")).then(function (response) {
+      setGetArray(response.data);
+    });
+  }, []);
   var selectExamType = ["...", "MCQ", "Text Question"];
   var MCQAmount = ["...", 2, 3, 4, 5, 6];
 
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState30 = _slicedToArray(_useState29, 2),
-      togleMCQAmount = _useState30[0],
-      setTogleMCQAmount = _useState30[1];
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState38 = _slicedToArray(_useState37, 2),
+      togleMCQAmount = _useState38[0],
+      setTogleMCQAmount = _useState38[1]; //const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
 
-  var getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
+
   var wantedarray = [];
 
   var addvalue = function addvalue(getarray) {
@@ -8083,8 +8109,8 @@ var CreateExamPage = function CreateExamPage() {
 
     for (var index = 0; index < getarray.length; index++) {
       wantedarray.push({
-        value: getarray[index],
-        label: getarray[index]
+        value: getarray[index].title,
+        label: getarray[index].title
       });
     }
 
@@ -8124,14 +8150,17 @@ var CreateExamPage = function CreateExamPage() {
   };
 
   var handleEasyNumberQuestions = function handleEasyNumberQuestions(e) {
+    setEasyNumberQuestions(e.target.value);
     console.log(e.target.value);
   };
 
   var handleMediumNumberQuestions = function handleMediumNumberQuestions(e) {
+    setMediumNumberQuestions(e.target.value);
     console.log(e.target.value);
   };
 
   var handleHardNumberQuestions = function handleHardNumberQuestions(e) {
+    setHardNumberQuestions(e.target.value);
     console.log(e.target.value);
   };
 
@@ -8173,15 +8202,34 @@ var CreateExamPage = function CreateExamPage() {
       if (!numberOfModels) {
         setNumberOfModelsError("error");
       }
-    }
-  };
+    } /////////////////////////
+    //////////////////////
+    ///////////////////////////// DATA WILL BE PASSED TO API
+
+
+    var request = {
+      subject: subject,
+      duration: duration,
+      examtype: questionType,
+      mcqamount: mcqAmount,
+      date: date,
+      time: time,
+      numberofmodels: numberOfModels,
+      easynumberquestions: easyNumberQuestions,
+      mediumnumberquestions: mediumNumberQuestions,
+      hardnumberquestions: hardNumberQuestions
+    };
+  }; ///////////////////////
+  ////////////////////////
+  //////////////////
+
   /* 6 deh ma3naha kam chapter 3andy */
 
 
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(3)),
-      _useState32 = _slicedToArray(_useState31, 2),
-      arrayChapters = _useState32[0],
-      setArrayChapters = _useState32[1];
+  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(3)),
+      _useState40 = _slicedToArray(_useState39, 2),
+      arrayChapters = _useState40[0],
+      setArrayChapters = _useState40[1];
 
   console.log(arrayChapters);
 
@@ -10949,8 +10997,7 @@ var AllUsersHome = function AllUsersHome() {
   }, []);
   var x = 2;
   var y = 3;
-  var z = x.toString() + y.toString();
-  console.log(z);
+  var z = x.toString() + y.toString(); //console.log(z);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
@@ -11041,8 +11088,7 @@ var AllUsersHome = function AllUsersHome() {
   }, [height, width]); // 16+50=66
 
   var divwidth = (width - 16 / 100 * width - 630) / 2;
-  var divheight = height - 7 / 100 * height - 65;
-  console.log(divwidth, divheight);
+  var divheight = height - 7 / 100 * height - 65; // console.log(divwidth, divheight);
 
   var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState28 = _slicedToArray(_useState27, 2),
@@ -11594,7 +11640,9 @@ var AllUsersHome = function AllUsersHome() {
             height: "100%",
             overflow: "auto"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_CreateExamPage_CreateExamPage__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_CreateExamPage_CreateExamPage__WEBPACK_IMPORTED_MODULE_20__["default"], {
+            professorid: professorid
+          })
         }), !homeClicked && !scheduleClicked && !profileClicked && assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
           className: "col",
           style: {
@@ -11944,9 +11992,9 @@ var AddQuestion = function AddQuestion(divheight, professorid) {
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState16 = _slicedToArray(_useState15, 2),
       getarray = _useState16[0],
-      setGetArray = _useState16[1]; //console.log(divheight.professorid);
+      setGetArray = _useState16[1];
 
-
+  console.log(divheight.professorid);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/professors/".concat(divheight.professorid, "/subjects")).then(function (response) {
       setGetArray(response.data);
@@ -12816,6 +12864,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var ViewQuestions = function ViewQuestions(divheight, professorid) {
+  console.log(divheight.professorid);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios.get("/api//professors/".concat(divheight.professorid)).then(function (response) {
       var data = response.data;

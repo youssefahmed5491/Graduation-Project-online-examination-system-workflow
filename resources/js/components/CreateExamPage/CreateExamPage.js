@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 
-const CreateExamPage = () => {
+const CreateExamPage = (professorid) => {
     const [subject, setSubject] = useState();
     const [duration, setDuration] = useState();
     const [questionType, setQuestionType] = useState();
@@ -17,6 +17,10 @@ const CreateExamPage = () => {
     const [dateError, setDateError] = useState("");
     const [timeError, setTimeError] = useState("");
     const [numberOfModelsError, setNumberOfModelsError] = useState("");
+    const [getarray, setGetArray] = useState([]);
+    const [easyNumberQuestions, setEasyNumberQuestions] = useState();
+    const [mediumNumberQuestions, setMediumNumberQuestions] = useState();
+    const [hardNumberQuestions, setHardNumberQuestions] = useState();
 
     const selectSubjectOptions = [
         "...",
@@ -26,18 +30,27 @@ const CreateExamPage = () => {
         "Physics2",
         "Graph2",
     ];
+    // console.log(professorid.professorid);
+    useEffect(() => {
+        axios
+            .get(`/api/professors/${professorid.professorid}/subjects`)
+            .then((response) => {
+                setGetArray(response.data);
+            });
+    }, []);
+
     const selectExamType = ["...", "MCQ", "Text Question"];
     const MCQAmount = ["...", 2, 3, 4, 5, 6];
     const [togleMCQAmount, setTogleMCQAmount] = useState(false);
 
-    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
+    //const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
     let wantedarray = [];
     const addvalue = (getarray) => {
         wantedarray = [];
         for (let index = 0; index < getarray.length; index++) {
             wantedarray.push({
-                value: getarray[index],
-                label: getarray[index],
+                value: getarray[index].title,
+                label: getarray[index].title,
             });
         }
         return wantedarray;
@@ -67,12 +80,18 @@ const CreateExamPage = () => {
         console.log(e.target.value);
     };
     const handleEasyNumberQuestions = (e) => {
+        setEasyNumberQuestions(e.target.value);
+
         console.log(e.target.value);
     };
     const handleMediumNumberQuestions = (e) => {
+        setMediumNumberQuestions(e.target.value);
+
         console.log(e.target.value);
     };
     const handleHardNumberQuestions = (e) => {
+        setHardNumberQuestions(e.target.value);
+
         console.log(e.target.value);
     };
     const handleNumberOfModels = (e) => {
@@ -122,7 +141,25 @@ const CreateExamPage = () => {
                 setNumberOfModelsError("error");
             }
         }
+        /////////////////////////
+        //////////////////////
+        ///////////////////////////// DATA WILL BE PASSED TO API
+        const request = {
+            subject: subject,
+            duration: duration,
+            examtype: questionType,
+            mcqamount: mcqAmount,
+            date: date,
+            time: time,
+            numberofmodels: numberOfModels,
+            easynumberquestions: easyNumberQuestions,
+            mediumnumberquestions: mediumNumberQuestions,
+            hardnumberquestions: hardNumberQuestions,
+        };
     };
+    ///////////////////////
+    ////////////////////////
+    //////////////////
 
     /* 6 deh ma3naha kam chapter 3andy */
 

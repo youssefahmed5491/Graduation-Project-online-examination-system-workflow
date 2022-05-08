@@ -12,7 +12,7 @@ const AddQuestion = (divheight, professorid) => {
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
     const [getarray, setGetArray] = useState([]);
-    //console.log(divheight.professorid);
+    console.log(divheight.professorid);
 
     useEffect(() => {
         axios
