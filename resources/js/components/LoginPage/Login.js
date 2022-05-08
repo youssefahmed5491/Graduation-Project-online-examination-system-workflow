@@ -55,14 +55,18 @@ const Login = () => {
             password: password,
             type: radio,
         };
-        console.log(request);
+
         if (username && password && radio) {
             axios.post("/api/login", request).then((response) => {
-                console.log({ response });
-                if (response.data == "exists") {
-                    document.getElementById("nameForm").submit();
-                } else {
+                if (response.data == "") {
                     alert("Invalid Username or Password");
+                } else {
+                    // localStorage.setItem(
+                    //     "professor",
+                    //     JSON.stringify(professor)
+                    // );
+
+                    document.getElementById("nameForm").submit();
                 }
             });
         } else {

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
-//Route::apiResource('professors.subjects', ProfessorSubjectController::class);
-Route::apiResource('professors', ProfessorController::class);
+Route::apiResource('professors', ProfessorController::class)->only(["store", "show"]);
+Route::apiResource('subjects', ProfessorController::class);
+Route::apiResource('professors.subjects', ProfessorSubjectController::class)->except(['store', 'show']);
 Route::apiResource("QSBank", QuestionsController::class);

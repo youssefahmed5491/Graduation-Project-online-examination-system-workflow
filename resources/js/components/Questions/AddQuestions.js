@@ -3,7 +3,7 @@ import Select from "react-select";
 import axios from "axios";
 import { isArray } from "lodash";
 
-const AddQuestion = (divheight) => {
+const AddQuestion = (divheight, professorid) => {
     const [subject, setSubject] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [difficulty, setDifficulty] = useState();
@@ -12,19 +12,22 @@ const AddQuestion = (divheight) => {
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
     const [getarray, setGetArray] = useState([]);
-    useEffect(() => {
-        axios.get("/api/professors/1").then((response) => {
-            console.log(response.data);
-            setGetArray(response.data);
-        });
-    }, []);
+    //console.log(divheight.professorid);
 
+    useEffect(() => {
+        axios
+            .get(`/api/professors/${divheight.professorid}/subjects`)
+            .then((response) => {
+                setGetArray(response.data);
+            });
+    }, []);
+    //console.log(getarray);
     let wantedarray = [];
     const addvalue = (getarray) => {
         for (let index = 0; index < getarray.length; index++) {
             wantedarray.push({
-                value: getarray[index],
-                label: getarray[index],
+                value: getarray[index].title,
+                label: getarray[index].title,
             });
         }
         return wantedarray;
@@ -257,18 +260,17 @@ const AddQuestion = (divheight) => {
                     {/* Form-Slect */}
                     <div className="ms-5 m-2" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">Select Chapter</div>
-                        <Select
+                        <textarea
+                            id="questiontextarea"
                             className={chapterNumberError}
-                            options={[{ value: "1", label: "ch1" }]}
-                            placeholder={"eg:ch 10"}
-                            value={options.find(
-                                (obj) => obj.value === chapterNumber
-                            )}
+                            rows={1}
+                            placeholder={"eg:10"}
+                            style={{ width: "100%" }}
                             onChange={(e) => {
-                                setChapterNumber(e.value),
+                                setChapterNumber(e.target.value),
                                     setChapterNumberError("");
                             }}
-                        />
+                        ></textarea>
                         {chapterNumberError && (
                             <div className="emptyfield">must enter feiled</div>
                         )}

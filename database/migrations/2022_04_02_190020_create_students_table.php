@@ -13,7 +13,7 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::connection("mysql2")->create('students', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('username');
             $table->string('password');

@@ -26,8 +26,8 @@ class Question extends Model
         "duration",
         "chapter",
     ];
-    public function professor()
-    {
-        return $this->belongsToMany(Professor::class);
-    }
+    // public function professor()
+    // {
+    //     return $this->belongsToMany(Professor::class);
+    // }
 }

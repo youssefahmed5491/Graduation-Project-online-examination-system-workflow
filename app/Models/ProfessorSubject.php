@@ -8,7 +8,4 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class ProfessorSubject extends Pivot
 {
     use HasFactory;
-
-    protected $connection = "mysql2";
-
 }

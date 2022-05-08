@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class system_manager extends Model
 {
-    protected $connection="mysql2";
+
     use HasFactory;
 }

@@ -5,41 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Professor;
 use App\Models\Subject;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class ProfessorSubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @param Professor $professor
+     * @return JsonResponse
+     * @api GET /professors/:id/subjects
      */
-    public function index()
+    public function index(Professor $professor): JsonResponse
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        return response()->json($professor->subjects);
     }
 
     /**
@@ -48,24 +27,25 @@ class ProfessorSubjectController extends Controller
      * @param Professor $professor
      * @param Subject $subject
      * @return JsonResponse
+     * @api PATCH /professors/:id/subjects/:id
      */
-    public function update(Professor $professor, Subject $subject)
+    public function update(Professor $professor, Subject $subject): JsonResponse
     {
-
-        return response()->json(
-            ['professor' => $professor,
-                'subject' => $subject]
-        );
+        $professor->subjects()->attach($subject);
+        return response()->json($professor->load('subjects'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Professor $professor
+     * @param Subject $subject
+     * @return JsonResponse
+     * @api DELETE /professors/:id/subjects/:id
      */
-    public function destroy($id)
+    public function destroy(Professor $professor, Subject $subject): JsonResponse
     {
-        //
+        $professor->subjects()->detach($subject->id);
+        return response()->json($professor->load('subjects'));
     }
 }

@@ -13,7 +13,7 @@ class CreateSystemManagersTable extends Migration
      */
     public function up()
     {
-        Schema::connection("mysql2")->create('system_managers', function (Blueprint $table) {
+        Schema::create('system_managers', function (Blueprint $table) {
             $table->id();
             $table->string('username');
             $table->string('password');

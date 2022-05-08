@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $connection = "mysql2";
+
+    protected $guarded = array();
+
 
     protected $casts = [
         'set_of_criteria' => 'array'

@@ -13,7 +13,7 @@ class CreateProctorsTable extends Migration
      */
     public function up()
     {
-        Schema::connection("mysql2")->create('proctors', function (Blueprint $table) {
+        Schema::create('proctors', function (Blueprint $table) {
             $table->id();
             $table->string('username');
             $table->string('password');

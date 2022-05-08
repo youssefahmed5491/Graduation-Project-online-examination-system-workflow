@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             ProfessorSeeder::class,
             SupervisorSeeder::class,
             SubjectsSeeder::class,
+            StudentSeeder::class,
+            SystemmanagerSeeder::class
         ]);
-//        $this->call(StudentSeeder::class);
-//        $this->call(SystemmanagerSeeder::class);
     }
 }

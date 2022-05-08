@@ -25,7 +25,7 @@ class CreateSubjectsTable extends Migration
         // id: 1, student_id: 2, subject_id: 1
         // id: 2, student_id: 2, subject_id: 2
         // id: 3, student_id: 1, subject_id: 1
-        Schema::connection("mysql2")->create('subjects', function (Blueprint $table) {
+        Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Supervisor::class);
             $table->string('title');

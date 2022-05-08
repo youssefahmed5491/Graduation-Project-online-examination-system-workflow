@@ -24,14 +24,25 @@ import ProfilePage from "../ProfilePage/ProfilePage";
 import CreateExamPage from "../CreateExamPage/CreateExamPage";
 import { auto } from "@popperjs/core";
 import AssignProcror from "../AssignProctor/AssignProcror";
+import axios from "axios";
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
+    //console.log(username);
+    useEffect(() => {
+        axios.post("/api/professors", { username }).then((response) => {
+            const data = response.data;
+            if (data) {
+                setProfessorid(data);
+            }
+        });
+    }, []);
 
     const x = 2;
     const y = 3;
     const z = x.toString() + y.toString();
     console.log(z);
+    const [professorid, setProfessorid] = useState(undefined);
     const [homeClicked, setHomeClicked] = useState(false);
     const [scheduleClicked, setScheduleClicked] = useState(false);
     const [adjustClicked, setAdjustClicked] = useState(false);
@@ -42,7 +53,7 @@ const AllUsersHome = () => {
     const [profileClicked, setProfileClicked] = useState(false);
     const [createExamClicked, setCreateExamClicked] = useState(false);
     const [assignProctorClicked, setAssignProctorClicked] = useState(false);
-
+    //console.log(professorid);
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
     }`;
@@ -567,7 +578,6 @@ const AllUsersHome = () => {
                                 </div>{" "}
                             </div>
                         )}
-
                     {!homeClicked &&
                         scheduleClicked &&
                         !adjustClicked &&
@@ -587,7 +597,6 @@ const AllUsersHome = () => {
                                 <App />
                             </div>
                         )}
-
                     {!homeClicked &&
                         !scheduleClicked &&
                         !adjustClicked &&
@@ -606,7 +615,6 @@ const AllUsersHome = () => {
                                 <ProfilePage />
                             </div>
                         )}
-
                     {!homeClicked &&
                         !scheduleClicked &&
                         adjustClicked &&
@@ -658,7 +666,10 @@ const AllUsersHome = () => {
                                     height: "100%",
                                 }}
                             >
-                                <ViewQuestions divheight={divheight} />
+                                <ViewQuestions
+                                    divheight={divheight}
+                                    professorid={professorid}
+                                />
                             </div>
                         )}
                     {!homeClicked &&
@@ -676,7 +687,10 @@ const AllUsersHome = () => {
                                     height: "100%",
                                 }}
                             >
-                                <AddQuestions divheight={divheight} />
+                                <AddQuestions
+                                    divheight={divheight}
+                                    professorid={professorid}
+                                />
                             </div>
                         )}
                     {!homeClicked &&

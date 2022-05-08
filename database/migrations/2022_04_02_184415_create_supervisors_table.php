@@ -13,7 +13,7 @@ class CreateSupervisorsTable extends Migration
      */
     public function up()
     {
-        Schema::connection("mysql2")->create('supervisors', function (Blueprint $table) {
+        Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
             $table->string('username');
             $table->string('password');

@@ -14,7 +14,7 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection("mysql2")->table('students')->insert(
+        DB::table('students')->insert(
             [
                 [
                     "id" => "5327",

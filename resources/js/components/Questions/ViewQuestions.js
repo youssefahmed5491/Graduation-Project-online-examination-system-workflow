@@ -8,18 +8,20 @@ import guiViewIcon from "./viewquestions/gui_view_icon_158340.png";
 import edit from "./viewquestions/edit.png";
 import Delete from "./viewquestions/Delete-Alt-256.png";
 
-const ViewQuestions = (divheight) => {
+const ViewQuestions = (divheight, professorid) => {
     useEffect(() => {
-        axios.get("/api/QSBank").then((response) => {
-            const data = response.data;
-            if (data) {
-                setData(data);
-                console.log(data);
-            }
-            // Object.keys(data).map(function (key, index) {
-            //     console.log(data[key]);
-            // });
-        });
+        axios
+            .get(`/api//professors/${divheight.professorid}`)
+            .then((response) => {
+                const data = response.data;
+                if (data) {
+                    setData(data);
+                    console.log(data);
+                }
+                // Object.keys(data).map(function (key, index) {
+                //     console.log(data[key]);
+                // });
+            });
     }, []);
 
     const [data, setData] = useState(undefined);

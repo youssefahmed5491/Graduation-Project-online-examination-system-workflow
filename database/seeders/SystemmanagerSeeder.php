@@ -14,7 +14,7 @@ class SystemmanagerSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection("mysql2")->table('system_managers')->insert(
+        DB::table('system_managers')->insert(
             [
                 [
                     "id" => "9999",

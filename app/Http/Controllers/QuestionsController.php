@@ -53,8 +53,9 @@ class QuestionsController extends Controller
     public function index()
     {
 
-        $questions = Question::all();
-        return  response()->json($questions);
+        $subject = Subject::find(1);
+        dd($subject);
+        //return response()->json($questions->subjects);
     }
 
 
@@ -66,10 +67,10 @@ class QuestionsController extends Controller
      * @param  \App\Models\Question  $qS_Bank
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $qS_Bank)
+    public function edit(Question $QSBank)
     {
-        //
     }
+
 
     /**
      * Update the specified resource in storage.

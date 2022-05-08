@@ -14,39 +14,49 @@ class LoginController extends Controller
     function login(Request $request)
     {
 
+
         if ($request->type == "Student") {
             $username = student::where('username', $request->username);
-            $password = student::where('password', $request->password);
-            if ($username->exists() && $password->exists()) {
-                return response()->json(["exists"]);
+
+            if ($username->exists() && $username->password = $request->password) {
+                return response()->json($username);
+            } else {
+                response()->json(["not exist"]);
             }
         }
         if ($request->type == "Doctor") {
-            $username = professor::where('email', $request->username);
-            $password = professor::where('password', $request->password);
-            if ($username->exists() && $password->exists()) {
-                return response()->json(["exists"]);
+            $username = professor::where('email', $request->username)->first();
+
+            if ($username->exists() && $username->password === $request->password) {
+
+                return response()->json($username);
+            } else {
+                response()->json(["not exist"]);
             }
         }
         if ($request->type == "proctor") {
             $username = proctor::where('username', $request->username);
-            $password = proctor::where('password', $request->password);
-            if ($username->exists() && $password->exists()) {
-                return response()->json(["exists"]);
+            if ($username->exists() && $username->password = $request->password) {
+                return response()->json($username);
+            } else {
+                response()->json(["not exist"]);
             }
         }
         if ($request->type == "Supervisor") {
             $username = supervisor::where('username', $request->username);
-            $password = supervisor::where('password', $request->password);
-            if ($username->exists() && $password->exists()) {
-                return response()->json(["exists"]);
+
+            if ($username->exists() && $username->password = $request->password) {
+                return response()->json($username);
+            } else {
+                response()->json(["not exist"]);
             }
         }
         if ($request->type == "System Manager") {
             $username = system_manager::where('username', $request->username);
-            $password = system_manager::where('password', $request->password);
-            if ($username->exists() && $password->exists()) {
-                return response()->json(["exists"]);
+            if ($username->exists() && $username->password = $request->password) {
+                return response()->json($username);
+            } else {
+                response()->json(["not exist"]);
             }
         }
     }
