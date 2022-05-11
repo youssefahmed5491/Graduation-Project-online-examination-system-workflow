@@ -7235,6 +7235,11 @@ var AssignProcror = function AssignProcror() {
       proctoringMethodError = _useState14[0],
       setProctoringMethodError = _useState14[1];
 
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState16 = _slicedToArray(_useState15, 2),
+      proctorListError = _useState16[0],
+      setProctorListError = _useState16[1];
+
   var handle = function handle(e) {
     console.log(e.target.value);
     setProctorAmount(Number(e.target.value));
@@ -7268,7 +7273,7 @@ var AssignProcror = function AssignProcror() {
     e.preventDefault();
     console.log(subject, proctoringMethod, proctorsList, proctorAmount);
 
-    if (subject && proctoringMethod && proctorAmount && !proctorsList.includes(undefined)) {
+    if (subject && (proctoringMethod === "Artificial Proctoring" || proctorAmount === "Manual Proctoring" && !proctorsList.includes(undefined))) {
       document.getElementById("nameForm").submit();
     } else {
       if (!subject) {
@@ -7281,6 +7286,10 @@ var AssignProcror = function AssignProcror() {
 
       if (!proctorAmount) {
         setProctorAmountError("error");
+      }
+
+      if (proctorsList.includes(undefined)) {
+        setProctorListError("error");
       }
     }
   };
@@ -7340,7 +7349,7 @@ var AssignProcror = function AssignProcror() {
             className: "emptyfield",
             children: "must enter feiled"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), proctoringMethod === "Manual Proctoring" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "ms-5 m-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
@@ -7367,7 +7376,7 @@ var AssignProcror = function AssignProcror() {
           className: "ms-5",
           children: [proctorsList.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "fs-5 fw-bold mb-2",
-            children: "Enter amount of questions for each chapter"
+            children: "Enter number of proctors you want to assign"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "row",
             children: [Array.from(Array(proctorsList.length), function (e, i) {
@@ -7389,7 +7398,7 @@ var AssignProcror = function AssignProcror() {
                   }
                 })
               }, i);
-            }), proctorsList.includes(undefined) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), proctorListError && proctorsList.includes(undefined) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               className: "emptyfield",
               children: "must select proctors"
             })]
@@ -8031,49 +8040,55 @@ var CreateExamPage = function CreateExamPage() {
       numberOfModels = _useState14[0],
       setNumberOfModels = _useState14[1];
 
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState16 = _slicedToArray(_useState15, 2),
-      subjectError = _useState16[0],
-      setSubjectError = _useState16[1];
+      easyNumberQuestions = _useState16[0],
+      setEasyNumberQuestions = _useState16[1];
 
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState18 = _slicedToArray(_useState17, 2),
-      durationError = _useState18[0],
-      setDurationError = _useState18[1];
+      mediumNumberQuestions = _useState18[0],
+      setMediumNumberQuestions = _useState18[1];
 
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState20 = _slicedToArray(_useState19, 2),
-      questionTypeError = _useState20[0],
-      setQuestionTypeError = _useState20[1];
+      hardNumberQuestions = _useState20[0],
+      setHardNumberQuestions = _useState20[1];
 
   var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState22 = _slicedToArray(_useState21, 2),
-      mcqAmountError = _useState22[0],
-      setMCQAmountError = _useState22[1];
+      subjectError = _useState22[0],
+      setSubjectError = _useState22[1];
 
   var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState24 = _slicedToArray(_useState23, 2),
-      dateError = _useState24[0],
-      setDateError = _useState24[1];
+      durationError = _useState24[0],
+      setDurationError = _useState24[1];
 
   var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState26 = _slicedToArray(_useState25, 2),
-      timeError = _useState26[0],
-      setTimeError = _useState26[1];
+      questionTypeError = _useState26[0],
+      setQuestionTypeError = _useState26[1];
 
   var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState28 = _slicedToArray(_useState27, 2),
-      numberOfModelsError = _useState28[0],
-      setNumberOfModelsError = _useState28[1];
+      mcqAmountError = _useState28[0],
+      setMCQAmountError = _useState28[1];
 
-  var selectSubjectOptions = ["...", "Math", "Graph", "Physics1", "Physics2", "Graph2"];
-  var selectExamType = ["...", "MCQ", "Text Question"];
-  var MCQAmount = ["...", 2, 3, 4, 5, 6];
-
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState30 = _slicedToArray(_useState29, 2),
-      togleMCQAmount = _useState30[0],
-      setTogleMCQAmount = _useState30[1];
+      dateError = _useState30[0],
+      setDateError = _useState30[1];
+
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState32 = _slicedToArray(_useState31, 2),
+      timeError = _useState32[0],
+      setTimeError = _useState32[1];
+
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState34 = _slicedToArray(_useState33, 2),
+      numberOfModelsError = _useState34[0],
+      setNumberOfModelsError = _useState34[1];
 
   var getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
   var wantedarray = [];
@@ -8124,15 +8139,15 @@ var CreateExamPage = function CreateExamPage() {
   };
 
   var handleEasyNumberQuestions = function handleEasyNumberQuestions(e) {
-    console.log(e.target.value);
+    setEasyNumberQuestions(e.target.value);
   };
 
   var handleMediumNumberQuestions = function handleMediumNumberQuestions(e) {
-    console.log(e.target.value);
+    setMediumNumberQuestions(e.target.value);
   };
 
   var handleHardNumberQuestions = function handleHardNumberQuestions(e) {
-    console.log(e.target.value);
+    setHardNumberQuestions(e.target.value);
   };
 
   var handleNumberOfModels = function handleNumberOfModels(e) {
@@ -8178,10 +8193,10 @@ var CreateExamPage = function CreateExamPage() {
   /* 6 deh ma3naha kam chapter 3andy */
 
 
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(3)),
-      _useState32 = _slicedToArray(_useState31, 2),
-      arrayChapters = _useState32[0],
-      setArrayChapters = _useState32[1];
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(3)),
+      _useState36 = _slicedToArray(_useState35, 2),
+      arrayChapters = _useState36[0],
+      setArrayChapters = _useState36[1];
 
   console.log(arrayChapters);
 
@@ -11082,7 +11097,11 @@ var AllUsersHome = function AllUsersHome() {
               setAddQuestionsClicked(false);
               setProfileClicked(true);
               setCreateExamClicked(false);
-              stopVideo();
+              setAssignProctorClicked(false);
+
+              if (radio === "student") {
+                stopVideo();
+              }
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("img", {
               src: _profile_icon_png__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -11158,7 +11177,11 @@ var AllUsersHome = function AllUsersHome() {
               setAddQuestionsClicked(false);
               setProfileClicked(false);
               setCreateExamClicked(false);
-              stopVideo();
+              setAssignProctorClicked(false);
+
+              if (radio === "student") {
+                stopVideo();
+              }
             },
             className: homeClassName,
             style: {
@@ -11189,7 +11212,11 @@ var AllUsersHome = function AllUsersHome() {
               setAddQuestionsClicked(false);
               setProfileClicked(false);
               setCreateExamClicked(false);
-              stopVideo();
+              setAssignProctorClicked(false);
+
+              if (radio === "student") {
+                stopVideo();
+              }
             },
             className: scheduleClassName,
             style: {

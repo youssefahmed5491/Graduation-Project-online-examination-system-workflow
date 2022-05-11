@@ -9,6 +9,9 @@ const CreateExamPage = () => {
     const [date, setDate] = useState();
     const [time, setTime] = useState();
     const [numberOfModels, setNumberOfModels] = useState();
+    const [easyNumberQuestions, setEasyNumberQuestions] = useState();
+    const [mediumNumberQuestions, setMediumNumberQuestions] = useState();
+    const [hardNumberQuestions, setHardNumberQuestions] = useState();
 
     const [subjectError, setSubjectError] = useState("");
     const [durationError, setDurationError] = useState("");
@@ -17,18 +20,6 @@ const CreateExamPage = () => {
     const [dateError, setDateError] = useState("");
     const [timeError, setTimeError] = useState("");
     const [numberOfModelsError, setNumberOfModelsError] = useState("");
-
-    const selectSubjectOptions = [
-        "...",
-        "Math",
-        "Graph",
-        "Physics1",
-        "Physics2",
-        "Graph2",
-    ];
-    const selectExamType = ["...", "MCQ", "Text Question"];
-    const MCQAmount = ["...", 2, 3, 4, 5, 6];
-    const [togleMCQAmount, setTogleMCQAmount] = useState(false);
 
     const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
     let wantedarray = [];
@@ -67,13 +58,13 @@ const CreateExamPage = () => {
         console.log(e.target.value);
     };
     const handleEasyNumberQuestions = (e) => {
-        console.log(e.target.value);
+        setEasyNumberQuestions(e.target.value);
     };
     const handleMediumNumberQuestions = (e) => {
-        console.log(e.target.value);
+        setMediumNumberQuestions(e.target.value);
     };
     const handleHardNumberQuestions = (e) => {
-        console.log(e.target.value);
+        setHardNumberQuestions(e.target.value);
     };
     const handleNumberOfModels = (e) => {
         console.log(e.target.value);
