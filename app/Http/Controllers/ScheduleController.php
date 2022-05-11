@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Schedule;
 use Illuminate\Http\Request;
+use App\Models\Subject;
 
 class ScheduleController extends Controller
 {
     /**
-     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +35,13 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //  $subject= Subject::where('title', $request->subject);
+        // $date = $request->datetime;
+
+
+
+
     }
 
     /**

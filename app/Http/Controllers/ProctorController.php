@@ -14,7 +14,8 @@ class ProctorController extends Controller
      */
     public function index()
     {
-        //
+        $proctors = Proctor::all();
+        return response()->json($proctors);
     }
 
     /**

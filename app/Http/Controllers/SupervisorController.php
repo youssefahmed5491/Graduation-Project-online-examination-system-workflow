@@ -35,7 +35,11 @@ class SupervisorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $supervisor = Supervisor::where('email', $request->username)->first();
+
+
+        return response()->json($supervisor);
     }
 
     /**

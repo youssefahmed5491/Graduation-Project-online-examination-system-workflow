@@ -18,13 +18,15 @@ class SystemmanagerSeeder extends Seeder
             [
                 [
                     "id" => "9999",
+                    "email" => "tonyfayez@gmail.com",
                     'username' => 'tonyfayez@gmail.com',
                     'password' => ('123456789'),
 
                 ],
                 [
                     "id" => "1234",
-                    'username' => 'ahmed@gmail.com',
+                    'email' => 'ahmed@gmail.com',
+                    "username" => "om kalthom",
                     'password' => ('123456789'),
 
                 ]

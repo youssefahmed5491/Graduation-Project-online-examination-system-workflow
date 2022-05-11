@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\student;
+use App\Models\SubjectProctor;
 use Illuminate\Http\Request;
+use App\Models\Subject;
+use App\Models\Proctor;
 
-class StudentController extends Controller
+class SubjectProctorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,19 +38,26 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        $student = Student::where('email', $request->username)->first();
+        $subject = Subject::where("id", $request->subjectid)->first();
+        $proctors = array();
+        $proctorlist = $request->proctorsList;
+        foreach ($proctorlist as $proctorlist) {
+            $proctors[] = Proctor::where("username", $proctorlist)->get();
+        }
 
-
-        return response()->json($student);
+        foreach ($proctors as $proctor) {
+            $subject->proctors()->attach($proctor);
+        }
     }
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\SubjectProctor  $subjectProctor
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function show(SubjectProctor $subjectProctor)
     {
         //
     }
@@ -56,10 +65,10 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\SubjectProctor  $subjectProctor
      * @return \Illuminate\Http\Response
      */
-    public function edit(student $student)
+    public function edit(SubjectProctor $subjectProctor)
     {
         //
     }
@@ -68,10 +77,10 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\SubjectProctor  $subjectProctor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, student $student)
+    public function update(Request $request, SubjectProctor $subjectProctor)
     {
         //
     }
@@ -79,10 +88,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\SubjectProctor  $subjectProctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(student $student)
+    public function destroy(SubjectProctor $subjectProctor)
     {
         //
     }

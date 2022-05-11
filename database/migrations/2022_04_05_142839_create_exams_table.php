@@ -16,7 +16,10 @@ class CreateExamsTable extends Migration
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Subject::class);
-            $table->timestamps();
+            $table->Json("modelquestions");
+            $table->time("duration");
+
+            $table->enum("exam_type", ["MCQ", "Written"]);
         });
     }
 

@@ -15,11 +15,13 @@ class ProctorSeeder extends Seeder
     public function run()
     {
         Proctor::create([
-            'username' => 'tonyfayez@gmail.com',
+            'username'  => '7mada',
+            'email' => 'tonyfayez@gmail.com',
             'password' => ('123456789'),
         ]);
         Proctor::create([
-            'username'  => 'ahmed@gmail.com',
+            'username'  => '7mada',
+            'email'  => 'ahmed@gmail.com',
             'password' => '123456789',
         ]);
     }

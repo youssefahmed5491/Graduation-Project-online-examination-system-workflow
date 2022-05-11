@@ -15,6 +15,7 @@ class CreateProctorsTable extends Migration
     {
         Schema::create('proctors', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
             $table->string('username');
             $table->string('password');
             $table->timestamps();

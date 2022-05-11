@@ -18,12 +18,14 @@ class StudentSeeder extends Seeder
             [
                 [
                     "id" => "5327",
-                    'username'  => 'tonyfayez@gmail.com',
+                    'email'  => 'tonyfayez@gmail.com',
+                    "username" => "trb2o etnen bo2o",
                     'password' => ('123456789'),
                 ],
                 [
                     "id" => "5555",
-                    'username' => 'ahmed@gmail.com',
+                    'email' => 'ahmed@gmail.com',
+                    "username" => "trmle etnen melly",
                     'password' => ('123456789'),
                 ]
             ]

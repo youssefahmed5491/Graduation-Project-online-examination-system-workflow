@@ -1,12 +1,34 @@
 import { left } from "@popperjs/core";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import ProfileBackground from "./111.png";
 import ProfilePicture from "./7oda.png";
-const ProfilePage = () => {
+const ProfilePage = ({ username, type }) => {
+    let profiletype;
+    if (type === "Doctor") {
+        profiletype = "professors";
+    } else if (type === "Student") {
+        profiletype = "students";
+    } else if (type === "System Manager") {
+        profiletype = "systemmanagers";
+    } else if (type === "Proctor") {
+        profiletype = "proctors";
+    } else if (type === "Supervisor") {
+        profiletype = "supervisors";
+    }
+    console.log(username);
+    const [profiledata, setProfiledata] = useState([]);
+    useEffect(() => {
+        axios.post(`/api/${profiletype}`, { username }).then((response) => {
+            setProfiledata(response.data);
+            console.log(response.data);
+        });
+    }, []);
+
     const user = {
-        FirstName: "Mahmoud Mohamed Mostafa",
-        ID: "5560",
-        Email: "loria@loria",
+        FirstName: profiledata.username,
+        ID: profiledata.id,
+        Email: profiledata.email,
         University: "Software engineering",
         College: "Engeneer",
         Departement: "Computer",

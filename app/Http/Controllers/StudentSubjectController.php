@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\student;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use App\Models\Subject;
 
-class StudentController extends Controller
+class StudentSubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,20 +36,16 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-
-        $student = Student::where('email', $request->username)->first();
-
-
-        return response()->json($student);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function show($id)
     {
         //
     }
@@ -56,10 +53,10 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(student $student)
+    public function edit($id)
     {
         //
     }
@@ -68,21 +65,23 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, student $student)
+    public function update(Student $student, Subject $subject)
     {
-        //
+
+        $student->subjects()->attach($subject);
+        return response()->json($student->load('subjects'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(student $student)
+    public function destroy($id)
     {
         //
     }

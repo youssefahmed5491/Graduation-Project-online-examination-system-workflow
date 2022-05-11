@@ -14,10 +14,15 @@ class Question extends Model
     use HasFactory;
 
 
-    public function subject()
+    public function Subject()
     {
         return $this->belongsTo(Subject::class, 'subject_id');
     }
+    public function exam()
+    {
+        return $this->belongsTo(Exam::class);
+    }
+
 
 
     protected $casts = [

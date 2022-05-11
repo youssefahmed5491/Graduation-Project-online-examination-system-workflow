@@ -25,7 +25,7 @@ class ProfessorController extends Controller
         $professor = Professor::where('email', $request->username)->first();
 
 
-        return response()->json($professor->id);
+        return response()->json($professor);
     }
     /**
      * Display the specified resource.

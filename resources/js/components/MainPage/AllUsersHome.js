@@ -33,7 +33,7 @@ const AllUsersHome = () => {
         axios.post("/api/professors", { username }).then((response) => {
             const data = response.data;
             if (data) {
-                setProfessorid(data);
+                setProfessor(data);
             }
         });
     }, []);
@@ -41,8 +41,7 @@ const AllUsersHome = () => {
     const x = 2;
     const y = 3;
     const z = x.toString() + y.toString();
-    //console.log(z);
-    const [professorid, setProfessorid] = useState(undefined);
+    const [professor, setProfessor] = useState([]);
     const [homeClicked, setHomeClicked] = useState(false);
     const [scheduleClicked, setScheduleClicked] = useState(false);
     const [adjustClicked, setAdjustClicked] = useState(false);
@@ -53,7 +52,7 @@ const AllUsersHome = () => {
     const [profileClicked, setProfileClicked] = useState(false);
     const [createExamClicked, setCreateExamClicked] = useState(false);
     const [assignProctorClicked, setAssignProctorClicked] = useState(false);
-    //console.log(professorid);
+
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
     }`;
@@ -612,7 +611,7 @@ const AllUsersHome = () => {
                                     background: "#ebebeb",
                                 }}
                             >
-                                <ProfilePage />
+                                <ProfilePage username={username} type={radio} />
                             </div>
                         )}
                     {!homeClicked &&
@@ -668,7 +667,7 @@ const AllUsersHome = () => {
                             >
                                 <ViewQuestions
                                     divheight={divheight}
-                                    professorid={professorid}
+                                    professor={professor}
                                 />
                             </div>
                         )}
@@ -689,7 +688,7 @@ const AllUsersHome = () => {
                             >
                                 <AddQuestions
                                     divheight={divheight}
-                                    professorid={professorid}
+                                    professor={professor}
                                 />
                             </div>
                         )}
@@ -709,7 +708,7 @@ const AllUsersHome = () => {
                                     overflow: "auto",
                                 }}
                             >
-                                <CreateExamPage professorid={professorid} />
+                                <CreateExamPage professor={professor} />
                             </div>
                         )}
                     {!homeClicked &&

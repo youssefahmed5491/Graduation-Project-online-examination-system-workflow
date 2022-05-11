@@ -8,6 +8,7 @@ use App\Models\professor;
 use App\Models\proctor;
 use App\Models\supervisor;
 use App\Models\system_manager;
+use App\Models\SystemManager;
 
 class LoginController extends Controller
 {
@@ -16,7 +17,7 @@ class LoginController extends Controller
 
 
         if ($request->type == "Student") {
-            $username = student::where('username', $request->username);
+            $username = student::where('email', $request->username);
 
             if ($username->exists() && $username->password = $request->password) {
                 return response()->json($username);
@@ -35,7 +36,7 @@ class LoginController extends Controller
             }
         }
         if ($request->type == "proctor") {
-            $username = proctor::where('username', $request->username);
+            $username = proctor::where('email', $request->username);
             if ($username->exists() && $username->password = $request->password) {
                 return response()->json($username);
             } else {
@@ -43,7 +44,7 @@ class LoginController extends Controller
             }
         }
         if ($request->type == "Supervisor") {
-            $username = supervisor::where('username', $request->username);
+            $username = supervisor::where('email', $request->username);
 
             if ($username->exists() && $username->password = $request->password) {
                 return response()->json($username);
@@ -52,7 +53,7 @@ class LoginController extends Controller
             }
         }
         if ($request->type == "System Manager") {
-            $username = system_manager::where('username', $request->username);
+            $username = SystemManager::where('email', $request->username);
             if ($username->exists() && $username->password = $request->password) {
                 return response()->json($username);
             } else {

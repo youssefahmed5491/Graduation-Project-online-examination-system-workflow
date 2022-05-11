@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExamProctorsTable extends Migration
+class CreateSubjectProctorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateExamProctorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('exam_proctors', function (Blueprint $table) {
+        Schema::create('proctor_subject', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Exam::class);
-            $table->foreignIdFor(\App\Models\Proctor::class);
-            $table->timestamps();
+            $table->foreignIdFor(App\Models\Subject::class);
+            $table->foreignIdFor(App\Models\Proctor::class);
         });
     }
 
@@ -28,6 +27,6 @@ class CreateExamProctorsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('subject_proctors');
     }
 }

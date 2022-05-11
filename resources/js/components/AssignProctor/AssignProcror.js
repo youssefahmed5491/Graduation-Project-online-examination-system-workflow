@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 
 const AssignProcror = () => {
@@ -10,40 +11,74 @@ const AssignProcror = () => {
     const [subjectError, setSubjectError] = useState("");
     const [proctorAmountError, setProctorAmountError] = useState("");
     const [proctoringMethodError, setProctoringMethodError] = useState("");
-
+    const [getarray, setGetArray] = useState([]);
+    const [getarray1, setGetArray1] = useState([]);
+    const [subjectdata, setSubjectData] = useState([]);
     const handle = (e) => {
-        console.log(e.target.value);
+        //  console.log(e.target.value);
         setProctorAmount(Number(e.target.value));
         setProctorsList(Array(Number(e.target.value)));
         setProctorAmountError("");
-        console.log("h", proctorAmount);
+        // console.log("h", proctorAmount);
         console.log(proctorsList);
     };
 
-    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2", "lol"];
-    const getarray1 = [
-        "Ahmed",
-        "Walid",
-        "Mohamed",
-        "Youssef",
-        "Mahmoud",
-        "Marwan",
-    ];
+    console.log(subjectdata);
+    useEffect(() => {
+        axios.get("/api/subjects").then((response) => {
+            const data = response.data;
+            if (data) {
+                setGetArray(data);
+            }
+        });
+        axios.get("/api/proctors").then((response) => {
+            const data = response.data;
+            if (data) {
+                setGetArray1(data);
+            }
+        });
+    }, []);
+
+    console.log(getarray);
     let wantedarray = [];
     const addvalue = (getarray) => {
         wantedarray = [];
         for (let index = 0; index < getarray.length; index++) {
             wantedarray.push({
-                value: getarray[index],
-                label: getarray[index],
+                value: getarray[index].title,
+                label: getarray[index].title,
             });
         }
         return wantedarray;
     };
-    const options = addvalue(getarray);
-    const ProctorOptions = addvalue(getarray1);
+    const addvalueproctors = (getarray) => {
+        wantedarray = [];
+        for (let index = 0; index < getarray.length; index++) {
+            wantedarray.push({
+                value: getarray[index].username,
+                label: getarray[index].username,
+            });
+        }
+        return wantedarray;
+    };
+    // const getarray1 = [
+    //     "Ahmed",
+    //     "Walid",
+    //     "Mohamed",
+    //     "Youssef",
+    //     "Mahmoud",
+    //     "Marwan",
+    // ];
 
+    const options = addvalue(getarray);
+    const ProctorOptions = addvalueproctors(getarray1);
+    let request = {
+        //////////////////////////////////// 3ayzen nmskn al3dd w n3rf random wla bl asamy
+        subjectid: subjectdata.id,
+        proctorsList,
+    };
     const handleSubmit = (e) => {
+        axios.post(`/api/subjects/${subjectdata.id}/proctors`, request);
         e.preventDefault();
         console.log(subject, proctoringMethod, proctorsList, proctorAmount);
         if (
@@ -83,6 +118,11 @@ const AssignProcror = () => {
                             // value={options.find((obj) => obj.value === subject)}
                             onChange={(e) => {
                                 setSubject(e.value), setSubjectError("");
+                                axios
+                                    .post("api/subjects", e)
+                                    .then((response) => {
+                                        setSubjectData(response.data);
+                                    });
                             }}
                         />
                         {subjectError && (

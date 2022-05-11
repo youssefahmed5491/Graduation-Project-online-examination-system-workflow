@@ -15,6 +15,7 @@ class CreateSystemManagersTable extends Migration
     {
         Schema::create('system_managers', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
             $table->string('username');
             $table->string('password');
             $table->timestamps();

@@ -3,7 +3,7 @@ import Select from "react-select";
 import axios from "axios";
 import { isArray } from "lodash";
 
-const AddQuestion = (divheight, professorid) => {
+const AddQuestion = (divheight, professor) => {
     const [subject, setSubject] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [difficulty, setDifficulty] = useState();
@@ -12,11 +12,11 @@ const AddQuestion = (divheight, professorid) => {
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
     const [getarray, setGetArray] = useState([]);
-    console.log(divheight.professorid);
+    console.log(divheight.professor.id);
 
     useEffect(() => {
         axios
-            .get(`/api/professors/${divheight.professorid}/subjects`)
+            .get(`/api/professors/${divheight.professor.id}/subjects`)
             .then((response) => {
                 setGetArray(response.data);
             });

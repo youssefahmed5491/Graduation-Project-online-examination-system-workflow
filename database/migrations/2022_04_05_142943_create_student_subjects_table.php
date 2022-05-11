@@ -13,13 +13,13 @@ class CreateStudentSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('student_subjects', function (Blueprint $table) {
+        Schema::create('student_subject', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Subject::class);
             $table->foreignIdFor(\App\Models\Student::class);
-            $table->foreignIdFor(\App\Models\Exam::class);
-            $table->dateTime('date_time');
-            $table->float('duration');
+            // $table->foreignIdFor(\App\Models\Exam::class);
+            // $table->dateTime('date_time');
+            // $table->float('duration');
             $table->timestamps();
         });
     }

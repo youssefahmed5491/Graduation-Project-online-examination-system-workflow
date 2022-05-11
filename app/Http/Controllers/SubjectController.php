@@ -14,6 +14,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
+        $subjects = Subject::all();
+        return response()->json($subjects);
     }
 
     /**
@@ -34,7 +36,11 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
+        $data = Subject::where("title", $request->value)->first();
+
+
+        return response()->json($data);
     }
 
     /**
@@ -66,10 +72,14 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Subject $subject)
     {
-        //
+
+        $subject->date = $request->date;
+        $subject->time = $request->time;
+        $subject->update();
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -77,8 +87,4 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
 }

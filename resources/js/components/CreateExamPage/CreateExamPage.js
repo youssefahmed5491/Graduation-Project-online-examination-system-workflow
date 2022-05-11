@@ -1,7 +1,9 @@
+import axios from "axios";
+import { isArray, isObject } from "lodash";
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 
-const CreateExamPage = (professorid) => {
+const CreateExamPage = (professor) => {
     const [subject, setSubject] = useState();
     const [duration, setDuration] = useState();
     const [questionType, setQuestionType] = useState();
@@ -21,23 +23,24 @@ const CreateExamPage = (professorid) => {
     const [easyNumberQuestions, setEasyNumberQuestions] = useState();
     const [mediumNumberQuestions, setMediumNumberQuestions] = useState();
     const [hardNumberQuestions, setHardNumberQuestions] = useState();
-
-    const selectSubjectOptions = [
-        "...",
-        "Math",
-        "Graph",
-        "Physics1",
-        "Physics2",
-        "Graph2",
-    ];
-    // console.log(professorid.professorid);
+    const [subjectdetails, setSubjectDetails] = useState([null]);
+    const [arrayChapters, setArrayChapters] = useState([]);
+    console.log(professor.professor.id);
     useEffect(() => {
         axios
-            .get(`/api/professors/${professorid.professorid}/subjects`)
+            .get(`/api/professors/${professor.professor.id}/subjects`)
             .then((response) => {
                 setGetArray(response.data);
             });
     }, []);
+    //  console.log(subjectdetails);
+
+    useEffect(() => {
+        if (subject != null) {
+            console.log(subjectdetails.set_of_criteria.length);
+            setArrayChapters(Array(subjectdetails.set_of_criteria.length));
+        }
+    }, [subjectdetails]);
 
     const selectExamType = ["...", "MCQ", "Text Question"];
     const MCQAmount = ["...", 2, 3, 4, 5, 6];
@@ -97,6 +100,15 @@ const CreateExamPage = (professorid) => {
     const handleNumberOfModels = (e) => {
         console.log(e.target.value);
     };
+
+    const handleChapter = (e, index) => {
+        let temp = arrayChapters;
+        temp[index] = e.target.value;
+        setArrayChapters(temp);
+        // console.log(isArray(arrayChapters));
+    };
+
+    //console.log(subjectdetails.id);
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(
@@ -117,7 +129,13 @@ const CreateExamPage = (professorid) => {
             time &&
             numberOfModels
         ) {
-            document.getElementById("nameForm").submit();
+            for (var i = 0; i < numberOfModels; i++) {
+                axios.post("/api/exam", request1);
+            }
+            axios.patch(`/api/subjects/${subjectdetails.id}`, request2);
+            /////////////////////////////////////////////
+            // document.getElementById("nameForm").submit();
+            ///////////////////////////////////
         } else {
             if (!subject) {
                 setSubjectError("error");
@@ -143,34 +161,29 @@ const CreateExamPage = (professorid) => {
         }
         /////////////////////////
         //////////////////////
-        ///////////////////////////// DATA WILL BE PASSED TO API
-        const request = {
-            subject: subject,
-            duration: duration,
-            examtype: questionType,
-            mcqamount: mcqAmount,
-            date: date,
-            time: time,
-            numberofmodels: numberOfModels,
-            easynumberquestions: easyNumberQuestions,
-            mediumnumberquestions: mediumNumberQuestions,
-            hardnumberquestions: hardNumberQuestions,
-        };
+    };
+    ///////////////////////////// DATA WILL BE PASSED TO API
+    const request1 = {
+        subject: subject,
+        duration: duration,
+        examtype: questionType,
+        mcqamount: mcqAmount,
+        easynumberquestions: easyNumberQuestions,
+        mediumnumberquestions: mediumNumberQuestions,
+        hardnumberquestions: hardNumberQuestions,
+        chaptersquestions: arrayChapters,
+    };
+    const request2 = {
+        date: date,
+        time: time,
     };
     ///////////////////////
     ////////////////////////
     //////////////////
 
     /* 6 deh ma3naha kam chapter 3andy */
+    // console.log(arrayChapters);
 
-    const [arrayChapters, setArrayChapters] = useState(Array(3));
-    console.log(arrayChapters);
-    const handleChapter = (e, index) => {
-        let temp = arrayChapters;
-        temp[index] = e.target.value;
-        setArrayChapters(temp);
-        console.log(arrayChapters);
-    };
     return (
         <>
             <div className="m-2">
@@ -188,6 +201,11 @@ const CreateExamPage = (professorid) => {
                             value={options.find((obj) => obj.value === subject)}
                             onChange={(e) => {
                                 setSubject(e.value), setSubjectError("");
+                                axios
+                                    .post("/api/subjects", e)
+                                    .then((response) => {
+                                        setSubjectDetails(response.data);
+                                    });
                             }}
                         />
                         {subjectError && (
@@ -203,7 +221,7 @@ const CreateExamPage = (professorid) => {
                             <input
                                 className={`form-control ${durationError}`}
                                 type="text"
-                                placeholder="Enter Text Here"
+                                placeholder="ex hh:mm:ss"
                                 aria-label="default input example"
                                 style={{ width: "101%" }}
                                 onChange={(e) => {
@@ -289,7 +307,7 @@ const CreateExamPage = (professorid) => {
                             <input
                                 className={`form-control d-inline ${dateError}`}
                                 type="text"
-                                placeholder="dd/mm/yyyy"
+                                placeholder="yyyy-mm-dd"
                                 aria-label="default input example"
                                 style={{ width: "10%" }}
                                 onChange={(e) => {
@@ -300,7 +318,7 @@ const CreateExamPage = (professorid) => {
                             <input
                                 className={`form-control d-inline ms-2 ${timeError}`}
                                 type="text"
-                                placeholder="ex: 23:59"
+                                placeholder="ex: hh:mm:ss"
                                 aria-label="default input example"
                                 style={{ width: "10%" }}
                                 onChange={(e) => {
@@ -354,32 +372,41 @@ const CreateExamPage = (professorid) => {
                             />
                         </div>
                     </div>
-                    <div className="ms-5">
-                        <div className="fs-5 fw-bold mb-2">
-                            Enter amount of questions for each chapter
+                    {subject && (
+                        <div className="ms-5">
+                            <div className="fs-5 fw-bold mb-2">
+                                Enter amount of questions for each chapter
+                            </div>
+                            <div className="row">
+                                {Array.from(
+                                    Array(arrayChapters.length),
+                                    (e, i) => {
+                                        return (
+                                            <div key={i} className="col-4">
+                                                <div className="d-inline me-5 fs-4 fw-bold">
+                                                    Chapter{" "}
+                                                    {
+                                                        subjectdetails
+                                                            .set_of_criteria[i]
+                                                    }
+                                                </div>
+                                                <input
+                                                    className="form-control d-inline mx-2"
+                                                    type="text"
+                                                    placeholder="Enter Text Here"
+                                                    aria-label="default input example"
+                                                    style={{ width: "30%" }}
+                                                    onChange={(e) =>
+                                                        handleChapter(e, i)
+                                                    }
+                                                />
+                                            </div>
+                                        );
+                                    }
+                                )}
+                            </div>
                         </div>
-                        <div className="row">
-                            {Array.from(Array(arrayChapters.length), (e, i) => {
-                                return (
-                                    <div key={i} className="col-4">
-                                        <div className="d-inline me-5 fs-4 fw-bold">
-                                            Chapter {i + 1}
-                                        </div>
-                                        <input
-                                            className="form-control d-inline mx-2"
-                                            type="text"
-                                            placeholder="Enter Text Here"
-                                            aria-label="default input example"
-                                            style={{ width: "30%" }}
-                                            onChange={(e) =>
-                                                handleChapter(e, i)
-                                            }
-                                        />
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
+                    )}
                     <div className="ms-5">
                         <div className="fs-5 fw-bold mb-2">
                             Enter Number of different models

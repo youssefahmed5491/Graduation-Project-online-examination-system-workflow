@@ -15,11 +15,13 @@ class SupervisorSeeder extends Seeder
     public function run()
     {
         Supervisor::create([
-            'username' => 'tonyfayez@gmail.com',
+            "username" => "abo alz2aze2",
+            'email' => 'tonyfayez@gmail.com',
             'password' => ('123456789'),
         ]);
         Supervisor::create([
-            'username'  => 'ahmed@gmail.com',
+            "username" => "abo altnanen",
+            'email'  => 'ahmed@gmail.com',
             'password' => '123456789',
         ]);
     }

@@ -8,11 +8,11 @@ import guiViewIcon from "./viewquestions/gui_view_icon_158340.png";
 import edit from "./viewquestions/edit.png";
 import Delete from "./viewquestions/Delete-Alt-256.png";
 
-const ViewQuestions = (divheight, professorid) => {
-    console.log(divheight.professorid);
+const ViewQuestions = (divheight, professor) => {
+    console.log(divheight.professor);
     useEffect(() => {
         axios
-            .get(`/api//professors/${divheight.professorid}`)
+            .get(`/api/professors/${divheight.professor.id}`)
             .then((response) => {
                 const data = response.data;
                 if (data) {

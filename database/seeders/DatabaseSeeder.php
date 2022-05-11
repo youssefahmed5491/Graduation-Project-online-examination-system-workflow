@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             SupervisorSeeder::class,
             SubjectsSeeder::class,
             StudentSeeder::class,
-            SystemmanagerSeeder::class
+            SystemmanagerSeeder::class,
+            ProctorSeeder::class
         ]);
     }
 }

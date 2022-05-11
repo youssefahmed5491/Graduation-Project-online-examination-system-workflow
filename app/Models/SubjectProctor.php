@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Schedeule extends Model
+class SubjectProctor extends Model
 {
     use HasFactory;
-
-    public function subject()
-    {
-        return $this->belongsTo(subject::class,'subject_id');
-    }
 }
