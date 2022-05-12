@@ -7533,7 +7533,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var App = function App() {
+var App = function App(_ref) {
+  var profiledata = _ref.profiledata;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
       nav = _useState2[0],
@@ -7556,12 +7558,11 @@ var App = function App() {
       clicked = _useState8[0],
       setClicked = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem("events") ? JSON.parse(localStorage.getItem("events")) : []),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState10 = _slicedToArray(_useState9, 2),
       events = _useState10[0],
-      setEvents = _useState10[1];
+      setEvents = _useState10[1]; //  console.log(events);
 
-  console.log(events);
 
   var eventForDate = function eventForDate(date) {
     // console.log(events.filter((e) => e.date === date));
@@ -7580,14 +7581,20 @@ var App = function App() {
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios.get("/api/students/".concat(profiledata.id, "/subjects")).then(function (response) {
+      setEvents(response.data);
+    });
+  }, []);
+  console.log(events);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     window.addEventListener("resize", checkSize);
     return function () {
       window.removeEventListener("resize", checkSize);
     };
   }, [height]);
   var col = "";
-  var divheight = 93 / 100 * height;
-  console.log(col, height, divheight); // console.log(events);
+  var divheight = 93 / 100 * height; //console.log(col, height, divheight);
+  // console.log(events);
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     localStorage.setItem("events", JSON.stringify(events));
@@ -7620,7 +7627,17 @@ var App = function App() {
     var daysArr = [];
 
     for (var i = 1; i <= paddingDays + daysInMonth; i++) {
-      var dayString = "".concat(i - paddingDays, "/").concat(month + 1, "/").concat(year);
+      var dayString = "";
+
+      if (month + 1 < 10 && i - paddingDays < 10) {
+        dayString = "".concat(year, "-0").concat(month + 1, "-0").concat(i - paddingDays);
+      } else if (month + 1 > 10 && i - paddingDays < 10) {
+        dayString = "".concat(year, "-").concat(month + 1, "-0").concat(i - paddingDays);
+      } else if (month + 1 < 10 && i - paddingDays > 10) {
+        dayString = "".concat(year, "-0").concat(month + 1, "-").concat(i - paddingDays);
+      } else {
+        dayString = "".concat(year, "-").concat(month + 1, "-").concat(i - paddingDays);
+      }
 
       if (i > paddingDays) {
         daysArr.push({
@@ -7640,8 +7657,8 @@ var App = function App() {
     }
 
     setDays(daysArr);
-  }, [events, nav]);
-  console.log(days);
+  }, [events, nav]); // console.log(days);
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "row",
@@ -8171,8 +8188,7 @@ var CreateExamPage = function CreateExamPage(professor) {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/professors/".concat(professor.professor.id, "/subjects")).then(function (response) {
       setGetArray(response.data);
     });
-  }, []); //  console.log(subjectdetails);
-
+  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     if (subject != null) {
       console.log(subjectdetails.set_of_criteria.length);
@@ -11085,64 +11101,93 @@ var AllUsersHome = function AllUsersHome() {
       }
     });
   }, []);
+  var profiletype;
+
+  if (radio === "Doctor") {
+    profiletype = "professors";
+  } else if (radio === "Student") {
+    profiletype = "students";
+  } else if (radio === "System Manager") {
+    profiletype = "systemmanagers";
+  } else if (radio === "Proctor") {
+    profiletype = "proctors";
+  } else if (radio === "Supervisor") {
+    profiletype = "supervisors";
+  }
+
+  console.log(username);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      profiledata = _useState2[0],
+      setProfiledata = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios__WEBPACK_IMPORTED_MODULE_22___default().post("/api/".concat(profiletype), {
+      username: username
+    }).then(function (response) {
+      setProfiledata(response.data);
+      console.log(response.data);
+    });
+  }, []);
   var x = 2;
   var y = 3;
   var z = x.toString() + y.toString();
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      professor = _useState2[0],
-      setProfessor = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      homeClicked = _useState4[0],
-      setHomeClicked = _useState4[1];
+      professor = _useState4[0],
+      setProfessor = _useState4[1];
 
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState6 = _slicedToArray(_useState5, 2),
-      scheduleClicked = _useState6[0],
-      setScheduleClicked = _useState6[1];
+      homeClicked = _useState6[0],
+      setHomeClicked = _useState6[1];
 
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState8 = _slicedToArray(_useState7, 2),
-      adjustClicked = _useState8[0],
-      setAdjustClicked = _useState8[1];
+      scheduleClicked = _useState8[0],
+      setScheduleClicked = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
-      examClicked = _useState10[0],
-      setExamClicked = _useState10[1];
+      adjustClicked = _useState10[0],
+      setAdjustClicked = _useState10[1];
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState12 = _slicedToArray(_useState11, 2),
-      questionsClicked = _useState12[0],
-      setQuestionsClicked = _useState12[1];
+      examClicked = _useState12[0],
+      setExamClicked = _useState12[1];
 
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState14 = _slicedToArray(_useState13, 2),
-      viewQuestionsClicked = _useState14[0],
-      setViewQuestionsClicked = _useState14[1];
+      questionsClicked = _useState14[0],
+      setQuestionsClicked = _useState14[1];
 
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState16 = _slicedToArray(_useState15, 2),
-      addQuestionsClicked = _useState16[0],
-      setAddQuestionsClicked = _useState16[1];
+      viewQuestionsClicked = _useState16[0],
+      setViewQuestionsClicked = _useState16[1];
 
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState18 = _slicedToArray(_useState17, 2),
-      profileClicked = _useState18[0],
-      setProfileClicked = _useState18[1];
+      addQuestionsClicked = _useState18[0],
+      setAddQuestionsClicked = _useState18[1];
 
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState20 = _slicedToArray(_useState19, 2),
-      createExamClicked = _useState20[0],
-      setCreateExamClicked = _useState20[1];
+      profileClicked = _useState20[0],
+      setProfileClicked = _useState20[1];
 
   var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState22 = _slicedToArray(_useState21, 2),
-      assignProctorClicked = _useState22[0],
-      setAssignProctorClicked = _useState22[1];
+      createExamClicked = _useState22[0],
+      setCreateExamClicked = _useState22[1];
+
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState24 = _slicedToArray(_useState23, 2),
+      assignProctorClicked = _useState24[0],
+      setAssignProctorClicked = _useState24[1];
 
   var homeClassName = "d-flex align-items-center ps-3 my-button ".concat(homeClicked ? "clickedbuttom" : "");
   var scheduleClassName = "d-flex align-items-center ps-3 my-button ".concat(scheduleClicked ? "clickedbuttom" : "");
@@ -11154,15 +11199,15 @@ var AllUsersHome = function AllUsersHome() {
   var createExamClassName = "d-flex align-items-center ps-3 my-button ".concat(createExamClicked ? "clickedbuttom" : "");
   var assignProctorClassName = "d-flex align-items-center ps-3 my-button ".concat(assignProctorClicked ? "clickedbuttom" : "");
 
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerWidth),
-      _useState24 = _slicedToArray(_useState23, 2),
-      width = _useState24[0],
-      setWidth = _useState24[1];
-
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerHeight),
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerWidth),
       _useState26 = _slicedToArray(_useState25, 2),
-      height = _useState26[0],
-      setHeight = _useState26[1];
+      width = _useState26[0],
+      setWidth = _useState26[1];
+
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerHeight),
+      _useState28 = _slicedToArray(_useState27, 2),
+      height = _useState28[0],
+      setHeight = _useState28[1];
 
   var checkSize = function checkSize() {
     setWidth(window.innerWidth);
@@ -11179,10 +11224,10 @@ var AllUsersHome = function AllUsersHome() {
   var divwidth = (width - 16 / 100 * width - 630) / 2;
   var divheight = height - 7 / 100 * height - 65; // console.log(divwidth, divheight);
 
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState28 = _slicedToArray(_useState27, 2),
-      playing = _useState28[0],
-      setPlaying = _useState28[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState30 = _slicedToArray(_useState29, 2),
+      playing = _useState30[0],
+      setPlaying = _useState30[1];
 
   var startVideo = function startVideo() {
     setPlaying(true);
@@ -11263,7 +11308,7 @@ var AllUsersHome = function AllUsersHome() {
               className: "h-100 "
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
               className: "px-2 fw-bolder fs-4",
-              children: "name"
+              children: profiledata.username
             })]
           })]
         })]
@@ -11298,9 +11343,9 @@ var AllUsersHome = function AllUsersHome() {
               style: {
                 marginTop: "5%"
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
                 className: "fw-bolder  name-size text-light",
-                children: ["Mahmoud", " "]
+                children: profiledata.username
               }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
                 className: "d-flex align-items-center  ",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
@@ -11667,7 +11712,9 @@ var AllUsersHome = function AllUsersHome() {
             paddingLeft: "".concat(divwidth, "px"),
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_15__["default"], {
+            profiledata: profiledata
+          })
         }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
           className: "col ",
           style: {

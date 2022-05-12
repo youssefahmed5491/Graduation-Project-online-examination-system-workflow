@@ -22,10 +22,8 @@ Route::apiResource('supervisors', SupervisorController::class)->only(["store", "
 Route::apiResource('systemmanagers', SystemManagerController::class)->only(["store", "show"]);
 Route::apiResource('subjects', SubjectController::class);
 Route::apiResource('scheduele', ScheduleController::class)->only(["store"]);
-
 Route::apiResource('exam', ExamController::class)->only(["store", "show"]);
 Route::apiResource('professors.subjects', ProfessorSubjectController::class);
 Route::apiResource('subjects.proctors', SubjectProctorController::class);
-
-Route::apiResource('students.subjects', StudentSubjectController::class)->except(['store', 'show']);
+Route::apiResource('students.subjects', StudentSubjectController::class);
 Route::apiResource("QSBank", QuestionsController::class);

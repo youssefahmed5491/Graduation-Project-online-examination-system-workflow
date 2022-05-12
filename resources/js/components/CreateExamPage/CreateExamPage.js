@@ -33,8 +33,6 @@ const CreateExamPage = (professor) => {
                 setGetArray(response.data);
             });
     }, []);
-    //  console.log(subjectdetails);
-
     useEffect(() => {
         if (subject != null) {
             console.log(subjectdetails.set_of_criteria.length);

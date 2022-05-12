@@ -37,6 +37,26 @@ const AllUsersHome = () => {
             }
         });
     }, []);
+    let profiletype;
+    if (radio === "Doctor") {
+        profiletype = "professors";
+    } else if (radio === "Student") {
+        profiletype = "students";
+    } else if (radio === "System Manager") {
+        profiletype = "systemmanagers";
+    } else if (radio === "Proctor") {
+        profiletype = "proctors";
+    } else if (radio === "Supervisor") {
+        profiletype = "supervisors";
+    }
+    console.log(username);
+    const [profiledata, setProfiledata] = useState([]);
+    useEffect(() => {
+        axios.post(`/api/${profiletype}`, { username }).then((response) => {
+            setProfiledata(response.data);
+            console.log(response.data);
+        });
+    }, []);
 
     const x = 2;
     const y = 3;
@@ -158,7 +178,9 @@ const AllUsersHome = () => {
                             }}
                         >
                             <img src={profile} alt="" className="h-100 " />
-                            <span className="px-2 fw-bolder fs-4">name</span>
+                            <span className="px-2 fw-bolder fs-4">
+                                {profiledata.username}
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -179,7 +201,7 @@ const AllUsersHome = () => {
                             </div>{" "}
                             <div className="col   " style={{ marginTop: "5%" }}>
                                 <div className="fw-bolder  name-size text-light">
-                                    Mahmoud{" "}
+                                    {profiledata.username}
                                 </div>{" "}
                                 <div className="d-flex align-items-center  ">
                                     <div
@@ -593,7 +615,7 @@ const AllUsersHome = () => {
                                     background: "#ebebeb",
                                 }}
                             >
-                                <App />
+                                <App profiledata={profiledata} />
                             </div>
                         )}
                     {!homeClicked &&
