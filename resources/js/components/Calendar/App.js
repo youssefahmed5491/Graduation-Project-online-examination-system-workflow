@@ -9,12 +9,11 @@ const App = () => {
     const [days, setDays] = useState([]); //number of days in a mounth
     const [dateDispaly, setDateDisplay] = useState("");
     const [clicked, setClicked] = useState();
-    const [events, setEvents] = useState(
-        localStorage.getItem("events")
-            ? JSON.parse(localStorage.getItem("events"))
-            : []
-    );
-    console.log(events);
+    const [events, setEvents] = useState([
+        { title: "lol", date: "2022-03-12" },
+        { title: "lol", date: "2022-03-06" },
+    ]);
+    console.log("lol", events);
     const eventForDate = (date) => {
         // console.log(events.filter((e) => e.date === date));
         return events.filter((e) => e.date === date);
@@ -77,8 +76,16 @@ const App = () => {
         const daysArr = [];
 
         for (let i = 1; i <= paddingDays + daysInMonth; i++) {
-            const dayString = `${i - paddingDays}/${month + 1}/${year}`;
-
+            var dayString = "";
+            if (month + 1 < 10 && i - paddingDays < 10) {
+                dayString = `${year}-0${month + 1}-0${i - paddingDays}`;
+            } else if (month + 1 > 10 && i - paddingDays < 10) {
+                dayString = `${year}-${month + 1}-0${i - paddingDays}`;
+            } else if (month + 1 < 10 && i - paddingDays > 10) {
+                dayString = `${year}-0${month + 1}-${i - paddingDays}`;
+            } else {
+                dayString = `${year}-${month + 1}-${i - paddingDays}`;
+            }
             if (i > paddingDays) {
                 daysArr.push({
                     value: i - paddingDays,

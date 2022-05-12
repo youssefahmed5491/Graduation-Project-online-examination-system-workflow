@@ -1,3 +1,4 @@
+import { isArray } from "lodash";
 import React, { useState } from "react";
 import Select from "react-select";
 
@@ -118,6 +119,7 @@ const CreateExamPage = () => {
     /* 6 deh ma3naha kam chapter 3andy */
 
     const [arrayChapters, setArrayChapters] = useState(Array(3));
+    console.log(isArray(arrayChapters));
     console.log(arrayChapters);
     const handleChapter = (e, index) => {
         let temp = arrayChapters;

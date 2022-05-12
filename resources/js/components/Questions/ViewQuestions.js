@@ -21,6 +21,8 @@ const ViewQuestions = ({ divheight }) => {
     }`;
 
     var rows = [];
+    var arrayofrows = [];
+    var howada = [];
     const row = {
         id: 1,
         Questions: "Lorem Epsium Lorem Epsium",
@@ -35,9 +37,20 @@ const ViewQuestions = ({ divheight }) => {
         radio: "2",
         choices: ["a", "b", "c", "d"],
     };
-    for (var i = 0; i < 200; i++) {
+    for (var i = 0; i < 20; i++) {
         rows.push(row);
     }
+    for (var i = 0; i < 2; i++) {
+        arrayofrows.push(rows);
+    }
+    rows = [];
+    for (var i = 0; i < arrayofrows.length; i++) {
+        for (var j = 0; j < arrayofrows[i].length; j++) {
+            rows.push(arrayofrows[i][j]);
+        }
+    }
+    console.log(rows);
+    console.log("lol", howada);
     const indexOfLastRow = currentPage * rowsPerPage;
     const indexOfFirstRow = indexOfLastRow - rowsPerPage;
     const currentRows = rows.slice(indexOfFirstRow, indexOfLastRow);
