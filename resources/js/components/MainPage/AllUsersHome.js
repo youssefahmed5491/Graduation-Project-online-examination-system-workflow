@@ -174,7 +174,10 @@ const AllUsersHome = () => {
                                 setAddQuestionsClicked(false);
                                 setProfileClicked(true);
                                 setCreateExamClicked(false);
-                                stopVideo();
+                                setAssignProctorClicked(false);
+                                if (radio === "student") {
+                                    stopVideo();
+                                }
                             }}
                         >
                             <img src={profile} alt="" className="h-100 " />
@@ -233,7 +236,10 @@ const AllUsersHome = () => {
                                 setAddQuestionsClicked(false);
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
-                                stopVideo();
+                                setAssignProctorClicked(false);
+                                if (radio === "student") {
+                                    stopVideo();
+                                }
                             }}
                             className={homeClassName}
                             style={{
@@ -262,7 +268,10 @@ const AllUsersHome = () => {
                                 setAddQuestionsClicked(false);
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
-                                stopVideo();
+                                setAssignProctorClicked(false);
+                                if (radio === "student") {
+                                    stopVideo();
+                                }
                             }}
                             className={scheduleClassName}
                             style={{

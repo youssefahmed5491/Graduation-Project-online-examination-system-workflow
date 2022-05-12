@@ -11,9 +11,14 @@ const AssignProcror = () => {
     const [subjectError, setSubjectError] = useState("");
     const [proctorAmountError, setProctorAmountError] = useState("");
     const [proctoringMethodError, setProctoringMethodError] = useState("");
+<<<<<<< HEAD
     const [getarray, setGetArray] = useState([]);
     const [getarray1, setGetArray1] = useState([]);
     const [subjectdata, setSubjectData] = useState([]);
+=======
+    const [proctorListError, setProctorListError] = useState("");
+
+>>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     const handle = (e) => {
         //  console.log(e.target.value);
         setProctorAmount(Number(e.target.value));
@@ -83,9 +88,9 @@ const AssignProcror = () => {
         console.log(subject, proctoringMethod, proctorsList, proctorAmount);
         if (
             subject &&
-            proctoringMethod &&
-            proctorAmount &&
-            !proctorsList.includes(undefined)
+            (proctoringMethod === "Artificial Proctoring" ||
+                (proctorAmount === "Manual Proctoring" &&
+                    !proctorsList.includes(undefined)))
         ) {
             document.getElementById("nameForm").submit();
         } else {
@@ -97,6 +102,9 @@ const AssignProcror = () => {
             }
             if (!proctorAmount) {
                 setProctorAmountError("error");
+            }
+            if (proctorsList.includes(undefined)) {
+                setProctorListError("error");
             }
         }
     };
@@ -159,32 +167,34 @@ const AssignProcror = () => {
                             <div className="emptyfield">must enter feiled</div>
                         )}
                     </div>
-                    <div className="ms-5 m-2">
-                        <div className="fs-5 fw-bold mb-2">
-                            Enter Proctors Amount
+                    {proctoringMethod === "Manual Proctoring" && (
+                        <div className="ms-5 m-2">
+                            <div className="fs-5 fw-bold mb-2">
+                                Enter Proctors Amount
+                            </div>
+                            <div className="form-group mt-2">
+                                <input
+                                    className={`form-control ${proctorAmountError}`}
+                                    type="text"
+                                    placeholder="Enter Text Here"
+                                    aria-label="default input example"
+                                    style={{ width: "101%" }}
+                                    onChange={(e) => {
+                                        handle(e);
+                                    }}
+                                />
+                                {proctorAmountError && (
+                                    <div className="emptyfield">
+                                        must enter feiled
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                        <div className="form-group mt-2">
-                            <input
-                                className={`form-control ${proctorAmountError}`}
-                                type="text"
-                                placeholder="Enter Text Here"
-                                aria-label="default input example"
-                                style={{ width: "101%" }}
-                                onChange={(e) => {
-                                    handle(e);
-                                }}
-                            />
-                            {proctorAmountError && (
-                                <div className="emptyfield">
-                                    must enter feiled
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                    )}
                     <div className="ms-5">
                         {proctorsList.length > 0 && (
                             <div className="fs-5 fw-bold mb-2">
-                                Enter amount of questions for each chapter
+                                Enter number of proctors you want to assign
                             </div>
                         )}
 
@@ -211,11 +221,12 @@ const AssignProcror = () => {
                                     </div>
                                 );
                             })}
-                            {proctorsList.includes(undefined) && (
-                                <div className="emptyfield">
-                                    must select proctors
-                                </div>
-                            )}
+                            {proctorListError &&
+                                proctorsList.includes(undefined) && (
+                                    <div className="emptyfield">
+                                        must select proctors
+                                    </div>
+                                )}
                         </div>
                     </div>
                     <div
