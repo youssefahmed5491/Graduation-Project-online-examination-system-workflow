@@ -79,9 +79,9 @@ const App = () => {
             var dayString = "";
             if (month + 1 < 10 && i - paddingDays < 10) {
                 dayString = `${year}-0${month + 1}-0${i - paddingDays}`;
-            } else if (month + 1 > 10 && i - paddingDays < 10) {
+            } else if (month + 1 >= 10 && i - paddingDays < 10) {
                 dayString = `${year}-${month + 1}-0${i - paddingDays}`;
-            } else if (month + 1 < 10 && i - paddingDays > 10) {
+            } else if (month + 1 < 10 && i - paddingDays >= 10) {
                 dayString = `${year}-0${month + 1}-${i - paddingDays}`;
             } else {
                 dayString = `${year}-${month + 1}-${i - paddingDays}`;

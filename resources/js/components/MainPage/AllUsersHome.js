@@ -42,6 +42,26 @@ const AllUsersHome = () => {
     const [profileClicked, setProfileClicked] = useState(false);
     const [createExamClicked, setCreateExamClicked] = useState(false);
     const [assignProctorClicked, setAssignProctorClicked] = useState(false);
+    const [upcomingExamClicked, setUpcomingExamClicked] = useState(false);
+    const [allSubjects, setAllSubjects] = useState([
+        "Math",
+        "Graph",
+        "Physics1",
+        "Physics2",
+        "Graph2",
+    ]);
+    const [finishedSubjects, setFinishedSubjects] = useState(["Math"]);
+    const [unfinishedSubjects, setUnfinishedSubjects] = useState(
+        allSubjects.filter((alls) => !finishedSubjects.includes(alls))
+    );
+    console.log(
+        "hi",
+        allSubjects,
+        "lol",
+        finishedSubjects,
+        "bol",
+        unfinishedSubjects
+    );
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
@@ -144,6 +164,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(true);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
+                                setUpcomingExamClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -205,6 +226,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
+                                setUpcomingExamClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -237,6 +259,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
+                                setUpcomingExamClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -263,6 +286,7 @@ const AllUsersHome = () => {
                                     setAdjustClicked(true);
                                     setExamClicked(false);
                                     setProfileClicked(false);
+                                    setUpcomingExamClicked(false);
                                 }}
                                 className={adjustClassName}
                                 style={{
@@ -286,6 +310,7 @@ const AllUsersHome = () => {
                                     setAdjustClicked(false);
                                     setExamClicked(true);
                                     setProfileClicked(false);
+                                    setUpcomingExamClicked(false);
                                     stopVideo();
                                 }}
                                 className={examClassName}
@@ -445,7 +470,8 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         !profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !upcomingExamClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -489,15 +515,22 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         !profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !upcomingExamClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
                             >
-                                <Link
-                                    to={`/${username}/exam`}
-                                    className="bol"
-                                    href=""
+                                <button
+                                    style={{ all: "unset", cursor: "pointer" }}
+                                    onClick={() => {
+                                        setHomeClicked(false);
+                                        setScheduleClicked(false);
+                                        setProfileClicked(false);
+                                        setAdjustClicked(false);
+                                        setExamClicked(false);
+                                        setUpcomingExamClicked(true);
+                                    }}
                                 >
                                     <div
                                         style={{
@@ -529,7 +562,7 @@ const AllUsersHome = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </Link>
+                                </button>
                             </div>
                         )}
                     {!scheduleClicked &&
@@ -539,7 +572,8 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         !profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !upcomingExamClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -585,7 +619,8 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         !profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !upcomingExamClicked && (
                             <div
                                 className="col"
                                 style={{
@@ -605,7 +640,8 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !upcomingExamClicked && (
                             <div
                                 className="col "
                                 style={{
@@ -620,7 +656,8 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         adjustClicked &&
                         !examClicked &&
-                        !profileClicked && (
+                        !profileClicked &&
+                        !upcomingExamClicked && (
                             <div
                                 className="col  "
                                 style={{
@@ -651,7 +688,63 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         !adjustClicked &&
                         examClicked &&
-                        !profileClicked && <h1 className="col m-5 ">exam</h1>}
+                        !profileClicked &&
+                        !upcomingExamClicked && (
+                            <h1 className="col m-5 ">exam</h1>
+                        )}
+                    {!homeClicked &&
+                        !scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !profileClicked &&
+                        upcomingExamClicked && (
+                            <div
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                                className="col  "
+                            >
+                                <h1>Upcoming Exams</h1>
+                                <div className="row me-5 ms-5 mt-5">
+                                    {Array.from(
+                                        Array(unfinishedSubjects.length),
+                                        (e, i) => {
+                                            return (
+                                                <div key={i} className="col-4">
+                                                    <Link
+                                                        to={`/${username}/${unfinishedSubjects[i]}`}
+                                                        className="bol"
+                                                        href=""
+                                                    >
+                                                        <button
+                                                            style={{
+                                                                width: "100%",
+                                                                background:
+                                                                    "white",
+                                                                borderRadius:
+                                                                    "10px",
+                                                                marginBottom:
+                                                                    "10px",
+                                                            }}
+                                                        >
+                                                            {
+                                                                unfinishedSubjects[
+                                                                    i
+                                                                ]
+                                                            }
+                                                        </button>
+                                                    </Link>
+                                                </div>
+                                            );
+                                        }
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
                     {!homeClicked &&
                         !scheduleClicked &&
                         viewQuestionsClicked &&

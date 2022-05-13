@@ -19,6 +19,7 @@ import App from "./components/HomePage/App";
 import AllUsersHome from "./components/MainPage/AllUsersHome";
 import ExamPaper from "./components/ExamPaper/ExamPaper";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Model from "./components/Model/Model";
 
 if (document.getElementById("app")) {
     ReactDOM.render(
@@ -29,8 +30,13 @@ if (document.getElementById("app")) {
                     <Route exact path="/login" element={<Login />} />
                     <Route
                         exact
-                        path="/:username/exam"
+                        path="/:username/:unfinishedSubjects"
                         element={<ExamPaper />}
+                    />
+                    <Route
+                        exact
+                        path="/:username/model:i"
+                        element={<Model />}
                     />
 
                     <Route

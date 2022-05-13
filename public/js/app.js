@@ -7070,9 +7070,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_HomePage_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/HomePage/App */ "./resources/js/components/HomePage/App.js");
 /* harmony import */ var _components_MainPage_AllUsersHome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/MainPage/AllUsersHome */ "./resources/js/components/MainPage/AllUsersHome.js");
 /* harmony import */ var _components_ExamPaper_ExamPaper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/ExamPaper/ExamPaper */ "./resources/js/components/ExamPaper/ExamPaper.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var _components_Model_Model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Model/Model */ "./resources/js/components/Model/Model.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 // /
 //  * First we will load all of this project's JavaScript dependencies which
 //  * includes React and other helpers. It's a great starting point while
@@ -7095,26 +7096,31 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // /
 
 
 
+
 if (document.getElementById("app")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_0__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_2__.StrictMode, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  react_dom__WEBPACK_IMPORTED_MODULE_0__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react__WEBPACK_IMPORTED_MODULE_2__.StrictMode, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           exact: true,
           path: "/",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_HomePage_App__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_HomePage_App__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           exact: true,
           path: "/login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_LoginPage_Login__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_LoginPage_Login__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           exact: true,
-          path: "/:username/exam",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ExamPaper_ExamPaper__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          path: "/:username/:unfinishedSubjects",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ExamPaper_ExamPaper__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          exact: true,
+          path: "/:username/model:i",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Model_Model__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           exact: true,
           path: "/:username-:radio",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_MainPage_AllUsersHome__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_MainPage_AllUsersHome__WEBPACK_IMPORTED_MODULE_4__["default"], {})
         })]
       })
     })
@@ -7575,9 +7581,9 @@ var App = function App() {
 
       if (month + 1 < 10 && i - paddingDays < 10) {
         dayString = "".concat(year, "-0").concat(month + 1, "-0").concat(i - paddingDays);
-      } else if (month + 1 > 10 && i - paddingDays < 10) {
+      } else if (month + 1 >= 10 && i - paddingDays < 10) {
         dayString = "".concat(year, "-").concat(month + 1, "-0").concat(i - paddingDays);
-      } else if (month + 1 < 10 && i - paddingDays > 10) {
+      } else if (month + 1 < 10 && i - paddingDays >= 10) {
         dayString = "".concat(year, "-0").concat(month + 1, "-").concat(i - paddingDays);
       } else {
         dayString = "".concat(year, "-").concat(month + 1, "-").concat(i - paddingDays);
@@ -8002,7 +8008,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -8023,7 +8031,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var CreateExamPage = function CreateExamPage() {
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+      username = _useParams.username;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       subject = _useState2[0],
@@ -8059,55 +8071,65 @@ var CreateExamPage = function CreateExamPage() {
       numberOfModels = _useState14[0],
       setNumberOfModels = _useState14[1];
 
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState16 = _slicedToArray(_useState15, 2),
-      easyNumberQuestions = _useState16[0],
-      setEasyNumberQuestions = _useState16[1];
+      showModels = _useState16[0],
+      setShowModels = _useState16[1];
 
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState18 = _slicedToArray(_useState17, 2),
-      mediumNumberQuestions = _useState18[0],
-      setMediumNumberQuestions = _useState18[1];
+      easyNumberQuestions = _useState18[0],
+      setEasyNumberQuestions = _useState18[1];
 
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState20 = _slicedToArray(_useState19, 2),
-      hardNumberQuestions = _useState20[0],
-      setHardNumberQuestions = _useState20[1];
+      mediumNumberQuestions = _useState20[0],
+      setMediumNumberQuestions = _useState20[1];
 
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState22 = _slicedToArray(_useState21, 2),
-      subjectError = _useState22[0],
-      setSubjectError = _useState22[1];
+      hardNumberQuestions = _useState22[0],
+      setHardNumberQuestions = _useState22[1];
 
   var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState24 = _slicedToArray(_useState23, 2),
-      durationError = _useState24[0],
-      setDurationError = _useState24[1];
+      subjectError = _useState24[0],
+      setSubjectError = _useState24[1];
 
   var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState26 = _slicedToArray(_useState25, 2),
-      questionTypeError = _useState26[0],
-      setQuestionTypeError = _useState26[1];
+      durationError = _useState26[0],
+      setDurationError = _useState26[1];
 
   var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState28 = _slicedToArray(_useState27, 2),
-      mcqAmountError = _useState28[0],
-      setMCQAmountError = _useState28[1];
+      questionTypeError = _useState28[0],
+      setQuestionTypeError = _useState28[1];
 
   var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState30 = _slicedToArray(_useState29, 2),
-      dateError = _useState30[0],
-      setDateError = _useState30[1];
+      mcqAmountError = _useState30[0],
+      setMCQAmountError = _useState30[1];
 
   var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState32 = _slicedToArray(_useState31, 2),
-      timeError = _useState32[0],
-      setTimeError = _useState32[1];
+      dateError = _useState32[0],
+      setDateError = _useState32[1];
 
   var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState34 = _slicedToArray(_useState33, 2),
-      numberOfModelsError = _useState34[0],
-      setNumberOfModelsError = _useState34[1];
+      timeError = _useState34[0],
+      setTimeError = _useState34[1];
+
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
+      _useState36 = _slicedToArray(_useState35, 2),
+      numberOfModelsError = _useState36[0],
+      setNumberOfModelsError = _useState36[1];
+
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
+      _useState38 = _slicedToArray(_useState37, 2),
+      difficultyError = _useState38[0],
+      setDifficultyError = _useState38[1];
 
   var getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
   var wantedarray = [];
@@ -8177,8 +8199,8 @@ var CreateExamPage = function CreateExamPage() {
     e.preventDefault();
     console.log(subject, duration, questionType, mcqAmount, date, time, numberOfModels);
 
-    if (subject && duration && (questionType === "written" || questionType === "mcq" && mcqAmount) && date && time && numberOfModels) {
-      document.getElementById("nameForm").submit();
+    if (subject && duration && (questionType === "written" || questionType === "mcq" && mcqAmount) && date && time && numberOfModels && (easyNumberQuestions || mediumNumberQuestions || hardNumberQuestions)) {
+      setShowModels(true); // document.getElementById("nameForm").submit();
     } else {
       if (!subject) {
         setSubjectError("error");
@@ -8207,15 +8229,19 @@ var CreateExamPage = function CreateExamPage() {
       if (!numberOfModels) {
         setNumberOfModelsError("error");
       }
+
+      if (!easyNumberQuestions && !mediumNumberQuestions && !hardNumberQuestions) {
+        setDifficultyError("error");
+      }
     }
   };
   /* 6 deh ma3naha kam chapter 3andy */
 
 
-  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(Array(3)),
-      _useState36 = _slicedToArray(_useState35, 2),
-      arrayChapters = _useState36[0],
-      setArrayChapters = _useState36[1];
+  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(Array(3)),
+      _useState40 = _slicedToArray(_useState39, 2),
+      arrayChapters = _useState40[0],
+      setArrayChapters = _useState40[1];
 
   console.log((0,lodash__WEBPACK_IMPORTED_MODULE_0__.isArray)(arrayChapters));
   console.log(arrayChapters);
@@ -8228,281 +8254,312 @@ var CreateExamPage = function CreateExamPage() {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "m-2",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-        children: "Create Exam"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "me-5 ms-5 mt-5",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-        onSubmit: handleSubmit,
-        id: "nameForm",
-        action: "/login",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ms-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "fs-5 fw-bold mb-2",
-            children: "Select Subject"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            className: subjectError,
-            options: options,
-            placeholder: "eg:Math",
-            value: options.find(function (obj) {
-              return obj.value === subject;
-            }),
-            onChange: function onChange(e) {
-              setSubject(e.value), setSubjectError("");
-            }
-          }), subjectError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "emptyfield",
-            children: "must enter feiled"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ms-5 m-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "fs-5 fw-bold mb-2",
-            children: "Enter Exam Duration"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group mt-2",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              className: "form-control ".concat(durationError),
-              type: "text",
-              placeholder: "Enter Text Here",
-              "aria-label": "default input example",
-              style: {
-                width: "101%"
-              },
-              onChange: function onChange(e) {
-                setDuration(e.target.value), setDurationError(""), console.log(duration);
-              }
-            }), durationError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "emptyfield",
-              children: "must enter feiled"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ms-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "fs-5 fw-bold mb-2",
-            children: "Select Exam Type"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            className: questionTypeError,
-            options: [{
-              value: "mcq",
-              label: "MCQ"
-            }, {
-              value: "written",
-              label: "Written"
-            }],
-            value: options.find(function (obj) {
-              return obj.value === questionType;
-            }),
-            onChange: function onChange(e) {
-              setQuestionType(e.value), setQuestionTypeError(""), console.log(questionType);
-            },
-            placeholder: "eg:MCQ"
-          }), questionTypeError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "emptyfield",
-            children: "must enter feiled"
-          })]
-        }), questionType === "mcq" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [!showModels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "m-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "Create Exam"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "me-5 ms-5 mt-5",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+          onSubmit: handleSubmit,
+          id: "nameForm",
+          action: "/login",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "ms-5",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "fs-5 fw-bold mb-2",
-              children: "Enter MCQ Amount"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_3__["default"], {
-              className: mcqAmountError,
-              options: [{
-                value: 2,
-                label: "2"
-              }, {
-                value: 3,
-                label: "3"
-              }, {
-                value: 4,
-                label: "4"
-              }, {
-                value: 5,
-                label: "5"
-              }, {
-                value: 6,
-                label: "6"
-              }],
+              children: "Select Subject"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              className: subjectError,
+              options: options,
+              placeholder: "eg:Math",
               value: options.find(function (obj) {
-                return obj.value === mcqAmount;
+                return obj.value === subject;
               }),
               onChange: function onChange(e) {
-                setMCQAmount(e.value), setMCQAmountError("");
-              },
-              placeholder: "eg:2",
-              menuPlacement: "auto"
-            }), mcqAmountError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                setSubject(e.value), setSubjectError("");
+              }
+            }), subjectError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "emptyfield",
               children: "must enter feiled"
             })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ms-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "fs-5 fw-bold mb-2",
-            children: "Enter Exam Start date and time"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group mt-2",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              className: "form-control d-inline ".concat(dateError),
-              type: "text",
-              placeholder: "dd/mm/yyyy",
-              "aria-label": "default input example",
-              style: {
-                width: "10%"
-              },
-              onChange: function onChange(e) {
-                setDate(e.target.value), setDateError("");
-              }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              className: "form-control d-inline ms-2 ".concat(timeError),
-              type: "text",
-              placeholder: "ex: 23:59",
-              "aria-label": "default input example",
-              style: {
-                width: "10%"
-              },
-              onChange: function onChange(e) {
-                setTime(e.target.value), setTimeError("");
-              }
-            }), (dateError || timeError) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "emptyfield",
-              children: "must enter empty feiled"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ms-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "fs-5 fw-bold mb-2",
-            children: "Enter amount of questions for each difficulty"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group mt-2",
+            className: "ms-5 m-2",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "float-start mt-1 me-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
-                children: "Easy"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              className: "form-control float-start",
-              type: "text",
-              placeholder: "Enter Text Here",
-              "aria-label": "default input example",
-              style: {
-                width: "10%"
-              },
-              onChange: function onChange(e) {
-                return handleEasyNumberQuestions(e);
-              }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "float-start mt-1 mx-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
-                children: "Medium"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              className: "form-control float-start mx-2",
-              type: "text",
-              placeholder: "Enter Text Here",
-              "aria-label": "default input example",
-              style: {
-                width: "10%"
-              },
-              onChange: function onChange(e) {
-                return handleMediumNumberQuestions(e);
-              }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "float-start mt-1 mx-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
-                children: "Hard"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              className: "form-control ",
-              type: "text",
-              placeholder: "Enter Text Here",
-              "aria-label": "default input example",
-              style: {
-                width: "10%"
-              },
-              onChange: function onChange(e) {
-                return handleHardNumberQuestions(e);
-              }
+              className: "fs-5 fw-bold mb-2",
+              children: "Enter Exam Duration"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group mt-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                className: "form-control ".concat(durationError),
+                type: "text",
+                placeholder: "Enter Text Here",
+                "aria-label": "default input example",
+                style: {
+                  width: "101%"
+                },
+                onChange: function onChange(e) {
+                  setDuration(e.target.value), setDurationError(""), console.log(duration);
+                }
+              }), durationError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "emptyfield",
+                children: "must enter feiled"
+              })]
             })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ms-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "fs-5 fw-bold mb-2",
-            children: "Enter amount of questions for each chapter"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "ms-5",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "fs-5 fw-bold mb-2",
+              children: "Select Exam Type"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              className: questionTypeError,
+              options: [{
+                value: "mcq",
+                label: "MCQ"
+              }, {
+                value: "written",
+                label: "Written"
+              }],
+              value: options.find(function (obj) {
+                return obj.value === questionType;
+              }),
+              onChange: function onChange(e) {
+                setQuestionType(e.value), setQuestionTypeError(""), console.log(questionType);
+              },
+              placeholder: "eg:MCQ"
+            }), questionTypeError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "emptyfield",
+              children: "must enter feiled"
+            })]
+          }), questionType === "mcq" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "ms-5",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "fs-5 fw-bold mb-2",
+                children: "Enter MCQ Amount"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                className: mcqAmountError,
+                options: [{
+                  value: 2,
+                  label: "2"
+                }, {
+                  value: 3,
+                  label: "3"
+                }, {
+                  value: 4,
+                  label: "4"
+                }, {
+                  value: 5,
+                  label: "5"
+                }, {
+                  value: 6,
+                  label: "6"
+                }],
+                value: options.find(function (obj) {
+                  return obj.value === mcqAmount;
+                }),
+                onChange: function onChange(e) {
+                  setMCQAmount(e.value), setMCQAmountError("");
+                },
+                placeholder: "eg:2",
+                menuPlacement: "auto"
+              }), mcqAmountError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "emptyfield",
+                children: "must enter feiled"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "ms-5",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "fs-5 fw-bold mb-2",
+              children: "Enter Exam Start date and time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group mt-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                className: "form-control d-inline ".concat(dateError),
+                type: "text",
+                placeholder: "dd/mm/yyyy",
+                "aria-label": "default input example",
+                style: {
+                  width: "10%"
+                },
+                onChange: function onChange(e) {
+                  setDate(e.target.value), setDateError("");
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                className: "form-control d-inline ms-2 ".concat(timeError),
+                type: "text",
+                placeholder: "ex: 23:59",
+                "aria-label": "default input example",
+                style: {
+                  width: "10%"
+                },
+                onChange: function onChange(e) {
+                  setTime(e.target.value), setTimeError("");
+                }
+              }), (dateError || timeError) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "emptyfield",
+                children: "must enter empty feiled"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "ms-5",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "fs-5 fw-bold mb-2",
+              children: "Enter amount of questions for each difficulty"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group mt-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "float-start mt-1 me-3",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+                  children: "Easy"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                className: "form-control float-start",
+                type: "text",
+                placeholder: "Enter Text Here",
+                "aria-label": "default input example",
+                style: {
+                  width: "10%"
+                },
+                onChange: function onChange(e) {
+                  handleEasyNumberQuestions(e);
+                  setDifficultyError("");
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "float-start mt-1 mx-3",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+                  children: "Medium"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                className: "form-control float-start mx-2",
+                type: "text",
+                placeholder: "Enter Text Here",
+                "aria-label": "default input example",
+                style: {
+                  width: "10%"
+                },
+                onChange: function onChange(e) {
+                  handleMediumNumberQuestions(e);
+                  setDifficultyError("");
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "float-start mt-1 mx-3",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+                  children: "Hard"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                className: "form-control ",
+                type: "text",
+                placeholder: "Enter Text Here",
+                "aria-label": "default input example",
+                style: {
+                  width: "10%"
+                },
+                onChange: function onChange(e) {
+                  handleHardNumberQuestions(e);
+                  setDifficultyError("");
+                }
+              }), difficultyError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "emptyfield",
+                children: "must choose at least one difficult"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "ms-5",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "fs-5 fw-bold mb-2",
+              children: "Enter amount of questions for each chapter"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "row",
+              children: Array.from(Array(arrayChapters.length), function (e, i) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "col-4",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    className: "d-inline me-5 fs-4 fw-bold",
+                    children: ["Chapter ", i + 1]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    className: "form-control d-inline mx-2",
+                    type: "text",
+                    placeholder: "Enter Text Here",
+                    "aria-label": "default input example",
+                    style: {
+                      width: "30%"
+                    },
+                    onChange: function onChange(e) {
+                      return handleChapter(e, i);
+                    }
+                  })]
+                }, i);
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "ms-5",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "fs-5 fw-bold mb-2",
+              children: "Enter Number of different models"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              className: "form-control  ".concat(numberOfModelsError),
+              type: "text",
+              placeholder: "Enter Text Here",
+              "aria-label": "default input example",
+              style: {
+                width: "95.5%"
+              },
+              onChange: function onChange(e) {
+                setNumberOfModels(e.target.value), setNumberOfModelsError("");
+              }
+            }), numberOfModelsError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "emptyfield",
+              children: "must enter feiled"
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "row",
-            children: Array.from(Array(arrayChapters.length), function (e, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "col-4",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: "d-inline me-5 fs-4 fw-bold",
-                  children: ["Chapter ", i + 1]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  className: "form-control d-inline mx-2",
-                  type: "text",
-                  placeholder: "Enter Text Here",
-                  "aria-label": "default input example",
-                  style: {
-                    width: "30%"
-                  },
-                  onChange: function onChange(e) {
-                    return handleChapter(e, i);
-                  }
-                })]
-              }, i);
+            className: "me-5 ",
+            style: {
+              display: "flex",
+              justifyContent: "flex-end"
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              type: "submit",
+              onClick: function onClick(e) {
+                console.log("subject");
+              },
+              className: "btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2",
+              style: {
+                borderRadius: "25px",
+                fontSize: "25px",
+                backgroundColor: "#3dbfb6",
+                color: "white"
+              },
+              children: "Next"
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ms-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "fs-5 fw-bold mb-2",
-            children: "Enter Number of different models"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            className: "form-control  ".concat(numberOfModelsError),
-            type: "text",
-            placeholder: "Enter Text Here",
-            "aria-label": "default input example",
-            style: {
-              width: "95.5%"
-            },
-            onChange: function onChange(e) {
-              setNumberOfModels(e.target.value), setNumberOfModelsError("");
-            }
-          }), numberOfModelsError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "emptyfield",
-            children: "must enter feiled"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "me-5 ",
-          style: {
-            display: "flex",
-            justifyContent: "flex-end"
-          },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            type: "submit",
-            onClick: function onClick(e) {
-              console.log("subject");
-            },
-            className: "btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2",
-            style: {
-              borderRadius: "25px",
-              fontSize: "25px",
-              backgroundColor: "#3dbfb6",
-              color: "white"
-            },
-            children: "Next"
-          })
-        })]
+        })
+      })]
+    }), showModels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "row me-5 ms-5 mt-5",
+        children: Array.from(Array(Number(numberOfModels)), function (e, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "col-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+              to: "/".concat(username, "/model").concat(i),
+              className: "bol",
+              href: "",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                style: {
+                  width: "100%",
+                  background: "white",
+                  borderRadius: "10px",
+                  marginBottom: "10px"
+                },
+                children: i + 1
+              })
+            })
+          }, i);
+        })
       })
     })]
   });
@@ -8565,10 +8622,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var ExamPaper = function ExamPaper() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
-      username = _useParams.username;
+      username = _useParams.username,
+      unfinishedSubjects = _useParams.unfinishedSubjects;
+
+  console.log(unfinishedSubjects);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
     login: "mojombo",
@@ -9926,29 +9985,27 @@ var ExamPaper = function ExamPaper() {
                 width: "98%"
               },
               children: Array.from(Array(parseInt(answersArray.length)), function (e, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                      className: "form-check form-check-inline mt-4 mb-4",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                        className: "form-check-input",
-                        type: "radio",
-                        id: i,
-                        name: "inlineRadioOptions",
-                        value: i + 1,
-                        checked: tryChecks[i],
-                        onChange: function onChange(e) {
-                          return handleRadio(e);
-                        },
-                        required: true
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                        className: "form-check-label",
-                        htmlFor: i,
-                        children: answersArray[i]
-                      })]
-                    })
-                  }, i)
-                });
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                    className: "form-check form-check-inline mt-4 mb-4",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                      className: "form-check-input",
+                      type: "radio",
+                      id: i,
+                      name: "inlineRadioOptions",
+                      value: i + 1,
+                      checked: tryChecks[i],
+                      onChange: function onChange(e) {
+                        return handleRadio(e);
+                      },
+                      required: true
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                      className: "form-check-label",
+                      htmlFor: i,
+                      children: answersArray[i]
+                    })]
+                  })
+                }, i);
               })
             })]
           })
@@ -11005,6 +11062,29 @@ var AllUsersHome = function AllUsersHome() {
       assignProctorClicked = _useState20[0],
       setAssignProctorClicked = _useState20[1];
 
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState22 = _slicedToArray(_useState21, 2),
+      upcomingExamClicked = _useState22[0],
+      setUpcomingExamClicked = _useState22[1];
+
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["Math", "Graph", "Physics1", "Physics2", "Graph2"]),
+      _useState24 = _slicedToArray(_useState23, 2),
+      allSubjects = _useState24[0],
+      setAllSubjects = _useState24[1];
+
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["Math"]),
+      _useState26 = _slicedToArray(_useState25, 2),
+      finishedSubjects = _useState26[0],
+      setFinishedSubjects = _useState26[1];
+
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(allSubjects.filter(function (alls) {
+    return !finishedSubjects.includes(alls);
+  })),
+      _useState28 = _slicedToArray(_useState27, 2),
+      unfinishedSubjects = _useState28[0],
+      setUnfinishedSubjects = _useState28[1];
+
+  console.log("hi", allSubjects, "lol", finishedSubjects, "bol", unfinishedSubjects);
   var homeClassName = "d-flex align-items-center ps-3 my-button ".concat(homeClicked ? "clickedbuttom" : "");
   var scheduleClassName = "d-flex align-items-center ps-3 my-button ".concat(scheduleClicked ? "clickedbuttom" : "");
   var adjustClassName = "d-flex align-items-center ps-3 my-button ".concat(adjustClicked ? "clickedbuttom" : "");
@@ -11015,15 +11095,15 @@ var AllUsersHome = function AllUsersHome() {
   var createExamClassName = "d-flex align-items-center ps-3 my-button ".concat(createExamClicked ? "clickedbuttom" : "");
   var assignProctorClassName = "d-flex align-items-center ps-3 my-button ".concat(assignProctorClicked ? "clickedbuttom" : "");
 
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerWidth),
-      _useState22 = _slicedToArray(_useState21, 2),
-      width = _useState22[0],
-      setWidth = _useState22[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerWidth),
+      _useState30 = _slicedToArray(_useState29, 2),
+      width = _useState30[0],
+      setWidth = _useState30[1];
 
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerHeight),
-      _useState24 = _slicedToArray(_useState23, 2),
-      height = _useState24[0],
-      setHeight = _useState24[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(window.innerHeight),
+      _useState32 = _slicedToArray(_useState31, 2),
+      height = _useState32[0],
+      setHeight = _useState32[1];
 
   var checkSize = function checkSize() {
     setWidth(window.innerWidth);
@@ -11041,10 +11121,10 @@ var AllUsersHome = function AllUsersHome() {
   var divheight = height - 7 / 100 * height - 65;
   console.log(divwidth, divheight);
 
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState26 = _slicedToArray(_useState25, 2),
-      playing = _useState26[0],
-      setPlaying = _useState26[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState34 = _slicedToArray(_useState33, 2),
+      playing = _useState34[0],
+      setPlaying = _useState34[1];
 
   var startVideo = function startVideo() {
     setPlaying(true);
@@ -11118,6 +11198,7 @@ var AllUsersHome = function AllUsersHome() {
               setProfileClicked(true);
               setCreateExamClicked(false);
               setAssignProctorClicked(false);
+              setUpcomingExamClicked(false);
 
               if (radio === "student") {
                 stopVideo();
@@ -11198,6 +11279,7 @@ var AllUsersHome = function AllUsersHome() {
               setProfileClicked(false);
               setCreateExamClicked(false);
               setAssignProctorClicked(false);
+              setUpcomingExamClicked(false);
 
               if (radio === "student") {
                 stopVideo();
@@ -11233,6 +11315,7 @@ var AllUsersHome = function AllUsersHome() {
               setProfileClicked(false);
               setCreateExamClicked(false);
               setAssignProctorClicked(false);
+              setUpcomingExamClicked(false);
 
               if (radio === "student") {
                 stopVideo();
@@ -11261,6 +11344,7 @@ var AllUsersHome = function AllUsersHome() {
               setAdjustClicked(true);
               setExamClicked(false);
               setProfileClicked(false);
+              setUpcomingExamClicked(false);
             },
             className: adjustClassName,
             style: {
@@ -11284,6 +11368,7 @@ var AllUsersHome = function AllUsersHome() {
               setAdjustClicked(false);
               setExamClicked(true);
               setProfileClicked(false);
+              setUpcomingExamClicked(false);
               stopVideo();
             },
             className: examClassName,
@@ -11422,7 +11507,7 @@ var AllUsersHome = function AllUsersHome() {
               children: "Assign Proctor"
             })]
           })]
-        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && !upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col p-5 ",
           style: {
             background: "#ebebeb"
@@ -11458,15 +11543,24 @@ var AllUsersHome = function AllUsersHome() {
               })]
             })]
           })
-        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && !upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col p-5 ",
           style: {
             background: "#ebebeb"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Link, {
-            to: "/".concat(username, "/exam"),
-            className: "bol",
-            href: "",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("button", {
+            style: {
+              all: "unset",
+              cursor: "pointer"
+            },
+            onClick: function onClick() {
+              setHomeClicked(false);
+              setScheduleClicked(false);
+              setProfileClicked(false);
+              setAdjustClicked(false);
+              setExamClicked(false);
+              setUpcomingExamClicked(true);
+            },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
               style: {
                 width: "100%",
@@ -11499,7 +11593,7 @@ var AllUsersHome = function AllUsersHome() {
               })]
             })
           })
-        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+        }), !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && !upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col p-5 ",
           style: {
             background: "#ebebeb"
@@ -11535,20 +11629,20 @@ var AllUsersHome = function AllUsersHome() {
               })]
             })]
           })
-        }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+        }), !homeClicked && scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && !assignProctorClicked && !upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col",
           style: {
             paddingLeft: "".concat(divwidth, "px"),
             background: "#ebebeb"
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_Calendar_App__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-        }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && profileClicked && !createExamClicked && !assignProctorClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !viewQuestionsClicked && !addQuestionsClicked && profileClicked && !createExamClicked && !assignProctorClicked && !upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col ",
           style: {
             background: "#ebebeb"
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_ProfilePage_ProfilePage__WEBPACK_IMPORTED_MODULE_19__["default"], {})
-        }), !homeClicked && !scheduleClicked && adjustClicked && !examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+        }), !homeClicked && !scheduleClicked && adjustClicked && !examClicked && !profileClicked && !upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col  ",
           style: {
             background: "#ebebeb",
@@ -11567,9 +11661,41 @@ var AllUsersHome = function AllUsersHome() {
               })
             })
           })
-        }), !homeClicked && !scheduleClicked && !adjustClicked && examClicked && !profileClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("h1", {
+        }), !homeClicked && !scheduleClicked && !adjustClicked && examClicked && !profileClicked && !upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("h1", {
           className: "col m-5 ",
           children: "exam"
+        }), !homeClicked && !scheduleClicked && !adjustClicked && !examClicked && !profileClicked && upcomingExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+          style: {
+            paddingTop: "5px",
+            paddingLeft: "1rem",
+            background: "#ebebeb",
+            height: "100%"
+          },
+          className: "col  ",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("h1", {
+            children: "Upcoming Exams"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+            className: "row me-5 ms-5 mt-5",
+            children: Array.from(Array(unfinishedSubjects.length), function (e, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                className: "col-4",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Link, {
+                  to: "/".concat(username, "/").concat(unfinishedSubjects[i]),
+                  className: "bol",
+                  href: "",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("button", {
+                    style: {
+                      width: "100%",
+                      background: "white",
+                      borderRadius: "10px",
+                      marginBottom: "10px"
+                    },
+                    children: unfinishedSubjects[i]
+                  })
+                })
+              }, i);
+            })
+          })]
         }), !homeClicked && !scheduleClicked && viewQuestionsClicked && !addQuestionsClicked && !profileClicked && !createExamClicked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
           className: "col",
           style: {
@@ -11619,6 +11745,32 @@ var AllUsersHome = function AllUsersHome() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllUsersHome);
+
+/***/ }),
+
+/***/ "./resources/js/components/Model/Model.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/Model/Model.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var Model = function Model() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "hi"
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Model);
 
 /***/ }),
 
