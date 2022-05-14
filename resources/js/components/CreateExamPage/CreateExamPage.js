@@ -2,6 +2,7 @@ import { isArray } from "lodash";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Select from "react-select";
+import ModelPreview from "./ModelPreview.png";
 
 const CreateExamPage = () => {
     const { username } = useParams();
@@ -11,7 +12,7 @@ const CreateExamPage = () => {
     const [mcqAmount, setMCQAmount] = useState();
     const [date, setDate] = useState();
     const [time, setTime] = useState();
-    const [numberOfModels, setNumberOfModels] = useState();
+    const [numberOfModels, setNumberOfModels] = useState(2);
     const [showModels, setShowModels] = useState(false);
     const [easyNumberQuestions, setEasyNumberQuestions] = useState();
     const [mediumNumberQuestions, setMediumNumberQuestions] = useState();
@@ -25,6 +26,7 @@ const CreateExamPage = () => {
     const [timeError, setTimeError] = useState("");
     const [numberOfModelsError, setNumberOfModelsError] = useState("");
     const [difficultyError, setDifficultyError] = useState("");
+    const [chaptersError, setChaptersError] = useState("");
     const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
     let wantedarray = [];
     const addvalue = (getarray) => {
@@ -85,16 +87,18 @@ const CreateExamPage = () => {
             numberOfModels
         );
         if (
-            subject &&
-            duration &&
-            (questionType === "written" ||
-                (questionType === "mcq" && mcqAmount)) &&
-            date &&
-            time &&
-            numberOfModels &&
-            (easyNumberQuestions ||
-                mediumNumberQuestions ||
-                hardNumberQuestions)
+            true
+            // subject &&
+            // duration &&
+            // (questionType === "written" ||
+            //     (questionType === "mcq" && mcqAmount)) &&
+            // date &&
+            // time &&
+            // numberOfModels &&
+            // (easyNumberQuestions ||
+            //     mediumNumberQuestions ||
+            //     hardNumberQuestions) &&
+            // arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
         ) {
             setShowModels(true);
             // document.getElementById("nameForm").submit();
@@ -127,14 +131,26 @@ const CreateExamPage = () => {
             ) {
                 setDifficultyError("error");
             }
+            if (
+                arrayChapters.filter((ar) => ar != (undefined || "")).length ===
+                0
+            ) {
+                setChaptersError("error");
+            }
         }
     };
 
     /* 6 deh ma3naha kam chapter 3andy */
 
+    const data2 = {
+        from: "Link #2",
+        message: "Just another message",
+        timestamp: Date.now(),
+    };
+
     const [arrayChapters, setArrayChapters] = useState(Array(3));
     console.log(isArray(arrayChapters));
-    console.log(arrayChapters);
+    console.log(arrayChapters.filter((ar) => ar != (undefined || "")).length);
     const handleChapter = (e, index) => {
         let temp = arrayChapters;
         temp[index] = e.target.value;
@@ -351,7 +367,8 @@ const CreateExamPage = () => {
                                     />
                                     {difficultyError && (
                                         <div className="emptyfield">
-                                            must choose at least one difficult
+                                            must enter value in at least one
+                                            difficult
                                         </div>
                                     )}
                                 </div>
@@ -375,13 +392,22 @@ const CreateExamPage = () => {
                                                         placeholder="Enter Text Here"
                                                         aria-label="default input example"
                                                         style={{ width: "30%" }}
-                                                        onChange={(e) =>
-                                                            handleChapter(e, i)
-                                                        }
+                                                        onChange={(e) => {
+                                                            handleChapter(e, i);
+                                                            setChaptersError(
+                                                                ""
+                                                            );
+                                                        }}
                                                     />
                                                 </div>
                                             );
                                         }
+                                    )}
+                                    {chaptersError && (
+                                        <div className="emptyfield">
+                                            must enter value in at least one
+                                            chapter
+                                        </div>
                                     )}
                                 </div>
                             </div>
@@ -434,30 +460,78 @@ const CreateExamPage = () => {
                 </>
             )}
             {showModels && (
-                <div>
-                    <div className="row me-5 ms-5 mt-5">
-                        {Array.from(Array(Number(numberOfModels)), (e, i) => {
-                            return (
-                                <div key={i} className="col-4">
-                                    <Link
-                                        to={`/${username}/model${i}`}
-                                        className="bol"
-                                        href=""
+                <div className="row me-5 ms-5 mt-5">
+                    {Array.from(Array(Number(numberOfModels)), (e, i) => {
+                        return (
+                            <div key={i} className="col-3">
+                                <Link
+                                    to={`/${username}/model${i + 1}`}
+                                    // state="{jnj}" momken 2asta3melha 3ashan 2ab3at data ma3 el link
+                                    //bas mesh 7atenfa3 ma3 target={"_blank"}
+                                    style={{ all: "unset" }}
+                                    target={"_blank"}
+                                    href=""
+                                >
+                                    <button
+                                        style={{
+                                            width: "100%",
+                                            all: "unset",
+                                            marginBottom: "10px",
+                                        }}
                                     >
-                                        <button
-                                            style={{
-                                                width: "100%",
-                                                background: "white",
-                                                borderRadius: "10px",
-                                                marginBottom: "10px",
-                                            }}
-                                        >
-                                            {i + 1}
-                                        </button>
-                                    </Link>
-                                </div>
-                            );
-                        })}
+                                        <h3 className="d-flex justify-content-center">
+                                            Model{i + 1}
+                                        </h3>
+                                        <img
+                                            src={ModelPreview}
+                                            className={"model"}
+                                            tabIndex="0"
+                                            alt=""
+                                        />
+                                    </button>
+                                </Link>
+                            </div>
+                        );
+                    })}
+                    <div
+                        className="me-5 "
+                        style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            flexDirection: "column",
+                            alignItems: "flex-end",
+                        }}
+                    >
+                        <button
+                            onClick={(e) => {
+                                console.log("subject");
+                            }}
+                            className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                            style={{
+                                borderRadius: "25px",
+                                fontSize: "25px",
+                                backgroundColor: "#3dbfb6",
+                                color: "white",
+                                width: "25%",
+                            }}
+                        >
+                            Accept
+                        </button>
+                        <button
+                            onClick={(e) => {
+                                console.log("subject");
+                            }}
+                            className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                            style={{
+                                borderRadius: "25px",
+                                fontSize: "25px",
+                                backgroundColor: "red",
+                                color: "white",
+                                width: "25%",
+                            }}
+                        >
+                            Disapprove
+                        </button>
                     </div>
                 </div>
             )}

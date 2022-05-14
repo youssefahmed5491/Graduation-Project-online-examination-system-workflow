@@ -42,7 +42,7 @@ const AllUsersHome = () => {
     const [profileClicked, setProfileClicked] = useState(false);
     const [createExamClicked, setCreateExamClicked] = useState(false);
     const [assignProctorClicked, setAssignProctorClicked] = useState(false);
-    const [upcomingExamClicked, setUpcomingExamClicked] = useState(false);
+    const [remainingExamsClicked, setRemainingExamsClicked] = useState(false);
     const [allSubjects, setAllSubjects] = useState([
         "Math",
         "Graph",
@@ -164,7 +164,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(true);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
-                                setUpcomingExamClicked(false);
+                                setRemainingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -226,7 +226,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
-                                setUpcomingExamClicked(false);
+                                setRemainingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -259,7 +259,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
-                                setUpcomingExamClicked(false);
+                                setRemainingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -286,7 +286,7 @@ const AllUsersHome = () => {
                                     setAdjustClicked(true);
                                     setExamClicked(false);
                                     setProfileClicked(false);
-                                    setUpcomingExamClicked(false);
+                                    setRemainingExamsClicked(false);
                                 }}
                                 className={adjustClassName}
                                 style={{
@@ -310,7 +310,7 @@ const AllUsersHome = () => {
                                     setAdjustClicked(false);
                                     setExamClicked(true);
                                     setProfileClicked(false);
-                                    setUpcomingExamClicked(false);
+                                    setRemainingExamsClicked(false);
                                     stopVideo();
                                 }}
                                 className={examClassName}
@@ -471,92 +471,50 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !upcomingExamClicked && (
-                            <div
-                                className="col p-5 "
-                                style={{ background: "#ebebeb" }}
-                            >
-                                <div
-                                    style={{
-                                        width: "100%",
-                                        backgroundColor: "#3eba3e",
-                                        borderRadius: "5%",
-                                    }}
-                                >
-                                    <div className="text-light fw-bolder Exams-font-size  p-3">
-                                        Remaining Exams
-                                    </div>
-                                    <div className="row ">
-                                        <div
-                                            className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
-                                            style={{ fontSize: "60px" }}
-                                        >
-                                            6
-                                        </div>
-                                        <div className="col">
-                                            <img
-                                                src={remaining}
-                                                alt=""
-                                                className=" "
-                                                style={{
-                                                    height: "80%",
-                                                    width: "70%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    {!scheduleClicked &&
-                        !adjustClicked &&
-                        !examClicked &&
-                        !viewQuestionsClicked &&
-                        !addQuestionsClicked &&
-                        !profileClicked &&
-                        !createExamClicked &&
-                        !assignProctorClicked &&
-                        !upcomingExamClicked && (
+                        !remainingExamsClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
                             >
                                 <button
-                                    style={{ all: "unset", cursor: "pointer" }}
+                                    style={{
+                                        all: "unset",
+                                        width: "100%",
+                                        cursor: "pointer",
+                                    }}
                                     onClick={() => {
-                                        setHomeClicked(false);
                                         setScheduleClicked(false);
                                         setProfileClicked(false);
                                         setAdjustClicked(false);
                                         setExamClicked(false);
-                                        setUpcomingExamClicked(true);
+                                        setRemainingExamsClicked(true);
                                     }}
                                 >
                                     <div
                                         style={{
                                             width: "100%",
-                                            backgroundColor: "#fe4545",
+                                            backgroundColor: "#3eba3e",
                                             borderRadius: "5%",
                                         }}
                                     >
-                                        <div className="text-light fw-bolder  Exams-font-size p-3">
-                                            Upcoming Exam
+                                        <div className="text-light fw-bolder Exams-font-size  p-3">
+                                            Remaining Exams
                                         </div>
-                                        <div className="row">
+                                        <div className="row ">
                                             <div
                                                 className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
                                                 style={{ fontSize: "60px" }}
                                             >
-                                                6
+                                                {unfinishedSubjects.length}
                                             </div>
-                                            <div className="col p-2">
+                                            <div className="col">
                                                 <img
-                                                    src={danger}
+                                                    src={remaining}
                                                     alt=""
                                                     className=" "
                                                     style={{
                                                         height: "80%",
-                                                        width: "60%",
+                                                        width: "70%",
                                                     }}
                                                 />
                                             </div>
@@ -573,7 +531,52 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !upcomingExamClicked && (
+                        !remainingExamsClicked && (
+                            <div
+                                className="col p-5 "
+                                style={{ background: "#ebebeb" }}
+                            >
+                                <div
+                                    style={{
+                                        width: "100%",
+                                        backgroundColor: "#fe4545",
+                                        borderRadius: "5%",
+                                    }}
+                                >
+                                    <div className="text-light fw-bolder  Exams-font-size p-3">
+                                        Upcoming Exam
+                                    </div>
+                                    <div className="row">
+                                        <div
+                                            className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
+                                            style={{ fontSize: "60px" }}
+                                        >
+                                            6
+                                        </div>
+                                        <div className="col p-2">
+                                            <img
+                                                src={danger}
+                                                alt=""
+                                                className=" "
+                                                style={{
+                                                    height: "80%",
+                                                    width: "60%",
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    {!scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !viewQuestionsClicked &&
+                        !addQuestionsClicked &&
+                        !profileClicked &&
+                        !createExamClicked &&
+                        !assignProctorClicked &&
+                        !remainingExamsClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -593,7 +596,7 @@ const AllUsersHome = () => {
                                             className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
                                             style={{ fontSize: "60px" }}
                                         >
-                                            6
+                                            {finishedSubjects.length}
                                         </div>
                                         <div className="col p-2">
                                             <img
@@ -620,7 +623,7 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !upcomingExamClicked && (
+                        !remainingExamsClicked && (
                             <div
                                 className="col"
                                 style={{
@@ -641,7 +644,7 @@ const AllUsersHome = () => {
                         profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !upcomingExamClicked && (
+                        !remainingExamsClicked && (
                             <div
                                 className="col "
                                 style={{
@@ -657,7 +660,7 @@ const AllUsersHome = () => {
                         adjustClicked &&
                         !examClicked &&
                         !profileClicked &&
-                        !upcomingExamClicked && (
+                        !remainingExamsClicked && (
                             <div
                                 className="col  "
                                 style={{
@@ -689,15 +692,14 @@ const AllUsersHome = () => {
                         !adjustClicked &&
                         examClicked &&
                         !profileClicked &&
-                        !upcomingExamClicked && (
+                        !remainingExamsClicked && (
                             <h1 className="col m-5 ">exam</h1>
                         )}
-                    {!homeClicked &&
-                        !scheduleClicked &&
+                    {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !profileClicked &&
-                        upcomingExamClicked && (
+                        remainingExamsClicked && (
                             <div
                                 style={{
                                     paddingTop: "5px",
@@ -707,36 +709,38 @@ const AllUsersHome = () => {
                                 }}
                                 className="col  "
                             >
-                                <h1>Upcoming Exams</h1>
+                                <h1>Remaining Exams</h1>
                                 <div className="row me-5 ms-5 mt-5">
                                     {Array.from(
                                         Array(unfinishedSubjects.length),
                                         (e, i) => {
                                             return (
-                                                <div key={i} className="col-4">
-                                                    <Link
-                                                        to={`/${username}/${unfinishedSubjects[i]}`}
-                                                        className="bol"
-                                                        href=""
+                                                <div key={i} className="col-6">
+                                                    <div
+                                                        style={{
+                                                            width: "100%",
+                                                            background: "white",
+                                                            borderRadius:
+                                                                "10px",
+                                                            marginBottom:
+                                                                "10px",
+                                                            paddingTop: "10px",
+                                                            paddingBottom:
+                                                                "10px",
+                                                            paddingLeft: "15px",
+                                                        }}
                                                     >
-                                                        <button
+                                                        {unfinishedSubjects[i]}
+                                                        <span
+                                                            className="float"
                                                             style={{
-                                                                width: "100%",
-                                                                background:
-                                                                    "white",
-                                                                borderRadius:
-                                                                    "10px",
-                                                                marginBottom:
+                                                                paddingRight:
                                                                     "10px",
                                                             }}
                                                         >
-                                                            {
-                                                                unfinishedSubjects[
-                                                                    i
-                                                                ]
-                                                            }
-                                                        </button>
-                                                    </Link>
+                                                            12:00:00
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             );
                                         }
