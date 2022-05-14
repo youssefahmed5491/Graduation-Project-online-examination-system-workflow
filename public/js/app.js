@@ -8069,7 +8069,7 @@ var CreateExamPage = function CreateExamPage() {
       time = _useState12[0],
       setTime = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(2),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState14 = _slicedToArray(_useState13, 2),
       numberOfModels = _useState14[0],
       setNumberOfModels = _useState14[1];
@@ -8207,20 +8207,49 @@ var CreateExamPage = function CreateExamPage() {
     e.preventDefault();
     console.log(subject, duration, questionType, mcqAmount, date, time, numberOfModels);
 
-    if (true // subject &&
-    // duration &&
-    // (questionType === "written" ||
-    //     (questionType === "mcq" && mcqAmount)) &&
-    // date &&
-    // time &&
-    // numberOfModels &&
-    // (easyNumberQuestions ||
-    //     mediumNumberQuestions ||
-    //     hardNumberQuestions) &&
-    // arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
-    ) {
+    if (subject && duration && (questionType === "written" || questionType === "mcq" && mcqAmount) && date && time && numberOfModels && (easyNumberQuestions || mediumNumberQuestions || hardNumberQuestions) && arrayChapters.filter(function (ar) {
+      return ar != ( false || "");
+    }).length > 0) {
       setShowModels(true); // document.getElementById("nameForm").submit();
-    } else {}
+    } else {
+      if (!subject) {
+        setSubjectError("error");
+      }
+
+      if (!duration) {
+        setDurationError("error");
+      }
+
+      if (!questionType) {
+        setQuestionTypeError("error");
+      }
+
+      if (!mcqAmount) {
+        setMCQAmountError("error");
+      }
+
+      if (!date) {
+        setDateError("error");
+      }
+
+      if (!time) {
+        setTimeError("error");
+      }
+
+      if (!numberOfModels) {
+        setNumberOfModelsError("error");
+      }
+
+      if (!easyNumberQuestions && !mediumNumberQuestions && !hardNumberQuestions) {
+        setDifficultyError("error");
+      }
+
+      if (arrayChapters.filter(function (ar) {
+        return ar != ( false || "");
+      }).length === 0) {
+        setChaptersError("error");
+      }
+    }
   };
   /* 6 deh ma3naha kam chapter 3andy */
 

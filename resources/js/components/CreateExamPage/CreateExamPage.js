@@ -12,7 +12,7 @@ const CreateExamPage = () => {
     const [mcqAmount, setMCQAmount] = useState();
     const [date, setDate] = useState();
     const [time, setTime] = useState();
-    const [numberOfModels, setNumberOfModels] = useState(2);
+    const [numberOfModels, setNumberOfModels] = useState();
     const [showModels, setShowModels] = useState(false);
     const [easyNumberQuestions, setEasyNumberQuestions] = useState();
     const [mediumNumberQuestions, setMediumNumberQuestions] = useState();
@@ -87,18 +87,17 @@ const CreateExamPage = () => {
             numberOfModels
         );
         if (
-            true
-            // subject &&
-            // duration &&
-            // (questionType === "written" ||
-            //     (questionType === "mcq" && mcqAmount)) &&
-            // date &&
-            // time &&
-            // numberOfModels &&
-            // (easyNumberQuestions ||
-            //     mediumNumberQuestions ||
-            //     hardNumberQuestions) &&
-            // arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
+            subject &&
+            duration &&
+            (questionType === "written" ||
+                (questionType === "mcq" && mcqAmount)) &&
+            date &&
+            time &&
+            numberOfModels &&
+            (easyNumberQuestions ||
+                mediumNumberQuestions ||
+                hardNumberQuestions) &&
+            arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
         ) {
             setShowModels(true);
             // document.getElementById("nameForm").submit();
