@@ -6,12 +6,11 @@ const Model = ({ divheight }) => {
     const { username, numberOfModels } = useParams();
     // const { fromDashboard } = useLocation().state;
     const location = useLocation();
-
-    console.log(location.state);
+    const referrer = localStorage.getItem("referrer");
+    console.log(referrer);
     console.log(username, numberOfModels);
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage] = useState(17);
-    const [selectedRow, setSelectedRow] = useState({});
 
     const tableRowHeight = divheight * (92 / 100) * (6.25 / 100);
 

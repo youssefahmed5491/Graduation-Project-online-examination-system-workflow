@@ -1796,6 +1796,7 @@ const ExamPaper = () => {
                                         key={index}
                                         className=""
                                         style={{
+                                            cursor: "pointer",
                                             height: "25px",
                                             width: "25px",
                                             backgroundColor: `${
