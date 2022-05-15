@@ -5,6 +5,22 @@
 .bol:hover {
     color: #c64200;
 }
+.model {
+    width: 100%;
+    border: 2px solid rgb(99, 99, 248);
+    border-radius: 5px;
+}
+.model:hover {
+    width: 100%;
+    border: 2px solid orange;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.model:focus-within {
+    width: 100%;
+    border: 2px solid orange;
+    border-radius: 5px;
+}
 .my-button:hover {
     background: #3dbfb6 !important;
 }

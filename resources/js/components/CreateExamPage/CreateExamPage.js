@@ -1,9 +1,12 @@
 import axios from "axios";
 import { isArray, isObject } from "lodash";
 import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Select from "react-select";
+import ModelPreview from "./ModelPreview.png";
 
 const CreateExamPage = (professor) => {
+    const { username } = useParams();
     const [subject, setSubject] = useState();
     const [duration, setDuration] = useState();
     const [questionType, setQuestionType] = useState();
@@ -11,7 +14,6 @@ const CreateExamPage = (professor) => {
     const [date, setDate] = useState();
     const [time, setTime] = useState();
     const [numberOfModels, setNumberOfModels] = useState();
-
     const [subjectError, setSubjectError] = useState("");
     const [durationError, setDurationError] = useState("");
     const [questionTypeError, setQuestionTypeError] = useState("");
@@ -19,12 +21,16 @@ const CreateExamPage = (professor) => {
     const [dateError, setDateError] = useState("");
     const [timeError, setTimeError] = useState("");
     const [numberOfModelsError, setNumberOfModelsError] = useState("");
+    const [difficultyError, setDifficultyError] = useState("");
+    const [chaptersError, setChaptersError] = useState("");
     const [getarray, setGetArray] = useState([]);
+    const [showModels, setShowModels] = useState(false);
     const [easyNumberQuestions, setEasyNumberQuestions] = useState();
     const [mediumNumberQuestions, setMediumNumberQuestions] = useState();
     const [hardNumberQuestions, setHardNumberQuestions] = useState();
     const [subjectdetails, setSubjectDetails] = useState([null]);
     const [arrayChapters, setArrayChapters] = useState([]);
+    const [modelid, setModelId] = useState([]);
     console.log(professor.professor.id);
     useEffect(() => {
         axios
@@ -44,7 +50,6 @@ const CreateExamPage = (professor) => {
     const MCQAmount = ["...", 2, 3, 4, 5, 6];
     const [togleMCQAmount, setTogleMCQAmount] = useState(false);
 
-    //const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
     let wantedarray = [];
     const addvalue = (getarray) => {
         wantedarray = [];
@@ -125,15 +130,28 @@ const CreateExamPage = (professor) => {
                 (questionType === "mcq" && mcqAmount)) &&
             date &&
             time &&
-            numberOfModels
+            numberOfModels &&
+            (easyNumberQuestions ||
+                mediumNumberQuestions ||
+                hardNumberQuestions) &&
+            arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
         ) {
             for (var i = 0; i < numberOfModels; i++) {
                 axios.post("/api/exam", request1);
             }
             axios.patch(`/api/subjects/${subjectdetails.id}`, request2);
+
+            axios
+                .post(`/api/subjects/${subjectdetails.id}/exam`)
+                .then((response) => {
+                    setModelId(response.data);
+                });
+
             /////////////////////////////////////////////
             // document.getElementById("nameForm").submit();
             ///////////////////////////////////
+            setShowModels(true);
+            // document.getElementById("nameForm").submit();
         } else {
             if (!subject) {
                 setSubjectError("error");
@@ -155,6 +173,19 @@ const CreateExamPage = (professor) => {
             }
             if (!numberOfModels) {
                 setNumberOfModelsError("error");
+            }
+            if (
+                !easyNumberQuestions &&
+                !mediumNumberQuestions &&
+                !hardNumberQuestions
+            ) {
+                setDifficultyError("error");
+            }
+            if (
+                arrayChapters.filter((ar) => ar != (undefined || "")).length ===
+                0
+            ) {
+                setChaptersError("error");
             }
         }
         /////////////////////////
@@ -184,257 +215,363 @@ const CreateExamPage = (professor) => {
 
     return (
         <>
-            <div className="m-2">
-                <h1>Create Exam</h1>
-            </div>
-            <div className="me-5 ms-5 mt-5">
-                <form onSubmit={handleSubmit} id="nameForm" action="/login">
-                    {/*First Form-Slect */}
-                    <div className="ms-5">
-                        <div className="fs-5 fw-bold mb-2">Select Subject</div>
-                        <Select
-                            className={subjectError}
-                            options={options}
-                            placeholder={"eg:Math"}
-                            value={options.find((obj) => obj.value === subject)}
-                            onChange={(e) => {
-                                setSubject(e.value), setSubjectError("");
-                                axios
-                                    .post("/api/subjects", e)
-                                    .then((response) => {
-                                        setSubjectDetails(response.data);
-                                    });
-                            }}
-                        />
-                        {subjectError && (
-                            <div className="emptyfield">must enter feiled</div>
-                        )}
+            {!showModels && (
+                <>
+                    <div className="m-2">
+                        <h1>Create Exam</h1>
                     </div>
-                    {/*End First Form-Slect */}
-                    <div className="ms-5 m-2">
-                        <div className="fs-5 fw-bold mb-2">
-                            Enter Exam Duration
-                        </div>
-                        <div className="form-group mt-2">
-                            <input
-                                className={`form-control ${durationError}`}
-                                type="text"
-                                placeholder="ex hh:mm:ss"
-                                aria-label="default input example"
-                                style={{ width: "101%" }}
-                                onChange={(e) => {
-                                    setDuration(e.target.value),
-                                        setDurationError(""),
-                                        console.log(duration);
-                                }}
-                            />
-                            {durationError && (
-                                <div className="emptyfield">
-                                    must enter feiled
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    {/*End Form-Slect */}
-                    {/*First Form-Slect */}
-                    <div className="ms-5">
-                        <div className="fs-5 fw-bold mb-2">
-                            Select Exam Type
-                        </div>
-                        <Select
-                            className={questionTypeError}
-                            options={[
-                                { value: "mcq", label: "MCQ" },
-                                { value: "written", label: "Written" },
-                            ]}
-                            value={options.find(
-                                (obj) => obj.value === questionType
-                            )}
-                            onChange={(e) => {
-                                setQuestionType(e.value),
-                                    setQuestionTypeError(""),
-                                    console.log(questionType);
-                            }}
-                            placeholder={"eg:MCQ"}
-                        />
-                        {questionTypeError && (
-                            <div className="emptyfield">must enter feiled</div>
-                        )}
-                    </div>
-                    {/*End First Form-Slect */}
-                    {questionType === "mcq" && (
-                        <>
-                            {/*End First Form-Slect */}
+                    <div className="me-5 ms-5 mt-5">
+                        <form
+                            onSubmit={handleSubmit}
+                            id="nameForm"
+                            action="/login"
+                        >
+                            {/*First Form-Slect */}
                             <div className="ms-5">
                                 <div className="fs-5 fw-bold mb-2">
-                                    Enter MCQ Amount
+                                    Select Subject
                                 </div>
                                 <Select
-                                    className={mcqAmountError}
-                                    options={[
-                                        { value: 2, label: "2" },
-                                        { value: 3, label: "3" },
-                                        { value: 4, label: "4" },
-                                        { value: 5, label: "5" },
-                                        { value: 6, label: "6" },
-                                    ]}
+                                    className={subjectError}
+                                    options={options}
+                                    placeholder={"eg:Math"}
                                     value={options.find(
-                                        (obj) => obj.value === mcqAmount
+                                        (obj) => obj.value === subject
                                     )}
                                     onChange={(e) => {
-                                        setMCQAmount(e.value),
-                                            setMCQAmountError("");
+                                        axios.get(`api/examtemp`);
+                                        setSubject(e.value),
+                                            setSubjectError("");
+                                        axios
+                                            .post("/api/subjects", e)
+                                            .then((response) => {
+                                                setSubjectDetails(
+                                                    response.data
+                                                );
+                                            });
                                     }}
-                                    placeholder={"eg:2"}
-                                    menuPlacement="auto"
                                 />
-                                {mcqAmountError && (
+                                {subjectError && (
                                     <div className="emptyfield">
                                         must enter feiled
                                     </div>
                                 )}
                             </div>
-                            {/*End Form-Slect */}
-                        </>
-                    )}
-                    <div className="ms-5">
-                        <div className="fs-5 fw-bold mb-2">
-                            Enter Exam Start date and time
-                        </div>
-                        <div className="form-group mt-2">
-                            <input
-                                className={`form-control d-inline ${dateError}`}
-                                type="text"
-                                placeholder="yyyy-mm-dd"
-                                aria-label="default input example"
-                                style={{ width: "10%" }}
-                                onChange={(e) => {
-                                    setDate(e.target.value), setDateError("");
-                                }}
-                            />
-
-                            <input
-                                className={`form-control d-inline ms-2 ${timeError}`}
-                                type="text"
-                                placeholder="ex: hh:mm:ss"
-                                aria-label="default input example"
-                                style={{ width: "10%" }}
-                                onChange={(e) => {
-                                    setTime(e.target.value), setTimeError("");
-                                }}
-                            />
-                            {(dateError || timeError) && (
-                                <div className="emptyfield">
-                                    must enter empty feiled
+                            {/*End First Form-Slect */}
+                            <div className="ms-5 m-2">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Enter Exam Duration
                                 </div>
-                            )}
-                        </div>
-                    </div>
-                    <div className="ms-5">
-                        <div className="fs-5 fw-bold mb-2">
-                            Enter amount of questions for each difficulty
-                        </div>
-                        <div className="form-group mt-2">
-                            <div className="float-start mt-1 me-3">
-                                <h5>Easy</h5>
+                                <div className="form-group mt-2">
+                                    <input
+                                        className={`form-control ${durationError}`}
+                                        type="text"
+                                        placeholder="Enter Text Here"
+                                        aria-label="default input example"
+                                        style={{ width: "101%" }}
+                                        onChange={(e) => {
+                                            setDuration(e.target.value),
+                                                setDurationError(""),
+                                                console.log(duration);
+                                        }}
+                                    />
+                                    {durationError && (
+                                        <div className="emptyfield">
+                                            must enter feiled
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                            <input
-                                className="form-control float-start"
-                                type="text"
-                                placeholder="Enter Text Here"
-                                aria-label="default input example"
-                                style={{ width: "10%" }}
-                                onChange={(e) => handleEasyNumberQuestions(e)}
-                            />
-                            <div className="float-start mt-1 mx-3">
-                                <h5>Medium</h5>
-                            </div>
-                            <input
-                                className="form-control float-start mx-2"
-                                type="text"
-                                placeholder="Enter Text Here"
-                                aria-label="default input example"
-                                style={{ width: "10%" }}
-                                onChange={(e) => handleMediumNumberQuestions(e)}
-                            />
-                            <div className="float-start mt-1 mx-3">
-                                <h5>Hard</h5>
-                            </div>
-                            <input
-                                className="form-control "
-                                type="text"
-                                placeholder="Enter Text Here"
-                                aria-label="default input example"
-                                style={{ width: "10%" }}
-                                onChange={(e) => handleHardNumberQuestions(e)}
-                            />
-                        </div>
-                    </div>
-                    {subject && (
-                        <div className="ms-5">
-                            <div className="fs-5 fw-bold mb-2">
-                                Enter amount of questions for each chapter
-                            </div>
-                            <div className="row">
-                                {Array.from(
-                                    Array(arrayChapters.length),
-                                    (e, i) => {
-                                        return (
-                                            <div key={i} className="col-4">
-                                                <div className="d-inline me-5 fs-4 fw-bold">
-                                                    Chapter{" "}
-                                                    {
-                                                        subjectdetails
-                                                            .set_of_criteria[i]
-                                                    }
-                                                </div>
-                                                <input
-                                                    className="form-control d-inline mx-2"
-                                                    type="text"
-                                                    placeholder="Enter Text Here"
-                                                    aria-label="default input example"
-                                                    style={{ width: "30%" }}
-                                                    onChange={(e) =>
-                                                        handleChapter(e, i)
-                                                    }
-                                                />
-                                            </div>
-                                        );
-                                    }
+                            {/*End Form-Slect */}
+                            {/*First Form-Slect */}
+                            <div className="ms-5">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Select Exam Type
+                                </div>
+                                <Select
+                                    className={questionTypeError}
+                                    options={[
+                                        { value: "mcq", label: "MCQ" },
+                                        { value: "written", label: "Written" },
+                                    ]}
+                                    value={options.find(
+                                        (obj) => obj.value === questionType
+                                    )}
+                                    onChange={(e) => {
+                                        setQuestionType(e.value),
+                                            setQuestionTypeError(""),
+                                            console.log(questionType);
+                                    }}
+                                    placeholder={"eg:MCQ"}
+                                />
+                                {questionTypeError && (
+                                    <div className="emptyfield">
+                                        must enter feiled
+                                    </div>
                                 )}
                             </div>
-                        </div>
-                    )}
-                    <div className="ms-5">
-                        <div className="fs-5 fw-bold mb-2">
-                            Enter Number of different models
-                        </div>
-                        <input
-                            className={`form-control  ${numberOfModelsError}`}
-                            type="text"
-                            placeholder="Enter Text Here"
-                            aria-label="default input example"
-                            style={{ width: "95.5%" }}
-                            onChange={(e) => {
-                                setNumberOfModels(e.target.value),
-                                    setNumberOfModelsError("");
-                            }}
-                        />
-                        {numberOfModelsError && (
-                            <div className="emptyfield">must enter feiled</div>
-                        )}
+                            {/*End First Form-Slect */}
+                            {questionType === "mcq" && (
+                                <>
+                                    {/*End First Form-Slect */}
+                                    <div className="ms-5">
+                                        <div className="fs-5 fw-bold mb-2">
+                                            Enter MCQ Amount
+                                        </div>
+                                        <Select
+                                            className={mcqAmountError}
+                                            options={[
+                                                { value: 2, label: "2" },
+                                                { value: 3, label: "3" },
+                                                { value: 4, label: "4" },
+                                                { value: 5, label: "5" },
+                                                { value: 6, label: "6" },
+                                            ]}
+                                            value={options.find(
+                                                (obj) => obj.value === mcqAmount
+                                            )}
+                                            onChange={(e) => {
+                                                setMCQAmount(e.value),
+                                                    setMCQAmountError("");
+                                            }}
+                                            placeholder={"eg:2"}
+                                            menuPlacement="auto"
+                                        />
+                                        {mcqAmountError && (
+                                            <div className="emptyfield">
+                                                must enter feiled
+                                            </div>
+                                        )}
+                                    </div>
+                                    {/*End Form-Slect */}
+                                </>
+                            )}
+                            <div className="ms-5">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Enter Exam Start date and time
+                                </div>
+                                <div className="form-group mt-2">
+                                    <input
+                                        className={`form-control d-inline ${dateError}`}
+                                        type="text"
+                                        placeholder="yyyy-mm-dd"
+                                        aria-label="default input example"
+                                        style={{ width: "10%" }}
+                                        onChange={(e) => {
+                                            setDate(e.target.value),
+                                                setDateError("");
+                                        }}
+                                    />
+
+                                    <input
+                                        className={`form-control d-inline ms-2 ${timeError}`}
+                                        type="text"
+                                        placeholder="ex: 23:59"
+                                        aria-label="default input example"
+                                        style={{ width: "10%" }}
+                                        onChange={(e) => {
+                                            setTime(e.target.value),
+                                                setTimeError("");
+                                        }}
+                                    />
+                                    {(dateError || timeError) && (
+                                        <div className="emptyfield">
+                                            must enter empty feiled
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="ms-5">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Enter amount of questions for each
+                                    difficulty
+                                </div>
+                                <div className="form-group mt-2">
+                                    <div className="float-start mt-1 me-3">
+                                        <h5>Easy</h5>
+                                    </div>
+                                    <input
+                                        className="form-control float-start"
+                                        type="text"
+                                        placeholder="Enter Text Here"
+                                        aria-label="default input example"
+                                        style={{ width: "10%" }}
+                                        onChange={(e) => {
+                                            handleEasyNumberQuestions(e);
+                                            setDifficultyError("");
+                                        }}
+                                    />
+                                    <div className="float-start mt-1 mx-3">
+                                        <h5>Medium</h5>
+                                    </div>
+                                    <input
+                                        className="form-control float-start mx-2"
+                                        type="text"
+                                        placeholder="Enter Text Here"
+                                        aria-label="default input example"
+                                        style={{ width: "10%" }}
+                                        onChange={(e) => {
+                                            handleMediumNumberQuestions(e);
+                                            setDifficultyError("");
+                                        }}
+                                    />
+                                    <div className="float-start mt-1 mx-3">
+                                        <h5>Hard</h5>
+                                    </div>
+                                    <input
+                                        className="form-control "
+                                        type="text"
+                                        placeholder="Enter Text Here"
+                                        aria-label="default input example"
+                                        style={{ width: "10%" }}
+                                        onChange={(e) => {
+                                            handleHardNumberQuestions(e);
+                                            setDifficultyError("");
+                                        }}
+                                    />
+                                    {difficultyError && (
+                                        <div className="emptyfield">
+                                            must enter value in at least one
+                                            difficult
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="ms-5">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Enter amount of questions for each chapter
+                                </div>
+                                <div className="row">
+                                    {Array.from(
+                                        Array(arrayChapters.length),
+                                        (e, i) => {
+                                            return (
+                                                <div key={i} className="col-4">
+                                                    <div className="d-inline me-5 fs-4 fw-bold">
+                                                        Chapter {i + 1}
+                                                    </div>
+                                                    <input
+                                                        className="form-control d-inline mx-2"
+                                                        type="text"
+                                                        placeholder="Enter Text Here"
+                                                        aria-label="default input example"
+                                                        style={{ width: "30%" }}
+                                                        onChange={(e) => {
+                                                            handleChapter(e, i);
+                                                            setChaptersError(
+                                                                ""
+                                                            );
+                                                        }}
+                                                    />
+                                                </div>
+                                            );
+                                        }
+                                    )}
+                                    {chaptersError && (
+                                        <div className="emptyfield">
+                                            must enter value in at least one
+                                            chapter
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="ms-5">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Enter Number of different models
+                                </div>
+                                <input
+                                    className={`form-control  ${numberOfModelsError}`}
+                                    type="text"
+                                    placeholder="Enter Text Here"
+                                    aria-label="default input example"
+                                    style={{ width: "95.5%" }}
+                                    onChange={(e) => {
+                                        setNumberOfModels(e.target.value),
+                                            setNumberOfModelsError("");
+                                    }}
+                                />
+                                {numberOfModelsError && (
+                                    <div className="emptyfield">
+                                        must enter feiled
+                                    </div>
+                                )}
+                            </div>
+                            <div
+                                className="me-5 "
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "flex-end",
+                                }}
+                            >
+                                <button
+                                    type="submit"
+                                    onClick={(e) => {
+                                        console.log("subject");
+                                    }}
+                                    className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                    style={{
+                                        borderRadius: "25px",
+                                        fontSize: "25px",
+                                        backgroundColor: "#3dbfb6",
+                                        color: "white",
+                                    }}
+                                >
+                                    Next
+                                </button>
+                            </div>
+                        </form>
                     </div>
+                </>
+            )}
+            {showModels && (
+                <div className="row me-5 ms-5 mt-5">
+                    {Array.from(Array(Number(numberOfModels)), (e, i) => {
+                        return (
+                            <div key={i} className="col-3">
+                                <Link
+                                    to={`/${username}/model${modelid[i]}`}
+                                    // state="{jnj}" momken 2asta3melha 3ashan 2ab3at data ma3 el link
+                                    //bas mesh 7atenfa3 ma3 target={"_blank"}
+                                    style={{ all: "unset" }}
+                                    target={"_blank"}
+                                    href=""
+                                >
+                                    <button
+                                        style={{
+                                            width: "100%",
+                                            all: "unset",
+                                            marginBottom: "10px",
+                                        }}
+                                    >
+                                        <h3 className="d-flex justify-content-center">
+                                            Model{i + 1}
+                                        </h3>
+                                        <img
+                                            src={ModelPreview}
+                                            className={"model"}
+                                            tabIndex="0"
+                                            alt=""
+                                        />
+                                    </button>
+                                </Link>
+                            </div>
+                        );
+                    })}
                     <div
                         className="me-5 "
                         style={{
                             display: "flex",
                             justifyContent: "flex-end",
+                            flexDirection: "column",
+                            alignItems: "flex-end",
                         }}
                     >
                         <button
-                            type="submit"
                             onClick={(e) => {
-                                console.log("subject");
+                                console.log(subjectdetails.id);
+                                axios.get(
+                                    `api/subjects/${subjectdetails.id}/examtemp`
+                                );
                             }}
                             className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
                             style={{
@@ -442,13 +579,40 @@ const CreateExamPage = (professor) => {
                                 fontSize: "25px",
                                 backgroundColor: "#3dbfb6",
                                 color: "white",
+                                width: "25%",
                             }}
                         >
-                            Next
+                            Accept
+                        </button>
+                        <button
+                            onClick={(e) => {
+                                axios.get(`api/examtemp`);
+                                for (var i = 0; i < numberOfModels; i++) {
+                                    axios.post("/api/exam", request1);
+                                }
+
+                                axios
+                                    .post(
+                                        `/api/subjects/${subjectdetails.id}/exam`
+                                    )
+                                    .then((response) => {
+                                        setModelId(response.data);
+                                    });
+                            }}
+                            className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                            style={{
+                                borderRadius: "25px",
+                                fontSize: "25px",
+                                backgroundColor: "red",
+                                color: "white",
+                                width: "25%",
+                            }}
+                        >
+                            Disapprove
                         </button>
                     </div>
-                </form>
-            </div>
+                </div>
+            )}
         </>
     );
 };

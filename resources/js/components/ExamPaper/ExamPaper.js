@@ -8,7 +8,8 @@ import whiteTriangle from "../MainPage/whiteTriangle.png";
 import Timer from "./Timer";
 
 const ExamPaper = () => {
-    const { username } = useParams();
+    const { username, unfinishedSubjects } = useParams();
+    console.log(unfinishedSubjects);
     const [users, setUsers] = useState([
         {
             login: "mojombo",
@@ -1670,32 +1671,28 @@ const ExamPaper = () => {
                                     Array(parseInt(answersArray.length)),
                                     (e, i) => {
                                         return (
-                                            <>
-                                                <div key={i}>
-                                                    <div className="form-check form-check-inline mt-4 mb-4">
-                                                        <input
-                                                            className="form-check-input"
-                                                            type="radio"
-                                                            id={i}
-                                                            name="inlineRadioOptions"
-                                                            value={i + 1}
-                                                            checked={
-                                                                tryChecks[i]
-                                                            }
-                                                            onChange={(e) =>
-                                                                handleRadio(e)
-                                                            }
-                                                            required
-                                                        />
-                                                        <label
-                                                            className="form-check-label"
-                                                            htmlFor={i}
-                                                        >
-                                                            {answersArray[i]}
-                                                        </label>
-                                                    </div>
+                                            <div key={i}>
+                                                <div className="form-check form-check-inline mt-4 mb-4">
+                                                    <input
+                                                        className="form-check-input"
+                                                        type="radio"
+                                                        id={i}
+                                                        name="inlineRadioOptions"
+                                                        value={i + 1}
+                                                        checked={tryChecks[i]}
+                                                        onChange={(e) =>
+                                                            handleRadio(e)
+                                                        }
+                                                        required
+                                                    />
+                                                    <label
+                                                        className="form-check-label"
+                                                        htmlFor={i}
+                                                    >
+                                                        {answersArray[i]}
+                                                    </label>
                                                 </div>
-                                            </>
+                                            </div>
                                         );
                                     }
                                 )}

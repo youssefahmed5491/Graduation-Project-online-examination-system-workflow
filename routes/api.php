@@ -21,12 +21,12 @@ Route::apiResource('proctors', ProctorController::class);
 Route::apiResource('supervisors', SupervisorController::class)->only(["store", "show"]);
 Route::apiResource('systemmanagers', SystemManagerController::class)->only(["store", "show"]);
 Route::apiResource('subjects', SubjectController::class);
-Route::apiResource('scheduele', ScheduleController::class)->only(["store"]);
-Route::apiResource('exam', ExamController::class)->only(["store", "show"]);
+//Route::apiResource('scheduele', ScheduleController::class)->only(["store"]);
+Route::apiResource('exam', ExamController::class);
 Route::apiResource('professors.subjects', ProfessorSubjectController::class);
 Route::apiResource('subjects.proctors', SubjectProctorController::class);
 Route::apiResource('subjects.exam', SubjectExamController::class);
-
-
+Route::apiResource('examtemp', ExamsTempController::class)->only(["show", "index"]);
+Route::apiResource('subjects.examtemp', SubjectExamTempController::class)->only(["index"]);
 Route::apiResource('students.subjects', StudentSubjectController::class);
 Route::apiResource("QSBank", QuestionsController::class);

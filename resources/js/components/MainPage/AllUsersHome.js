@@ -74,6 +74,26 @@ const AllUsersHome = () => {
     const [profileClicked, setProfileClicked] = useState(false);
     const [createExamClicked, setCreateExamClicked] = useState(false);
     const [assignProctorClicked, setAssignProctorClicked] = useState(false);
+    const [remainingExamsClicked, setRemainingExamsClicked] = useState(false);
+    const [allSubjects, setAllSubjects] = useState([
+        "Math",
+        "Graph",
+        "Physics1",
+        "Physics2",
+        "Graph2",
+    ]);
+    const [finishedSubjects, setFinishedSubjects] = useState(["Math"]);
+    const [unfinishedSubjects, setUnfinishedSubjects] = useState(
+        allSubjects.filter((alls) => !finishedSubjects.includes(alls))
+    );
+    console.log(
+        "hi",
+        allSubjects,
+        "lol",
+        finishedSubjects,
+        "bol",
+        unfinishedSubjects
+    );
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
@@ -177,6 +197,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(true);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
+                                setRemainingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -239,6 +260,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
+                                setRemainingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -271,6 +293,7 @@ const AllUsersHome = () => {
                                 setProfileClicked(false);
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
+                                setRemainingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -297,6 +320,7 @@ const AllUsersHome = () => {
                                     setAdjustClicked(true);
                                     setExamClicked(false);
                                     setProfileClicked(false);
+                                    setRemainingExamsClicked(false);
                                 }}
                                 className={adjustClassName}
                                 style={{
@@ -320,6 +344,7 @@ const AllUsersHome = () => {
                                     setAdjustClicked(false);
                                     setExamClicked(true);
                                     setProfileClicked(false);
+                                    setRemainingExamsClicked(false);
                                     stopVideo();
                                 }}
                                 className={examClassName}
@@ -479,7 +504,68 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         !profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !remainingExamsClicked && (
+                            <div
+                                className="col p-5 "
+                                style={{ background: "#ebebeb" }}
+                            >
+                                <button
+                                    style={{
+                                        all: "unset",
+                                        width: "100%",
+                                        cursor: "pointer",
+                                    }}
+                                    onClick={() => {
+                                        setScheduleClicked(false);
+                                        setProfileClicked(false);
+                                        setAdjustClicked(false);
+                                        setExamClicked(false);
+                                        setRemainingExamsClicked(true);
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            width: "100%",
+                                            backgroundColor: "#3eba3e",
+                                            borderRadius: "5%",
+                                        }}
+                                    >
+                                        <div className="text-light fw-bolder Exams-font-size  p-3">
+                                            Remaining Exams
+                                        </div>
+                                        <div className="row ">
+                                            <div
+                                                className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
+                                                style={{ fontSize: "60px" }}
+                                            >
+                                                {unfinishedSubjects.length}
+                                            </div>
+                                            <div className="col">
+                                                <img
+                                                    src={remaining}
+                                                    alt=""
+                                                    className=" "
+                                                    style={{
+                                                        height: "80%",
+                                                        width: "70%",
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        )}{" "}
+                    {!scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !viewQuestionsClicked &&
+                        !addQuestionsClicked &&
+                        !profileClicked &&
+                        !createExamClicked &&
+                        !assignProctorClicked &&
+                        !remainingExamsClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -487,85 +573,35 @@ const AllUsersHome = () => {
                                 <div
                                     style={{
                                         width: "100%",
-                                        backgroundColor: "#3eba3e",
+                                        backgroundColor: "#fe4545",
                                         borderRadius: "5%",
                                     }}
                                 >
-                                    <div className="text-light fw-bolder Exams-font-size  p-3">
-                                        Remaining Exams{" "}
-                                    </div>{" "}
-                                    <div className="row ">
+                                    <div className="text-light fw-bolder  Exams-font-size p-3">
+                                        Upcoming Exam
+                                    </div>
+                                    <div className="row">
                                         <div
                                             className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
                                             style={{ fontSize: "60px" }}
                                         >
-                                            6{" "}
-                                        </div>{" "}
-                                        <div className="col">
+                                            6
+                                        </div>
+                                        <div className="col p-2">
                                             <img
-                                                src={remaining}
+                                                src={danger}
                                                 alt=""
                                                 className=" "
                                                 style={{
                                                     height: "80%",
-                                                    width: "70%",
+                                                    width: "60%",
                                                 }}
-                                            />{" "}
-                                        </div>{" "}
-                                    </div>{" "}
-                                </div>{" "}
-                            </div>
-                        )}{" "}
-                    {!scheduleClicked &&
-                        !adjustClicked &&
-                        !examClicked &&
-                        !viewQuestionsClicked &&
-                        !addQuestionsClicked &&
-                        !profileClicked &&
-                        !createExamClicked &&
-                        !assignProctorClicked && (
-                            <div
-                                className="col p-5 "
-                                style={{ background: "#ebebeb" }}
-                            >
-                                <Link
-                                    to={`/${username}/exam`}
-                                    className="bol"
-                                    href=""
-                                >
-                                    <div
-                                        style={{
-                                            width: "100%",
-                                            backgroundColor: "#fe4545",
-                                            borderRadius: "5%",
-                                        }}
-                                    >
-                                        <div className="text-light fw-bolder  Exams-font-size p-3">
-                                            Upcoming Exam
-                                        </div>
-                                        <div className="row">
-                                            <div
-                                                className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
-                                                style={{ fontSize: "60px" }}
-                                            >
-                                                6
-                                            </div>
-                                            <div className="col p-2">
-                                                <img
-                                                    src={danger}
-                                                    alt=""
-                                                    className=" "
-                                                    style={{
-                                                        height: "80%",
-                                                        width: "60%",
-                                                    }}
-                                                />
-                                            </div>
+                                            />
                                         </div>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
-                        )}{" "}
+                        )}
                     {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
@@ -573,7 +609,8 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         !profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !remainingExamsClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -593,8 +630,8 @@ const AllUsersHome = () => {
                                             className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
                                             style={{ fontSize: "60px" }}
                                         >
-                                            6{" "}
-                                        </div>{" "}
+                                            {finishedSubjects.length}
+                                        </div>
                                         <div className="col p-2">
                                             <img
                                                 src={check}
@@ -618,7 +655,8 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         !profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !remainingExamsClicked && (
                             <div
                                 className="col"
                                 style={{
@@ -637,7 +675,8 @@ const AllUsersHome = () => {
                         !addQuestionsClicked &&
                         profileClicked &&
                         !createExamClicked &&
-                        !assignProctorClicked && (
+                        !assignProctorClicked &&
+                        !remainingExamsClicked && (
                             <div
                                 className="col "
                                 style={{
@@ -651,7 +690,8 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         adjustClicked &&
                         !examClicked &&
-                        !profileClicked && (
+                        !profileClicked &&
+                        !remainingExamsClicked && (
                             <div
                                 className="col  "
                                 style={{
@@ -682,7 +722,63 @@ const AllUsersHome = () => {
                         !scheduleClicked &&
                         !adjustClicked &&
                         examClicked &&
-                        !profileClicked && <h1 className="col m-5 ">exam</h1>}
+                        !profileClicked &&
+                        !remainingExamsClicked && (
+                            <h1 className="col m-5 ">exam</h1>
+                        )}
+                    {!scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !profileClicked &&
+                        remainingExamsClicked && (
+                            <div
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                                className="col  "
+                            >
+                                <h1>Remaining Exams</h1>
+                                <div className="row me-5 ms-5 mt-5">
+                                    {Array.from(
+                                        Array(unfinishedSubjects.length),
+                                        (e, i) => {
+                                            return (
+                                                <div key={i} className="col-6">
+                                                    <div
+                                                        style={{
+                                                            width: "100%",
+                                                            background: "white",
+                                                            borderRadius:
+                                                                "10px",
+                                                            marginBottom:
+                                                                "10px",
+                                                            paddingTop: "10px",
+                                                            paddingBottom:
+                                                                "10px",
+                                                            paddingLeft: "15px",
+                                                        }}
+                                                    >
+                                                        {unfinishedSubjects[i]}
+                                                        <span
+                                                            className="float"
+                                                            style={{
+                                                                paddingRight:
+                                                                    "10px",
+                                                            }}
+                                                        >
+                                                            12:00:00
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     {!homeClicked &&
                         !scheduleClicked &&
                         viewQuestionsClicked &&

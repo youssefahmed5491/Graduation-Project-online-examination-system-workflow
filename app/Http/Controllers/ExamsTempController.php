@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Subject;
+use App\Models\ExamsTemp;
 
-class SubjectExamController extends Controller
+class ExamsTempController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Subject $subject)
+    public function index()
     {
-        $data = $subject->exam()->inRandomOrder()->first();
-
-        return response()->json($data);
+        ExamsTemp::query()->delete();
     }
 
     /**
@@ -35,14 +33,8 @@ class SubjectExamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Subject $subject)
+    public function store(Request $request)
     {
-        $dataid = array();
-        $data = $subject->examtemp;
-        foreach ($data as $example) {
-            $dataid[] = $example->id;
-        }
-        return response()->json($dataid);
     }
 
     /**
@@ -51,9 +43,9 @@ class SubjectExamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ExamsTemp $examtemp)
     {
-        //
+        return response()->json($examtemp->modelquestions);
     }
 
     /**

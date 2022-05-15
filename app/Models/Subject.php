@@ -41,6 +41,11 @@ class Subject extends Model
     {
         return $this->hasMany(Exam::class);
     }
+
+    public function examtemp(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ExamsTemp::class);
+    }
     public function studentexams()
     {
         return $this->hasMany(StudentExam::class);
