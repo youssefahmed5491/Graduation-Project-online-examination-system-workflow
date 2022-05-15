@@ -22,6 +22,7 @@ class QuestionsController extends Controller
         // dd($subjectdetails->id);
         if ($request->type == "written") {
             Question::insert([
+                "subject_title" => $subjectdetails->title,
                 "correct_answer" => $request->answerText,
                 "subject_id" => $subjectdetails->id,
                 "chapter" => $request->chapterNumber,
@@ -32,6 +33,7 @@ class QuestionsController extends Controller
             ]);
         } else {
             Question::insert([
+                "subject_title" => $subjectdetails->title,
                 "mcq_answers" => json_encode($request->answersarray),
                 "correct_answer" => $request->mcqcorrectans,
                 "subject_id" => $subjectdetails->id,
@@ -90,8 +92,8 @@ class QuestionsController extends Controller
      * @param  \App\Models\Question  $qS_Bank
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $qS_Bank)
+    public function destroy(Question $QSBank)
     {
-        //
+        $QSBank->forceDelete();
     }
 }

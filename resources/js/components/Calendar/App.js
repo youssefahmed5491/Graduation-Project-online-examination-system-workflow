@@ -4,22 +4,14 @@ import CalenderHeader from "./CalenderHeader";
 import Day from "./Day";
 import NewEventModal from "./NewEventModal";
 
-const App = ({ profiledata }) => {
+const App = ({ profiledata, radio }) => {
     const [nav, setNav] = useState(0); //the mounth we are on
     const [days, setDays] = useState([]); //number of days in a mounth
     const [dateDispaly, setDateDisplay] = useState("");
     const [clicked, setClicked] = useState();
-<<<<<<< HEAD
     const [events, setEvents] = useState([]);
 
     //  console.log(events);
-=======
-    const [events, setEvents] = useState([
-        { title: "lol", date: "2022-03-12" },
-        { title: "lol", date: "2022-03-06" },
-    ]);
-    console.log("lol", events);
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     const eventForDate = (date) => {
         // console.log(events.filter((e) => e.date === date));
         return events.filter((e) => e.date === date);
@@ -29,13 +21,36 @@ const App = ({ profiledata }) => {
     const checkSize = () => {
         setHeigt(window.innerHeight);
     };
-    useEffect(() => {
-        axios
-            .get(`/api/students/${profiledata.id}/subjects`)
-            .then((response) => {
-                setEvents(response.data);
-            });
-    }, []);
+    let profiletype;
+    if (radio === "Doctor") {
+        profiletype = "professors";
+    } else if (radio === "Student") {
+        profiletype = "students";
+    } else if (radio === "System Manager") {
+        profiletype = "systemmanagers";
+    } else if (radio === "proctor") {
+        profiletype = "proctors";
+    } else if (radio === "Supervisor") {
+        profiletype = "supervisors";
+    }
+
+    if (profiletype === "proctors") {
+        useEffect(() => {
+            axios
+                .get(`/api/${profiletype}/${profiledata.id}`)
+                .then((response) => {
+                    setEvents(response.data);
+                });
+        }, []);
+    } else {
+        useEffect(() => {
+            axios
+                .get(`/api/${profiletype}/${profiledata.id}/subjects`)
+                .then((response) => {
+                    setEvents(response.data);
+                });
+        }, []);
+    }
     console.log(events);
     useEffect(() => {
         window.addEventListener("resize", checkSize);
@@ -100,10 +115,6 @@ const App = ({ profiledata }) => {
             } else {
                 dayString = `${year}-${month + 1}-${i - paddingDays}`;
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
             if (i > paddingDays) {
                 daysArr.push({
                     value: i - paddingDays,

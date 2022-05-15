@@ -37,6 +37,7 @@ const AllUsersHome = () => {
             }
         });
     }, []);
+    // console.log(radio);
     let profiletype;
     if (radio === "Doctor") {
         profiletype = "professors";
@@ -44,11 +45,12 @@ const AllUsersHome = () => {
         profiletype = "students";
     } else if (radio === "System Manager") {
         profiletype = "systemmanagers";
-    } else if (radio === "Proctor") {
+    } else if (radio === "proctor") {
         profiletype = "proctors";
     } else if (radio === "Supervisor") {
         profiletype = "supervisors";
     }
+
     console.log(username);
     const [profiledata, setProfiledata] = useState([]);
     useEffect(() => {
@@ -624,7 +626,7 @@ const AllUsersHome = () => {
                                     background: "#ebebeb",
                                 }}
                             >
-                                <App profiledata={profiledata} />
+                                <App profiledata={profiledata} radio={radio} />
                             </div>
                         )}
                     {!homeClicked &&

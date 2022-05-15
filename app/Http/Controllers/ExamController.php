@@ -8,6 +8,7 @@ use App\Models\Subject;
 use App\Models\Question;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use App\Models\ExamsTemp;
 
 class ExamController extends Controller
 {
@@ -39,7 +40,7 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
-        ini_set('max_execution_time', 5);
+
 
         $subject = Subject::where('title', $request->subject)->first();
 
@@ -115,6 +116,7 @@ class ExamController extends Controller
 
 
 
+
         while ($j < $mediumnumber) {
             $mediumcount = 0;
             if ($chapterkey == $chapternumber) {
@@ -149,6 +151,8 @@ class ExamController extends Controller
             }
             $chapterkey++;
         }
+
+
 
 
 
@@ -194,14 +198,12 @@ class ExamController extends Controller
 
 
 
-
         $model[] = array_merge($easyquestions, $mediumquestions, $hardquestions);
 
-        //  return response()->json($model);
 
 
 
-        Exam::insert([
+        ExamsTemp::insert([
 
 
             "modelquestions" => json_encode($model),

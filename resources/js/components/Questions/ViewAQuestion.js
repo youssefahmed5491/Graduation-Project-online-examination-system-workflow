@@ -3,26 +3,26 @@ import React, { useEffect, useState } from "react";
 const ViewAQuestion = ({ selectedRow, divheight }) => {
     const [toggle, setToggle] = useState(false);
     useEffect(() => {
-        if (QuestionType === "MCQ") {
+        if (type === "MCQ") {
             setToggle(true);
         } else {
             setToggle(false);
         }
     }, []);
+    console.log(selectedRow);
     const {
         id,
-        Questions,
-        Answer,
-        Subject,
-        Difficulty,
-        Duration,
+        text,
+        correct_answer,
+        subject_title,
+        difficulty_level,
+        duration,
         Status,
-        choices,
-        QuestionType,
-        Chapter,
-        QuestionTextAnswer,
+        mcq_answers,
+        type,
+        chapter,
     } = selectedRow;
-    console.log(Answer);
+
     const DivHeight = divheight * (107 / 100);
     return (
         <div
@@ -37,27 +37,27 @@ const ViewAQuestion = ({ selectedRow, divheight }) => {
             <div className="ms-5" style={{ width: "90%" }}>
                 <div className="fs-5 fw-bold mb-2"> Subject</div>
                 <div className="bg-white fw-bold" style={{ width: "90%" }}>
-                    {Subject}
+                    {subject_title}
                 </div>
                 <div className="fs-5 fw-bold mb-2"> Chapter</div>
                 <div className="bg-white fw-bold" style={{ width: "90%" }}>
-                    {Chapter}
+                    {chapter}
                 </div>
                 <div className="fs-5 fw-bold mb-2"> Difficulty</div>
                 <div className="bg-white fw-bold" style={{ width: "90%" }}>
-                    {Difficulty}
+                    {difficulty_level}
                 </div>
                 <div className="fs-5 fw-bold mb-2"> Duration</div>
                 <div className="bg-white fw-bold" style={{ width: "90%" }}>
-                    {Duration}
+                    {duration}
                 </div>
                 <div className="fs-5 fw-bold mb-2">Question Type</div>
                 <div className="bg-white fw-bold" style={{ width: "90%" }}>
-                    {QuestionType}
+                    {type}
                 </div>
                 <div className="fs-5 fw-bold mb-2">Question</div>
                 <div className="bg-white fw-bold" style={{ width: "90%" }}>
-                    {Questions}
+                    {text}
                 </div>
                 {toggle && (
                     <>
@@ -68,10 +68,10 @@ const ViewAQuestion = ({ selectedRow, divheight }) => {
                             className="bg-white fw-bold"
                             style={{ width: "90%" }}
                         >
-                            {choices.length}
+                            {mcq_answers.length}
                         </div>
                         <div className="row" style={{ width: "97%" }}>
-                            {Array.from(Array(choices.length), (e, i) => {
+                            {Array.from(Array(mcq_answers.length), (e, i) => {
                                 return (
                                     <div className="col-6" key={i}>
                                         <div className="d-inline me-5 fs-4 fw-bold">
@@ -83,10 +83,14 @@ const ViewAQuestion = ({ selectedRow, divheight }) => {
                                                 name="inlineRadioOptions"
                                                 id={i}
                                                 value={i + 1}
-                                                checked={choices[i] === Answer}
+                                                checked={
+                                                    mcq_answers[i] ===
+                                                    correct_answer
+                                                }
                                                 disabled={true}
                                             />
-                                            {choices[i] === Answer && (
+                                            {mcq_answers[i] ===
+                                                correct_answer && (
                                                 <label
                                                     className="form-check-label"
                                                     htmlFor={i}
@@ -120,7 +124,7 @@ const ViewAQuestion = ({ selectedRow, divheight }) => {
                             className="bg-white fw-bold"
                             style={{ width: "90%" }}
                         >
-                            {QuestionTextAnswer}
+                            {correct_answer}
                         </div>
                     </>
                 )}

@@ -7,8 +7,8 @@ import ViewAQuestion from "./ViewAQuestion";
 import guiViewIcon from "./viewquestions/gui_view_icon_158340.png";
 import edit from "./viewquestions/edit.png";
 import Delete from "./viewquestions/Delete-Alt-256.png";
+import axios from "axios";
 
-<<<<<<< HEAD
 const ViewQuestions = (divheight, professor) => {
     console.log(divheight.professor);
     useEffect(() => {
@@ -28,9 +28,6 @@ const ViewQuestions = (divheight, professor) => {
 
     const [data, setData] = useState(undefined);
 
-=======
-const ViewQuestions = ({ divheight }) => {
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage] = useState(13);
     const [selectedRow, setSelectedRow] = useState({});
@@ -41,38 +38,42 @@ const ViewQuestions = ({ divheight }) => {
     const displaynone = `${
         guiViewIconClicked || editClicked || deleteClicked ? "displaynone" : ""
     }`;
-
     var rows = [];
-    var arrayofrows = [];
-    var howada = [];
-    const row = {
-        id: 1,
-        Questions: "Lorem Epsium Lorem Epsium",
-        Answer: "a",
-        Subject: "Physics1",
-        Difficulty: "Hard",
-        Duration: "10 min",
-        Status: "Active",
-        QuestionType: "MCQ",
-        Chapter: "10",
-        // choices: 2,
-        radio: "2",
-        choices: ["a", "b", "c", "d"],
-    };
-    for (var i = 0; i < 20; i++) {
-        rows.push(row);
-    }
-    for (var i = 0; i < 2; i++) {
-        arrayofrows.push(rows);
-    }
-    rows = [];
-    for (var i = 0; i < arrayofrows.length; i++) {
-        for (var j = 0; j < arrayofrows[i].length; j++) {
-            rows.push(arrayofrows[i][j]);
+    if (data != null) {
+        for (var i = 0; i < data.length; i++) {
+            for (var j = 0; j < data[i].length; j++) {
+                rows.push(data[i][j]);
+            }
         }
     }
-    console.log(rows);
-    console.log("lol", howada);
+
+    // const row = {
+    //     id: 1,
+    //     Questions: "Lorem Epsium Lorem Epsium",
+    //     Answer: "a",
+    //     Subject: "Physics1",
+    //     Difficulty: "Hard",
+    //     Duration: "10 min",
+    //     Status: "Active",
+    //     QuestionType: "MCQ",
+    //     Chapter: "10",
+    //     // choices: 2,
+    //     radio: "2",
+    //     choices: ["a", "b", "c", "d"],
+    // };
+    // for (var i = 0; i < 20; i++) {
+    //     rows.push(row);
+    // }
+    // for (var i = 0; i < 2; i++) {
+    //     arrayofrows.push(rows);
+    // }
+    // rows = [];
+    // for (var i = 0; i < arrayofrows.length; i++) {
+    //     for (var j = 0; j < arrayofrows[i].length; j++) {
+    //         rows.push(arrayofrows[i][j]);
+    //     }
+    // }
+
     const indexOfLastRow = currentPage * rowsPerPage;
     const indexOfFirstRow = indexOfLastRow - rowsPerPage;
     const currentRows = rows.slice(indexOfFirstRow, indexOfLastRow);
@@ -232,7 +233,7 @@ const ViewQuestions = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Questions}
+                                                        {row.text}
                                                     </td>
                                                     <td
                                                         style={{
@@ -243,7 +244,19 @@ const ViewQuestions = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Answer}
+                                                        {row.mcq_answers.map(
+                                                            (mcq, index) => {
+                                                                return (
+                                                                    <span
+                                                                        key={
+                                                                            index
+                                                                        }
+                                                                    >
+                                                                        {mcq},
+                                                                    </span>
+                                                                );
+                                                            }
+                                                        )}
                                                     </td>
                                                     <td
                                                         style={{
@@ -254,7 +267,7 @@ const ViewQuestions = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Subject}
+                                                        {row.subject_title}
                                                     </td>
                                                     <td
                                                         style={{
@@ -265,7 +278,7 @@ const ViewQuestions = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Difficulty}
+                                                        {row.difficulty_level}
                                                     </td>
                                                     <td
                                                         style={{
@@ -276,7 +289,7 @@ const ViewQuestions = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Duration}
+                                                        {row.duration}
                                                     </td>
                                                     <td
                                                         style={{
@@ -347,14 +360,18 @@ const ViewQuestions = ({ divheight }) => {
                                                         <img
                                                             src={Delete}
                                                             onClick={() => {
+                                                                setSelectedRow(
+                                                                    row
+                                                                );
+                                                                axios.delete(
+                                                                    `/api/QSBank/${row.id}`
+                                                                );
+
                                                                 setGuiViewIconClicked(
                                                                     false
                                                                 );
                                                                 setEditClicked(
                                                                     false
-                                                                );
-                                                                setDeleteClicked(
-                                                                    true
                                                                 );
                                                             }}
                                                             alt=""
@@ -398,9 +415,6 @@ const ViewQuestions = ({ divheight }) => {
                         divheight={divheight}
                     />
                 </div>
-            )}
-            {!guiViewIconClicked && !editClicked && deleteClicked && (
-                <div>delete clicked</div>
             )}
         </>
     );

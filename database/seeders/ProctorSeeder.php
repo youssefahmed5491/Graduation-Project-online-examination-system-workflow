@@ -20,7 +20,7 @@ class ProctorSeeder extends Seeder
             'password' => ('123456789'),
         ]);
         Proctor::create([
-            'username'  => '7mada',
+            'username'  => '7mada222222',
             'email'  => 'ahmed@gmail.com',
             'password' => '123456789',
         ]);

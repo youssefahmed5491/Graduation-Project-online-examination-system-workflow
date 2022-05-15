@@ -25,5 +25,8 @@ Route::apiResource('scheduele', ScheduleController::class)->only(["store"]);
 Route::apiResource('exam', ExamController::class)->only(["store", "show"]);
 Route::apiResource('professors.subjects', ProfessorSubjectController::class);
 Route::apiResource('subjects.proctors', SubjectProctorController::class);
+Route::apiResource('subjects.exam', SubjectExamController::class);
+
+
 Route::apiResource('students.subjects', StudentSubjectController::class);
 Route::apiResource("QSBank", QuestionsController::class);

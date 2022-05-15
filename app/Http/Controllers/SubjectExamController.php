@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\Subject;
 
-class SubjectController extends Controller
+class SubjectExamController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Subject $subject)
     {
-        $subjects = Subject::all();
-        return response()->json($subjects);
+        $data = $subject->exam()->inRandomOrder()->first();
+
+        return response()->json($data);
     }
 
     /**
@@ -36,11 +37,7 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-
-        $data = Subject::where("title", $request->value)->first();
-
-
-        return response()->json($data);
+        //
     }
 
     /**
@@ -49,10 +46,9 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
+    public function show($id)
     {
-
-        return response()->json(json_encode($subject->title));
+        //
     }
 
     /**
@@ -73,14 +69,10 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request, $id)
     {
-
-        $subject->date = $request->date;
-        $subject->time = $request->time;
-        $subject->update();
+        //
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -88,4 +80,8 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function destroy($id)
+    {
+        //
+    }
 }

@@ -36,7 +36,9 @@ class ProctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $proctor = Proctor::where('email', $request->username)->first();
+        return response()->json($proctor);
     }
 
     /**
@@ -47,7 +49,7 @@ class ProctorController extends Controller
      */
     public function show(proctor $proctor)
     {
-        //
+        return response()->json($proctor->subjects);
     }
 
     /**

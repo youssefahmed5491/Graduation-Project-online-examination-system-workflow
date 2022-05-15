@@ -7,18 +7,13 @@ const AssignProcror = () => {
     const [proctoringMethod, setProctoringMethod] = useState();
     const [proctorAmount, setProctorAmount] = useState();
     const [proctorsList, setProctorsList] = useState([]);
-
+    const [proctorListError, setProctorListError] = useState("");
     const [subjectError, setSubjectError] = useState("");
     const [proctorAmountError, setProctorAmountError] = useState("");
     const [proctoringMethodError, setProctoringMethodError] = useState("");
-<<<<<<< HEAD
     const [getarray, setGetArray] = useState([]);
     const [getarray1, setGetArray1] = useState([]);
     const [subjectdata, setSubjectData] = useState([]);
-=======
-    const [proctorListError, setProctorListError] = useState("");
-
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     const handle = (e) => {
         //  console.log(e.target.value);
         setProctorAmount(Number(e.target.value));

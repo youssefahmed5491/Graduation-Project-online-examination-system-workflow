@@ -3,11 +3,7 @@ import Select from "react-select";
 import axios from "axios";
 import { isArray } from "lodash";
 
-<<<<<<< HEAD
 const AddQuestion = (divheight, professor) => {
-=======
-const AddQuestion = ({ divheight }) => {
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     const [subject, setSubject] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [difficulty, setDifficulty] = useState();
@@ -110,7 +106,7 @@ const AddQuestion = ({ divheight }) => {
 
     const [radio, setRadio] = useState("");
     const [actualNumberOfChoices, setActualNumberOfChoices] = useState(0);
-    const DivHeight = divheight * (107 / 100);
+    const DivHeight = divheight.divheight * (107 / 100);
 
     const [subjectError, setSubjectError] = useState("");
     const [chapterNumberError, setChapterNumberError] = useState("");
@@ -147,32 +143,7 @@ const AddQuestion = ({ divheight }) => {
     ///////////             handle all subject codes choises
     const handleSubmit = (e) => {
         e.preventDefault();
-<<<<<<< HEAD
 
-=======
-        console.log(
-            "subject",
-            subject,
-            "questionType",
-            questionType,
-            "chapterNumber",
-            chapterNumber,
-            "difficulty",
-            difficulty,
-            "duration",
-            duration,
-            "questionText",
-            questionText,
-            "answerText",
-            answerText,
-            "actualNumberOfChoices",
-            actualNumberOfChoices,
-            "radio",
-            radio,
-            "howManyOptions",
-            howManyOptions()
-        );
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
         if (
             subject &&
             questionType &&
@@ -289,10 +260,6 @@ const AddQuestion = ({ divheight }) => {
                     {/* Form-Slect */}
                     <div className="ms-5 m-2" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">Select Chapter</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
                         <textarea
                             id="questiontextarea"
                             className={chapterNumberError}

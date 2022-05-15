@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import axios from "axios";
 import { isArray, isObject } from "lodash";
 import React, { useEffect, useState } from "react";
-=======
-import { isArray } from "lodash";
-import React, { useState } from "react";
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
 import Select from "react-select";
 
 const CreateExamPage = (professor) => {
@@ -16,9 +11,6 @@ const CreateExamPage = (professor) => {
     const [date, setDate] = useState();
     const [time, setTime] = useState();
     const [numberOfModels, setNumberOfModels] = useState();
-    const [easyNumberQuestions, setEasyNumberQuestions] = useState();
-    const [mediumNumberQuestions, setMediumNumberQuestions] = useState();
-    const [hardNumberQuestions, setHardNumberQuestions] = useState();
 
     const [subjectError, setSubjectError] = useState("");
     const [durationError, setDurationError] = useState("");
@@ -48,15 +40,11 @@ const CreateExamPage = (professor) => {
         }
     }, [subjectdetails]);
 
-<<<<<<< HEAD
     const selectExamType = ["...", "MCQ", "Text Question"];
     const MCQAmount = ["...", 2, 3, 4, 5, 6];
     const [togleMCQAmount, setTogleMCQAmount] = useState(false);
 
     //const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
-=======
-    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     let wantedarray = [];
     const addvalue = (getarray) => {
         wantedarray = [];
@@ -94,7 +82,6 @@ const CreateExamPage = (professor) => {
     };
     const handleEasyNumberQuestions = (e) => {
         setEasyNumberQuestions(e.target.value);
-<<<<<<< HEAD
 
         console.log(e.target.value);
     };
@@ -107,14 +94,6 @@ const CreateExamPage = (professor) => {
         setHardNumberQuestions(e.target.value);
 
         console.log(e.target.value);
-=======
-    };
-    const handleMediumNumberQuestions = (e) => {
-        setMediumNumberQuestions(e.target.value);
-    };
-    const handleHardNumberQuestions = (e) => {
-        setHardNumberQuestions(e.target.value);
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     };
     const handleNumberOfModels = (e) => {
         console.log(e.target.value);
@@ -203,18 +182,6 @@ const CreateExamPage = (professor) => {
     /* 6 deh ma3naha kam chapter 3andy */
     // console.log(arrayChapters);
 
-<<<<<<< HEAD
-=======
-    const [arrayChapters, setArrayChapters] = useState(Array(3));
-    console.log(isArray(arrayChapters));
-    console.log(arrayChapters);
-    const handleChapter = (e, index) => {
-        let temp = arrayChapters;
-        temp[index] = e.target.value;
-        setArrayChapters(temp);
-        console.log(arrayChapters);
-    };
->>>>>>> 618943411c86dc20ca1fd532a4d989ef1e46dfa7
     return (
         <>
             <div className="m-2">
