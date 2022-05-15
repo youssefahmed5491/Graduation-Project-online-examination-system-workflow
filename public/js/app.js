@@ -11260,8 +11260,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var AllUsersHome = function AllUsersHome() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_24__.useParams)(),
       username = _useParams.username,
-      radio = _useParams.radio; //console.log(username);
-
+      radio = _useParams.radio;
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_22___default().post("/api/professors", {
@@ -11273,8 +11272,7 @@ var AllUsersHome = function AllUsersHome() {
         setProfessor(data);
       }
     });
-  }, []); // console.log(radio);
-
+  }, []);
   var profiletype;
 
   if (radio === "Doctor") {
@@ -11289,8 +11287,6 @@ var AllUsersHome = function AllUsersHome() {
     profiletype = "supervisors";
   }
 
-  console.log(username);
-
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       profiledata = _useState2[0],
@@ -11301,9 +11297,9 @@ var AllUsersHome = function AllUsersHome() {
       username: username
     }).then(function (response) {
       setProfiledata(response.data);
-      console.log(response.data);
     });
   }, []);
+  console.log(allSubjects);
   var x = 2;
   var y = 3;
   var z = x.toString() + y.toString();
@@ -11368,24 +11364,32 @@ var AllUsersHome = function AllUsersHome() {
       remainingExamsClicked = _useState26[0],
       setRemainingExamsClicked = _useState26[1];
 
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["Math", "Graph", "Physics1", "Physics2", "Graph2"]),
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState28 = _slicedToArray(_useState27, 2),
       allSubjects = _useState28[0],
       setAllSubjects = _useState28[1];
 
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["Math"]),
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState30 = _slicedToArray(_useState29, 2),
       finishedSubjects = _useState30[0],
       setFinishedSubjects = _useState30[1];
 
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(allSubjects.filter(function (alls) {
-    return !finishedSubjects.includes(alls);
-  })),
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState32 = _slicedToArray(_useState31, 2),
       unfinishedSubjects = _useState32[0],
       setUnfinishedSubjects = _useState32[1];
 
-  console.log("hi", allSubjects, "lol", finishedSubjects, "bol", unfinishedSubjects);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (radio === "Student" && profiledata.id != null) {
+      axios__WEBPACK_IMPORTED_MODULE_22___default().get("/api/students/".concat(profiledata.id, "/subjects")).then(function (response) {
+        setAllSubjects(response.data);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_22___default().post("/api/students/".concat(profiledata.id, "/subjects")).then(function (response) {
+        setUnfinishedSubjects(response.data[0]);
+        setFinishedSubjects(response.data[1]);
+      });
+    }
+  }, [profiledata.id]);
   var homeClassName = "d-flex align-items-center ps-3 my-button ".concat(homeClicked ? "clickedbuttom" : "");
   var scheduleClassName = "d-flex align-items-center ps-3 my-button ".concat(scheduleClicked ? "clickedbuttom" : "");
   var adjustClassName = "d-flex align-items-center ps-3 my-button ".concat(adjustClicked ? "clickedbuttom" : "");
@@ -11995,12 +11999,12 @@ var AllUsersHome = function AllUsersHome() {
                     paddingBottom: "10px",
                     paddingLeft: "15px"
                   },
-                  children: [unfinishedSubjects[i], /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
+                  children: [unfinishedSubjects[i].title, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
                     className: "float",
                     style: {
                       paddingRight: "10px"
                     },
-                    children: "12:00:00"
+                    children: unfinishedSubjects[i].date
                   })]
                 })
               }, i);

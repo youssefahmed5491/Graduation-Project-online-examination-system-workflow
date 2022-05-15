@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Student;
 use App\Models\Subject;
 use Carbon\Carbon;
 
-class StudentSubjectController extends Controller
+class DateController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Student $student)
+    public function index()
     {
-
-        return response()->json($student->subjects);
+        $currentdate = Carbon::now();
+        $date = Subject::orderBy('date', 'ASC')->orderBy('time', 'ASC')->where('date', ">", $currentdate)->first();
+        return response()->json($date);
     }
 
     /**
@@ -27,7 +27,6 @@ class StudentSubjectController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -36,15 +35,8 @@ class StudentSubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Student $student)
+    public function store(Request $request)
     {
-
-        $currentdate = Carbon::now();
-        $dataunfinished = $student->subjects()->where('date', ">", $currentdate)->get();
-        $datafinished = $student->subjects()->where('date', "<", $currentdate)->get();
-
-
-        return response()->json([$dataunfinished, $datafinished]);
     }
 
     /**
@@ -76,11 +68,9 @@ class StudentSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Student $student, Subject $subject)
+    public function update(Request $request, $id)
     {
-
-        $student->subjects()->attach($subject);
-        return response()->json($student->load('subjects'));
+        //
     }
 
     /**

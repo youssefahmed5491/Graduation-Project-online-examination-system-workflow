@@ -28,7 +28,7 @@ import axios from "axios";
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
-    //console.log(username);
+
     useEffect(() => {
         axios.post("/api/professors", { username }).then((response) => {
             const data = response.data;
@@ -37,7 +37,7 @@ const AllUsersHome = () => {
             }
         });
     }, []);
-    // console.log(radio);
+
     let profiletype;
     if (radio === "Doctor") {
         profiletype = "professors";
@@ -51,14 +51,14 @@ const AllUsersHome = () => {
         profiletype = "supervisors";
     }
 
-    console.log(username);
     const [profiledata, setProfiledata] = useState([]);
     useEffect(() => {
         axios.post(`/api/${profiletype}`, { username }).then((response) => {
             setProfiledata(response.data);
-            console.log(response.data);
         });
     }, []);
+
+    console.log(allSubjects);
 
     const x = 2;
     const y = 3;
@@ -75,25 +75,25 @@ const AllUsersHome = () => {
     const [createExamClicked, setCreateExamClicked] = useState(false);
     const [assignProctorClicked, setAssignProctorClicked] = useState(false);
     const [remainingExamsClicked, setRemainingExamsClicked] = useState(false);
-    const [allSubjects, setAllSubjects] = useState([
-        "Math",
-        "Graph",
-        "Physics1",
-        "Physics2",
-        "Graph2",
-    ]);
-    const [finishedSubjects, setFinishedSubjects] = useState(["Math"]);
-    const [unfinishedSubjects, setUnfinishedSubjects] = useState(
-        allSubjects.filter((alls) => !finishedSubjects.includes(alls))
-    );
-    console.log(
-        "hi",
-        allSubjects,
-        "lol",
-        finishedSubjects,
-        "bol",
-        unfinishedSubjects
-    );
+    const [allSubjects, setAllSubjects] = useState([]);
+    const [finishedSubjects, setFinishedSubjects] = useState([]);
+    const [unfinishedSubjects, setUnfinishedSubjects] = useState([]);
+    useEffect(() => {
+        if (radio === "Student" && profiledata.id != null) {
+            axios
+                .get(`/api/students/${profiledata.id}/subjects`)
+                .then((response) => {
+                    setAllSubjects(response.data);
+                });
+
+            axios
+                .post(`/api/students/${profiledata.id}/subjects`)
+                .then((response) => {
+                    setUnfinishedSubjects(response.data[0]);
+                    setFinishedSubjects(response.data[1]);
+                });
+        }
+    }, [profiledata.id]);
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
@@ -761,7 +761,11 @@ const AllUsersHome = () => {
                                                             paddingLeft: "15px",
                                                         }}
                                                     >
-                                                        {unfinishedSubjects[i]}
+                                                        {
+                                                            unfinishedSubjects[
+                                                                i
+                                                            ].title
+                                                        }
                                                         <span
                                                             className="float"
                                                             style={{
@@ -769,7 +773,11 @@ const AllUsersHome = () => {
                                                                     "10px",
                                                             }}
                                                         >
-                                                            12:00:00
+                                                            {
+                                                                unfinishedSubjects[
+                                                                    i
+                                                                ].date
+                                                            }
                                                         </span>
                                                     </div>
                                                 </div>
