@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StudentExam;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use App\Models\Exam;
 
 class StudentExamController extends Controller
 {
@@ -41,10 +42,10 @@ class StudentExamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\StudentExam  $studentExam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(StudentExam $studentExam)
+    public function show($id)
     {
         //
     }
@@ -52,10 +53,10 @@ class StudentExamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\StudentExam  $studentExam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(StudentExam $studentExam)
+    public function edit($id)
     {
         //
     }
@@ -64,21 +65,35 @@ class StudentExamController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\StudentExam  $studentExam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StudentExam $studentExam)
+    public function update(Request $request, Student $student, Exam $exam)
     {
-        //
+        $count = 0;
+        $correctanswersarraytemp = array();
+        $length = count($exam->modelquestions[0]);
+        //$correctanswersarraytemp[] = $exam->modelquestions[0][0]["correct_answer"];
+        $correctanswerarrayfinal = array();
+        for ($i = 0; $i < $length; $i++) {
+            $correctanswerarrayfinal[] = $exam->modelquestions[0][$i]["correct_answer"];
+        }
+        for ($i = 0; $i < $length; $i++) {
+            if ($request[$i] == $correctanswerarrayfinal[$i]) {
+                $count++;
+            }
+        }
+
+        return response()->json($count);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\StudentExam  $studentExam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StudentExam $studentExam)
+    public function destroy($id)
     {
         //
     }

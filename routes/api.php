@@ -28,5 +28,6 @@ Route::apiResource('subjects.exam', SubjectExamController::class);
 Route::apiResource('examtemp', ExamsTempController::class)->only(["show", "index"]);
 Route::apiResource('subjects.examtemp', SubjectExamTempController::class)->only(["index"]);
 Route::apiResource('students.subjects', StudentSubjectController::class);
+Route::apiResource('students.exams', StudentExamController::class);
 Route::apiResource('date', DateController::class)->only(["index", "store"]);
 Route::apiResource("QSBank", QuestionsController::class);
