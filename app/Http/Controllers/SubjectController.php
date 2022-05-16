@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Nette\Utils\DateTime;
+use Carbon\Carbon;
 
 class SubjectController extends Controller
 {
@@ -78,6 +80,15 @@ class SubjectController extends Controller
 
         $subject->date = $request->date;
         $subject->time = $request->time;
+        $subject->duration = $request->duration;
+        $endtime = date("H:i:s", strtotime($request->time) + strtotime($request->duration));
+        $subject->endtime = $endtime;
+        $datetime = Carbon::parse($request->date . $endtime)->toDatetimeString();
+        $subject->datetime = $datetime;
+
+
+
+
         $subject->update();
     }
 

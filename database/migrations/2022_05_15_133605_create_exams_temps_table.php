@@ -17,7 +17,7 @@ class CreateExamsTempsTable extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\Subject::class);
             $table->Json("modelquestions");
-            $table->time("duration");
+
 
             $table->enum("exam_type", ["MCQ", "Written"]);
         });

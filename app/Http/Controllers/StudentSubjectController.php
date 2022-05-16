@@ -40,8 +40,9 @@ class StudentSubjectController extends Controller
     {
 
         $currentdate = Carbon::now();
-        $dataunfinished = $student->subjects()->where('date', ">", $currentdate)->get();
-        $datafinished = $student->subjects()->where('date', "<", $currentdate)->get();
+
+        $dataunfinished = $student->subjects()->where('datetime', ">", $currentdate)->get();
+        $datafinished = $student->subjects()->where('datetime', "<", $currentdate)->get();
 
 
         return response()->json([$dataunfinished, $datafinished]);

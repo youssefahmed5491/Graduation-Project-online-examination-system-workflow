@@ -25,6 +25,7 @@ import CreateExamPage from "../CreateExamPage/CreateExamPage";
 import { auto } from "@popperjs/core";
 import AssignProcror from "../AssignProctor/AssignProcror";
 import axios from "axios";
+import { isString } from "lodash";
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
@@ -58,7 +59,7 @@ const AllUsersHome = () => {
         });
     }, []);
 
-    console.log(allSubjects);
+    // console.log(allSubjects);
 
     const x = 2;
     const y = 3;
@@ -103,6 +104,7 @@ const AllUsersHome = () => {
                 });
         }
     }, [profiledata.id]);
+    console.log(unfinishedSubjects);
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
@@ -171,6 +173,135 @@ const AllUsersHome = () => {
         let video = document.getElementsByClassName("myvideo")[0];
         video.srcObject.getTracks()[0].stop();
     };
+    function addTimes(startTime, endTime) {
+        var times = [0, 0, 0];
+        var max = times.length;
+
+        var a = (startTime || "").split(":");
+        var b = (endTime || "").split(":");
+
+        // normalize time values
+        for (var i = 0; i < max; i++) {
+            a[i] = isNaN(parseInt(a[i])) ? 0 : parseInt(a[i]);
+            b[i] = isNaN(parseInt(b[i])) ? 0 : parseInt(b[i]);
+        }
+
+        // store time values
+        for (var i = 0; i < max; i++) {
+            times[i] = a[i] + b[i];
+        }
+
+        var hours = times[0];
+        var minutes = times[1];
+        var seconds = times[2];
+
+        if (seconds >= 60) {
+            var m = (seconds / 60) << 0;
+            minutes += m;
+            seconds -= 60 * m;
+        }
+
+        if (minutes >= 60) {
+            var h = (minutes / 60) << 0;
+            hours += h;
+            minutes -= 60 * h;
+        }
+        if (hours >= 24) {
+            hours = hours % 24;
+            hours = hours < 0 ? 24 + hours : +hours;
+        }
+        return (
+            ("0" + hours).slice(-2) +
+            ":" +
+            ("0" + minutes).slice(-2) +
+            ":" +
+            ("0" + seconds).slice(-2)
+        );
+    }
+    const isToday = (someDate) => {
+        const today = new Date();
+        // console.log(
+        //     someDate[2],
+        //     today.getDate(),
+        //     someDate[1] - 1,
+        //     today.getMonth(),
+        //     someDate[0],
+        //     today.getFullYear()
+        // );
+        return (
+            someDate[2] == today.getDate() &&
+            someDate[1] - 1 == today.getMonth() &&
+            someDate[0] == today.getFullYear()
+        );
+    };
+
+    const isnow = (someTime, examduration) => {
+        const today = new Date();
+        // console.log(
+        //     today.getHours() +
+        //         ":" +
+        //         today.getMinutes() +
+        //         ":" +
+        //         today.getSeconds(),
+        //     someTime[1],
+        //     today.getMinutes(),
+        //     examduration,
+        //     addTimes(someTime, examduration)
+        // );
+        if (today.getHours() < 10) {
+            if (
+                "0" +
+                    today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() >
+                    someTime &&
+                "0" +
+                    today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() <
+                    addTimes(someTime, examduration)
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (
+                today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() >
+                    someTime &&
+                today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() <
+                    addTimes(someTime, examduration)
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
+    const examduration = upcomingExam.duration;
+    const time = upcomingExam.time;
+    var date = upcomingExam.date;
+
+    if (examduration != null && time != null && isString(date)) {
+        date = date.split("-");
+        const today = isToday(date);
+        const now = isnow(time, examduration);
+        //console.log("7amada", examduration, time, date, now, today);
+    }
+
     return (
         <>
             <div
@@ -900,7 +1031,12 @@ const AllUsersHome = () => {
                                         }}
                                     >
                                         <Link
-                                            to={`/`}
+                                            to={`${
+                                                isToday(date) &&
+                                                isnow(time, examduration)
+                                                    ? `/`
+                                                    : ``
+                                            }`}
                                             style={{
                                                 display: "flex",
                                                 justifyContent: "flex-end",
@@ -925,7 +1061,12 @@ const AllUsersHome = () => {
                                             </button>
                                         </Link>
                                         <Link
-                                            to={`/${username}/${upcomingExam.id}`}
+                                            to={`${
+                                                isToday(date) &&
+                                                isnow(time, examduration)
+                                                    ? `/${username}/${upcomingExam.title}`
+                                                    : ``
+                                            }`}
                                             style={{
                                                 display: "flex",
                                                 justifyContent: "flex-end",

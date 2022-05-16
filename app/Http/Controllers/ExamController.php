@@ -205,7 +205,6 @@ class ExamController extends Controller
         ExamsTemp::insert([
             "modelquestions" => json_encode($model),
             "subject_id" => $subject->id,
-            "duration" => $request->duration,
         ]);
     }
 

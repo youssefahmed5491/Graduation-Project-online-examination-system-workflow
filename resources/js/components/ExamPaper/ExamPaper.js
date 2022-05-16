@@ -24,14 +24,15 @@ const ExamPaper = () => {
         false,
         false,
     ]);
+    console.log(unfinishedSubjects[0].title);
     useEffect(() => {
         axios
             .get(`/api/subjects/${unfinishedSubjects}/exam `)
             .then((response) => {
                 setUsers(response.data);
+                //console.log(response.data);
             });
     }, []);
-    console.log(users.modelquestions);
 
     useEffect(() => {
         let temp = [...arraylol];
@@ -100,7 +101,8 @@ const ExamPaper = () => {
 
     //display certain object given a number
     const displayuser = (number) => {
-        return users.modelquestions.find((user) => user.id === number);
+        console.log(users);
+        return users[0].modelquestions.find((user) => user.id === number);
     };
 
     const handleRadio = (e) => {

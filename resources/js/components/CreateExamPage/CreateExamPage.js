@@ -195,7 +195,7 @@ const CreateExamPage = (professor) => {
     ///////////////////////////// DATA WILL BE PASSED TO API
     const request1 = {
         subject: subject,
-        duration: duration,
+
         examtype: questionType,
         mcqamount: mcqAmount,
         easynumberquestions: easyNumberQuestions,
@@ -206,6 +206,7 @@ const CreateExamPage = (professor) => {
     const request2 = {
         date: date,
         time: time,
+        duration: duration,
     };
     ///////////////////////
     ////////////////////////

@@ -22,7 +22,6 @@ class SubjectExamTempController extends Controller
             Exam::insert([
                 "subject_id" => $exam->subject_id,
                 "modelquestions" => json_encode($exam->modelquestions),
-                "duration" => $exam->duration,
                 "exam_type" => $exam->exam_type,
 
             ]);

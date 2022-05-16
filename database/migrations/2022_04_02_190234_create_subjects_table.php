@@ -33,6 +33,9 @@ class CreateSubjectsTable extends Migration
             $table->longText('set_of_criteria'); // we want to make this array of strings
             $table->date('date')->nullable();
             $table->time('time')->nullable();
+            $table->time("duration")->nullable();
+            $table->datetime("datetime")->nullable();
+
 
             $table->timestamps();
         });

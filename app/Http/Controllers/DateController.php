@@ -15,8 +15,10 @@ class DateController extends Controller
      */
     public function index()
     {
-        $currentdate = Carbon::now();
-        $date = Subject::orderBy('date', 'ASC')->orderBy('time', 'ASC')->where('date', ">", $currentdate)->first();
+        $currentdate = Carbon::now()->toDateString();
+        $currenttime = Carbon::now()->settimezone('EET')->toTimeString();
+        $currentdatetime = Carbon::now()->settimezone('EET');
+        $date = Subject::orderBy('date', 'ASC')->orderBy('time', 'ASC')->where('datetime', ">=", $currentdatetime)->first();
         return response()->json($date);
     }
 
