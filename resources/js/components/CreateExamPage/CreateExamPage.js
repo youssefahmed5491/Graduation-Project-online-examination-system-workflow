@@ -31,6 +31,7 @@ const CreateExamPage = (professor) => {
     const [subjectdetails, setSubjectDetails] = useState([null]);
     const [arrayChapters, setArrayChapters] = useState([]);
     const [modelid, setModelId] = useState([]);
+
     console.log(professor.professor.id);
     useEffect(() => {
         axios

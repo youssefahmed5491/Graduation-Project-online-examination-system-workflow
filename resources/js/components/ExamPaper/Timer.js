@@ -19,7 +19,7 @@ const Timer = ({ expiryTimestamp }) => {
     return (
         <div>
             <div style={{ fontSize: "30px" }}>
-                <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
+                <span>{hours}</span>:<span>{minutes}</span>:
                 <span>{seconds}</span>
             </div>
         </div>

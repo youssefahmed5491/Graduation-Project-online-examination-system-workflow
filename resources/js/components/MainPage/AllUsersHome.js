@@ -78,6 +78,15 @@ const AllUsersHome = () => {
     const [allSubjects, setAllSubjects] = useState([]);
     const [finishedSubjects, setFinishedSubjects] = useState([]);
     const [unfinishedSubjects, setUnfinishedSubjects] = useState([]);
+    const [completedExamsClicked, setCompletedExamsClicked] = useState(false);
+    const [upcomingExamsClicked, setUpcomingExamsClicked] = useState(false);
+    const [upcomingExam, setUpcomingExam] = useState([]);
+
+    useEffect(() => {
+        axios.get(`/api/date`).then((response) => {
+            setUpcomingExam(response.data);
+        });
+    }, []);
     useEffect(() => {
         if (radio === "Student" && profiledata.id != null) {
             axios
@@ -198,6 +207,8 @@ const AllUsersHome = () => {
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
                                 setRemainingExamsClicked(false);
+                                setCompletedExamsClicked(false);
+                                setUpcomingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -261,6 +272,8 @@ const AllUsersHome = () => {
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
                                 setRemainingExamsClicked(false);
+                                setCompletedExamsClicked(false);
+                                setUpcomingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -294,6 +307,8 @@ const AllUsersHome = () => {
                                 setCreateExamClicked(false);
                                 setAssignProctorClicked(false);
                                 setRemainingExamsClicked(false);
+                                setCompletedExamsClicked(false);
+                                setUpcomingExamsClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -321,6 +336,8 @@ const AllUsersHome = () => {
                                     setExamClicked(false);
                                     setProfileClicked(false);
                                     setRemainingExamsClicked(false);
+                                    setCompletedExamsClicked(false);
+                                    setUpcomingExamsClicked(false);
                                 }}
                                 className={adjustClassName}
                                 style={{
@@ -345,6 +362,8 @@ const AllUsersHome = () => {
                                     setExamClicked(true);
                                     setProfileClicked(false);
                                     setRemainingExamsClicked(false);
+                                    setCompletedExamsClicked(false);
+                                    setUpcomingExamsClicked(false);
                                     stopVideo();
                                 }}
                                 className={examClassName}
@@ -505,7 +524,9 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !remainingExamsClicked && (
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
@@ -522,6 +543,8 @@ const AllUsersHome = () => {
                                         setAdjustClicked(false);
                                         setExamClicked(false);
                                         setRemainingExamsClicked(true);
+                                        setCompletedExamsClicked(false);
+                                        setUpcomingExamsClicked(false);
                                     }}
                                 >
                                     <div
@@ -565,41 +588,53 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !remainingExamsClicked && (
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
                             >
-                                <div
+                                <button
                                     style={{
+                                        all: "unset",
                                         width: "100%",
-                                        backgroundColor: "#fe4545",
-                                        borderRadius: "5%",
+                                        cursor: "pointer",
+                                    }}
+                                    onClick={() => {
+                                        setScheduleClicked(false);
+                                        setProfileClicked(false);
+                                        setAdjustClicked(false);
+                                        setExamClicked(false);
+                                        setRemainingExamsClicked(false);
+                                        setCompletedExamsClicked(false);
+                                        setUpcomingExamsClicked(true);
                                     }}
                                 >
-                                    <div className="text-light fw-bolder  Exams-font-size p-3">
-                                        Upcoming Exam
-                                    </div>
-                                    <div className="row">
-                                        <div
-                                            className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
-                                            style={{ fontSize: "60px" }}
-                                        >
-                                            6
+                                    <div
+                                        style={{
+                                            width: "100%",
+                                            backgroundColor: "#fe4545",
+                                            borderRadius: "5%",
+                                        }}
+                                    >
+                                        <div className="d-flex justify-content-center text-light fw-bolder  Exams-font-size p-3">
+                                            Upcoming Exam
                                         </div>
-                                        <div className="col p-2">
+
+                                        <div className="d-flex justify-content-center">
                                             <img
                                                 src={danger}
                                                 alt=""
                                                 className=" "
                                                 style={{
-                                                    height: "80%",
-                                                    width: "60%",
+                                                    width: "35%",
+                                                    marginBottom: "10%",
                                                 }}
                                             />
                                         </div>
                                     </div>
-                                </div>
+                                </button>
                             </div>
                         )}
                     {!scheduleClicked &&
@@ -610,41 +645,60 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !remainingExamsClicked && (
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <div
                                 className="col p-5 "
                                 style={{ background: "#ebebeb" }}
                             >
-                                <div
+                                <button
                                     style={{
+                                        all: "unset",
                                         width: "100%",
-                                        backgroundColor: "#f0a400",
-                                        borderRadius: "5%",
+                                        cursor: "pointer",
+                                    }}
+                                    onClick={() => {
+                                        setScheduleClicked(false);
+                                        setProfileClicked(false);
+                                        setAdjustClicked(false);
+                                        setExamClicked(false);
+                                        setRemainingExamsClicked(false);
+                                        setCompletedExamsClicked(true);
+                                        setUpcomingExamsClicked(false);
                                     }}
                                 >
-                                    <div className="text-light fw-bolder  Exams-font-size p-3">
-                                        Completed Exam{" "}
-                                    </div>{" "}
-                                    <div className="row">
-                                        <div
-                                            className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
-                                            style={{ fontSize: "60px" }}
-                                        >
-                                            {finishedSubjects.length}
+                                    <div
+                                        style={{
+                                            width: "100%",
+                                            backgroundColor: "#f0a400",
+                                            borderRadius: "5%",
+                                        }}
+                                    >
+                                        <div className="text-light fw-bolder  Exams-font-size p-3">
+                                            Completed Exam
                                         </div>
-                                        <div className="col p-2">
-                                            <img
-                                                src={check}
-                                                alt=""
-                                                className=" "
-                                                style={{
-                                                    height: "80%",
-                                                    width: "60%",
-                                                }}
-                                            />{" "}
-                                        </div>{" "}
-                                    </div>{" "}
-                                </div>{" "}
+                                        <div className="row">
+                                            <div
+                                                className="col d-flex align-items-center justify-content-center h-100 text-light fw-bolder  "
+                                                style={{ fontSize: "60px" }}
+                                            >
+                                                {finishedSubjects.length}
+                                            </div>
+                                            <div className="col p-2">
+                                                <img
+                                                    src={check}
+                                                    alt=""
+                                                    className=" "
+                                                    style={{
+                                                        height: "80%",
+                                                        width: "60%",
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
                             </div>
                         )}
                     {!homeClicked &&
@@ -656,7 +710,9 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !remainingExamsClicked && (
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <div
                                 className="col"
                                 style={{
@@ -676,7 +732,9 @@ const AllUsersHome = () => {
                         profileClicked &&
                         !createExamClicked &&
                         !assignProctorClicked &&
-                        !remainingExamsClicked && (
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <div
                                 className="col "
                                 style={{
@@ -691,7 +749,9 @@ const AllUsersHome = () => {
                         adjustClicked &&
                         !examClicked &&
                         !profileClicked &&
-                        !remainingExamsClicked && (
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <div
                                 className="col  "
                                 style={{
@@ -723,14 +783,18 @@ const AllUsersHome = () => {
                         !adjustClicked &&
                         examClicked &&
                         !profileClicked &&
-                        !remainingExamsClicked && (
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <h1 className="col m-5 ">exam</h1>
                         )}
                     {!scheduleClicked &&
                         !adjustClicked &&
                         !examClicked &&
                         !profileClicked &&
-                        remainingExamsClicked && (
+                        remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        !upcomingExamsClicked && (
                             <div
                                 style={{
                                     paddingTop: "5px",
@@ -779,6 +843,156 @@ const AllUsersHome = () => {
                                                                 ].date
                                                             }
                                                         </span>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    {!scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !profileClicked &&
+                        !remainingExamsClicked &&
+                        !completedExamsClicked &&
+                        upcomingExamsClicked && (
+                            <div
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                                className="col  "
+                            >
+                                <h1>Upcoming Exam</h1>
+                                <div className="row me-5 ms-5 mt-5">
+                                    <div
+                                        style={{
+                                            width: "100%",
+                                            background: "white",
+                                            borderRadius: "10px",
+                                            marginBottom: "10px",
+                                            paddingTop: "10px",
+                                            paddingBottom: "10px",
+                                            paddingLeft: "15px",
+                                        }}
+                                    >
+                                        {upcomingExam.title}
+                                        <span
+                                            className="float"
+                                            style={{
+                                                paddingRight: "10px",
+                                            }}
+                                        >
+                                            {upcomingExam.date}
+                                        </span>
+                                    </div>
+                                    <div
+                                        className="me-5 "
+                                        style={{
+                                            display: "flex",
+                                            justifyContent: "flex-end",
+                                            flexDirection: "column",
+                                            alignItems: "flex-end",
+                                        }}
+                                    >
+                                        <Link
+                                            to={`/`}
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "flex-end",
+                                                width: "25%",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            <button
+                                                onClick={(e) => {
+                                                    console.log("subject");
+                                                }}
+                                                className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                                style={{
+                                                    borderRadius: "25px",
+                                                    fontSize: "20px",
+                                                    backgroundColor: "#3dbfb6",
+                                                    color: "white",
+                                                    width: "100%",
+                                                }}
+                                            >
+                                                Video Call
+                                            </button>
+                                        </Link>
+                                        <Link
+                                            to={`/${username}/${upcomingExam.id}`}
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "flex-end",
+                                                width: "25%",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            <button
+                                                onClick={(e) => {}}
+                                                className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                                style={{
+                                                    borderRadius: "25px",
+                                                    fontSize: "20px",
+                                                    backgroundColor: "red",
+                                                    color: "white",
+                                                    width: "100%",
+                                                }}
+                                            >
+                                                Exam
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    {!scheduleClicked &&
+                        !adjustClicked &&
+                        !examClicked &&
+                        !profileClicked &&
+                        !remainingExamsClicked &&
+                        completedExamsClicked &&
+                        !upcomingExamsClicked && (
+                            <div
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                                className="col  "
+                            >
+                                <h1>Completed Exams</h1>
+                                <div className="row me-5 ms-5 mt-5">
+                                    {Array.from(
+                                        Array(finishedSubjects.length),
+                                        (e, i) => {
+                                            return (
+                                                <div key={i} className="col-6">
+                                                    <div
+                                                        className="d-flex justify-content-center"
+                                                        style={{
+                                                            width: "100%",
+                                                            background: "white",
+                                                            borderRadius:
+                                                                "10px",
+                                                            marginBottom:
+                                                                "10px",
+                                                            paddingTop: "10px",
+                                                            paddingBottom:
+                                                                "10px",
+                                                            paddingLeft: "15px",
+                                                        }}
+                                                    >
+                                                        {
+                                                            finishedSubjects[i]
+                                                                .title
+                                                        }
                                                     </div>
                                                 </div>
                                             );
