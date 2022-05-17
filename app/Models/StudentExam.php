@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentExam extends Model
 {
-    use HasFactory;
+    protected $casts = [
+        "answers" => "array",
+    ];
     public function subject()
     {
         return $this->belongsTo(Subject::class, 'subject_id');

@@ -131,7 +131,7 @@ const ExamPaper = () => {
         console.log(displayquestions(), "7madaaaa");
         //  console.log(displayuser(1).mcq_answers.length, "999999999999999999");
     }
-
+    console.log(egabat);
     const handleSubmit = () => {
         axios
             .patch(`/api/students/${studentdata.id}/exams/${users.id}`, egabat)

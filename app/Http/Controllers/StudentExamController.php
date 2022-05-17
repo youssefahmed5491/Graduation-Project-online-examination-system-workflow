@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Exam;
+use App\Models\StudentExam;
 
 class StudentExamController extends Controller
 {
@@ -71,18 +72,26 @@ class StudentExamController extends Controller
     public function update(Request $request, Student $student, Exam $exam)
     {
         $count = 0;
-        $correctanswersarraytemp = array();
+        $studentanswer = array();
         $length = count($exam->modelquestions[0]);
-        //$correctanswersarraytemp[] = $exam->modelquestions[0][0]["correct_answer"];
+
         $correctanswerarrayfinal = array();
         for ($i = 0; $i < $length; $i++) {
             $correctanswerarrayfinal[] = $exam->modelquestions[0][$i]["correct_answer"];
         }
         for ($i = 0; $i < $length; $i++) {
+            $studentanswer[$i] = $request[$i];
             if ($request[$i] == $correctanswerarrayfinal[$i]) {
                 $count++;
             }
         }
+
+        StudentExam::insert([
+            "student_id" => $student->id,
+            "exam_id" => $exam->id,
+            "answers" => json_encode($studentanswer),
+            "grade" => $count
+        ]);
 
         return response()->json($count);
     }

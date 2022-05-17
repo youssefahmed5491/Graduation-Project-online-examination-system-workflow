@@ -9015,6 +9015,8 @@ var ExamPaper = function ExamPaper() {
     console.log(displayquestions(), "7madaaaa"); //  console.log(displayuser(1).mcq_answers.length, "999999999999999999");
   }
 
+  console.log(egabat);
+
   var handleSubmit = function handleSubmit() {
     axios.patch("/api/students/".concat(studentdata.id, "/exams/").concat(users.id), egabat).then(function (response) {});
   };
