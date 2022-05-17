@@ -29,7 +29,6 @@ import { isString } from "lodash";
 
 const AllUsersHome = () => {
     const { username, radio } = useParams();
-
     useEffect(() => {
         axios.post("/api/professors", { username }).then((response) => {
             const data = response.data;
@@ -1061,12 +1060,15 @@ const AllUsersHome = () => {
                                             </button>
                                         </Link>
                                         <Link
-                                            to={`${
-                                                isToday(date) &&
-                                                isnow(time, examduration)
-                                                    ? `/${username}/${upcomingExam.title}`
-                                                    : ``
-                                            }`}
+                                            // to={`${
+                                            //     isToday(date) &&
+                                            //     isnow(time, examduration)
+                                            //         ? `/${username}-${radio}/${upcomingExam[0]}`
+                                            //         : ``
+                                            // }`}
+                                            to={`/${username}/${upcomingExam.id}
+
+                                            `}
                                             style={{
                                                 display: "flex",
                                                 justifyContent: "flex-end",
