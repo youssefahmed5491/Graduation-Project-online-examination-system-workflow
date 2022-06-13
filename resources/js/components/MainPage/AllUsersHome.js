@@ -22,7 +22,7 @@ import AddQuestions from "../Questions/AddQuestions";
 import ViewQuestions from "../Questions/ViewQuestions";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import CreateExamPage from "../CreateExamPage/CreateExamPage";
-import { auto } from "@popperjs/core";
+import { auto, end } from "@popperjs/core";
 import AssignProcror from "../AssignProctor/AssignProcror";
 
 const AllUsersHome = () => {
@@ -133,6 +133,124 @@ const AllUsersHome = () => {
         let video = document.getElementsByClassName("myvideo")[0];
         video.srcObject.getTracks()[0].stop();
     };
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    function addTimes(startTime, endTime) {
+        var times = [0, 0, 0];
+        var max = times.length;
+
+        var a = (startTime || "").split(":");
+        var b = (endTime || "").split(":");
+
+        // normalize time values
+        for (var i = 0; i < max; i++) {
+            a[i] = isNaN(parseInt(a[i])) ? 0 : parseInt(a[i]);
+            b[i] = isNaN(parseInt(b[i])) ? 0 : parseInt(b[i]);
+        }
+
+        // store time values
+        for (var i = 0; i < max; i++) {
+            times[i] = a[i] + b[i];
+        }
+
+        var hours = times[0];
+        var minutes = times[1];
+        var seconds = times[2];
+
+        if (seconds >= 60) {
+            var m = (seconds / 60) << 0;
+            minutes += m;
+            seconds -= 60 * m;
+        }
+
+        if (minutes >= 60) {
+            var h = (minutes / 60) << 0;
+            hours += h;
+            minutes -= 60 * h;
+        }
+        if (hours >= 24) {
+            hours = hours % 24;
+            hours = hours < 0 ? 24 + hours : +hours;
+        }
+        return (
+            ("0" + hours).slice(-2) +
+            ":" +
+            ("0" + minutes).slice(-2) +
+            ":" +
+            ("0" + seconds).slice(-2)
+        );
+    }
+    const isToday = (someDate) => {
+        const today = new Date();
+        return (
+            someDate[2] == today.getDate() &&
+            someDate[1] - 1 == today.getMonth() &&
+            someDate[0] == today.getFullYear()
+        );
+    };
+
+    const isnow = (someTime, examduration) => {
+        const today = new Date();
+        console.log(
+            today.getHours() +
+                ":" +
+                today.getMinutes() +
+                ":" +
+                today.getSeconds(),
+            someTime[1],
+            today.getMinutes(),
+            examduration,
+            addTimes(someTime, examduration)
+        );
+        if (today.getHours() < 10) {
+            if (
+                "0" +
+                    today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() >
+                    someTime &&
+                "0" +
+                    today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() <
+                    addTimes(someTime, examduration)
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (
+                today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() >
+                    someTime &&
+                today.getHours() +
+                    ":" +
+                    today.getMinutes() +
+                    ":" +
+                    today.getSeconds() <
+                    addTimes(someTime, examduration)
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
+    const examduration = "02:00:00";
+    const time = "13:38:00";
+    const date = "2022-05-16".split("-");
+    const today = isToday(date);
+    const now = isnow(time, examduration);
+    console.log("7amada", examduration, time, date, today, now);
+    ////////////////////////////////////////////////////////////////////////////////////
     return (
         <>
             <div
@@ -855,7 +973,12 @@ const AllUsersHome = () => {
                                         }}
                                     >
                                         <Link
-                                            to={`/`}
+                                            to={`${
+                                                isToday(date) &&
+                                                isnow(time, examduration)
+                                                    ? `/`
+                                                    : ``
+                                            }`}
                                             style={{
                                                 display: "flex",
                                                 justifyContent: "flex-end",
@@ -879,8 +1002,15 @@ const AllUsersHome = () => {
                                                 Video Call
                                             </button>
                                         </Link>
+
                                         <Link
-                                            to={`/${username}/${upcomingExam[0]}`}
+                                            // to={`${
+                                            //     isToday(date) &&
+                                            //     isnow(time, examduration)
+                                            //         ? `/${username}/${upcomingExam[0]}`
+                                            //         : ``
+                                            // }`}
+                                            to={`/${username}-${radio}/${upcomingExam[0]}`}
                                             style={{
                                                 display: "flex",
                                                 justifyContent: "flex-end",

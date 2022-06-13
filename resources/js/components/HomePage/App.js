@@ -1,8 +1,9 @@
 import "bootstrap/dist/css/bootstrap.css";
-import img from "./2560px-Adidas_Logo.svg.png";
+import img from "./logo.png";
 import img2 from "./mainimage blurred.png";
 import img3 from "./vector-link-nodes-icon-symbol-flat-pictogram-isolated-white-background-designed-simple-style-139861986.jpg";
 import img4 from "./question-mark-icon-vector-question-illustration-vector-symbol-question-mark-icon-vector-question-illustration-symbol-139902851.jpg";
+
 import "../../style.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -41,7 +42,8 @@ function App() {
                     style={{ height: "100vh" }}
                 >
                     <Navbar />
-                    <div id="photo" className="h-75 row ">
+                    {/* new   w-100*/}
+                    <div id="photo" className="h-75 w-100 row ">
                         <img
                             src={img2}
                             className="w-100 h-100 p-0"
@@ -188,8 +190,8 @@ function App() {
                             }}
                         >
                             <img
-                                className="  resizeTextOfLogoPhoto "
-                                style={{ objectFit: "cover" }}
+                                className="  resizeTextOfLogoPhoto h-25 w-100 "
+                                // style={{ objectFit: "cover" }}
                                 src={img}
                                 alt=""
                             />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTimer } from "react-timer-hook";
 import ReactPaginate from "react-paginate";
 import logo from "../HomePage/2560px-Adidas_Logo.svg.png";
@@ -8,8 +8,8 @@ import whiteTriangle from "../MainPage/whiteTriangle.png";
 import Timer from "./Timer";
 
 const ExamPaper = () => {
-    const { username, unfinishedSubjects } = useParams();
-    console.log(unfinishedSubjects);
+    const { username, radio, unfinishedSubjects } = useParams();
+    console.log(username, radio, unfinishedSubjects);
     const [users, setUsers] = useState([
         {
             login: "mojombo",
@@ -1927,19 +1927,21 @@ const ExamPaper = () => {
                                 marginBottom: "5px",
                             }}
                         >
-                            <button
-                                style={{
-                                    width: "80%",
-                                    height: "50%",
-                                    marginLeft: "10%",
-                                    fontSize: "140%",
-                                    background: "blue",
-                                    borderRadius: "10px",
-                                    paddingBottom: "10px",
-                                }}
-                            >
-                                Submit Exam
-                            </button>
+                            <Link to={`/${username}`}>
+                                <button
+                                    style={{
+                                        width: "80%",
+                                        height: "50%",
+                                        marginLeft: "10%",
+                                        fontSize: "140%",
+                                        background: "blue",
+                                        borderRadius: "10px",
+                                        paddingBottom: "10px",
+                                    }}
+                                >
+                                    Submit Exam
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

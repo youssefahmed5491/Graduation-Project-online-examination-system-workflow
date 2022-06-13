@@ -8660,6 +8660,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-timer-hook */ "./node_modules/react-timer-hook/dist/index.js");
 /* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_timer_hook__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_paginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-paginate */ "./node_modules/react-paginate/dist/react-paginate.js");
@@ -8703,9 +8704,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ExamPaper = function ExamPaper() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
       username = _useParams.username,
+      radio = _useParams.radio,
       unfinishedSubjects = _useParams.unfinishedSubjects;
 
-  console.log(unfinishedSubjects);
+  console.log(username, radio, unfinishedSubjects);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
     login: "mojombo",
@@ -10292,17 +10294,20 @@ var ExamPaper = function ExamPaper() {
               alignItems: "flex-end",
               marginBottom: "5px"
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-              style: {
-                width: "80%",
-                height: "50%",
-                marginLeft: "10%",
-                fontSize: "140%",
-                background: "blue",
-                borderRadius: "10px",
-                paddingBottom: "10px"
-              },
-              children: "Submit Exam"
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
+              to: "/".concat(username),
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                style: {
+                  width: "80%",
+                  height: "50%",
+                  marginLeft: "10%",
+                  fontSize: "140%",
+                  background: "blue",
+                  borderRadius: "10px",
+                  paddingBottom: "10px"
+                },
+                children: "Submit Exam"
+              })
             })
           })]
         })]
@@ -10386,7 +10391,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-/* harmony import */ var _2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./2560px-Adidas_Logo.svg.png */ "./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png");
+/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logo.png */ "./resources/js/components/HomePage/logo.png");
 /* harmony import */ var _mainimage_blurred_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mainimage blurred.png */ "./resources/js/components/HomePage/mainimage blurred.png");
 /* harmony import */ var _vector_link_nodes_icon_symbol_flat_pictogram_isolated_white_background_designed_simple_style_139861986_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./vector-link-nodes-icon-symbol-flat-pictogram-isolated-white-background-designed-simple-style-139861986.jpg */ "./resources/js/components/HomePage/vector-link-nodes-icon-symbol-flat-pictogram-isolated-white-background-designed-simple-style-139861986.jpg");
 /* harmony import */ var _question_mark_icon_vector_question_illustration_vector_symbol_question_mark_icon_vector_question_illustration_symbol_139902851_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./question-mark-icon-vector-question-illustration-vector-symbol-question-mark-icon-vector-question-illustration-symbol-139902851.jpg */ "./resources/js/components/HomePage/question-mark-icon-vector-question-illustration-vector-symbol-question-mark-icon-vector-question-illustration-symbol-139902851.jpg");
@@ -10460,7 +10465,7 @@ function App() {
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           id: "photo",
-          className: "h-75 row ",
+          className: "h-75 w-100 row ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: _mainimage_blurred_png__WEBPACK_IMPORTED_MODULE_2__["default"],
             className: "w-100 h-100 p-0",
@@ -10601,11 +10606,9 @@ function App() {
               justifyContent: "center"
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-              className: "  resizeTextOfLogoPhoto ",
-              style: {
-                objectFit: "cover"
-              },
-              src: _2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+              className: "  resizeTextOfLogoPhoto h-25 w-100 " // style={{ objectFit: "cover" }}
+              ,
+              src: _logo_png__WEBPACK_IMPORTED_MODULE_1__["default"],
               alt: ""
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
@@ -11237,7 +11240,79 @@ var AllUsersHome = function AllUsersHome() {
     setPlaying(false);
     var video = document.getElementsByClassName("myvideo")[0];
     video.srcObject.getTracks()[0].stop();
+  }; ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  function addTimes(startTime, endTime) {
+    var times = [0, 0, 0];
+    var max = times.length;
+    var a = (startTime || "").split(":");
+    var b = (endTime || "").split(":"); // normalize time values
+
+    for (var i = 0; i < max; i++) {
+      a[i] = isNaN(parseInt(a[i])) ? 0 : parseInt(a[i]);
+      b[i] = isNaN(parseInt(b[i])) ? 0 : parseInt(b[i]);
+    } // store time values
+
+
+    for (var i = 0; i < max; i++) {
+      times[i] = a[i] + b[i];
+    }
+
+    var hours = times[0];
+    var minutes = times[1];
+    var seconds = times[2];
+
+    if (seconds >= 60) {
+      var m = seconds / 60 << 0;
+      minutes += m;
+      seconds -= 60 * m;
+    }
+
+    if (minutes >= 60) {
+      var h = minutes / 60 << 0;
+      hours += h;
+      minutes -= 60 * h;
+    }
+
+    if (hours >= 24) {
+      hours = hours % 24;
+      hours = hours < 0 ? 24 + hours : +hours;
+    }
+
+    return ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+  }
+
+  var isToday = function isToday(someDate) {
+    var today = new Date();
+    return someDate[2] == today.getDate() && someDate[1] - 1 == today.getMonth() && someDate[0] == today.getFullYear();
   };
+
+  var isnow = function isnow(someTime, examduration) {
+    var today = new Date();
+    console.log(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(), someTime[1], today.getMinutes(), examduration, addTimes(someTime, examduration));
+
+    if (today.getHours() < 10) {
+      if ("0" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() > someTime && "0" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() < addTimes(someTime, examduration)) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() > someTime && today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() < addTimes(someTime, examduration)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
+  var examduration = "02:00:00";
+  var time = "13:38:00";
+  var date = "2022-05-16".split("-");
+  var today = isToday(date);
+  var now = isnow(time, examduration);
+  console.log("7amada", examduration, time, date, today, now); ////////////////////////////////////////////////////////////////////////////////////
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
@@ -11865,7 +11940,7 @@ var AllUsersHome = function AllUsersHome() {
                 alignItems: "flex-end"
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Link, {
-                to: "/",
+                to: "".concat(isToday(date) && isnow(time, examduration) ? "/" : ""),
                 style: {
                   display: "flex",
                   justifyContent: "flex-end",
@@ -11886,8 +11961,14 @@ var AllUsersHome = function AllUsersHome() {
                   },
                   children: "Video Call"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Link, {
-                to: "/".concat(username, "/").concat(upcomingExam[0]),
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Link // to={`${
+              //     isToday(date) &&
+              //     isnow(time, examduration)
+              //         ? `/${username}/${upcomingExam[0]}`
+              //         : ``
+              // }`}
+              , {
+                to: "/".concat(username, "-").concat(radio, "/").concat(upcomingExam[0]),
                 style: {
                   display: "flex",
                   justifyContent: "flex-end",
@@ -12277,7 +12358,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomePage/2560px-Adidas_Logo.svg.png */ "./resources/js/components/HomePage/2560px-Adidas_Logo.svg.png");
+/* harmony import */ var _HomePage_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomePage/logo.png */ "./resources/js/components/HomePage/logo.png");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
@@ -12287,65 +12368,70 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Navbar = function Navbar() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    id: "logo-navbar",
-    className: "h-25  row",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      id: "logo",
-      className: "col ",
-      style: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-        className: "  h-50 w-25 ",
-        src: _HomePage_2560px_Adidas_Logo_svg_png__WEBPACK_IMPORTED_MODULE_1__["default"],
-        alt: ""
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      id: "navbar",
-      className: "col  ",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-        className: "mt-3 resizeTextOfNavBar600",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-          to: "/about",
-          className: "bol",
-          href: "",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: "About"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: " I "
+  return (
+    /*#__PURE__*/
+
+    /* new   w-100*/
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      id: "logo-navbar",
+      className: "h-25 w-100  row",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        id: "logo",
+        className: "col ",
+        style: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "  h-50 w-50 ",
+          src: _HomePage_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+          alt: ""
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        id: "navbar",
+        className: "col  ",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+          className: "mt-3 resizeTextOfNavBar600",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+            to: "/about",
+            className: "bol",
+            href: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: "About"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: " I "
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            className: "bol",
+            href: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: "Documentation"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: " I "
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            className: "bol",
+            href: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: "Contacts"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: " I "
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+            to: "/login",
+            className: "bol",
+            href: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: "Login"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: " I "
+            })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-          className: "bol",
-          href: "",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: "Documentation"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: " I "
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-          className: "bol",
-          href: "",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: "Contacts"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: " I "
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-          to: "/login",
-          className: "bol",
-          href: "",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: "Login"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            children: " I "
-          })]
-        })]
-      })
-    })]
-  });
+        })
+      })]
+    })
+  );
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
@@ -19521,6 +19607,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/2560px-Adidas_Logo.svg.png?82edca6bfc94088de2441454bcfa9560");
+
+/***/ }),
+
+/***/ "./resources/js/components/HomePage/logo.png":
+/*!***************************************************!*\
+  !*** ./resources/js/components/HomePage/logo.png ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/logo.png?7c8fa906c36579a2d25a51bdfc344a72");
 
 /***/ }),
 

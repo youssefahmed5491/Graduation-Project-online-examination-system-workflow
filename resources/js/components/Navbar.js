@@ -1,10 +1,11 @@
 import React from "react";
-import img from "./HomePage/2560px-Adidas_Logo.svg.png";
+import img from "./HomePage/logo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div id="logo-navbar" className="h-25  row">
+        /* new   w-100*/
+        <div id="logo-navbar" className="h-25 w-100  row">
             <div
                 id="logo"
                 className="col "
@@ -14,7 +15,7 @@ const Navbar = () => {
                     justifyContent: "center",
                 }}
             >
-                <img className="  h-50 w-25 " src={img} alt="" />
+                <img className="  h-50 w-50 " src={img} alt="" />
             </div>
             <div id="navbar" className="col  ">
                 <h3 className="mt-3 resizeTextOfNavBar600">
