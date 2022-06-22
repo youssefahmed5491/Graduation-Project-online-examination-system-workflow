@@ -26,8 +26,17 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.1.1",
+        "@fortawesome/free-regular-svg-icons": "^6.1.1",
+        "@fortawesome/free-solid-svg-icons": "^6.1.1",
+        "@syncfusion/ej2-react-calendars": "^20.1.58",
+        "chart.js": "^3.8.0",
+        "rc-time-picker": "^3.7.3",
         "react-alert": "^7.0.3",
         "react-alert-template-basic": "^1.0.2",
+        "react-calendar": "^3.7.0",
+        "react-calendars": "^1.0.6",
+        "react-chartjs-2": "^4.2.0",
         "react-hook-form": "^7.29.0",
         "react-hook-form-input": "^1.1.10",
         "react-paginate": "^8.1.3",

@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
-import img from "./2560px-Adidas_Logo.svg.png";
-import img2 from "./mainimage blurred.png";
+import img from "./LOgodesign1.png";
+import img2 from "./herotest.png";
 import img3 from "./vector-link-nodes-icon-symbol-flat-pictogram-isolated-white-background-designed-simple-style-139861986.jpg";
 import img4 from "./question-mark-icon-vector-question-illustration-vector-symbol-question-mark-icon-vector-question-illustration-symbol-139902851.jpg";
 import "../../style.css";
@@ -37,34 +37,47 @@ function App() {
 
                 <div
                     id="wrap-logo-navbar-photo"
-                    className=""
+                    className="pt-4"
                     style={{ height: "100vh" }}
                 >
                     <Navbar />
-                    <div id="photo" className="h-75 row ">
-                        <img
-                            src={img2}
-                            className="w-100 h-100 p-0"
-                            alt=""
-                            style={{ objectFit: "cover" }}
-                        />
+                    <div
+                        id="photo"
+                        className=" row"
+                        style={{ height: "90%", width: "100%" }}
+                    >
+                        <div className=" d-flex justify-content-center align-items-center">
+                            <img
+                                src={img2}
+                                className=" h-100 p-0 "
+                                style={{ width: "60%" }}
+                                alt=""
+                            />
+                        </div>
+
                         <div
-                            className="position-absolute  overflow-hidden  w-50  m-4"
-                            style={{ height: "70%" }}
+                            className="position-absolute  overflow-hidden  w-50  m-4  "
+                            style={{
+                                height: "70%",
+                                paddingLeft: "15%",
+                                paddingTop: "10%",
+                            }}
                         >
-                            <h1
-                                className="resizeTextOfPhoto600"
-                                style={{ color: "#6bfff5" }}
+                            <h3
+                                className="fw-bold resizeTextOfPhoto600 "
+                                style={{ color: "#3dbfb6" }}
                             >
                                 Easiest Most Responsive Online Examination
                                 Solution
-                            </h1>
+                            </h3>
                             <button
-                                className="m-5 rsizebutton rounded-pill"
+                                className=" rsizebutton rounded-pill fw-bold"
                                 style={{
                                     background: "#3dbfb6",
                                     color: "white",
                                     fontSize: "30px",
+                                    marginLeft: "15%",
+                                    marginTop: "10%",
                                 }}
                             >
                                 Get Started
@@ -83,23 +96,33 @@ function App() {
                     <div
                         id="about-div"
                         className={row}
-                        style={{ height: "50%" }}
+                        style={{
+                            height: "50%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
                     >
-                        <div id="about-write" className={col}>
-                            <h1 className="">Who we are</h1>
-                            <h3 className="">
+                        <div id="about-write" className={col} style={{}}>
+                            <h3
+                                className="fw-bold"
+                                style={{ fontSize: "34px" }}
+                            >
+                                Who we are
+                            </h3>
+                            <div className="" style={{ fontSize: "21px" }}>
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Voluptate ipsa quis quaerat,
                                 perferendis blanditiis deserunt quam doloremque
                                 dolor deleniti fugiat ullam soluta, pariatur,
                                 dolorum dicta porro explicabo inventore cum.
                                 Enim.
-                            </h3>
+                            </div>
                             <span
                                 style={{
                                     display: "flex",
                                     justifyContent: "right",
-                                    fontSize: "30px",
+                                    fontSize: "16px",
                                 }}
                             >
                                 <a href="" className="">
@@ -131,7 +154,12 @@ function App() {
                     <div
                         id="description-div"
                         className={row}
-                        style={{ height: "50%" }}
+                        style={{
+                            height: "50%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
                     >
                         <div
                             id="description-logo"
@@ -150,23 +178,30 @@ function App() {
                             />
                         </div>
                         <div id="description-write" className={col}>
-                            <h1>Who we are</h1>
-                            <h3>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eveniet cupiditate ab id
-                                libero unde voluptas eaque corrupti debitis quae
-                                maxime repudiandae possimus animi error
-                                voluptates exercitationem ea soluta, mollitia
-                                asperiores.
+                            <h3
+                                className="fw-bold"
+                                style={{ fontSize: "34px" }}
+                            >
+                                Who we are
                             </h3>
+                            <div className="" style={{ fontSize: "21px" }}>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Voluptate ipsa quis quaerat,
+                                perferendis blanditiis deserunt quam doloremque
+                                dolor deleniti fugiat ullam soluta, pariatur,
+                                dolorum dicta porro explicabo inventore cum.
+                                Enim.
+                            </div>
                             <span
                                 style={{
                                     display: "flex",
                                     justifyContent: "right",
-                                    fontSize: "30px",
+                                    fontSize: "16px",
                                 }}
                             >
-                                <a href="">read more ...</a>
+                                <a href="" className="">
+                                    read more ...
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -175,10 +210,15 @@ function App() {
 
                 {/* //////////// Final Screen///////////// */}
                 <div
-                    className="container"
-                    style={{ height: "57vh", backgroundColor: "#e1fffd" }}
+                    className=""
+                    style={{
+                        height: "57vh",
+                        width: "99 vw",
+                        backgroundColor: "#e1fffd",
+                        margin: "0px",
+                    }}
                 >
-                    <div className="row h-100 pt-5">
+                    <div className="row h-100 pt-5 m-0">
                         <div
                             id="logobot"
                             className="col "
@@ -188,9 +228,9 @@ function App() {
                             }}
                         >
                             <img
-                                className="  resizeTextOfLogoPhoto "
-                                style={{ objectFit: "cover" }}
+                                className="    resizeTextOfLogoPhoto "
                                 src={img}
+                                style={{ height: "15%", width: "70%" }}
                                 alt=""
                             />
                         </div>
@@ -229,7 +269,7 @@ function App() {
                                 TradeMark
                             </h4>
                         </div>
-                        <div className="col pt-5">
+                        <div className="col pt-5 px-0 ">
                             <h4 className="pt-4 resizeTextOfLastSection">
                                 Support
                             </h4>

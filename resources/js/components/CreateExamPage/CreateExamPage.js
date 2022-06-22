@@ -4,6 +4,15 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Select from "react-select";
 import ModelPreview from "./ModelPreview.png";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+
+import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
+import "../../reactdate.css";
+
+import TimePicker from "rc-time-picker";
+import "rc-time-picker/assets/index.css";
+import moment from "moment";
 
 const CreateExamPage = (professor) => {
     const { username } = useParams();
@@ -31,6 +40,39 @@ const CreateExamPage = (professor) => {
     const [subjectdetails, setSubjectDetails] = useState([null]);
     const [arrayChapters, setArrayChapters] = useState([]);
     const [modelid, setModelId] = useState([]);
+
+    const [datevalue, setDatevalue] = useState();
+    const [timevalue, setTimevalue] = useState();
+
+    let minDate = new Date();
+    console.log(minDate);
+
+    const handledate = (e) => {
+        console.log(e.target.value.getFullYear());
+        let m = e.target.value.getMonth() + 1;
+        console.log(e.target.value.getDate());
+        setDatevalue(
+            e.target.value.getFullYear() +
+                "-" +
+                m +
+                "-" +
+                e.target.value.getDate()
+        );
+        console.log(datevalue);
+    };
+    const handletime = (e) => {
+        console.log(e.format("hh:mm:ss a"));
+
+        let int = parseInt(e.format("hh"), 10);
+        if (
+            (e.format("a") === "pm" && e.format("hh") != "12") ||
+            (e.format("a") === "am" && e.format("hh") === "12")
+        ) {
+            int = int + 12;
+        }
+        setTimevalue(int + ":" + e.format("mm") + ":" + "00");
+        console.log(timevalue);
+    };
 
     console.log(professor.professor.id);
     useEffect(() => {
@@ -120,8 +162,8 @@ const CreateExamPage = (professor) => {
             duration,
             questionType,
             mcqAmount,
-            date,
-            time,
+            datevalue,
+            timevalue,
             numberOfModels
         );
         if (
@@ -129,8 +171,8 @@ const CreateExamPage = (professor) => {
             duration &&
             (questionType === "written" ||
                 (questionType === "mcq" && mcqAmount)) &&
-            date &&
-            time &&
+            datevalue &&
+            timevalue &&
             numberOfModels &&
             (easyNumberQuestions ||
                 mediumNumberQuestions ||
@@ -268,7 +310,7 @@ const CreateExamPage = (professor) => {
                                     <input
                                         className={`form-control ${durationError}`}
                                         type="text"
-                                        placeholder="Enter Text Here"
+                                        placeholder="eg: hh:mm:ss"
                                         aria-label="default input example"
                                         style={{ width: "101%" }}
                                         onChange={(e) => {
@@ -352,30 +394,23 @@ const CreateExamPage = (professor) => {
                                 <div className="fs-5 fw-bold mb-2">
                                     Enter Exam Start date and time
                                 </div>
-                                <div className="form-group mt-2">
-                                    <input
-                                        className={`form-control d-inline ${dateError}`}
-                                        type="text"
-                                        placeholder="yyyy-mm-dd"
-                                        aria-label="default input example"
-                                        style={{ width: "10%" }}
-                                        onChange={(e) => {
-                                            setDate(e.target.value),
-                                                setDateError("");
-                                        }}
-                                    />
-
-                                    <input
-                                        className={`form-control d-inline ms-2 ${timeError}`}
-                                        type="text"
-                                        placeholder="ex: 23:59"
-                                        aria-label="default input example"
-                                        style={{ width: "10%" }}
-                                        onChange={(e) => {
-                                            setTime(e.target.value),
-                                                setTimeError("");
-                                        }}
-                                    />
+                                <div className="form-group mt-2 w-25 row">
+                                    <div className="col">
+                                        <DatePickerComponent
+                                            id="datepicker"
+                                            placeholder="Enter date"
+                                            min={minDate}
+                                            onChange={handledate}
+                                            format="yyyy-MM-dd"
+                                        />
+                                    </div>
+                                    <div className="col">
+                                        <TimePicker
+                                            defaultValue={moment()}
+                                            showSecond={false}
+                                            onChange={handletime}
+                                        ></TimePicker>
+                                    </div>
                                     {(dateError || timeError) && (
                                         <div className="emptyfield">
                                             must enter empty feiled
@@ -389,8 +424,8 @@ const CreateExamPage = (professor) => {
                                     difficulty
                                 </div>
                                 <div className="form-group mt-2">
-                                    <div className="float-start mt-1 me-3">
-                                        <h5>Easy</h5>
+                                    <div className="float-start mt-1 me-3 fs-5">
+                                        Easy
                                     </div>
                                     <input
                                         className="form-control float-start"
@@ -403,8 +438,8 @@ const CreateExamPage = (professor) => {
                                             setDifficultyError("");
                                         }}
                                     />
-                                    <div className="float-start mt-1 mx-3">
-                                        <h5>Medium</h5>
+                                    <div className="float-start mt-1 mx-3 fs-5">
+                                        Medium
                                     </div>
                                     <input
                                         className="form-control float-start mx-2"
@@ -417,8 +452,8 @@ const CreateExamPage = (professor) => {
                                             setDifficultyError("");
                                         }}
                                     />
-                                    <div className="float-start mt-1 mx-3">
-                                        <h5>Hard</h5>
+                                    <div className="float-start mt-1 mx-3 fs-5">
+                                        Hard
                                     </div>
                                     <input
                                         className="form-control "
@@ -440,16 +475,20 @@ const CreateExamPage = (professor) => {
                                 </div>
                             </div>
                             <div className="ms-5">
-                                <div className="fs-5 fw-bold mb-2">
-                                    Enter amount of questions for each chapter
-                                </div>
+                                {arrayChapters.length > 0 && (
+                                    <div className="fs-5 fw-bold mb-2">
+                                        Enter amount of questions for each
+                                        chapter
+                                    </div>
+                                )}
+
                                 <div className="row">
                                     {Array.from(
                                         Array(arrayChapters.length),
                                         (e, i) => {
                                             return (
                                                 <div key={i} className="col-4">
-                                                    <div className="d-inline me-5 fs-4 fw-bold">
+                                                    <div className="d-inline me-5 fs-5 ">
                                                         Chapter {i + 1}
                                                     </div>
                                                     <input

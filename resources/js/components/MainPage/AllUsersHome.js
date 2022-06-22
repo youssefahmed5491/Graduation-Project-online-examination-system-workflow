@@ -2,7 +2,8 @@ import React, { Profiler, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import logo from "../HomePage/2560px-Adidas_Logo.svg.png";
+import logo from "../HomePage/LOgodesign1White.png";
+import book from "./book.png";
 import profile from "./profile icon.png";
 import notification from "./notif bell.png";
 import settings from "./settings.png";
@@ -19,6 +20,7 @@ import AssignProctorWhite from "./AssignProctorWhite.png";
 import App from "../Calendar/App";
 import calenderstyle from "../Calendar/calenderstyle.css";
 import AddQuestions from "../Questions/AddQuestions";
+import Subject from "../SubjectPage/Subject";
 import ViewQuestions from "../Questions/ViewQuestions";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import CreateExamPage from "../CreateExamPage/CreateExamPage";
@@ -69,6 +71,7 @@ const AllUsersHome = () => {
     const [adjustClicked, setAdjustClicked] = useState(false);
     const [examClicked, setExamClicked] = useState(false);
     const [questionsClicked, setQuestionsClicked] = useState(false);
+    const [subjectClicked, setSubjectClicked] = useState(false);
     const [viewQuestionsClicked, setViewQuestionsClicked] = useState(false);
     const [addQuestionsClicked, setAddQuestionsClicked] = useState(false);
     const [profileClicked, setProfileClicked] = useState(false);
@@ -107,6 +110,9 @@ const AllUsersHome = () => {
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
+    }`;
+    const subjectClassName = `d-flex align-items-center ps-3 my-button ${
+        subjectClicked ? "clickedbuttom" : ""
     }`;
     const scheduleClassName = `d-flex align-items-center ps-3 my-button ${
         scheduleClicked ? "clickedbuttom" : ""
@@ -314,7 +320,7 @@ const AllUsersHome = () => {
                         className="col-2  d-flex align-items-center h-100 "
                         style={{ backgroundColor: "#3dbfb6" }}
                     >
-                        <img src={logo} alt="" className="h-75 w-25 m-5" />
+                        <img src={logo} alt="" className="h-75 w-75 m-5" />
                     </div>{" "}
                     <div
                         className="col d-flex align-items-center flex-row-reverse  h-100"
@@ -339,6 +345,7 @@ const AllUsersHome = () => {
                                 setRemainingExamsClicked(false);
                                 setCompletedExamsClicked(false);
                                 setUpcomingExamsClicked(false);
+                                setSubjectClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -404,6 +411,7 @@ const AllUsersHome = () => {
                                 setRemainingExamsClicked(false);
                                 setCompletedExamsClicked(false);
                                 setUpcomingExamsClicked(false);
+                                setSubjectClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -439,6 +447,7 @@ const AllUsersHome = () => {
                                 setRemainingExamsClicked(false);
                                 setCompletedExamsClicked(false);
                                 setUpcomingExamsClicked(false);
+                                setSubjectClicked(false);
                                 if (radio === "student") {
                                     stopVideo();
                                 }
@@ -518,6 +527,7 @@ const AllUsersHome = () => {
                                     setQuestionsClicked(true);
                                     setProfileClicked(false);
                                     setCreateExamClicked(false);
+                                    setSubjectClicked(false);
                                 }}
                                 className={questionsClassName}
                                 style={{
@@ -553,6 +563,7 @@ const AllUsersHome = () => {
                                     setAddQuestionsClicked(false);
                                     setProfileClicked(false);
                                     setCreateExamClicked(false);
+                                    setSubjectClicked(false);
                                 }}
                                 className={questionsClassName}
                                 style={{
@@ -576,6 +587,7 @@ const AllUsersHome = () => {
                                     setAddQuestionsClicked(true);
                                     setProfileClicked(false);
                                     setCreateExamClicked(false);
+                                    setSubjectClicked(false);
                                 }}
                                 className={questionsClassName}
                                 style={{
@@ -600,6 +612,7 @@ const AllUsersHome = () => {
                                     setAddQuestionsClicked(false);
                                     setProfileClicked(false);
                                     setCreateExamClicked(true);
+                                    setSubjectClicked(false);
                                 }}
                                 className={createExamClassName}
                                 style={{
@@ -616,6 +629,33 @@ const AllUsersHome = () => {
                                 />
                                 <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
                                     Create Exam
+                                </span>
+                            </button>
+                        )}
+                        {radio === "Doctor" && (
+                            <button
+                                onClick={() => {
+                                    setHomeClicked(false);
+                                    setScheduleClicked(false);
+                                    setQuestionsClicked(false);
+                                    setViewQuestionsClicked(false);
+                                    setAddQuestionsClicked(false);
+                                    setProfileClicked(false);
+                                    setCreateExamClicked(false);
+                                    setSubjectClicked(true);
+                                }}
+                                className={subjectClassName}
+                                style={{
+                                    height: "7%",
+                                    width: "100%",
+                                    border: "0",
+                                    background: "#19736c",
+                                }}
+                            >
+                                <img src={book} alt="" className="h-75 " />
+
+                                <span className="fw-bolder  nav-bar-text-size text-light mt-3 ms-2">
+                                    Subjects
                                 </span>
                             </button>
                         )}
@@ -924,7 +964,8 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         remainingExamsClicked &&
                         !completedExamsClicked &&
-                        !upcomingExamsClicked && (
+                        !upcomingExamsClicked &&
+                        !subjectClicked && (
                             <div
                                 style={{
                                     paddingTop: "5px",
@@ -987,6 +1028,7 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !remainingExamsClicked &&
                         !completedExamsClicked &&
+                        !subjectClicked &&
                         upcomingExamsClicked && (
                             <div
                                 style={{
@@ -998,100 +1040,103 @@ const AllUsersHome = () => {
                                 className="col  "
                             >
                                 <h1>Upcoming Exam</h1>
-                                <div className="row me-5 ms-5 mt-5">
-                                    <div
-                                        style={{
-                                            width: "100%",
-                                            background: "white",
-                                            borderRadius: "10px",
-                                            marginBottom: "10px",
-                                            paddingTop: "10px",
-                                            paddingBottom: "10px",
-                                            paddingLeft: "15px",
-                                        }}
-                                    >
-                                        {upcomingExam.title}
-                                        <span
-                                            className="float"
+                                {upcomingExam.length > 0 && (
+                                    <div className="row me-5 ms-5 mt-5">
+                                        <div
                                             style={{
-                                                paddingRight: "10px",
+                                                width: "100%",
+                                                background: "white",
+                                                borderRadius: "10px",
+                                                marginBottom: "10px",
+                                                paddingTop: "10px",
+                                                paddingBottom: "10px",
+                                                paddingLeft: "15px",
                                             }}
                                         >
-                                            {upcomingExam.date}
-                                        </span>
-                                    </div>
-                                    <div
-                                        className="me-5 "
-                                        style={{
-                                            display: "flex",
-                                            justifyContent: "flex-end",
-                                            flexDirection: "column",
-                                            alignItems: "flex-end",
-                                        }}
-                                    >
-                                        <Link
-                                            to={`${
-                                                isToday(date) &&
-                                                isnow(time, examduration)
-                                                    ? `/`
-                                                    : ``
-                                            }`}
+                                            {upcomingExam.title}
+                                            <span
+                                                className="float"
+                                                style={{
+                                                    paddingRight: "10px",
+                                                }}
+                                            >
+                                                {upcomingExam.date}
+                                            </span>
+                                        </div>
+                                        <div
+                                            className="me-5 "
                                             style={{
                                                 display: "flex",
                                                 justifyContent: "flex-end",
-                                                width: "25%",
-                                                textDecoration: "none",
+                                                flexDirection: "column",
+                                                alignItems: "flex-end",
                                             }}
                                         >
-                                            <button
-                                                onClick={(e) => {
-                                                    console.log("subject");
-                                                }}
-                                                className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                            <Link
+                                                to={`${
+                                                    isToday(date) &&
+                                                    isnow(time, examduration)
+                                                        ? `/`
+                                                        : ``
+                                                }`}
                                                 style={{
-                                                    borderRadius: "25px",
-                                                    fontSize: "20px",
-                                                    backgroundColor: "#3dbfb6",
-                                                    color: "white",
-                                                    width: "100%",
+                                                    display: "flex",
+                                                    justifyContent: "flex-end",
+                                                    width: "25%",
+                                                    textDecoration: "none",
                                                 }}
                                             >
-                                                Video Call
-                                            </button>
-                                        </Link>
-                                        <Link
-                                            // to={`${
-                                            //     isToday(date) &&
-                                            //     isnow(time, examduration)
-                                            //         ? `/${username}-${radio}/${upcomingExam[0]}`
-                                            //         : ``
-                                            // }`}
-                                            to={`/${username}/${upcomingExam.id}
+                                                <button
+                                                    onClick={(e) => {
+                                                        console.log("subject");
+                                                    }}
+                                                    className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                                    style={{
+                                                        borderRadius: "25px",
+                                                        fontSize: "20px",
+                                                        backgroundColor:
+                                                            "#3dbfb6",
+                                                        color: "white",
+                                                        width: "100%",
+                                                    }}
+                                                >
+                                                    Video Call
+                                                </button>
+                                            </Link>
+                                            <Link
+                                                // to={`${
+                                                //     isToday(date) &&
+                                                //     isnow(time, examduration)
+                                                //         ? `/${username}-${radio}/${upcomingExam[0]}`
+                                                //         : ``
+                                                // }`}
+                                                to={`/${username}/${upcomingExam.id}
 
-                                            `}
-                                            style={{
-                                                display: "flex",
-                                                justifyContent: "flex-end",
-                                                width: "25%",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            <button
-                                                onClick={(e) => {}}
-                                                className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                                    `}
                                                 style={{
-                                                    borderRadius: "25px",
-                                                    fontSize: "20px",
-                                                    backgroundColor: "red",
-                                                    color: "white",
-                                                    width: "100%",
+                                                    display: "flex",
+                                                    justifyContent: "flex-end",
+                                                    width: "25%",
+                                                    textDecoration: "none",
                                                 }}
                                             >
-                                                Exam
-                                            </button>
-                                        </Link>
+                                                <button
+                                                    onClick={(e) => {}}
+                                                    className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                                    style={{
+                                                        borderRadius: "25px",
+                                                        fontSize: "20px",
+                                                        backgroundColor: "red",
+                                                        color: "white",
+                                                        width: "100%",
+                                                    }}
+                                                >
+                                                    Exam
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
                             </div>
                         )}
                     {!scheduleClicked &&
@@ -1100,6 +1145,7 @@ const AllUsersHome = () => {
                         !profileClicked &&
                         !remainingExamsClicked &&
                         completedExamsClicked &&
+                        !subjectClicked &&
                         !upcomingExamsClicked && (
                             <div
                                 style={{
@@ -1184,6 +1230,25 @@ const AllUsersHome = () => {
                                     divheight={divheight}
                                     professor={professor}
                                 />
+                            </div>
+                        )}
+                    {!homeClicked &&
+                        !scheduleClicked &&
+                        !viewQuestionsClicked &&
+                        !addQuestionsClicked &&
+                        !profileClicked &&
+                        !createExamClicked &&
+                        subjectClicked && (
+                            <div
+                                className="col"
+                                style={{
+                                    paddingTop: "5px",
+                                    paddingLeft: "1rem",
+                                    background: "#ebebeb",
+                                    height: "100%",
+                                }}
+                            >
+                                <Subject />
                             </div>
                         )}
                     {!homeClicked &&

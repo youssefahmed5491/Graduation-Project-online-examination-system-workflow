@@ -24,7 +24,7 @@ import Model from "./components/Model/Model";
 
 if (document.getElementById("app")) {
     ReactDOM.render(
-        <React.StrictMode>
+        <React.Fragment>
             <Router>
                 <Routes>
                     <Route exact path="/" element={<App />} />
@@ -57,7 +57,7 @@ if (document.getElementById("app")) {
                     />
                 </Routes>
             </Router>
-        </React.StrictMode>,
+        </React.Fragment>,
 
         document.getElementById("app")
     );
