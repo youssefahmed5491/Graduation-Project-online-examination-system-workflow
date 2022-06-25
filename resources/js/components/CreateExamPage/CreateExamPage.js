@@ -43,7 +43,7 @@ const CreateExamPage = (professor) => {
 
     const [datevalue, setDatevalue] = useState();
     const [timevalue, setTimevalue] = useState();
-    console.log(datevalue, "ana hnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
     let minDate = new Date();
     console.log(minDate);
 
@@ -151,6 +151,7 @@ const CreateExamPage = (professor) => {
         let temp = arrayChapters;
         temp[index] = e.target.value;
         setArrayChapters(temp);
+        // console.log(isArray(arrayChapters));
     };
 
     //console.log(subjectdetails.id);
@@ -179,7 +180,12 @@ const CreateExamPage = (professor) => {
             arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
         ) {
             for (var i = 0; i < numberOfModels; i++) {
-                axios.post("/api/exam", request1);
+                axios.post("/api/exam", request1).then((response) => {
+                    alert(response.data);
+                    if (response.data == true) {
+                        setShowModels(true);
+                    }
+                });
             }
             axios.patch(`/api/subjects/${subjectdetails.id}`, request2);
 
@@ -192,7 +198,7 @@ const CreateExamPage = (professor) => {
             /////////////////////////////////////////////
             // document.getElementById("nameForm").submit();
             ///////////////////////////////////
-            setShowModels(true);
+
             // document.getElementById("nameForm").submit();
         } else {
             if (!subject) {
@@ -233,7 +239,6 @@ const CreateExamPage = (professor) => {
         /////////////////////////
         //////////////////////
     };
-    console.log(arrayChapters, "toooooooooonyyyyyyyyyy");
     ///////////////////////////// DATA WILL BE PASSED TO API
     const request1 = {
         subject: subject,
@@ -244,11 +249,10 @@ const CreateExamPage = (professor) => {
         mediumnumberquestions: mediumNumberQuestions,
         hardnumberquestions: hardNumberQuestions,
         chaptersquestions: arrayChapters,
-        chapternumber: subjectdetails.set_of_criteria,
     };
     const request2 = {
-        date: datevalue,
-        time: timevalue,
+        date: date,
+        time: time,
         duration: duration,
     };
     ///////////////////////
@@ -490,13 +494,7 @@ const CreateExamPage = (professor) => {
                                             return (
                                                 <div key={i} className="col-4">
                                                     <div className="d-inline me-5 fs-5 ">
-                                                        Chapter{" "}
-                                                        {
-                                                            subjectdetails
-                                                                .set_of_criteria[
-                                                                i
-                                                            ]
-                                                        }
+                                                        Chapter {i + 1}
                                                     </div>
                                                     <input
                                                         className="form-control d-inline mx-2"

@@ -51,6 +51,29 @@ class ExamController extends Controller
         $easynumber = $request->easynumberquestions;
         $mediumnumber = $request->mediumnumberquestions;
         $hardnumber = $request->hardnumberquestions;
+        // dd(Question::where("difficulty_level", 0)->count());
+        if ($easynumber > Question::where("difficulty_level", 0)->count()) {
+
+            return response()->json("no enough easy questions");
+        } elseif ($mediumnumber > Question::where("difficulty_level", 1)->count()) {
+            return response()->json("no enough medium questions");
+        } elseif ($hardnumber > Question::where("difficulty_level", 2)->count()) {
+            return response()->json("no enough hard questions");
+        }
+        // dd(count($chapters));
+        for ($z = 0; $z < count($chapters); $z++) {
+            if ($chaptersquestions[$z] > Question::where("chapter", $chapters[$z])->count()) {
+
+                return response()->json("no enough questions for chapter" . $chapters[$z]);
+            }
+        }
+
+
+
+
+
+
+
         $questions = [$easynumber, $mediumnumber, $hardnumber];
 
         $questionsarray = array();
@@ -183,7 +206,7 @@ class ExamController extends Controller
             // print_r($questionsarray);
         }
 
-        return response()->json($questionsarray);
+        // return response()->json($questionsarray);
 
 
 
@@ -194,10 +217,12 @@ class ExamController extends Controller
 
 
 
-        // ExamsTemp::insert([
-        //     "modelquestions" => json_encode($model),
-        //     "subject_id" => $subject->id,
-        // ]);
+        ExamsTemp::insert([
+            "modelquestions" => json_encode($questionsarray),
+            "subject_id" => $subject->id,
+        ]);
+
+        return response()->json(true);
     }
 
 
