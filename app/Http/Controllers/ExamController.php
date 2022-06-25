@@ -44,168 +44,160 @@ class ExamController extends Controller
         $subject = Subject::where('title', $request->subject)->first();
 
         $chapters = $subject->set_of_criteria;
-        $chapternumber = count($chapters);
 
-        $totalchpatersquestions = 0;
-        $chaptersquestions2 = $request->chaptersquestions;
+        $chaptersquestions = array();
+        $chaptersquestions = $request->chaptersquestions;
 
-
-
-        foreach ($chaptersquestions2 as $chaptersquestion) {
-            $totalchpatersquestions = $totalchpatersquestions + $chaptersquestion;
-        }
-        // $totalchpatersquestions++;
         $easynumber = $request->easynumberquestions;
         $mediumnumber = $request->mediumnumberquestions;
         $hardnumber = $request->hardnumberquestions;
-        $easyquestions = array();
-        $mediumquestions = array();
-        $hardquestions = array();
-        $FinalModels = array();
-        $model = array();
-        /////////////////////////////////////////////////////////////////
+        $questions = [$easynumber, $mediumnumber, $hardnumber];
 
+        $questionsarray = array();
 
-        $chapterkey = 0;
-        $i = 0;
-        $j = 0;
-        $k = 0;
-        $numofquestions = 0;
-
-
-        // $questionid3 = array();
-
-
-        while ($i < $easynumber) {
-            $easycount = 0;
-
-            if ($chapterkey == $chapternumber) {
-                $chapterkey = 0;
+        for ($h = 0; $h < count($chapters); $h++) {
+            if ($chaptersquestions[$h] == 0) {
+                unset($chaptersquestions[$h]);
+                unset($chapters[$h]);
             }
+        }
 
+        for ($x = 0; $x < count($questions); $x++) {
+            if ($questions[$x] == 0) {
 
-            //$temp1 = Question::where("difficulty_level", 0)->where("chapter", $chapters[$chapterkey])->take(ceil(($easynumber / $totalchpatersquestions) * $chaptersquestions2[$chapterkey]))->inRandomOrder()->get();
-
-            $data = Question::where("difficulty_level", 0)->where("type", $request->examtype)->where("chapter", $chapters[$chapterkey])->first();
-
-            $length = 0;
-            while ($length < floor((($easynumber / $totalchpatersquestions) * $chaptersquestions2[$chapterkey]) + 0.5)) {
-                $data = Question::where("difficulty_level", 0)->where("type", $request->examtype)->where("chapter", $chapters[$chapterkey])->inRandomOrder()->first();
-
-                while (in_array($data, $easyquestions)) {
-                    $data = Question::where("difficulty_level", 0)->where("type", $request->examtype)->where("chapter", $chapters[$chapterkey])->inRandomOrder()->first();
-                }
-                $length++;
-                if (count($easyquestions) < $easynumber) {
-                    $easyquestions[] = $data;
-                    $easycount++;
-                } else {
-                    break;
-                }
+                unset($questions[$x]);
             }
-
-            $numofquestions = $numofquestions + $easycount;
-            $i = $i + $easycount;
-
-            if ($numofquestions >= $totalchpatersquestions) {
-                break;
-            }
-            $chapterkey++;
         }
 
 
+        $number = array_sum($questions);
 
+        for ($x = 0; $x < $number; $x++) {
 
-        while ($j < $mediumnumber) {
-            $mediumcount = 0;
-            if ($chapterkey == $chapternumber) {
-                $chapterkey = 0;
-            }
+            $count1 = 0;
+            while ($count1 < 4) {
 
+                $temp = Question::where('subject_id', $subject->id)->where("chapter", $chapters[array_rand($chapters)])->where("difficulty_level", array_rand($questions))->inRandomOrder()->first();
 
-            $data = Question::where("difficulty_level", 1)->where("type", $request->examtype)->where("chapter", $chapters[$chapterkey])->first();
+                $tempdiff = $temp->difficulty_level;
+                $tempch = $temp->chapter;
 
-            $length = 0;
-            while ($length < floor((($mediumnumber / $totalchpatersquestions) * $chaptersquestions2[$chapterkey]) + 0.5)) {
-                $data = Question::where("difficulty_level", 1)->where("type", $request->examtype)->where("chapter", $chapters[$chapterkey])->inRandomOrder()->first();
+                $ch = array_search($tempch, $chapters);
+                // if (isset($chaptersquestions[$ch]) == false) {
+                //     $ch = $ch % count($chaptersquestions);
+                // }
 
-                while (in_array($data, $mediumquestions)) {
+                //  dd($ch);
+                if ($questions[$tempdiff] != 0 && $chaptersquestions[$ch] != 0) {
+                    ${"Q$count1"} = [$tempdiff, $ch];
 
-                    $data = Question::where("difficulty_level", 1)->where("chapter", $chapters[$chapterkey])->where("type", $request->examtype)->inRandomOrder()->first();
-                }
-                $length++;
-                if (count($mediumquestions) < $mediumnumber) {
-                    $mediumquestions[] = $data;
-                    $mediumcount++;
-                } else {
-                    break;
+                    $count1++;
                 }
             }
+            // dd($Q0, $Q1, $Q2, $Q3);
 
-            $numofquestions = $numofquestions + $mediumcount;
-            $j = $j + $mediumcount;
-
-            if ($numofquestions >= $totalchpatersquestions) {
-                break;
+            unset($arrayofpopulation);
+            unset($arrayofmaxxy);
+            unset($sortedDesc);
+            unset($sortedDescindex);
+            for ($i = 0; $i <= 3; $i++) {
+                ${"population$i"} = [$questions[${"Q$i"}[0]], $chaptersquestions[${"Q$i"}[1]]];
+                $sum = array_sum(${"population$i"});
+                $arrayofpopulation[] = [
+                    "name" => "population$i",
+                    "sum" => $sum
+                ];
             }
-            $chapterkey++;
+            //  dd($Q0, $arrayofpopulation);
+            $sortedDesc = collect($arrayofpopulation)->sortBy('sum')->reverse()->toArray();
+            $sortedDescindex = array_keys($sortedDesc);
+
+            $max0 = ${"Q$sortedDescindex[0]"};
+            $max1 =  ${"Q$sortedDescindex[1]"};
+            $max2 = ${"Q$sortedDescindex[0]"};
+            $max3 =  ${"Q$sortedDescindex[1]"};
+            $tempmax = $max0[1];
+            $max0[1] = $max1[1];
+            $max1[1] = $tempmax;
+            unset($arrayofmaxxy);
+
+            for ($j = 0; $j <= 3; $j++) {
+
+                //  print_r(isset($questions[${"max$j"}[0]]), isset($chaptersquestions[${"max$j"}[1]]));
+                ////////////////////////////////////////////////////////////////////////////////////////////////
+                // if (isset($chaptersquestions[${"max$j"}[1]]) == false) {
+                //     print_r(isset($chaptersquestions[${"max$j"}[1] % count($chaptersquestions)]));
+                // } else {
+                //     print_r(isset($chaptersquestions[${"max$j"}[1]]));
+                // } 
+                // ////////////////////////////////////////////////////////////////////////////////////////////////      TESTING
+                // if (isset($chaptersquestions[${"max$j"}[1]]) == false && isset($questions[${"max$j"}[0]]) == true) {
+
+                //     ${"maxxy$j"} = [$questions[${"max$j"}[0]], $chaptersquestions[${"max$j"}[1] % count($chaptersquestions)]];
+                // }
+                //  elseif (isset($questions[${"max$j"}[0]]) == false && isset($chaptersquestions[${"max$j"}[1]]) == true) {
+                //     ${"maxxy$j"} = [$questions[${"max$j"}[0] % count($questions)], $chaptersquestions[${"max$j"}[1]]];
+                // }
+                // else {
+                ${"maxxy$j"} = [$questions[${"max$j"}[0]], $chaptersquestions[${"max$j"}[1]]];
+                // }
+
+                $sum2 = array_sum(${"maxxy$j"});
+
+                $arrayofmaxxy[] = [
+                    "name" => "maxxy$j",
+                    "sum" => $sum2
+                ];
+            }
+            //  dd($max0, $max1, $max2, $max3, $sortedDesc);
+            unset($sortedDescmaxxy);
+            unset($sortedDescindexmaxxy);
+
+            $sortedDescmaxxy = collect($arrayofmaxxy)->sortBy('sum')->reverse()->toArray();
+            $sortedDescindexmaxxy = array_keys($sortedDescmaxxy);
+
+            $topmax = ${"max$sortedDescindexmaxxy[0]"};
+
+
+
+            $data = Question::where("difficulty_level", $topmax[0],)->where("chapter", $chapters[$topmax[1]])->inRandomOrder()->first();
+            while (in_array($data, $questionsarray)) {
+                $data = Question::where("difficulty_level", $topmax[0],)->where("chapter", $chapters[$topmax[1]])->inRandomOrder()->first();
+            }
+            array_push($questionsarray, $data);
+
+
+
+            $questions[$topmax[0]]--;
+
+            $chaptersquestions[$topmax[1]]--;
+
+            if ($questions[$topmax[0]] == 0) {
+                unset($questions[$topmax[0]]);
+            }
+            if ($chaptersquestions[$topmax[1]] == 0) {
+                unset($chaptersquestions[$topmax[1]]);
+                unset($chapters[$topmax[1]]);
+            }
+
+            // print_r($questionsarray);
         }
 
+        return response()->json($questionsarray);
 
 
 
 
 
-        while ($k <= $hardnumber) {
-            $hardcount = 0;
-            if ($chapterkey == $chapternumber) {
-                $chapterkey = 0;
-            }
-
-
-            $data = Question::where("difficulty_level", 2)->where("type", $request->examtype)->where("chapter", $chapters[$chapterkey])->first();
-
-            $length = 0;
-            while ($length < floor((($hardnumber / $totalchpatersquestions) * $chaptersquestions2[$chapterkey]) + 0.5)) {
-                $data = Question::where("difficulty_level", 2)->where("chapter", $chapters[$chapterkey])->inRandomOrder()->first();
-
-                while (in_array($data, $hardquestions)) {
-
-                    $data = Question::where("difficulty_level", 2)->where("chapter", $chapters[$chapterkey])->where("type", $request->examtype)->inRandomOrder()->first();
-                }
-                if (count($hardquestions) < $hardnumber) {
-                    $hardquestions[] = $data;
-                    $hardcount++;
-                } else {
-                    break;
-                }
-                $length++;
-            }
-
-
-
-            $numofquestions = $numofquestions + $hardcount;
-            $k = $k + $hardcount;
-
-
-            if ($numofquestions >= $totalchpatersquestions) {
-                break;
-            }
-            $chapterkey++;
-        }
+        // $model[] = array_merge($easyquestions, $mediumquestions, $hardquestions);
 
 
 
 
-        $model[] = array_merge($easyquestions, $mediumquestions, $hardquestions);
-
-
-
-
-        ExamsTemp::insert([
-            "modelquestions" => json_encode($model),
-            "subject_id" => $subject->id,
-        ]);
+        // ExamsTemp::insert([
+        //     "modelquestions" => json_encode($model),
+        //     "subject_id" => $subject->id,
+        // ]);
     }
 
 

@@ -43,7 +43,7 @@ const CreateExamPage = (professor) => {
 
     const [datevalue, setDatevalue] = useState();
     const [timevalue, setTimevalue] = useState();
-
+    console.log(datevalue, "ana hnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
     let minDate = new Date();
     console.log(minDate);
 
@@ -151,7 +151,6 @@ const CreateExamPage = (professor) => {
         let temp = arrayChapters;
         temp[index] = e.target.value;
         setArrayChapters(temp);
-        // console.log(isArray(arrayChapters));
     };
 
     //console.log(subjectdetails.id);
@@ -234,6 +233,7 @@ const CreateExamPage = (professor) => {
         /////////////////////////
         //////////////////////
     };
+    console.log(arrayChapters, "toooooooooonyyyyyyyyyy");
     ///////////////////////////// DATA WILL BE PASSED TO API
     const request1 = {
         subject: subject,
@@ -244,10 +244,11 @@ const CreateExamPage = (professor) => {
         mediumnumberquestions: mediumNumberQuestions,
         hardnumberquestions: hardNumberQuestions,
         chaptersquestions: arrayChapters,
+        chapternumber: subjectdetails.set_of_criteria,
     };
     const request2 = {
-        date: date,
-        time: time,
+        date: datevalue,
+        time: timevalue,
         duration: duration,
     };
     ///////////////////////
@@ -489,7 +490,13 @@ const CreateExamPage = (professor) => {
                                             return (
                                                 <div key={i} className="col-4">
                                                     <div className="d-inline me-5 fs-5 ">
-                                                        Chapter {i + 1}
+                                                        Chapter{" "}
+                                                        {
+                                                            subjectdetails
+                                                                .set_of_criteria[
+                                                                i
+                                                            ]
+                                                        }
                                                     </div>
                                                     <input
                                                         className="form-control d-inline mx-2"
