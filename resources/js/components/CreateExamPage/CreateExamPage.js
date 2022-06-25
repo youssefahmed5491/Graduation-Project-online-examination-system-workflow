@@ -181,7 +181,9 @@ const CreateExamPage = (professor) => {
         ) {
             for (var i = 0; i < numberOfModels; i++) {
                 axios.post("/api/exam", request1).then((response) => {
-                    alert(response.data);
+                    if (response.data != true) {
+                        alert(response.data);
+                    }
                     if (response.data == true) {
                         setShowModels(true);
                     }
