@@ -3,17 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\Models\Exam;
+use App\Models\Student;
+use App\Models\StudentExam;
 use Illuminate\Http\Request;
 use Nette\Utils\DateTime;
 use Carbon\Carbon;
-
+use Illuminate\Http\JsonResponse;
 class SubjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function grading(Subject $subject): JsonResponse
+    {    $exams = Exam:: where("subject_id",$subject->id)->get("id");
+    
+        $grades = array();
+       
+        // $count1=0;
+        // $count2=0;
+        // $count3=0;
+        // $count4=0;
+        // $count5=0;
+        foreach ($exams as $exam) {
+            
+            $data=StudentExam :: where ("exam_id",$exam->id)->first();
+             if($data)
+             $grades[] = $data->grade;}
+            
+        //     for($i=0 ; $i<count($grades); $i++) {
+        //     if ($grades[$i]["grade"]<11)
+        //     {$count1=$count1+1;}
+        //     elseif ($grades[$i]["grade"]<21)
+        //     {$count2=$count2+1;}
+        //     elseif ($grades[$i]["grade"]<31)
+        //     {$count3=$count3+1;}
+        //     elseif ($grades[$i]["grade"]<41)
+        //     {$count4=$count4+1;}
+        //     elseif ($grades[$i]["grade"]<51)
+        //     {$count5=$count5+1;}
+        // }
+        
+       
+        return response()->json($grades);
+    }
+
+
+
     public function index()
     {
         $subjects = Subject::all();
