@@ -23,6 +23,7 @@ const Model = ({ divheight }) => {
     }, []);
     var rows = [];
     modeldata.map((data) => {
+        console.log(data.length, "hiiiiiiiiiiiiii");
         for (var i = 0; i < data.length; i++) {
             rows.push(data[i]);
         }

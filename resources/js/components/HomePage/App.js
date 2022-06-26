@@ -230,7 +230,7 @@ function App() {
                             <img
                                 className="    resizeTextOfLogoPhoto "
                                 src={img}
-                                style={{ height: "15%", width: "70%" }}
+                                style={{ height: "50px", width: "150px" }}
                                 alt=""
                             />
                         </div>
