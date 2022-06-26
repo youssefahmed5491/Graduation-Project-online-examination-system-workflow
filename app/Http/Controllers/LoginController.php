@@ -36,8 +36,8 @@ class LoginController extends Controller
                 response()->json(["not exist"]);
             }
         }
-        if ($request->type == "proctor") {
-            $username = proctor::where('email', $request->username)->first();
+        if ($request->type == "Proctor") {
+            $username = Proctor::where('email', $request->username)->first();
             if ($username->exists() && $username->password == $request->password) {
                 return response()->json($username);
             } else {
