@@ -21,6 +21,8 @@ const Subject = () => {
            
           })
          ///////////////////
+         let addL=0;
+         let addh=0;
          let average=0.0;
          let diff = 0.0;
           let grades_sum=0;
@@ -65,6 +67,17 @@ const Subject = () => {
         //    //setstudent_category(student_category);
         //  console.log(diff);
         //  console.log(diff_idex);
+
+        //  ///////////////////
+        //  let sortedgrades=[];
+        //  let limit =(grades.length)*0.27;
+        //  for(var i=0 ; i<limit ; i++)
+        //  {addL=sortedgrades[i]+addL;
+        //   addL=sortedgrades[i]+addL; }
+        //   PH=addh/30;
+        //   PL=addL/30;
+        //   d=(PH-PL)/100;
+          
 
     return (
         <div>
