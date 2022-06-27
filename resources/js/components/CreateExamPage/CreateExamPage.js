@@ -180,7 +180,14 @@ const CreateExamPage = (professor) => {
             arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
         ) {
             for (var i = 0; i < numberOfModels; i++) {
-                axios.post("/api/exam", request1);
+                axios.post("/api/exam", request1).then((response) => {
+                    if (response.data != true) {
+                        alert(response.data);
+                    }
+                    if (response.data == true) {
+                        setShowModels(true);
+                    }
+                });
             }
             axios.patch(`/api/subjects/${subjectdetails.id}`, request2);
 
@@ -193,7 +200,7 @@ const CreateExamPage = (professor) => {
             /////////////////////////////////////////////
             // document.getElementById("nameForm").submit();
             ///////////////////////////////////
-            setShowModels(true);
+
             // document.getElementById("nameForm").submit();
         } else {
             if (!subject) {

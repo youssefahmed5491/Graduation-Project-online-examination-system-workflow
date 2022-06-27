@@ -21,13 +21,21 @@ const Model = ({ divheight }) => {
             setModelData(response.data);
         });
     }, []);
+
     var rows = [];
-    modeldata.map((data) => {
-        for (var i = 0; i < data.length; i++) {
-            rows.push(data[i]);
-        }
-    });
-    console.log(rows);
+    if (modeldata.length > 0) {
+        //console.log("ana hnaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        //console.log(modeldata, "asdasdasdasdasd");
+        modeldata.map((data) => {
+            // console.log(Array.isArray(data));
+            // console.log(data.length, "7ooooooooooooooooooo");
+
+            //  console.log(data[i], "8ooooooooooooooooo");
+            rows.push(data);
+        });
+    }
+
+    // console.log(rows, "tonyyyyyyyyyyyyyyyyyyy");
 
     var arrayofrows = [];
     var howada = [];
