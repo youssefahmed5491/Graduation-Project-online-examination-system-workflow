@@ -12,7 +12,7 @@ import { sum } from "lodash";
 
 const Subject = () => {
     const [grades , setGrades] = useState([]);
-   
+
     axios
         .get("api/subjects/1/grading")
         .then(res => {
@@ -21,10 +21,16 @@ const Subject = () => {
            
           })
          ///////////////////
+         let n=30; 
          let addL=0;
          let addh=0;
-         let average=0.0;
-         let diff = 0.0;
+         let average=0;
+         let diff= 0;
+         let quality_diffuclty="medium";
+         let quality_discrimnation="medium";
+          //let sortedgrades = Array;
+         let d=0;
+         let t =0;
           let grades_sum=0;
           let count1=0;
           let count2=0;
@@ -35,7 +41,17 @@ const Subject = () => {
         //    $grades = $data;
               
               for(var i=0 ; i<grades.length ; i++) {
-                grades_sum= grades + grades_sum;
+                grades_sum= grades[i] + grades_sum;
+                if (grades[i]>30)
+                {n=50;}
+                d = i;     
+                // sorting   
+                while ( d > 0 && grades[d] < grades[d-1]) {        
+                    t          = grades[d];
+                    grades[d]   = grades[d-1];
+                    grades[d-1] = t;        
+                    d--;   }     
+                
               if (grades[i]<11)
               {count1=count1+1;}
               else if (grades[i]<21)
@@ -54,29 +70,37 @@ const Subject = () => {
           student_category.push(count4);
           student_category.push(count5);
 
-        //   //////////////////////
-        //   average = grades_sum/grades.length;
-        //   diff = 1/100 *average;
-        //   if (diff>0.75)
-        //   {diff_idex=easy;}
-        //   else if(diff<0.45)
-        //   {diff_idex=diffcult;}
-        //   else
-        //   {diff_idex=median;}  
+          //////////////////////
+          average = grades_sum/grades.length;
+          diff = 1/100 *average;
+          if (diff>0.75)
+          {quality_diffuclty="easy";}
+          else if(diff<0.45)
+          {quality_diffuclty="diffcult";}
+          else
+          {quality_diffuclty="median";}  
           
-        //    //setstudent_category(student_category);
-        //  console.log(diff);
-        //  console.log(diff_idex);
 
-        //  ///////////////////
-        //  let sortedgrades=[];
-        //  let limit =(grades.length)*0.27;
-        //  for(var i=0 ; i<limit ; i++)
-        //  {addL=sortedgrades[i]+addL;
-        //   addL=sortedgrades[i]+addL; }
-        //   PH=addh/30;
-        //   PL=addL/30;
-        //   d=(PH-PL)/100;
+         ///////////////////
+         let limit =Math.ceil((grades.length)*0.27);
+      // let limit = (grades.length)*0.27;
+         let PH=0;
+         let PL=0;
+         for(var i=0 ; i<=limit ; i++)
+         {addh=grades[(grades.length-1)-i]+addh;
+          addL=grades[i]+addL; }
+          console.log(addL);
+          //console.log(addh);
+          PH=addh/n;
+          PL=addL/n;
+          d=(PH-PL)/100;
+          if (d>0.39)
+          {quality_discrimnation="excellent";}
+          else if(d>=0.3 )
+          {quality_discrimnation="qualified";}
+          else if (d>=0.2 )
+          {quality_discrimnation="passable";}
+          else {quality_discrimnation="should be discarded";} 
           
 
     return (
@@ -114,10 +138,18 @@ const Subject = () => {
                         },
                     ],
                 }}
+
                 height={100}
                 width={300}
             ></Bar>}
-     
+            
+            <d1>score = {n} <br></br> </d1> 
+            <d1> diffculty = {diff}   <br></br></d1>
+            <d1>Quality of diffculty = {quality_diffuclty} <br></br>  </d1>
+            <d1>average_scores = {average} <br></br>  </d1>
+            <d1> Discrimination = {d}   <br></br></d1>
+            <d1>Quality of Discrimination = {quality_discrimnation}  <br></br> </d1>
+           
         </div>
     );
 };
