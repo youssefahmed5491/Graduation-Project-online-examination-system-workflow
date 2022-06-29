@@ -123,6 +123,16 @@ const Model = ({ divheight }) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
+                                                    Chapter
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    style={{
+                                                        borderRight: "1px",
+                                                        borderStyle: "solid",
+                                                        borderColor: "white",
+                                                    }}
+                                                >
                                                     Answer
                                                 </th>
                                                 <th
@@ -144,16 +154,6 @@ const Model = ({ divheight }) => {
                                                     }}
                                                 >
                                                     Difficulty
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    style={{
-                                                        borderRight: "1px",
-                                                        borderStyle: "solid",
-                                                        borderColor: "white",
-                                                    }}
-                                                >
-                                                    Duration
                                                 </th>
                                             </tr>
                                         </thead>
@@ -204,6 +204,17 @@ const Model = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
+                                                        {row.chapter}
+                                                    </td>
+                                                    <td
+                                                        style={{
+                                                            borderRight: "1px",
+                                                            borderStyle:
+                                                                "solid",
+                                                            borderColor:
+                                                                "white",
+                                                        }}
+                                                    >
                                                         {row.mcq_answers.map(
                                                             (mcq, index) => {
                                                                 return (
@@ -238,18 +249,12 @@ const Model = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.difficulty_level}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.duration}
+                                                        {row.difficulty_level ===
+                                                            0 && "Easy"}
+                                                        {row.difficulty_level ===
+                                                            1 && "Medium"}
+                                                        {row.difficulty_level ===
+                                                            2 && "Hard"}
                                                     </td>
                                                 </tr>
                                             ))}
