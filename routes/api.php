@@ -16,6 +16,7 @@ on. These
 
 Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
 Route::apiResource('professors', ProfessorController::class)->only(["store", "show"]);
+Route::get('subjects/{subject}/grading', [App\Http\Controllers\SubjectController::class, "grading"]);
 Route::apiResource('students', StudentController::class)->only(["store", "show"]);
 Route::apiResource('proctors', ProctorController::class);
 Route::apiResource('supervisors', SupervisorController::class)->only(["store", "show"]);
