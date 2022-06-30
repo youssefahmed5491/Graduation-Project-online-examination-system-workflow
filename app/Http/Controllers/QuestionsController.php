@@ -81,9 +81,36 @@ class QuestionsController extends Controller
      * @param  \App\Models\Question  $qS_Bank
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $qS_Bank)
+    public function update(Request $request, Question $QSBank)
     {
-        //
+     
+      
+         $QSBank->text = $request->text1;
+         $QSBank->mcq_answers = $request->mcq_answers1;
+         $QSBank->type = $request->type1;
+         $QSBank->correct_answer = $request->correct_answer1;
+
+        if($request->difficulty_level1=="Easy"){
+
+            $QSBank->difficulty_level =0;
+        }
+        if($request->difficulty_level1=="Medium"){
+
+            $QSBank->difficulty_level =1;
+        }
+        if($request->difficulty_level1=="Hard"){
+
+            $QSBank->difficulty_level =2;
+        }
+
+
+
+         $QSBank->chapter = $request->chapter1;
+     
+
+
+
+        $QSBank->update();
     }
 
     /**

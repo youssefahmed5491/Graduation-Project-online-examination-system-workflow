@@ -1317,7 +1317,12 @@ const AllUsersHome = () => {
                                             height: "100%",
                                         }}
                                     >
-                                        <Subject />
+                                        {professor && (
+                                            <Subject
+                                                username={username}
+                                                professor={professor}
+                                            />
+                                        )}
                                     </div>
                                 )}
                             {!homeClicked &&

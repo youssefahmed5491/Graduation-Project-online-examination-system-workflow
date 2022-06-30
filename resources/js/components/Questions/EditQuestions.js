@@ -18,7 +18,7 @@ const EditQuestions = ({ selectedRow, divheight }) => {
     console.log(id);
     const selectDifficulty = ["Easy", "Medium", "Hard"];
 
-    const selectExamType = ["MCQ", "Text Question"];
+    const selectExamType = ["mcq", "written"];
     const MCQAmount = [2, 3, 4, 5, 6];
 
     const [choosenSubject, setChoosenSubject] = useState("");
@@ -41,11 +41,13 @@ const EditQuestions = ({ selectedRow, divheight }) => {
     console.log(mcq_answers);
     useEffect(() => {
         {
-            mcq_answers.map((choice, i) => {
-                if (Answer === choice) {
-                    return <div key={i}>{setIndexOfAnswer(i)}</div>;
-                }
-            });
+            if (type === "mcq") {
+                mcq_answers.map((choice, i) => {
+                    if (Answer === choice) {
+                        return <div key={i}>{setIndexOfAnswer(i)}</div>;
+                    }
+                });
+            }
             setChoosenSubject(subject_title);
             setChoosenChapter(chapter);
             if (difficulty_level === 0) {
@@ -64,14 +66,25 @@ const EditQuestions = ({ selectedRow, divheight }) => {
             }
             setChoosenQuestionText(text);
             setChoosenQuestionTextAnswer(correct_answer);
-            setChoosenMCQAmount(mcq_answers.length);
+            if (type === "mcq") {
+                setChoosenMCQAmount(mcq_answers.length);
+            }
         }
     }, []);
     console.log("hi");
+    let newrow = {
+        text1: choosenQuestionText,
+        mcq_answers1: mcq_answers,
+        type1: choosenQuestionType,
+        difficulty_level1: choosenDifficulty, //deh ely hatetshal
+        correct_answer1: choosenQuestionTextAnswer,
+        chapter1: choosenChapter,
+    };
     console.log(choosenQuestionTextAnswer);
     const DivHeight = divheight * (107 / 100);
-    console.log("lol", selectedRow);
-    console.log("lol", DivHeight);
+    console.log(newrow, "hiiiiiiiiiiiiiiiiiiiii");
+    console.log(DivHeight);
+
     return (
         <div
             style={{
@@ -88,7 +101,7 @@ const EditQuestions = ({ selectedRow, divheight }) => {
                     width: "90%",
                 }}
             >
-                <form id="nameForm" action="/login">
+                <form id="nameForm">
                     <div className="fs-5 fw-bold mb-2">Enter Chapter</div>
                     <textarea
                         id="questiontextarea"
@@ -255,8 +268,8 @@ const EditQuestions = ({ selectedRow, divheight }) => {
                     <button
                         type="submit"
                         onClick={(e) => {
-                            console.log(subject_title);
-                            window.location.reload();
+                            console.log(newrow);
+                            axios.patch(`/api/QSBank/${id}`, newrow);
                         }}
                         className="btn float px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
                         style={{

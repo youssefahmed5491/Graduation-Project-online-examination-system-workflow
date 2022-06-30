@@ -10,11 +10,22 @@ import { sum } from "lodash";
 // defaults.global.tooltips.enabled = false;
 // defaults.global.legend.position = "bottom";
 
-const Subject = () => {
-    const [subjectArray, setSubjectArray] = useState(["math", "lol", "jj"]);
+const Subject = ({ username, professor }) => {
+    const [subjectArray, setSubjectArray] = useState([]);
     const [subjectClicked, setSubjectClicked] = useState(false);
     const [subject, setSubject] = useState();
+    const getsub = async () => {
+        const { data } = await axios.get(
+            `/api/professors/${professor.id}/subjects`
+        );
+        setSubjectArray(data);
+    };
 
+    useEffect(() => {
+        getsub();
+    }, [professor]);
+
+    console.log(subjectArray);
     const displaynone = `${subjectClicked ? "displaynone" : ""}`;
     return (
         <div
@@ -60,7 +71,7 @@ const Subject = () => {
                                         className="d-flex justify-content-center"
                                         style={{}}
                                     >
-                                        {subjectArray[i]}
+                                        {subjectArray[i].title}
                                     </div>
                                 </button>
                             </div>
@@ -70,7 +81,7 @@ const Subject = () => {
             </div>
             {subjectClicked && (
                 <div>
-                    <Chart />
+                    <Chart subject={subject} />
                     <button
                         onClick={(e) => {
                             setSubjectClicked(false);

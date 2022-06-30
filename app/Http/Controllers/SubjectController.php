@@ -13,6 +13,11 @@ use Illuminate\Http\JsonResponse;
 
 class SubjectController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function grading(Subject $subject): JsonResponse
     {
         $exams = Exam::where("subject_id", $subject->id)->get("id");
@@ -47,9 +52,6 @@ class SubjectController extends Controller
 
         return response()->json($grades);
     }
-
-
-
     public function index()
     {
         $subjects = Subject::all();

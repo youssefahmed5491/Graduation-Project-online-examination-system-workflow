@@ -225,19 +225,29 @@ const ViewQuestions = (divheight, professor) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.mcq_answers.map(
-                                                            (mcq, index) => {
-                                                                return (
-                                                                    <span
-                                                                        key={
-                                                                            index
-                                                                        }
-                                                                    >
-                                                                        {mcq},
-                                                                    </span>
-                                                                );
-                                                            }
-                                                        )}
+                                                        {row.type === "mcq" &&
+                                                            row.mcq_answers.map(
+                                                                (
+                                                                    mcq,
+                                                                    index
+                                                                ) => {
+                                                                    return (
+                                                                        <span
+                                                                            key={
+                                                                                index
+                                                                            }
+                                                                        >
+                                                                            {
+                                                                                mcq
+                                                                            }
+                                                                            ,
+                                                                        </span>
+                                                                    );
+                                                                }
+                                                            )}
+                                                        {row.type ===
+                                                            "written" &&
+                                                            row.correct_answer}
                                                     </td>
                                                     <td
                                                         style={{
