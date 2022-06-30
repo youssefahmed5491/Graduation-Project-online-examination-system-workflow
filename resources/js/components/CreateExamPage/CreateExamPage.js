@@ -142,8 +142,8 @@ const CreateExamPage = (professor) => {
             duration,
             questionType,
             mcqAmount,
-            datevalue,
-            timevalue,
+            datevalue + "dateeeeeeeeeeeeeee",
+            timevalue + "Timeeeeeeeeeeeeeeeee",
             numberOfModels,
             arrayChapters
         );
@@ -185,6 +185,7 @@ const CreateExamPage = (professor) => {
             /////////////////////////////////////////////
             // document.getElementById("nameForm").submit();
             ///////////////////////////////////
+
             setShowModels(true);
             // document.getElementById("nameForm").submit();
         } else {
@@ -256,8 +257,8 @@ const CreateExamPage = (professor) => {
         chaptersquestions: arrayChapters,
     };
     const request2 = {
-        date: date,
-        time: time,
+        date: datevalue,
+        time: timevalue,
         duration: duration,
     };
     ///////////////////////
@@ -402,8 +403,8 @@ const CreateExamPage = (professor) => {
                                             id="datepicker"
                                             placeholder="Enter date"
                                             min={minDate}
-                                            onChange={() => {
-                                                handledate, setDateError("");
+                                            onChange={(e) => {
+                                                handledate(e), setDateError("");
                                             }}
                                             format="yyyy-MM-dd"
                                         />
@@ -412,8 +413,8 @@ const CreateExamPage = (professor) => {
                                         <TimePicker
                                             defaultValue={moment()}
                                             showSecond={false}
-                                            onChange={() => {
-                                                handletime, setTimeError("");
+                                            onChange={(e) => {
+                                                handletime(e), setTimeError("");
                                             }}
                                         ></TimePicker>
                                     </div>
