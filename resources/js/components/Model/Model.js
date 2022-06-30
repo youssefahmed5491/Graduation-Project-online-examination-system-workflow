@@ -23,13 +23,15 @@ const Model = ({ divheight }) => {
     }, []);
 
     var rows = [];
-    modeldata.map((data) => {
-        console.log(data.length, "hiiiiiiiiiiiiii");
-        for (var i = 0; i < data.length; i++) {
-            rows.push(data[i]);
+    if (modeldata.length > 0) {
+        //console.log("ana hnaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        console.log(modeldata.length, "asdasdasdasdasd");
+        for (let i = 0; i < modeldata.length; i++) {
+            rows.push(modeldata[i]);
         }
-    });
-    console.log(rows);
+    }
+    //console.log(rows, "ay 7mada");
+    // console.log(rows, "tonyyyyyyyyyyyyyyyyyyy");
 
     var arrayofrows = [];
     var howada = [];
@@ -124,16 +126,6 @@ const Model = ({ divheight }) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    Chapter
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    style={{
-                                                        borderRight: "1px",
-                                                        borderStyle: "solid",
-                                                        borderColor: "white",
-                                                    }}
-                                                >
                                                     Answer
                                                 </th>
                                                 <th
@@ -155,6 +147,16 @@ const Model = ({ divheight }) => {
                                                     }}
                                                 >
                                                     Difficulty
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    style={{
+                                                        borderRight: "1px",
+                                                        borderStyle: "solid",
+                                                        borderColor: "white",
+                                                    }}
+                                                >
+                                                    Duration
                                                 </th>
                                             </tr>
                                         </thead>
@@ -205,30 +207,27 @@ const Model = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.chapter}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.mcq_answers.map(
-                                                            (mcq, index) => {
-                                                                return (
-                                                                    <span
-                                                                        key={
-                                                                            index
-                                                                        }
-                                                                    >
-                                                                        {mcq},
-                                                                    </span>
-                                                                );
-                                                            }
-                                                        )}
+                                                        {row.mcq_answers
+                                                            .length > 0 &&
+                                                            row.mcq_answers.map(
+                                                                (
+                                                                    mcq,
+                                                                    index
+                                                                ) => {
+                                                                    return (
+                                                                        <span
+                                                                            key={
+                                                                                index
+                                                                            }
+                                                                        >
+                                                                            {
+                                                                                mcq
+                                                                            }
+                                                                            ,
+                                                                        </span>
+                                                                    );
+                                                                }
+                                                            )}
                                                     </td>
                                                     <td
                                                         style={{
@@ -250,12 +249,18 @@ const Model = ({ divheight }) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.difficulty_level ===
-                                                            0 && "Easy"}
-                                                        {row.difficulty_level ===
-                                                            1 && "Medium"}
-                                                        {row.difficulty_level ===
-                                                            2 && "Hard"}
+                                                        {row.difficulty_level}
+                                                    </td>
+                                                    <td
+                                                        style={{
+                                                            borderRight: "1px",
+                                                            borderStyle:
+                                                                "solid",
+                                                            borderColor:
+                                                                "white",
+                                                        }}
+                                                    >
+                                                        {row.duration}
                                                     </td>
                                                 </tr>
                                             ))}

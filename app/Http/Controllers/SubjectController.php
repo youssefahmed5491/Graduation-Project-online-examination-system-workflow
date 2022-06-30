@@ -10,24 +10,27 @@ use Illuminate\Http\Request;
 use Nette\Utils\DateTime;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
+
 class SubjectController extends Controller
 {
     public function grading(Subject $subject): JsonResponse
-    {    $exams = Exam:: where("subject_id",$subject->id)->get("id");
-    
+    {
+        $exams = Exam::where("subject_id", $subject->id)->get("id");
+
         $grades = array();
-       
+
         // $count1=0;
         // $count2=0;
         // $count3=0;
         // $count4=0;
         // $count5=0;
         foreach ($exams as $exam) {
-            
-            $data=StudentExam :: where ("exam_id",$exam->id)->first();
-             if($data)
-             $grades[] = $data->grade;}
-            
+
+            $data = StudentExam::where("exam_id", $exam->id)->first();
+            if ($data)
+                $grades[] = $data->grade;
+        }
+
         //     for($i=0 ; $i<count($grades); $i++) {
         //     if ($grades[$i]["grade"]<11)
         //     {$count1=$count1+1;}
@@ -40,8 +43,8 @@ class SubjectController extends Controller
         //     elseif ($grades[$i]["grade"]<51)
         //     {$count5=$count5+1;}
         // }
-        
-       
+
+
         return response()->json($grades);
     }
 
@@ -114,6 +117,8 @@ class SubjectController extends Controller
         $subject->date = $request->date;
         $subject->time = $request->time;
         $subject->duration = $request->duration;
+        $subject->url = $request->url;
+
         $endtime = date("H:i:s", strtotime($request->time) + strtotime($request->duration));
         $subject->endtime = $endtime;
         $datetime = Carbon::parse($request->date . $endtime)->toDatetimeString();

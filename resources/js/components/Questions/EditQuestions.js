@@ -15,7 +15,7 @@ const EditQuestions = ({ selectedRow, divheight }) => {
         chapter,
         correct_answer,
     } = selectedRow;
-
+    console.log(id);
     const selectDifficulty = ["Easy", "Medium", "Hard"];
 
     const selectExamType = ["MCQ", "Text Question"];

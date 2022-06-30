@@ -92,12 +92,12 @@ const AllUsersHome = () => {
     const [unfinishedSubjects, setUnfinishedSubjects] = useState([]);
     const [completedExamsClicked, setCompletedExamsClicked] = useState(false);
     const [upcomingExamsClicked, setUpcomingExamsClicked] = useState(false);
-    const [upcomingExam, setUpcomingExam] = useState([]);
+    const [upcomingExam, setUpcomingExam] = useState([0]);
 
     useEffect(() => {
         axios.get(`/api/date`).then((response) => {
             setUpcomingExam(response.data);
-            console.log(response.data);
+            // console.log(response.data, "upcommiiiiiiiiiiiiiiiing");
         });
     }, []);
 
@@ -309,11 +309,13 @@ const AllUsersHome = () => {
     var examduration;
     var time;
     var date;
+    var url;
     useEffect(() => {
-        examduration = upcomingExam.duration;
-        time = upcomingExam.time;
-        date = upcomingExam.date;
-        console.log(examduration);
+        console.log(upcomingExam[0], "7madadadadadad");
+        examduration = upcomingExam[0].duration;
+        time = upcomingExam[0].time;
+        date = upcomingExam[0].date;
+        url = upcomingExam[1];
     }, [upcomingExam]);
 
     useEffect(() => {

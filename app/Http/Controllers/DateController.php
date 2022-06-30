@@ -19,7 +19,9 @@ class DateController extends Controller
         $currenttime = Carbon::now()->settimezone('EET')->toTimeString();
         $currentdatetime = Carbon::now()->settimezone('EET');
         $date = Subject::orderBy('date', 'ASC')->orderBy('time', 'ASC')->where('datetime', ">=", $currentdatetime)->first();
-        return response()->json($date);
+
+        $url = $date->url;
+        return response()->json([$date, $url]);
     }
 
     /**

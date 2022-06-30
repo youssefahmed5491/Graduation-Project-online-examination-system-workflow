@@ -42,6 +42,8 @@ const CreateExamPage = (professor) => {
     const [arrayChapters, setArrayChapters] = useState([]);
     const [modelid, setModelId] = useState([]);
     const [url, setUrl] = useState();
+    const [status, setStatus] = useState();
+
     const [urlError, setUrlError] = useState();
 
     const [datevalue, setDatevalue] = useState();
@@ -171,14 +173,17 @@ const CreateExamPage = (professor) => {
                 hardNumberQuestions) &&
             arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
         ) {
-            for (var i = 0; i < numberOfModels; i++) {
+            for (var i = 0; i < Number(numberOfModels); i++) {
                 axios.post("/api/exam", request1).then((response) => {
+                    console.log(i);
+                    // if (i === Number(numberOfModels) - 1) {
                     if (response.data != true) {
                         alert(response.data);
                     }
-                    if (response.data == true) {
+                    if (response.data === true) {
                         setShowModels(true);
                     }
+                    // }
                 });
             }
             axios.patch(`/api/subjects/${subjectdetails.id}`, request2);
@@ -193,7 +198,6 @@ const CreateExamPage = (professor) => {
             // document.getElementById("nameForm").submit();
             ///////////////////////////////////
 
-            setShowModels(true);
             // document.getElementById("nameForm").submit();
         } else {
             if (!url) {
@@ -267,6 +271,7 @@ const CreateExamPage = (professor) => {
         date: datevalue,
         time: timevalue,
         duration: duration,
+        url: url,
     };
     ///////////////////////
     ////////////////////////

@@ -36,15 +36,12 @@
         "@progress/kendo-licensing": "^1.2.2",
         "@progress/kendo-react-pdf": "^5.4.0",
         "@react-pdf/renderer": "^2.2.0",
-        "@syncfusion/ej2-react-calendars": "^20.1.58",
+        "@syncfusion/ej2-react-calendars": "^20.2.36",
         "chart.js": "^3.8.0",
         "ejs": "^3.1.8",
         "express": "^4.18.1",
-<<<<<<< HEAD
-=======
         "peer": "^0.6.1",
         "pusher-js": "^7.1.1-beta",
->>>>>>> 368589c195a081c98bab689d47a7a47dbb530ced
         "rc-time-picker": "^3.7.3",
         "react-alert": "^7.0.3",
         "react-alert-template-basic": "^1.0.2",
