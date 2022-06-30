@@ -88,8 +88,10 @@ const AllUsersHome = () => {
     useEffect(() => {
         axios.get(`/api/date`).then((response) => {
             setUpcomingExam(response.data);
+            console.log(response.data);
         });
     }, []);
+
     useEffect(() => {
         if (radio === "Student" && profiledata.id != null) {
             axios
@@ -106,7 +108,7 @@ const AllUsersHome = () => {
                 });
         }
     }, [profiledata.id]);
-    console.log(unfinishedSubjects);
+    // console.log(unfinishedSubjects);
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
@@ -295,17 +297,24 @@ const AllUsersHome = () => {
             }
         }
     };
+    var examduration;
+    var time;
+    var date;
+    useEffect(() => {
+        examduration = upcomingExam.duration;
+        time = upcomingExam.time;
+        date = upcomingExam.date;
+        console.log(examduration);
+    }, [upcomingExam]);
 
-    const examduration = upcomingExam.duration;
-    const time = upcomingExam.time;
-    var date = upcomingExam.date;
-
-    if (examduration != null && time != null && isString(date)) {
-        date = date.split("-");
-        const today = isToday(date);
-        const now = isnow(time, examduration);
-        //console.log("7amada", examduration, time, date, now, today);
-    }
+    useEffect(() => {
+        if (examduration != null && time != null && isString(date)) {
+            date = date.split("-");
+            const today = isToday(date);
+            const now = isnow(time, examduration);
+            //console.log("7amada", examduration, time, date, now, today);
+        }
+    }, [upcomingExam]);
 
     return (
         <>
@@ -1040,6 +1049,7 @@ const AllUsersHome = () => {
                                 className="col  "
                             >
                                 <h1>Upcoming Exam</h1>
+
                                 {upcomingExam.length > 0 && (
                                     <div className="row me-5 ms-5 mt-5">
                                         <div
@@ -1088,7 +1098,7 @@ const AllUsersHome = () => {
                                             >
                                                 <button
                                                     onClick={(e) => {
-                                                        console.log("subject");
+                                                        // console.log("subject");
                                                     }}
                                                     className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
                                                     style={{

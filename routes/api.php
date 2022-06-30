@@ -20,7 +20,7 @@ Route::get('subjects/{subject}/grading', [App\Http\Controllers\SubjectController
 Route::apiResource('professors', ProfessorController::class)->only(["store", "show"]);
 Route::apiResource('students', StudentController::class)->only(["store", "show"]);
 Route::apiResource('proctors', ProctorController::class);
-Route::apiResource('supervisors', SupervisorController::class)->only(["store", "show"]);
+Route::apiResource('supervisors', SupervisorController::class)->only(["store", "show", "index"]);
 Route::apiResource('systemmanagers', SystemManagerController::class)->only(["store", "show"]);
 Route::apiResource('subjects', SubjectController::class);
 Route::apiResource('exam', ExamController::class);

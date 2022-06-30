@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\supervisor;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class SupervisorController extends Controller
 {
@@ -14,7 +15,6 @@ class SupervisorController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -38,8 +38,18 @@ class SupervisorController extends Controller
 
         $supervisor = Supervisor::where('email', $request->username)->first();
 
+        $proctors = $supervisor->subject->proctors;
+        $currentdate = Carbon::now()->toDateString();
+        $currenttime = Carbon::now()->settimezone('EET')->toTimeString();
+        $currentdatetime = Carbon::now()->settimezone('EET');
 
-        return response()->json($supervisor);
+
+        if ($supervisor->subject["datetime"] >= $currentdatetime) {
+            $status = "unfinished";
+        } else {
+            $status = "finished";
+        }
+        return response()->json([$supervisor->subject["title"], $proctors, $status]);
     }
 
     /**
