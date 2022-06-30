@@ -174,26 +174,7 @@ const ViewQuestions = (divheight, professor) => {
                                                 >
                                                     Difficulty
                                                 </th>
-                                                <th
-                                                    scope="col"
-                                                    style={{
-                                                        borderRight: "1px",
-                                                        borderStyle: "solid",
-                                                        borderColor: "white",
-                                                    }}
-                                                >
-                                                    Duration
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    style={{
-                                                        borderRight: "1px",
-                                                        borderStyle: "solid",
-                                                        borderColor: "white",
-                                                    }}
-                                                >
-                                                    Status
-                                                </th>
+
                                                 <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
@@ -278,30 +259,14 @@ const ViewQuestions = (divheight, professor) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.difficulty_level}
+                                                        {row.difficulty_level ===
+                                                            0 && "Easy"}
+                                                        {row.difficulty_level ===
+                                                            1 && "Medium"}
+                                                        {row.difficulty_level ===
+                                                            2 && "Hard"}
                                                     </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.duration}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.Status}
-                                                    </td>
+
                                                     <td
                                                         style={{ width: "10%" }}
                                                     >
@@ -373,6 +338,7 @@ const ViewQuestions = (divheight, professor) => {
                                                                 setEditClicked(
                                                                     false
                                                                 );
+                                                                window.location.reload();
                                                             }}
                                                             alt=""
                                                             style={{
@@ -410,6 +376,7 @@ const ViewQuestions = (divheight, professor) => {
 
             {!guiViewIconClicked && editClicked && !deleteClicked && (
                 <div>
+                    {console.log(selectedRow, "hashfshfa")}
                     <EditQuestions
                         selectedRow={selectedRow}
                         divheight={divheight}

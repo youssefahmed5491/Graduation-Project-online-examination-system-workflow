@@ -4,33 +4,27 @@ import Select from "react-select";
 const EditQuestions = ({ selectedRow, divheight }) => {
     const {
         id,
-        Questions,
+        text,
         Answer,
-        Subject,
-        Difficulty,
-        Duration,
+        subject_title,
+        difficulty_level,
+
         Status,
-        choices,
-        QuestionType,
-        Chapter,
-        QuestionTextAnswer,
+        mcq_answers,
+        type,
+        chapter,
+        correct_answer,
     } = selectedRow;
-    const selectSubjectOptions = [
-        "Math",
-        "Graph",
-        "Physics1",
-        "Physics2",
-        "Graph2",
-    ];
+
     const selectDifficulty = ["Easy", "Medium", "Hard"];
-    const selectDuration = ["1 min", "5 min", "10 min"];
+
     const selectExamType = ["MCQ", "Text Question"];
     const MCQAmount = [2, 3, 4, 5, 6];
 
     const [choosenSubject, setChoosenSubject] = useState("");
     const [choosenChapter, setChoosenChapter] = useState("");
     const [choosenDifficulty, setChoosenDifficulty] = useState("");
-    const [choosenDuration, setChoosenDuration] = useState("");
+
     const [choosenQuestionType, setChoosenQuestionType] = useState("");
     const [choosenMCQAmount, setChoosenMCQAmount] = useState(0);
     const [choosenQuestionText, setChoosenQuestionText] = useState("");
@@ -44,25 +38,33 @@ const EditQuestions = ({ selectedRow, divheight }) => {
     // console.log(choosenSubject);
     // console.log(choosenMCQAmount);
 
-    console.log(choices);
+    console.log(mcq_answers);
     useEffect(() => {
         {
-            choices.map((choice, i) => {
+            mcq_answers.map((choice, i) => {
                 if (Answer === choice) {
                     return <div key={i}>{setIndexOfAnswer(i)}</div>;
                 }
             });
-            setChoosenSubject(Subject);
-            setChoosenChapter(Chapter);
-            setChoosenDifficulty(Difficulty);
-            setChoosenDuration(Duration);
-            setChoosenQuestionType(QuestionType);
-            if (QuestionType === "MCQ") {
+            setChoosenSubject(subject_title);
+            setChoosenChapter(chapter);
+            if (difficulty_level === 0) {
+                setChoosenDifficulty("Easy");
+            }
+            if (difficulty_level === 1) {
+                setChoosenDifficulty("Medium");
+            }
+            if (difficulty_level === 2) {
+                setChoosenDifficulty("Hard");
+            }
+
+            setChoosenQuestionType(type);
+            if (type === "mcq") {
                 setToggleType(true);
             }
-            setChoosenQuestionText(Questions);
-            setChoosenQuestionTextAnswer(QuestionTextAnswer);
-            setChoosenMCQAmount(choices.length);
+            setChoosenQuestionText(text);
+            setChoosenQuestionTextAnswer(correct_answer);
+            setChoosenMCQAmount(mcq_answers.length);
         }
     }, []);
     console.log("hi");
@@ -87,26 +89,6 @@ const EditQuestions = ({ selectedRow, divheight }) => {
                 }}
             >
                 <form id="nameForm" action="/login">
-                    <div className="fs-5 fw-bold mb-2">Select Subject</div>
-
-                    <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        style={{ width: "95%" }}
-                        onChange={(e) => {
-                            setChoosenSubject(e.target.value);
-                        }}
-                    >
-                        {selectSubjectOptions.map((option, index) => (
-                            <option
-                                key={index}
-                                value={option}
-                                selected={option === choosenSubject}
-                            >
-                                {option}
-                            </option>
-                        ))}
-                    </select>
                     <div className="fs-5 fw-bold mb-2">Enter Chapter</div>
                     <textarea
                         id="questiontextarea"
@@ -137,25 +119,7 @@ const EditQuestions = ({ selectedRow, divheight }) => {
                             </option>
                         ))}
                     </select>
-                    <div className="fs-5 fw-bold mb-2">Select Duration</div>
-                    <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        style={{ width: "95%" }}
-                        onChange={(e) => {
-                            setChoosenDuration(e.target.value);
-                        }}
-                    >
-                        {selectDuration.map((option, index) => (
-                            <option
-                                key={index}
-                                value={option}
-                                selected={option === choosenDuration}
-                            >
-                                {option}
-                            </option>
-                        ))}
-                    </select>
+
                     <div className="fs-5 fw-bold mb-2">
                         Select Question Type
                     </div>
@@ -250,12 +214,16 @@ const EditQuestions = ({ selectedRow, divheight }) => {
                                                     id="questiontextarea"
                                                     rows={4}
                                                     placeholder="Enter Text Here"
-                                                    defaultValue={choices[i]}
+                                                    defaultValue={
+                                                        mcq_answers[i]
+                                                    }
                                                     style={{ width: "95%" }}
                                                     onChange={(e) => {
-                                                        choices[i] =
+                                                        mcq_answers[i] =
                                                             e.target.value;
-                                                        console.log(choices);
+                                                        console.log(
+                                                            mcq_answers
+                                                        );
                                                     }}
                                                 ></textarea>
                                             </div>
@@ -287,7 +255,8 @@ const EditQuestions = ({ selectedRow, divheight }) => {
                     <button
                         type="submit"
                         onClick={(e) => {
-                            console.log(subject);
+                            console.log(subject_title);
+                            window.location.reload();
                         }}
                         className="btn float px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
                         style={{

@@ -7,7 +7,7 @@ const AddQuestion = (divheight, professor) => {
     const [subject, setSubject] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [difficulty, setDifficulty] = useState();
-    const [duration, setDuration] = useState();
+    const [duration, setDuration] = useState(); // deh kaman hatetshal
     const [questionType, setQuestionType] = useState();
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
@@ -111,7 +111,6 @@ const AddQuestion = (divheight, professor) => {
     const [subjectError, setSubjectError] = useState("");
     const [chapterNumberError, setChapterNumberError] = useState("");
     const [difficultyError, setDifficultyError] = useState("");
-    const [durationError, setDurationError] = useState("");
     const [questionTypeError, setQuestionTypeError] = useState("");
     const [questionTextError, setQuestionTextError] = useState("");
     const [answerTextError, setAnswerTextError] = useState("");
@@ -149,7 +148,6 @@ const AddQuestion = (divheight, professor) => {
             questionType &&
             chapterNumber &&
             difficulty &&
-            duration &&
             questionText &&
             (answerText || (actualNumberOfChoices && radio && howManyOptions()))
         ) {
@@ -163,7 +161,7 @@ const AddQuestion = (divheight, professor) => {
                 subject: subject,
                 chapterNumber: parseInt(chapterNumber),
                 difficulty: difficulty,
-                duration: parseInt(duration),
+                duration: parseInt(duration), //deh ely hatetshal
                 questionText: questionText,
                 answerText: answerText,
                 actualNumberOfChoices: actualNumberOfChoices,
@@ -173,10 +171,10 @@ const AddQuestion = (divheight, professor) => {
             };
 
             // console.log(request.difficulty);
-            //document.getElementById("nameForm").submit();
             axios.post("/api/QSBank", request).then((response) => {
                 ({ response });
             });
+            document.getElementById("nameForm").submit();
         } else {
             if (!subject) {
                 setSubjectError("error");
@@ -190,9 +188,7 @@ const AddQuestion = (divheight, professor) => {
             if (!difficulty) {
                 setDifficultyError("error");
             }
-            if (!duration) {
-                setDurationError("error");
-            }
+
             if (!questionText) {
                 setQuestionTextError("error");
             }
@@ -238,7 +234,11 @@ const AddQuestion = (divheight, professor) => {
                 <div className="fs-1 fw-bold m-2">Add Question</div>
                 {/*First Form-Slect */}
 
-                <form onSubmit={handleSubmit} id="nameForm">
+                <form
+                    onSubmit={handleSubmit}
+                    action={`/${divheight.username}-${divheight.radio}`}
+                    id="nameForm"
+                >
                     <div className="ms-5" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">Select Subject</div>
 
@@ -284,7 +284,7 @@ const AddQuestion = (divheight, professor) => {
                         <Select
                             className={difficultyError}
                             options={[
-                                { value: "0", label: "Eazy" },
+                                { value: "0", label: "Easy" },
                                 { value: "1", label: "Medium" },
                                 { value: "2", label: "Hard" },
                             ]}
@@ -301,29 +301,7 @@ const AddQuestion = (divheight, professor) => {
                         )}
                     </div>
                     {/*End Form-Slect */}
-                    {/* Form-Slect */}
-                    <div className="ms-5 m-2" style={{ width: "90%" }}>
-                        <div className="fs-5 fw-bold mb-2">Enter Duration</div>
-                        <Select
-                            className={durationError}
-                            options={[
-                                { value: "1", label: "1 min" },
-                                { value: "5", label: "5 min" },
-                                { value: "10", label: "10 min" },
-                            ]}
-                            placeholder={"eg:1 min"}
-                            value={options.find(
-                                (obj) => obj.value === duration
-                            )}
-                            onChange={(e) => {
-                                setDuration(e.value), setDurationError("");
-                            }}
-                        />
-                        {durationError && (
-                            <div className="emptyfield">must enter feiled</div>
-                        )}
-                    </div>
-                    {/*End Form-Slect */}
+
                     {/* Form-Slect */}
                     <div className="ms-5 m-2" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">

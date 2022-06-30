@@ -84,10 +84,12 @@ const AssignProcror = () => {
         if (
             subject &&
             (proctoringMethod === "Artificial Proctoring" ||
-                (proctorAmount === "Manual Proctoring" &&
+                (proctoringMethod === "Manual Proctoring" &&
+                    proctorAmount != null &&
                     !proctorsList.includes(undefined)))
         ) {
             document.getElementById("nameForm").submit();
+            window.location.reload();
         } else {
             if (!subject) {
                 setSubjectError("error");
@@ -109,7 +111,7 @@ const AssignProcror = () => {
             <div className="m-2">
                 <h1>Assign Proctor</h1>
             </div>
-            <form onSubmit={handleSubmit} id="nameForm" action="/login">
+            <form onSubmit={handleSubmit} id="nameForm">
                 <div className="me-5 ms-5 mt-5">
                     <div className="ms-5">
                         <div className="fs-5 fw-bold mb-2">Select Subject</div>

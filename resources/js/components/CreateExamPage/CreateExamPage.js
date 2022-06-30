@@ -6,6 +6,7 @@ import Select from "react-select";
 import ModelPreview from "./ModelPreview.png";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import "../../reactdate.css";
@@ -15,7 +16,7 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 
 const CreateExamPage = (professor) => {
-    const { username } = useParams();
+    const { username, radio } = useParams();
     const [subject, setSubject] = useState();
     const [duration, setDuration] = useState();
     const [questionType, setQuestionType] = useState();
@@ -40,9 +41,14 @@ const CreateExamPage = (professor) => {
     const [subjectdetails, setSubjectDetails] = useState([null]);
     const [arrayChapters, setArrayChapters] = useState([]);
     const [modelid, setModelId] = useState([]);
+    const [url, setUrl] = useState();
+    const [urlError, setUrlError] = useState();
 
     const [datevalue, setDatevalue] = useState();
     const [timevalue, setTimevalue] = useState();
+
+    console.log(username, "asdgasdiasndgiasdh");
+    console.log(radio, "dsdioghasudghasuidguiasg");
 
     let minDate = new Date();
     console.log(minDate);
@@ -89,10 +95,6 @@ const CreateExamPage = (professor) => {
         }
     }, [subjectdetails]);
 
-    const selectExamType = ["...", "MCQ", "Text Question"];
-    const MCQAmount = ["...", 2, 3, 4, 5, 6];
-    const [togleMCQAmount, setTogleMCQAmount] = useState(false);
-
     let wantedarray = [];
     const addvalue = (getarray) => {
         wantedarray = [];
@@ -105,29 +107,7 @@ const CreateExamPage = (professor) => {
         return wantedarray;
     };
     const options = addvalue(getarray);
-    const handleChangeSelectSubject = (e) => {
-        console.log(e.target.value);
-    };
-    const handleExamDuration = (e) => {
-        console.log(e.target.value);
-    };
-    const handleChangeSelectExamType = (e) => {
-        if (e.target.value === "MCQ") {
-            setTogleMCQAmount(true);
-        } else {
-            setTogleMCQAmount(false);
-        }
-        console.log(e.target.value);
-    };
-    const handleChangeMCQAmount = (e) => {
-        console.log(e.target.value);
-    };
-    const handleExamDate = (e) => {
-        console.log(e.target.value.split("/"));
-    };
-    const handleExamTime = (e) => {
-        console.log(e.target.value);
-    };
+
     const handleEasyNumberQuestions = (e) => {
         setEasyNumberQuestions(e.target.value);
 
@@ -162,17 +142,29 @@ const CreateExamPage = (professor) => {
             duration,
             questionType,
             mcqAmount,
-            datevalue,
-            timevalue,
-            numberOfModels
+            datevalue + "dateeeeeeeeeeeeeee",
+            timevalue + "Timeeeeeeeeeeeeeeeee",
+            numberOfModels,
+            arrayChapters
         );
+        let sum = 0;
+        for (let i = 0; i < arrayChapters.length; i++) {
+            sum = sum + Number(arrayChapters[i]);
+        }
+        console.log(sum);
         if (
             subject &&
             duration &&
-            (questionType === "written" ||
-                (questionType === "mcq" && mcqAmount)) &&
+            (questionType === "written" || questionType === "mcq") &&
+            mcqAmount &&
             datevalue &&
             timevalue &&
+            url &&
+            Number(easyNumberQuestions) +
+                Number(mediumNumberQuestions) +
+                Number(hardNumberQuestions) ===
+                Number(mcqAmount) &&
+            sum === Number(mcqAmount) &&
             numberOfModels &&
             (easyNumberQuestions ||
                 mediumNumberQuestions ||
@@ -201,8 +193,12 @@ const CreateExamPage = (professor) => {
             // document.getElementById("nameForm").submit();
             ///////////////////////////////////
 
+            setShowModels(true);
             // document.getElementById("nameForm").submit();
         } else {
+            if (!url) {
+                setUrlError("error");
+            }
             if (!subject) {
                 setSubjectError("error");
             }
@@ -215,10 +211,10 @@ const CreateExamPage = (professor) => {
             if (!mcqAmount) {
                 setMCQAmountError("error");
             }
-            if (!date) {
+            if (!datevalue) {
                 setDateError("error");
             }
-            if (!time) {
+            if (!timevalue) {
                 setTimeError("error");
             }
             if (!numberOfModels) {
@@ -237,6 +233,21 @@ const CreateExamPage = (professor) => {
             ) {
                 setChaptersError("error");
             }
+            if (
+                Number(easyNumberQuestions) +
+                    Number(mediumNumberQuestions) +
+                    Number(hardNumberQuestions) !=
+                Number(mcqAmount)
+            ) {
+                alert(
+                    "Sum of Easy,Medium,Hard Questions Not Equal Number Of Questions Please Retry"
+                );
+            }
+            if (sum != Number(mcqAmount)) {
+                alert(
+                    "Sum of Chapter Questions Not Equal Number Of Questions Please Retry"
+                );
+            }
         }
         /////////////////////////
         //////////////////////
@@ -253,8 +264,8 @@ const CreateExamPage = (professor) => {
         chaptersquestions: arrayChapters,
     };
     const request2 = {
-        date: date,
-        time: time,
+        date: datevalue,
+        time: timevalue,
         duration: duration,
     };
     ///////////////////////
@@ -362,41 +373,33 @@ const CreateExamPage = (professor) => {
                                 )}
                             </div>
                             {/*End First Form-Slect */}
-                            {questionType === "mcq" && (
-                                <>
-                                    {/*End First Form-Slect */}
-                                    <div className="ms-5">
-                                        <div className="fs-5 fw-bold mb-2">
-                                            Enter MCQ Amount
+
+                            {/*End First Form-Slect */}
+                            <div className="ms-5 m-2">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Enter Number Of Questions
+                                </div>
+                                <div className="form-group mt-2">
+                                    <input
+                                        className={`form-control ${mcqAmountError}`}
+                                        type="text"
+                                        placeholder="eg: 20"
+                                        aria-label="default input example"
+                                        style={{ width: "101%" }}
+                                        onChange={(e) => {
+                                            setMCQAmount(e.target.value),
+                                                setMCQAmountError("");
+                                        }}
+                                    />
+                                    {mcqAmountError && (
+                                        <div className="emptyfield">
+                                            must enter feiled
                                         </div>
-                                        <Select
-                                            className={mcqAmountError}
-                                            options={[
-                                                { value: 2, label: "2" },
-                                                { value: 3, label: "3" },
-                                                { value: 4, label: "4" },
-                                                { value: 5, label: "5" },
-                                                { value: 6, label: "6" },
-                                            ]}
-                                            value={options.find(
-                                                (obj) => obj.value === mcqAmount
-                                            )}
-                                            onChange={(e) => {
-                                                setMCQAmount(e.value),
-                                                    setMCQAmountError("");
-                                            }}
-                                            placeholder={"eg:2"}
-                                            menuPlacement="auto"
-                                        />
-                                        {mcqAmountError && (
-                                            <div className="emptyfield">
-                                                must enter feiled
-                                            </div>
-                                        )}
-                                    </div>
-                                    {/*End Form-Slect */}
-                                </>
-                            )}
+                                    )}
+                                </div>
+                            </div>
+                            {/*End Form-Slect */}
+
                             <div className="ms-5">
                                 <div className="fs-5 fw-bold mb-2">
                                     Enter Exam Start date and time
@@ -407,7 +410,9 @@ const CreateExamPage = (professor) => {
                                             id="datepicker"
                                             placeholder="Enter date"
                                             min={minDate}
-                                            onChange={handledate}
+                                            onChange={(e) => {
+                                                handledate(e), setDateError("");
+                                            }}
                                             format="yyyy-MM-dd"
                                         />
                                     </div>
@@ -415,7 +420,9 @@ const CreateExamPage = (professor) => {
                                         <TimePicker
                                             defaultValue={moment()}
                                             showSecond={false}
-                                            onChange={handletime}
+                                            onChange={(e) => {
+                                                handletime(e), setTimeError("");
+                                            }}
                                         ></TimePicker>
                                     </div>
                                     {(dateError || timeError) && (
@@ -483,45 +490,56 @@ const CreateExamPage = (professor) => {
                             </div>
                             <div className="ms-5">
                                 {arrayChapters.length > 0 && (
-                                    <div className="fs-5 fw-bold mb-2">
-                                        Enter amount of questions for each
-                                        chapter
-                                    </div>
-                                )}
-
-                                <div className="row">
-                                    {Array.from(
-                                        Array(arrayChapters.length),
-                                        (e, i) => {
-                                            return (
-                                                <div key={i} className="col-4">
-                                                    <div className="d-inline me-5 fs-5 ">
-                                                        Chapter {i + 1}
-                                                    </div>
-                                                    <input
-                                                        className="form-control d-inline mx-2"
-                                                        type="text"
-                                                        placeholder="Enter Text Here"
-                                                        aria-label="default input example"
-                                                        style={{ width: "30%" }}
-                                                        onChange={(e) => {
-                                                            handleChapter(e, i);
-                                                            setChaptersError(
-                                                                ""
-                                                            );
-                                                        }}
-                                                    />
-                                                </div>
-                                            );
-                                        }
-                                    )}
-                                    {chaptersError && (
-                                        <div className="emptyfield">
-                                            must enter value in at least one
+                                    <>
+                                        <div className="fs-5 fw-bold mb-2">
+                                            Enter amount of questions for each
                                             chapter
                                         </div>
-                                    )}
-                                </div>
+                                        <div className="row">
+                                            {Array.from(
+                                                Array(arrayChapters.length),
+                                                (e, i) => {
+                                                    return (
+                                                        <div
+                                                            key={i}
+                                                            className="col-4"
+                                                        >
+                                                            <div className="d-inline me-5 fs-5 ">
+                                                                Chapter {i + 1}
+                                                            </div>
+                                                            <input
+                                                                className="form-control d-inline mx-2"
+                                                                type="text"
+                                                                placeholder="Enter Text Here"
+                                                                aria-label="default input example"
+                                                                style={{
+                                                                    width: "30%",
+                                                                }}
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    handleChapter(
+                                                                        e,
+                                                                        i
+                                                                    );
+                                                                    setChaptersError(
+                                                                        ""
+                                                                    );
+                                                                }}
+                                                            />
+                                                        </div>
+                                                    );
+                                                }
+                                            )}
+                                            {chaptersError && (
+                                                <div className="emptyfield">
+                                                    must enter value in at least
+                                                    one chapter
+                                                </div>
+                                            )}
+                                        </div>
+                                    </>
+                                )}
                             </div>
                             <div className="ms-5">
                                 <div className="fs-5 fw-bold mb-2">
@@ -543,6 +561,37 @@ const CreateExamPage = (professor) => {
                                         must enter feiled
                                     </div>
                                 )}
+                            </div>
+                            <div className="ms-5">
+                                <div className="fs-5 fw-bold mb-2">
+                                    Enter Exam Session Video Call URL
+                                </div>
+                                <input
+                                    className={`form-control  ${urlError}`}
+                                    type="text"
+                                    placeholder="Enter Text Here"
+                                    aria-label="default input example"
+                                    style={{ width: "95.5%" }}
+                                    onChange={(e) => {
+                                        setUrl(e.target.value), setUrlError("");
+                                    }}
+                                />
+                                {urlError && (
+                                    <div className="emptyfield">
+                                        must enter feiled
+                                    </div>
+                                )}
+                                <div>
+                                    you can use any third party application or
+                                    use our video call service by clicking
+                                    <a
+                                        target="_blank"
+                                        href="http://localhost/b"
+                                    >
+                                        <span className="mx-3">HERE</span>
+                                    </a>
+                                    take the link and put it up ahead
+                                </div>
                             </div>
                             <div
                                 className="me-5 "
@@ -620,6 +669,7 @@ const CreateExamPage = (professor) => {
                                 axios.get(
                                     `api/subjects/${subjectdetails.id}/examtemp`
                                 );
+                                window.location.reload();
                             }}
                             className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
                             style={{
@@ -632,6 +682,7 @@ const CreateExamPage = (professor) => {
                         >
                             Accept
                         </button>
+
                         <button
                             onClick={(e) => {
                                 axios.get(`api/examtemp`);
@@ -656,7 +707,7 @@ const CreateExamPage = (professor) => {
                                 width: "25%",
                             }}
                         >
-                            Disapprove
+                            Retry
                         </button>
                     </div>
                 </div>
