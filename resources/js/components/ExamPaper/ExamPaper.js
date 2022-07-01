@@ -51,10 +51,7 @@ const ExamPaper = () => {
             .get(`/api/subjects/${unfinishedSubjects}/exam `)
             .then((response) => {
                 setUsers(response.data);
-                console.log(
-                    response.data,
-                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                );
+                console.log(response.data, "bangoooooooo");
             });
     }, []);
 
@@ -227,7 +224,8 @@ const ExamPaper = () => {
                                     width: "98%",
                                 }}
                             >
-                                {users.modelquestions != null &&
+                                {/* {users.modelquestions != null &&
+                                    users.exam_type === "MCQ" &&
                                     Array.from(
                                         Array(
                                             parseInt(
@@ -276,7 +274,26 @@ const ExamPaper = () => {
                                                 </div>
                                             );
                                         }
-                                    )}
+                                    )} */}
+                                <div>
+                                    {users.modelquestions != null &&
+                                        users.exam_type === "MCQ" && (
+                                            <div className="form-group ">
+                                                <textarea
+                                                    className="form-control"
+                                                    id="exampleFormControlTextarea1"
+                                                    rows="20"
+                                                    value={egabat[ind]}
+                                                    onChange={(e) => {
+                                                        let m = e.target.value;
+                                                        let temp20 = egabat;
+                                                        temp20[ind] = m;
+                                                        setEgabat(temp20);
+                                                    }}
+                                                ></textarea>
+                                            </div>
+                                        )}
+                                </div>
                             </div>
                         </div>
                     </div>

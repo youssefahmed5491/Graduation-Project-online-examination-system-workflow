@@ -313,17 +313,10 @@ const AllUsersHome = () => {
     var date;
     var url;
 
-    if (upcomingExam != undefined) {
-        console.log(typeof upcomingExam, "7madadadadadad");
-        examduration = upcomingExam.duration;
-        time = upcomingExam.time;
-        date = upcomingExam.date;
-
-        url = upcomingExam.url;
-    }
-
-    console.log(date);
-
+    const examduration = upcomingExam.duration;
+    const time = upcomingExam.time;
+    var date = upcomingExam.date;
+    console.log(date, "baboooo");
     if (examduration != null && time != null && isString(date)) {
         date = date.split("-");
         const today = isToday(date);
