@@ -224,7 +224,7 @@ const ExamPaper = () => {
                                     width: "98%",
                                 }}
                             >
-                                {users.modelquestions != null &&
+                                {/* {users.modelquestions != null &&
                                     users.exam_type === "MCQ" &&
                                     Array.from(
                                         Array(
@@ -274,10 +274,10 @@ const ExamPaper = () => {
                                                 </div>
                                             );
                                         }
-                                    )}
+                                    )} */}
                                 <div>
                                     {users.modelquestions != null &&
-                                        users.exam_type != "MCQ" && (
+                                        users.exam_type === "MCQ" && (
                                             <div className="form-group ">
                                                 <textarea
                                                     className="form-control"
