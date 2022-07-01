@@ -73,11 +73,11 @@ class StudentExamController extends Controller
     {
         $count = 0;
         $studentanswer = array();
-        $length = count($exam->modelquestions[0]);
+        $length = count($exam->modelquestions);
 
         $correctanswerarrayfinal = array();
         for ($i = 0; $i < $length; $i++) {
-            $correctanswerarrayfinal[] = $exam->modelquestions[0][$i]["correct_answer"];
+            $correctanswerarrayfinal[] = $exam->modelquestions[$i]["correct_answer"];
         }
         for ($i = 0; $i < $length; $i++) {
             $studentanswer[$i] = $request[$i];

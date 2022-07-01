@@ -40,6 +40,7 @@ const AllUsersHome = () => {
     };
 
     const { username, radio } = useParams();
+    console.log(username);
     useEffect(() => {
         axios.post("/api/professors", { username }).then((response) => {
             const data = response.data;
@@ -221,10 +222,14 @@ const AllUsersHome = () => {
             hours += h;
             minutes -= 60 * h;
         }
-        if (hours >= 24) {
-            hours = hours % 24;
-            hours = hours < 0 ? 24 + hours : +hours;
-        }
+
+        console.log(
+            ("0" + hours).slice(-2) +
+                ":" +
+                ("0" + minutes).slice(-2) +
+                ":" +
+                ("0" + seconds).slice(-2)
+        );
         return (
             ("0" + hours).slice(-2) +
             ":" +
@@ -255,6 +260,16 @@ const AllUsersHome = () => {
 
     const isnow = (someTime, examduration) => {
         const today = new Date();
+        //   console.log(someTime, examduration, today);
+        console.log(
+            today.getHours() +
+                ":" +
+                today.getMinutes() +
+                ":" +
+                today.getSeconds() <
+                addTimes(someTime, examduration),
+            "llllllllllllllllllllllllllll"
+        );
         // console.log(
         //     today.getHours() +
         //         ":" +
@@ -283,6 +298,8 @@ const AllUsersHome = () => {
                     today.getSeconds() <
                     addTimes(someTime, examduration)
             ) {
+                console.log("ssssssssssssssssssssssssssssss");
+
                 return true;
             } else {
                 return false;
@@ -302,6 +319,7 @@ const AllUsersHome = () => {
                     today.getSeconds() <
                     addTimes(someTime, examduration)
             ) {
+                console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                 return true;
             } else {
                 return false;
@@ -313,15 +331,22 @@ const AllUsersHome = () => {
     var date;
     var url;
 
-    const examduration = upcomingExam.duration;
-    const time = upcomingExam.time;
-    var date = upcomingExam.date;
-    console.log(date, "baboooo");
+    if (upcomingExam != undefined) {
+        console.log(typeof upcomingExam, "7madadadadadad");
+        examduration = upcomingExam.duration;
+        time = upcomingExam.time;
+        date = upcomingExam.date;
+
+        url = upcomingExam.url;
+    }
+
+    console.log(date);
+
     if (examduration != null && time != null && isString(date)) {
         date = date.split("-");
         const today = isToday(date);
         const now = isnow(time, examduration);
-        //console.log("7amada", examduration, time, date, now, today);
+        console.log("7amada", examduration, time, date, now, today);
     }
 
     return (
@@ -1166,7 +1191,7 @@ const AllUsersHome = () => {
                                                                 time,
                                                                 examduration
                                                             )
-                                                                ? `/${username}-${radio}/${upcomingExam.id}`
+                                                                ? `/${username}/${upcomingExam.id}`
                                                                 : ``
                                                         }`}
                                                         //     to={`/${username}/${upcomingExam.id}

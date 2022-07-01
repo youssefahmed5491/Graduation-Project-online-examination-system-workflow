@@ -16,7 +16,7 @@ const ExamPaper = () => {
     useEffect(() => {
         axios.post(`/api/students`, request).then((response) => {
             setStudentData(response.data);
-            console.log(response.data);
+            console.log(response.data, "tonyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
         });
     }, []);
 
@@ -51,7 +51,10 @@ const ExamPaper = () => {
             .get(`/api/subjects/${unfinishedSubjects}/exam `)
             .then((response) => {
                 setUsers(response.data);
-                console.log(response.data, "bangoooooooo");
+                console.log(
+                    response.data,
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                );
             });
     }, []);
 
@@ -123,10 +126,10 @@ const ExamPaper = () => {
 
     //display certain object given a number
     const displayuser = (number) => {
-        return users.modelquestions[0][number];
+        return users.modelquestions[number];
     };
     const displayquestions = () => {
-        return users.modelquestions[0];
+        return users.modelquestions;
     };
     if (users.modelquestions != null) {
         console.log(displayquestions(), "7madaaaa");
@@ -224,8 +227,7 @@ const ExamPaper = () => {
                                     width: "98%",
                                 }}
                             >
-                                {/* {users.modelquestions != null &&
-                                    users.exam_type === "MCQ" &&
+                                {users.modelquestions != null &&
                                     Array.from(
                                         Array(
                                             parseInt(
@@ -274,26 +276,7 @@ const ExamPaper = () => {
                                                 </div>
                                             );
                                         }
-                                    )} */}
-                                <div>
-                                    {users.modelquestions != null &&
-                                        users.exam_type === "MCQ" && (
-                                            <div className="form-group ">
-                                                <textarea
-                                                    className="form-control"
-                                                    id="exampleFormControlTextarea1"
-                                                    rows="20"
-                                                    value={egabat[ind]}
-                                                    onChange={(e) => {
-                                                        let m = e.target.value;
-                                                        let temp20 = egabat;
-                                                        temp20[ind] = m;
-                                                        setEgabat(temp20);
-                                                    }}
-                                                ></textarea>
-                                            </div>
-                                        )}
-                                </div>
+                                    )}
                             </div>
                         </div>
                     </div>
