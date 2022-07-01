@@ -97,7 +97,6 @@ const AllUsersHome = () => {
     useEffect(() => {
         axios.get(`/api/date`).then((response) => {
             setUpcomingExam(response.data);
-            // console.log(response.data, "upcommiiiiiiiiiiiiiiiing");
         });
     }, []);
 
@@ -236,14 +235,17 @@ const AllUsersHome = () => {
     }
     const isToday = (someDate) => {
         const today = new Date();
-        // console.log(
-        //     someDate[2],
-        //     today.getDate(),
-        //     someDate[1] - 1,
-        //     today.getMonth(),
-        //     someDate[0],
-        //     today.getFullYear()
-        // );
+        console.log(
+            someDate[2],
+            today.getDate(),
+            someDate[1] - 1,
+            today.getMonth(),
+            someDate[0],
+            today.getFullYear(),
+
+            today
+        );
+
         return (
             someDate[2] == today.getDate() &&
             someDate[1] - 1 == today.getMonth() &&
@@ -310,22 +312,24 @@ const AllUsersHome = () => {
     var time;
     var date;
     var url;
-    useEffect(() => {
-        console.log(upcomingExam[0], "7madadadadadad");
-        examduration = upcomingExam[0].duration;
-        time = upcomingExam[0].time;
-        date = upcomingExam[0].date;
-        url = upcomingExam[1];
-    }, [upcomingExam]);
 
-    useEffect(() => {
-        if (examduration != null && time != null && isString(date)) {
-            date = date.split("-");
-            const today = isToday(date);
-            const now = isnow(time, examduration);
-            //console.log("7amada", examduration, time, date, now, today);
-        }
-    }, [upcomingExam]);
+    if (upcomingExam != undefined) {
+        console.log(typeof upcomingExam, "7madadadadadad");
+        examduration = upcomingExam.duration;
+        time = upcomingExam.time;
+        date = upcomingExam.date;
+
+        url = upcomingExam.url;
+    }
+
+    console.log(date);
+
+    if (examduration != null && time != null && isString(date)) {
+        date = date.split("-");
+        const today = isToday(date);
+        const now = isnow(time, examduration);
+        //console.log("7amada", examduration, time, date, now, today);
+    }
 
     return (
         <>
@@ -1085,7 +1089,7 @@ const AllUsersHome = () => {
                                         className="col  "
                                     >
                                         <h1>Upcoming Exam</h1>
-                                        {upcomingExam.length > 0 && (
+                                        {upcomingExam && (
                                             <div className="row me-5 ms-5 mt-5">
                                                 <div
                                                     style={{
@@ -1119,16 +1123,17 @@ const AllUsersHome = () => {
                                                         alignItems: "flex-end",
                                                     }}
                                                 >
-                                                    <Link
-                                                        to={`${
-                                                            isToday(date) &&
-                                                            isnow(
-                                                                time,
-                                                                examduration
-                                                            )
-                                                                ? `/`
-                                                                : ``
-                                                        }`}
+                                                    {/* <Link
+                                                        // to={`${
+                                                        //     isToday(date) &&
+                                                        //     isnow(
+                                                        //         time,
+                                                        //         examduration
+                                                        //     )
+                                                        //         ? `/${url}`
+                                                        //         : ``
+                                                        // }`}
+                                                        // to={`http://${url}`}
                                                         style={{
                                                             display: "flex",
                                                             justifyContent:
@@ -1137,38 +1142,43 @@ const AllUsersHome = () => {
                                                             textDecoration:
                                                                 "none",
                                                         }}
+                                                    > */}
+                                                    <button
+                                                        onClick={(e) => {
+                                                            window.open(
+                                                                `${url}`
+                                                            );
+                                                            console.log(
+                                                                "subject"
+                                                            );
+                                                        }}
+                                                        className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
+                                                        style={{
+                                                            borderRadius:
+                                                                "25px",
+                                                            fontSize: "20px",
+                                                            backgroundColor:
+                                                                "#3dbfb6",
+                                                            color: "white",
+                                                            width: "100%",
+                                                        }}
                                                     >
-                                                        <button
-                                                            onClick={(e) => {
-                                                                console.log(
-                                                                    "subject"
-                                                                );
-                                                            }}
-                                                            className="btn  px-5 pt-1 resizeLoginSubmitButton mt-3 mb-2"
-                                                            style={{
-                                                                borderRadius:
-                                                                    "25px",
-                                                                fontSize:
-                                                                    "20px",
-                                                                backgroundColor:
-                                                                    "#3dbfb6",
-                                                                color: "white",
-                                                                width: "100%",
-                                                            }}
-                                                        >
-                                                            Video Call
-                                                        </button>
-                                                    </Link>
+                                                        Video Call
+                                                    </button>
+                                                    {/* </Link> */}
                                                     <Link
-                                                        // to={`${
-                                                        //     isToday(date) &&
-                                                        //     isnow(time, examduration)
-                                                        //         ? `/${username}-${radio}/${upcomingExam[0]}`
-                                                        //         : ``
-                                                        // }`}
-                                                        to={`/${username}/${upcomingExam.id}
+                                                        to={`${
+                                                            isToday(date) &&
+                                                            isnow(
+                                                                time,
+                                                                examduration
+                                                            )
+                                                                ? `/${username}-${radio}/${upcomingExam.id}`
+                                                                : ``
+                                                        }`}
+                                                        //     to={`/${username}/${upcomingExam.id}
 
-                                                    `}
+                                                        // `}
                                                         style={{
                                                             display: "flex",
                                                             justifyContent:

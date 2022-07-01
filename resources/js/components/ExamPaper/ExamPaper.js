@@ -51,6 +51,10 @@ const ExamPaper = () => {
             .get(`/api/subjects/${unfinishedSubjects}/exam `)
             .then((response) => {
                 setUsers(response.data);
+                console.log(
+                    response.data,
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                );
             });
     }, []);
 

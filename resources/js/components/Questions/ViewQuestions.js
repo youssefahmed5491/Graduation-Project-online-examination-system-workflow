@@ -46,7 +46,7 @@ const ViewQuestions = (divheight, professor) => {
             }
         }
     }
-
+    // console.log(Array.isArray(rows), "llllllllllllllllllllllllllllllllll");
     // const row = {
     //     id: 1,
     //     Questions: "Lorem Epsium Lorem Epsium",
@@ -226,7 +226,9 @@ const ViewQuestions = (divheight, professor) => {
                                                         }}
                                                     >
                                                         {row.type === "mcq" &&
-                                                            row.mcq_answers.map(
+                                                            Array.from(
+                                                                row.mcq_answers
+                                                            ).map(
                                                                 (
                                                                     mcq,
                                                                     index
@@ -385,7 +387,7 @@ const ViewQuestions = (divheight, professor) => {
             )}
 
             {!guiViewIconClicked && editClicked && !deleteClicked && (
-                <div>
+                <div style={{ height: "100%", overflow: "auto" }}>
                     {console.log(selectedRow, "hashfshfa")}
                     <EditQuestions
                         selectedRow={selectedRow}

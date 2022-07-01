@@ -42,7 +42,7 @@ const EditQuestions = ({ selectedRow, divheight }) => {
     useEffect(() => {
         {
             if (type === "mcq") {
-                mcq_answers.map((choice, i) => {
+                Array.from(mcq_answers).map((choice, i) => {
                     if (Answer === choice) {
                         return <div key={i}>{setIndexOfAnswer(i)}</div>;
                     }
