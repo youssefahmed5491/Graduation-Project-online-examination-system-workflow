@@ -40,273 +40,270 @@ function App() {
 
     return (
         <>
-            <PDFExport ref={pdfExportComponent} fileName={"Management Records"}>
-                <section className="">
-                    {/* ////////////First Screen///////////// */}
+            <section className="">
+                {/* ////////////First Screen///////////// */}
 
+                <div
+                    id="wrap-logo-navbar-photo"
+                    className="pt-4"
+                    style={{ height: "100vh" }}
+                >
+                    <Navbar />
                     <div
-                        id="wrap-logo-navbar-photo"
-                        className="pt-4"
-                        style={{ height: "100vh" }}
+                        id="photo"
+                        className=" row"
+                        style={{ height: "90%", width: "100%" }}
                     >
-                        <Navbar />
-                        <div
-                            id="photo"
-                            className=" row"
-                            style={{ height: "90%", width: "100%" }}
-                        >
-                            <div className=" d-flex justify-content-center align-items-center">
-                                <img
-                                    src={img2}
-                                    className=" h-100 p-0 "
-                                    style={{ width: "60%" }}
-                                    alt=""
-                                />
-                            </div>
-
-                            <div
-                                className="position-absolute  overflow-hidden  w-50  m-4  "
-                                style={{
-                                    height: "70%",
-                                    paddingLeft: "15%",
-                                    paddingTop: "10%",
-                                }}
-                            >
-                                <h3
-                                    className="fw-bold resizeTextOfPhoto600 "
-                                    style={{ color: "#3dbfb6" }}
-                                >
-                                    Easiest Most Responsive Online Examination
-                                    Solution
-                                </h3>
-                                <Link to={"/login"}>
-                                    <button
-                                        className=" rsizebutton rounded-pill fw-bold"
-                                        style={{
-                                            background: "#3dbfb6",
-                                            color: "white",
-                                            fontSize: "30px",
-                                            marginLeft: "15%",
-                                            marginTop: "10%",
-                                        }}
-                                    >
-                                        Get Started
-                                    </button>
-                                </Link>
-                            </div>
+                        <div className=" d-flex justify-content-center align-items-center">
+                            <img
+                                src={img2}
+                                className=" h-100 p-0 "
+                                style={{ width: "60%" }}
+                                alt=""
+                            />
                         </div>
-                    </div>
-                    {/* ////////////End First Screen///////////// */}
 
-                    {/* ////////////Second Screen///////////// */}
-                    <div
-                        id="wrap-about-description-div"
-                        className="container"
-                        style={{ height: "100vh" }}
-                    >
                         <div
-                            id="about-div"
-                            className={row}
+                            className="position-absolute  overflow-hidden  w-50  m-4  "
                             style={{
-                                height: "50%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
+                                height: "70%",
+                                paddingLeft: "15%",
+                                paddingTop: "10%",
                             }}
                         >
-                            <div id="about-write" className={col} style={{}}>
-                                <h3
-                                    className="fw-bold"
-                                    style={{ fontSize: "34px" }}
-                                >
-                                    Who we are
-                                </h3>
-                                <div className="" style={{ fontSize: "21px" }}>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Voluptate ipsa quis
-                                    quaerat, perferendis blanditiis deserunt
-                                    quam doloremque dolor deleniti fugiat ullam
-                                    soluta, pariatur, dolorum dicta porro
-                                    explicabo inventore cum. Enim.
-                                </div>
-                                <span
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "right",
-                                        fontSize: "16px",
-                                    }}
-                                >
-                                    <a href="" className="">
-                                        read more ...
-                                    </a>
-                                </span>
-                            </div>
-                            <div
-                                id="about-logo "
-                                className={col}
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }}
+                            <h3
+                                className="fw-bold resizeTextOfPhoto600 "
+                                style={{ color: "#3dbfb6" }}
                             >
-                                <img
-                                    className="h-50 w-50 hideat600"
+                                Easiest Most Responsive Online Examination
+                                Solution
+                            </h3>
+                            <Link to={"/login"}>
+                                <button
+                                    className=" rsizebutton rounded-pill fw-bold"
                                     style={{
-                                        maxWidth: "100%",
-                                        height: "auto",
-                                        objectFit: "cover",
-                                    }}
-                                    src={img3}
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div
-                            id="description-div"
-                            className={row}
-                            style={{
-                                height: "50%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <div
-                                id="description-logo"
-                                className={col}
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }}
-                            >
-                                <img
-                                    className="h-50 w-50 hideat600"
-                                    style={{
-                                        maxWidth: "100%",
-                                        objectFit: "cover",
-                                    }}
-                                    src={img4}
-                                    alt=""
-                                />
-                            </div>
-                            <div id="description-write" className={col}>
-                                <h3
-                                    className="fw-bold"
-                                    style={{ fontSize: "34px" }}
-                                >
-                                    Who we are
-                                </h3>
-                                <div className="" style={{ fontSize: "21px" }}>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Voluptate ipsa quis
-                                    quaerat, perferendis blanditiis deserunt
-                                    quam doloremque dolor deleniti fugiat ullam
-                                    soluta, pariatur, dolorum dicta porro
-                                    explicabo inventore cum. Enim.
-                                </div>
-                                <span
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "right",
-                                        fontSize: "16px",
+                                        background: "#3dbfb6",
+                                        color: "white",
+                                        fontSize: "30px",
+                                        marginLeft: "15%",
+                                        marginTop: "10%",
                                     }}
                                 >
-                                    <a href="" className="">
-                                        read more ...
-                                    </a>
-                                </span>
-                            </div>
+                                    Get Started
+                                </button>
+                            </Link>
                         </div>
                     </div>
-                    {/* ////////////End Second Screen///////////// */}
+                </div>
+                {/* ////////////End First Screen///////////// */}
 
-                    {/* //////////// Final Screen///////////// */}
+                {/* ////////////Second Screen///////////// */}
+                <div
+                    id="wrap-about-description-div"
+                    className="container"
+                    style={{ height: "100vh" }}
+                >
                     <div
-                        className=""
+                        id="about-div"
+                        className={row}
                         style={{
-                            height: "57vh",
-                            width: "99 vw",
-                            backgroundColor: "#e1fffd",
-                            margin: "0px",
+                            height: "50%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
                         }}
                     >
-                        <div className="row h-100 pt-5 m-0">
-                            <div
-                                id="logobot"
-                                className="col "
+                        <div id="about-write" className={col} style={{}}>
+                            <h3
+                                className="fw-bold"
+                                style={{ fontSize: "34px" }}
+                            >
+                                Who we are
+                            </h3>
+                            <div className="" style={{ fontSize: "21px" }}>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Voluptate ipsa quis quaerat,
+                                perferendis blanditiis deserunt quam doloremque
+                                dolor deleniti fugiat ullam soluta, pariatur,
+                                dolorum dicta porro explicabo inventore cum.
+                                Enim.
+                            </div>
+                            <span
                                 style={{
                                     display: "flex",
-                                    justifyContent: "center",
+                                    justifyContent: "right",
+                                    fontSize: "16px",
                                 }}
                             >
-                                <img
-                                    className="    resizeTextOfLogoPhoto "
-                                    src={img}
-                                    style={{ height: "50px", width: "150px" }}
-                                    alt=""
-                                />
-                            </div>
-
-                            <div className="col pt-5 ">
-                                <h4 className="pt-4 resizeTextOfLastSection">
-                                    Support
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    Privacy
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    Contact
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    About
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    TradeMark
-                                </h4>
-                            </div>
-                            <div className="col pt-5">
-                                <h4 className="pt-4 resizeTextOfLastSection">
-                                    Support
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    Privacy
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    Contact
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    About
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    TradeMark
-                                </h4>
-                            </div>
-                            <div className="col pt-5 px-0 ">
-                                <h4 className="pt-4 resizeTextOfLastSection">
-                                    Support
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    Privacy
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    Contact
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    About
-                                </h4>
-                                <h4 className="pt-2 resizeTextOfLastSection">
-                                    TradeMark
-                                </h4>
-                            </div>
+                                <a href="" className="">
+                                    read more ...
+                                </a>
+                            </span>
+                        </div>
+                        <div
+                            id="about-logo "
+                            className={col}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img
+                                className="h-50 w-50 hideat600"
+                                style={{
+                                    maxWidth: "100%",
+                                    height: "auto",
+                                    objectFit: "cover",
+                                }}
+                                src={img3}
+                                alt=""
+                            />
                         </div>
                     </div>
+                    <div
+                        id="description-div"
+                        className={row}
+                        style={{
+                            height: "50%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                    >
+                        <div
+                            id="description-logo"
+                            className={col}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img
+                                className="h-50 w-50 hideat600"
+                                style={{
+                                    maxWidth: "100%",
+                                    objectFit: "cover",
+                                }}
+                                src={img4}
+                                alt=""
+                            />
+                        </div>
+                        <div id="description-write" className={col}>
+                            <h3
+                                className="fw-bold"
+                                style={{ fontSize: "34px" }}
+                            >
+                                Who we are
+                            </h3>
+                            <div className="" style={{ fontSize: "21px" }}>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Voluptate ipsa quis quaerat,
+                                perferendis blanditiis deserunt quam doloremque
+                                dolor deleniti fugiat ullam soluta, pariatur,
+                                dolorum dicta porro explicabo inventore cum.
+                                Enim.
+                            </div>
+                            <span
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "right",
+                                    fontSize: "16px",
+                                }}
+                            >
+                                <a href="" className="">
+                                    read more ...
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {/* ////////////End Second Screen///////////// */}
 
-                    {/* ////////////End Final Screen///////////// */}
-                </section>
-                <button onClick={handleE}>Click</button>
-            </PDFExport>
+                {/* //////////// Final Screen///////////// */}
+                <div
+                    className=""
+                    style={{
+                        height: "57vh",
+                        width: "99 vw",
+                        backgroundColor: "#e1fffd",
+                        margin: "0px",
+                    }}
+                >
+                    <div className="row h-100 pt-5 m-0">
+                        <div
+                            id="logobot"
+                            className="col "
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img
+                                className="    resizeTextOfLogoPhoto "
+                                src={img}
+                                style={{ height: "50px", width: "150px" }}
+                                alt=""
+                            />
+                        </div>
+
+                        <div className="col pt-5 ">
+                            <h4 className="pt-4 resizeTextOfLastSection">
+                                Support
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                Privacy
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                Contact
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                About
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                TradeMark
+                            </h4>
+                        </div>
+                        <div className="col pt-5">
+                            <h4 className="pt-4 resizeTextOfLastSection">
+                                Support
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                Privacy
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                Contact
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                About
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                TradeMark
+                            </h4>
+                        </div>
+                        <div className="col pt-5 px-0 ">
+                            <h4 className="pt-4 resizeTextOfLastSection">
+                                Support
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                Privacy
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                Contact
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                About
+                            </h4>
+                            <h4 className="pt-2 resizeTextOfLastSection">
+                                TradeMark
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ////////////End Final Screen///////////// */}
+            </section>
         </>
     );
 }

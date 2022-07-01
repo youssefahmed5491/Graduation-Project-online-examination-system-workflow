@@ -308,7 +308,7 @@ const AllUsersHome = () => {
     const examduration = upcomingExam.duration;
     const time = upcomingExam.time;
     var date = upcomingExam.date;
-
+    console.log(date, "baboooo");
     if (examduration != null && time != null && isString(date)) {
         date = date.split("-");
         const today = isToday(date);
