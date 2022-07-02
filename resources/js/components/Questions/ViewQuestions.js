@@ -1,43 +1,79 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Pagination from "./Pagination";
 import EditQuestions from "./EditQuestions";
-import AddQuestions from "./AddQuestions";
+import ViewAQuestion from "./ViewAQuestion";
 
 import guiViewIcon from "./viewquestions/gui_view_icon_158340.png";
 import edit from "./viewquestions/edit.png";
 import Delete from "./viewquestions/Delete-Alt-256.png";
+import axios from "axios";
 
-const ViewQuestions = (divheight) => {
+const ViewQuestions = (divheight, professor) => {
+    console.log(divheight.professor);
+    useEffect(() => {
+        axios
+            .get(`/api/professors/${divheight.professor.id}`)
+            .then((response) => {
+                const data = response.data;
+                if (data) {
+                    setData(data);
+                    console.log(data);
+                }
+                // Object.keys(data).map(function (key, index) {
+                //     console.log(data[key]);
+                // });
+            });
+    }, []);
+
+    const [data, setData] = useState(undefined);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage] = useState(13);
     const [selectedRow, setSelectedRow] = useState({});
     const [guiViewIconClicked, setGuiViewIconClicked] = useState(false);
     const [editClicked, setEditClicked] = useState(false);
-    const [deleteClicked, setdeleteClicked] = useState(false);
-    const tableRowHeight = divheight.divheight * (92 / 100) * (6.25 / 100);
+    const [deleteClicked, setDeleteClicked] = useState(false);
+    const tableRowHeight = divheight * (92 / 100) * (6.25 / 100);
     const displaynone = `${
         guiViewIconClicked || editClicked || deleteClicked ? "displaynone" : ""
     }`;
-    const guiViewIconclassname = `${
-        guiViewIconClicked ? "show" : "displaynone"
-    }`;
-    const editclassname = `${editClicked ? "show" : "displaynone"}`;
-    const deletelassname = `${deleteClicked ? "show" : "displaynone"}`;
-
     var rows = [];
-    const row = {
-        id: 1,
-        Questions: "Lorem Epsium Lorem Epsium",
-        Answer: "Lorem Epsium",
-        Subject: "Software engineering",
-        Difficulty: "Hard",
-        Duration: "10 min",
-        Status: "Active",
-    };
-    for (var i = 0; i < 200; i++) {
-        rows.push(row);
+    if (data != null) {
+        for (var i = 0; i < data.length; i++) {
+            for (var j = 0; j < data[i].length; j++) {
+                rows.push(data[i][j]);
+            }
+        }
     }
+    // console.log(Array.isArray(rows), "llllllllllllllllllllllllllllllllll");
+    // const row = {
+    //     id: 1,
+    //     Questions: "Lorem Epsium Lorem Epsium",
+    //     Answer: "a",
+    //     Subject: "Physics1",
+    //     Difficulty: "Hard",
+    //     Duration: "10 min",
+    //     Status: "Active",
+    //     QuestionType: "MCQ",
+    //     Chapter: "10",
+    //     // choices: 2,
+    //     radio: "2",
+    //     choices: ["a", "b", "c", "d"],
+    // };
+    // for (var i = 0; i < 20; i++) {
+    //     rows.push(row);
+    // }
+    // for (var i = 0; i < 2; i++) {
+    //     arrayofrows.push(rows);
+    // }
+    // rows = [];
+    // for (var i = 0; i < arrayofrows.length; i++) {
+    //     for (var j = 0; j < arrayofrows[i].length; j++) {
+    //         rows.push(arrayofrows[i][j]);
+    //     }
+    // }
+
     const indexOfLastRow = currentPage * rowsPerPage;
     const indexOfFirstRow = indexOfLastRow - rowsPerPage;
     const currentRows = rows.slice(indexOfFirstRow, indexOfLastRow);
@@ -54,7 +90,7 @@ const ViewQuestions = (divheight) => {
                 <div
                     style={{
                         width: "81%",
-                        height: `${divheight.divheight}px`,
+                        height: `${divheight}px`,
                         background: "white",
                         position: "absolute",
                     }}
@@ -138,26 +174,7 @@ const ViewQuestions = (divheight) => {
                                                 >
                                                     Difficulty
                                                 </th>
-                                                <th
-                                                    scope="col"
-                                                    style={{
-                                                        borderRight: "1px",
-                                                        borderStyle: "solid",
-                                                        borderColor: "white",
-                                                    }}
-                                                >
-                                                    Duration
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    style={{
-                                                        borderRight: "1px",
-                                                        borderStyle: "solid",
-                                                        borderColor: "white",
-                                                    }}
-                                                >
-                                                    Status
-                                                </th>
+
                                                 <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
@@ -197,7 +214,7 @@ const ViewQuestions = (divheight) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Questions}
+                                                        {row.text}
                                                     </td>
                                                     <td
                                                         style={{
@@ -208,7 +225,31 @@ const ViewQuestions = (divheight) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Answer}
+                                                        {row.type === "mcq" &&
+                                                            Array.from(
+                                                                row.mcq_answers
+                                                            ).map(
+                                                                (
+                                                                    mcq,
+                                                                    index
+                                                                ) => {
+                                                                    return (
+                                                                        <span
+                                                                            key={
+                                                                                index
+                                                                            }
+                                                                        >
+                                                                            {
+                                                                                mcq
+                                                                            }
+                                                                            ,
+                                                                        </span>
+                                                                    );
+                                                                }
+                                                            )}
+                                                        {row.type ===
+                                                            "written" &&
+                                                            row.correct_answer}
                                                     </td>
                                                     <td
                                                         style={{
@@ -219,7 +260,7 @@ const ViewQuestions = (divheight) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Subject}
+                                                        {row.subject_title}
                                                     </td>
                                                     <td
                                                         style={{
@@ -230,30 +271,14 @@ const ViewQuestions = (divheight) => {
                                                                 "white",
                                                         }}
                                                     >
-                                                        {row.Difficulty}
+                                                        {row.difficulty_level ===
+                                                            0 && "Easy"}
+                                                        {row.difficulty_level ===
+                                                            1 && "Medium"}
+                                                        {row.difficulty_level ===
+                                                            2 && "Hard"}
                                                     </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.Duration}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.Status}
-                                                    </td>
+
                                                     <td
                                                         style={{ width: "10%" }}
                                                     >
@@ -266,8 +291,11 @@ const ViewQuestions = (divheight) => {
                                                                 setEditClicked(
                                                                     false
                                                                 );
-                                                                setdeleteClicked(
+                                                                setDeleteClicked(
                                                                     false
+                                                                );
+                                                                setSelectedRow(
+                                                                    row
                                                                 );
                                                             }}
                                                             alt=""
@@ -289,7 +317,7 @@ const ViewQuestions = (divheight) => {
                                                                 setEditClicked(
                                                                     true
                                                                 );
-                                                                setdeleteClicked(
+                                                                setDeleteClicked(
                                                                     false
                                                                 );
                                                                 setSelectedRow(
@@ -309,15 +337,20 @@ const ViewQuestions = (divheight) => {
                                                         <img
                                                             src={Delete}
                                                             onClick={() => {
+                                                                setSelectedRow(
+                                                                    row
+                                                                );
+                                                                axios.delete(
+                                                                    `/api/QSBank/${row.id}`
+                                                                );
+
                                                                 setGuiViewIconClicked(
                                                                     false
                                                                 );
                                                                 setEditClicked(
                                                                     false
                                                                 );
-                                                                setdeleteClicked(
-                                                                    true
-                                                                );
+                                                                window.location.reload();
                                                             }}
                                                             alt=""
                                                             style={{
@@ -343,11 +376,25 @@ const ViewQuestions = (divheight) => {
                     </div>
                 </div>
             </div>
-            <div className={guiViewIconclassname}>view clicked</div>
-            <div className={editclassname}>
-                <EditQuestions selectedRow={selectedRow} />
-            </div>
-            <div className={deletelassname}>delete clicked</div>
+
+            {guiViewIconClicked && !editClicked && !deleteClicked && (
+                <div>
+                    <ViewAQuestion
+                        selectedRow={selectedRow}
+                        divheight={divheight}
+                    />
+                </div>
+            )}
+
+            {!guiViewIconClicked && editClicked && !deleteClicked && (
+                <div style={{ height: "100%", overflow: "auto" }}>
+                    {console.log(selectedRow, "hashfshfa")}
+                    <EditQuestions
+                        selectedRow={selectedRow}
+                        divheight={divheight}
+                    />
+                </div>
+            )}
         </>
     );
 };

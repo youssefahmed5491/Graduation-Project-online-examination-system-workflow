@@ -27,7 +27,7 @@ app.use(express.static("public"));
 app.use("/peerjs", peerServer);
 
 //lw ro7t lel home page hay create room gedeeda ()
-app.get("/", (req, res) => {
+app.get("/b", (req, res) => {
     res.redirect(`/${uuidV4()}`);
 });
 //route haywadeeny le ui el rooms (create url be esm el room id )

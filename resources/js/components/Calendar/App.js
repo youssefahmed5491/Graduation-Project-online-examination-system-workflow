@@ -4,17 +4,14 @@ import CalenderHeader from "./CalenderHeader";
 import Day from "./Day";
 import NewEventModal from "./NewEventModal";
 
-const App = () => {
+const App = ({ profiledata, radio }) => {
     const [nav, setNav] = useState(0); //the mounth we are on
     const [days, setDays] = useState([]); //number of days in a mounth
     const [dateDispaly, setDateDisplay] = useState("");
     const [clicked, setClicked] = useState();
-    const [events, setEvents] = useState(
-        localStorage.getItem("events")
-            ? JSON.parse(localStorage.getItem("events"))
-            : []
-    );
-    console.log(events);
+    const [events, setEvents] = useState([]);
+
+    //  console.log(events);
     const eventForDate = (date) => {
         // console.log(events.filter((e) => e.date === date));
         return events.filter((e) => e.date === date);
@@ -24,6 +21,37 @@ const App = () => {
     const checkSize = () => {
         setHeigt(window.innerHeight);
     };
+    let profiletype;
+    if (radio === "Doctor") {
+        profiletype = "professors";
+    } else if (radio === "Student") {
+        profiletype = "students";
+    } else if (radio === "System Manager") {
+        profiletype = "systemmanagers";
+    } else if (radio === "proctor") {
+        profiletype = "proctors";
+    } else if (radio === "Supervisor") {
+        profiletype = "supervisors";
+    }
+
+    if (profiletype === "proctors") {
+        useEffect(() => {
+            axios
+                .get(`/api/${profiletype}/${profiledata.id}`)
+                .then((response) => {
+                    setEvents(response.data);
+                });
+        }, []);
+    } else {
+        useEffect(() => {
+            axios
+                .get(`/api/${profiletype}/${profiledata.id}/subjects`)
+                .then((response) => {
+                    setEvents(response.data);
+                });
+        }, []);
+    }
+    console.log(events);
     useEffect(() => {
         window.addEventListener("resize", checkSize);
 
@@ -34,7 +62,7 @@ const App = () => {
     var col = "";
     const divheight = (93 / 100) * height;
 
-    console.log(col, height, divheight);
+    //console.log(col, height, divheight);
     // console.log(events);
     useEffect(() => {
         localStorage.setItem("events", JSON.stringify(events));
@@ -77,8 +105,16 @@ const App = () => {
         const daysArr = [];
 
         for (let i = 1; i <= paddingDays + daysInMonth; i++) {
-            const dayString = `${i - paddingDays}/${month + 1}/${year}`;
-
+            var dayString = "";
+            if (month + 1 < 10 && i - paddingDays < 10) {
+                dayString = `${year}-0${month + 1}-0${i - paddingDays}`;
+            } else if (month + 1 >= 10 && i - paddingDays < 10) {
+                dayString = `${year}-${month + 1}-0${i - paddingDays}`;
+            } else if (month + 1 < 10 && i - paddingDays >= 10) {
+                dayString = `${year}-0${month + 1}-${i - paddingDays}`;
+            } else {
+                dayString = `${year}-${month + 1}-${i - paddingDays}`;
+            }
             if (i > paddingDays) {
                 daysArr.push({
                     value: i - paddingDays,
@@ -97,7 +133,7 @@ const App = () => {
         }
         setDays(daysArr);
     }, [events, nav]);
-    console.log(days);
+    // console.log(days);
     return (
         <>
             <div
@@ -169,5 +205,4 @@ const App = () => {
         </>
     );
 };
-
 export default App;

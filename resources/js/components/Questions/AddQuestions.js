@@ -1,33 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
+import axios from "axios";
+import { isArray } from "lodash";
 
-const AddQuestion = (divheight) => {
+const AddQuestion = (divheight, professor) => {
     const [subject, setSubject] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [difficulty, setDifficulty] = useState();
-    const [duration, setDuration] = useState();
+    const [duration, setDuration] = useState(); // deh kaman hatetshal
     const [questionType, setQuestionType] = useState();
     const [questionText, setQuestionText] = useState();
     const [answerText, setAnswerText] = useState();
-    const getarray = ["Math", "Graph", "Physics1", "Physics2", "Graph2"];
-    const wantedarray = [];
+    const [getarray, setGetArray] = useState([]);
+    console.log(divheight.professor.id);
+
+    useEffect(() => {
+        axios
+            .get(`/api/professors/${divheight.professor.id}/subjects`)
+            .then((response) => {
+                setGetArray(response.data);
+            });
+    }, []);
+    //console.log(getarray);
+    let wantedarray = [];
     const addvalue = (getarray) => {
         for (let index = 0; index < getarray.length; index++) {
             wantedarray.push({
-                value: getarray[index],
-                label: getarray[index],
+                value: getarray[index].title,
+                label: getarray[index].title,
             });
         }
         return wantedarray;
     };
+
     const howManyOptions = () => {
         if (actualNumberOfChoices === 2) {
             return option0 && option1;
         } else if (actualNumberOfChoices === 3) {
             return option0 && option1 && option2;
-        } else if (actualNumberOfChoices === 3) {
+        } else if (actualNumberOfChoices === 4) {
             return option0 && option1 && option2 && option3;
-        } else if (actualNumberOfChoices === 3) {
+        } else if (actualNumberOfChoices === 5) {
             return option0 && option1 && option2 && option3 && option4;
         } else {
             return (
@@ -66,7 +79,7 @@ const AddQuestion = (divheight) => {
     const [option4, setOption4] = useState("");
     const [option5, setOption5] = useState("");
     const [question, setQuestion] = useState("");
-
+    const [ar, setAr] = useState([]);
     const handleoption = (e, index) => {
         //2e3mel switch
         switch (index) {
@@ -98,7 +111,6 @@ const AddQuestion = (divheight) => {
     const [subjectError, setSubjectError] = useState("");
     const [chapterNumberError, setChapterNumberError] = useState("");
     const [difficultyError, setDifficultyError] = useState("");
-    const [durationError, setDurationError] = useState("");
     const [questionTypeError, setQuestionTypeError] = useState("");
     const [questionTextError, setQuestionTextError] = useState("");
     const [answerTextError, setAnswerTextError] = useState("");
@@ -126,17 +138,42 @@ const AddQuestion = (divheight) => {
             return `form-control ${answerOptionError5}`;
         }
     };
+    ///// COMMENT ->       Select subject should be textfield to write the subject code bec we cant
+    ///////////             handle all subject codes choises
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if (
             subject &&
             questionType &&
             chapterNumber &&
             difficulty &&
-            duration &&
             questionText &&
             (answerText || (actualNumberOfChoices && radio && howManyOptions()))
         ) {
+            var data = [actualNumberOfChoices];
+            var i;
+            for (i = 0; i < actualNumberOfChoices; i++) {
+                data[i] = eval("option" + i);
+            }
+            var mcqcorrectans = data[radio - 1];
+            const request = {
+                subject: subject,
+                chapterNumber: parseInt(chapterNumber),
+                difficulty: difficulty,
+                duration: parseInt(duration), //deh ely hatetshal
+                questionText: questionText,
+                answerText: answerText,
+                actualNumberOfChoices: actualNumberOfChoices,
+                answersarray: data,
+                type: questionType,
+                mcqcorrectans: mcqcorrectans,
+            };
+
+            // console.log(request.difficulty);
+            axios.post("/api/QSBank", request).then((response) => {
+                ({ response });
+            });
             document.getElementById("nameForm").submit();
         } else {
             if (!subject) {
@@ -151,9 +188,7 @@ const AddQuestion = (divheight) => {
             if (!difficulty) {
                 setDifficultyError("error");
             }
-            if (!duration) {
-                setDurationError("error");
-            }
+
             if (!questionText) {
                 setQuestionTextError("error");
             }
@@ -199,7 +234,11 @@ const AddQuestion = (divheight) => {
                 <div className="fs-1 fw-bold m-2">Add Question</div>
                 {/*First Form-Slect */}
 
-                <form onSubmit={handleSubmit} id="nameForm" action="/login">
+                <form
+                    onSubmit={handleSubmit}
+                    action={`/${divheight.username}-${divheight.radio}`}
+                    id="nameForm"
+                >
                     <div className="ms-5" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">Select Subject</div>
 
@@ -221,18 +260,17 @@ const AddQuestion = (divheight) => {
                     {/* Form-Slect */}
                     <div className="ms-5 m-2" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">Select Chapter</div>
-                        <Select
+                        <textarea
+                            id="questiontextarea"
                             className={chapterNumberError}
-                            options={whattochoose}
-                            placeholder={"eg:ch 10"}
-                            value={options.find(
-                                (obj) => obj.value === chapterNumber
-                            )}
+                            rows={1}
+                            placeholder={"eg:10"}
+                            style={{ width: "100%" }}
                             onChange={(e) => {
-                                setChapterNumber(e.value),
+                                setChapterNumber(e.target.value),
                                     setChapterNumberError("");
                             }}
-                        />
+                        ></textarea>
                         {chapterNumberError && (
                             <div className="emptyfield">must enter feiled</div>
                         )}
@@ -246,9 +284,9 @@ const AddQuestion = (divheight) => {
                         <Select
                             className={difficultyError}
                             options={[
-                                { value: "easy", label: "Eazy" },
-                                { value: "medium", label: "Medium" },
-                                { value: "hard", label: "Hard" },
+                                { value: "0", label: "Easy" },
+                                { value: "1", label: "Medium" },
+                                { value: "2", label: "Hard" },
                             ]}
                             placeholder={"eg:easy"}
                             value={options.find(
@@ -263,29 +301,7 @@ const AddQuestion = (divheight) => {
                         )}
                     </div>
                     {/*End Form-Slect */}
-                    {/* Form-Slect */}
-                    <div className="ms-5 m-2" style={{ width: "90%" }}>
-                        <div className="fs-5 fw-bold mb-2">Enter Duration</div>
-                        <Select
-                            className={durationError}
-                            options={[
-                                { value: "1", label: "1 min" },
-                                { value: "5", label: "5 min" },
-                                { value: "10", label: "10 min" },
-                            ]}
-                            placeholder={"eg:1 min"}
-                            value={options.find(
-                                (obj) => obj.value === duration
-                            )}
-                            onChange={(e) => {
-                                setDuration(e.value), setDurationError("");
-                            }}
-                        />
-                        {durationError && (
-                            <div className="emptyfield">must enter feiled</div>
-                        )}
-                    </div>
-                    {/*End Form-Slect */}
+
                     {/* Form-Slect */}
                     <div className="ms-5 m-2" style={{ width: "90%" }}>
                         <div className="fs-5 fw-bold mb-2">
