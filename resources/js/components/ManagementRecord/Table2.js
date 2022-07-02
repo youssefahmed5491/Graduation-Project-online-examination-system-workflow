@@ -10,21 +10,22 @@ const Table2 = (divheight) => {
     //             rows.push(data[i][j]);
     //         }
     //     }
-    const row = {
-        id: 1,
-        Questions: "Lorem Epsium Lorem Epsium",
-        Answer: "a",
-        Subject: "Physics1",
-        Difficulty: "Hard",
-        Duration: "10 min",
-        Status: "Active",
-        QuestionType: "MCQ",
-        Chapter: "10",
-        // choices: 2,
-        radio: "2",
-        choices: ["a", "b", "c", "d"],
-    };
-    for (var i = 0; i < 20; i++) {
+    const [professors, setProfessors] = useState([]);
+
+    useEffect(() => {
+        axios.get(`api/professors `).then((response) => {
+            setProfessors(response.data);
+            console.log(response.data, "777777777777777777777777777");
+        });
+    }, []);
+    for (let i = 0; i < professors.length; i++) {
+        const row = {
+            id: 1,
+            username: professors[i].username,
+            email: professors[i].email,
+            password: professors[i].password,
+        };
+
         rows.push(row);
     }
 
@@ -143,7 +144,7 @@ const Table2 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.text}
+                                                    {row.username}
                                                 </td>
                                                 <td
                                                     style={{
@@ -152,17 +153,7 @@ const Table2 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.choices.map(
-                                                        (mcq, index) => {
-                                                            return (
-                                                                <span
-                                                                    key={index}
-                                                                >
-                                                                    {mcq},
-                                                                </span>
-                                                            );
-                                                        }
-                                                    )}
+                                                    {row.email}
                                                 </td>
                                                 <td
                                                     style={{
@@ -171,7 +162,7 @@ const Table2 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.subject_title}
+                                                    {row.password}
                                                 </td>
                                             </tr>
                                         ))}

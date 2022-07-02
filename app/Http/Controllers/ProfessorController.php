@@ -47,5 +47,7 @@ class ProfessorController extends Controller
     }
     public function index()
     {
+        $data = Professor::all();
+        return response()->json($data);
     }
 }

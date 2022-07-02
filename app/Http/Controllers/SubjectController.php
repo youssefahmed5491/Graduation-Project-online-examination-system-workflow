@@ -31,10 +31,13 @@ class SubjectController extends Controller
         // $count5=0;
         foreach ($exams as $exam) {
 
-            $data = StudentExam::where("exam_id", $exam->id)->first();
-            if ($data)
-                $grades[] = $data->grade;
+            $data = StudentExam::where("exam_id", $exam->id)->get();
+            foreach ($data as $data2) {
+                if ($data)
+                    $grades[] = $data2->grade;
+            }
         }
+
 
         //     for($i=0 ; $i<count($grades); $i++) {
         //     if ($grades[$i]["grade"]<11)
@@ -56,6 +59,20 @@ class SubjectController extends Controller
     {
         $subjects = Subject::all();
         return response()->json($subjects);
+    }
+    public function status(Subject $subject)
+    {
+        $currentdate = Carbon::now()->toDateString();
+        $currenttime = Carbon::now()->settimezone('EET')->toTimeString();
+        $currentdatetime = Carbon::now()->settimezone('EET');
+
+
+        if ($subject["datetime"] >= $currentdatetime) {
+            $status = "unfinished";
+        } else {
+            $status = "finished";
+        }
+        return response()->json($status);
     }
 
     /**

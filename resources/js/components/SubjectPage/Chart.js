@@ -11,12 +11,14 @@ import { sum } from "lodash";
 // defaults.global.legend.position = "bottom";
 
 const Subject = ({ subject }) => {
-    console.log(subject, "hiiiiiiiiii");
     const [grades, setGrades] = useState([]);
-
-    axios.get("api/subjects/1/grading").then((res) => {
-        setGrades(res.data);
-    });
+    // console  console.log(subject.id, "33333333333333333333333");
+    useEffect(() => {
+        axios.get(`api/subjects/${subject.id}/grading`).then((res) => {
+            setGrades(res.data);
+        });
+    }, []);
+    console.log(grades);
     ///////////////////
     let n = 30;
     let addL = 0;
@@ -36,21 +38,12 @@ const Subject = ({ subject }) => {
     let count5 = 0;
     //   if($data)
     //    $grades = $data;
-
     for (var i = 0; i < grades.length; i++) {
         grades_sum = grades[i] + grades_sum;
+
         if (grades[i] > 30) {
             n = 50;
         }
-        d = i;
-        // sorting
-        while (d > 0 && grades[d] < grades[d - 1]) {
-            t = grades[d];
-            grades[d] = grades[d - 1];
-            grades[d - 1] = t;
-            d--;
-        }
-
         if (grades[i] < 11) {
             count1 = count1 + 1;
         } else if (grades[i] < 21) {
@@ -62,7 +55,17 @@ const Subject = ({ subject }) => {
         } else if (grades[i] < 51) {
             count5 = count5 + 1;
         }
+        d = i;
+        // sorting
+        while (d > 0 && grades[d] < grades[d - 1]) {
+            t = grades[d];
+            grades[d] = grades[d - 1];
+            grades[d - 1] = t;
+            d--;
+        }
     }
+
+    console.log(count1, count2, count3, count4, count5);
     let student_category = [];
     student_category.push(count1);
     student_category.push(count2);
@@ -70,6 +73,7 @@ const Subject = ({ subject }) => {
     student_category.push(count4);
     student_category.push(count5);
 
+    // console.log(student_category, "6666666666666666666666666666666666666666");
     //////////////////////
     average = grades_sum / grades.length;
     diff = (1 / 100) * average;

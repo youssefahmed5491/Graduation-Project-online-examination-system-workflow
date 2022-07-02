@@ -15,9 +15,11 @@ on. These
 */
 
 Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
+Route::get('status/{subject}', [App\Http\Controllers\SubjectController::class, "status"]);
+
 Route::get('subjects/{subject}/grading', [App\Http\Controllers\SubjectController::class, "grading"]);
 
-Route::apiResource('professors', ProfessorController::class)->only(["store", "show"]);
+Route::apiResource('professors', ProfessorController::class)->only(["store", "show", "index"]);
 Route::get('subjects/{subject}/grading', [App\Http\Controllers\SubjectController::class, "grading"]);
 Route::apiResource('students', StudentController::class)->only(["store", "show"]);
 Route::apiResource('proctors', ProctorController::class);
@@ -26,6 +28,8 @@ Route::apiResource('systemmanagers', SystemManagerController::class)->only(["sto
 Route::apiResource('subjects', SubjectController::class);
 Route::apiResource('exam', ExamController::class);
 Route::apiResource('professors.subjects', ProfessorSubjectController::class);
+Route::apiResource('proctors.subjects', ProctorSubjectController::class);
+
 Route::apiResource('subjects.proctors', SubjectProctorController::class);
 Route::apiResource('subjects.exam', SubjectExamController::class);
 Route::apiResource('examtemp', ExamsTempController::class)->only(["show", "index"]);

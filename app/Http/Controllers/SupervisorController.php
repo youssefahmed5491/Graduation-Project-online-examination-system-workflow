@@ -42,14 +42,18 @@ class SupervisorController extends Controller
         $currentdate = Carbon::now()->toDateString();
         $currenttime = Carbon::now()->settimezone('EET')->toTimeString();
         $currentdatetime = Carbon::now()->settimezone('EET');
-
-
+        $assignednumebr = count($proctors);
+        if ($assignednumebr > 0) {
+            $assigned = "Assigned";
+        } else {
+            $assigned = "Still Not Assigned";
+        }
         if ($supervisor->subject["datetime"] >= $currentdatetime) {
             $status = "unfinished";
         } else {
             $status = "finished";
         }
-        return response()->json([$supervisor->subject["title"], $proctors, $status]);
+        return response()->json([$supervisor->subject["title"], $assigned, $status]);
     }
 
     /**

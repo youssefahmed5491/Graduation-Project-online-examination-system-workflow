@@ -205,5 +205,4 @@ const App = ({ profiledata, radio }) => {
         </>
     );
 };
-
 export default App;

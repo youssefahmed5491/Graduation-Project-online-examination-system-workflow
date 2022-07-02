@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
-const Table1 = (divheight) => {
-    const tableRowHeight = divheight * (92 / 100) * (6.25 / 100);
-    // const [data, setData] = useState(undefined);
+const Table1 = (divheight, username) => {
+    const tableRowHeight = divheight.divheight * (92 / 100) * (6.25 / 100);
+    const [subjectdetails, setSubjectDetails] = useState([]);
+    // console.log(divheight.username, "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    const req = {
+        username: divheight.username,
+    };
+    useEffect(() => {
+        axios.post("/api/supervisors ", req).then((response) => {
+            setSubjectDetails(response.data);
+            // console.log(response.data, "777777777777777777777777777");
+        });
+    }, []);
     var rows = [];
     var arrayofrows = [];
     // if (data != null) {
@@ -10,30 +20,22 @@ const Table1 = (divheight) => {
     //             rows.push(data[i][j]);
     //         }
     //     }
+
     const row = {
         id: 1,
-        Questions: "Lorem Epsium Lorem Epsium",
-        Answer: "a",
-        Subject: "Physics1",
-        Difficulty: "Hard",
-        Duration: "10 min",
-        Status: "Active",
-        QuestionType: "MCQ",
-        Chapter: "10",
-        // choices: 2,
-        radio: "2",
-        choices: ["a", "b", "c", "d"],
+        subject: subjectdetails[0],
+        assignedproctors: subjectdetails[1],
+        examstatus: subjectdetails[2],
     };
-    for (var i = 0; i < 20; i++) {
-        rows.push(row);
-    }
+
+    rows.push(row);
 
     return (
         <div>
             <div
                 style={{
                     width: "100%",
-                    height: `${divheight}px`,
+                    height: `${divheight.divheight}px`,
                     background: "white",
                 }}
             >
@@ -120,7 +122,7 @@ const Table1 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.text}
+                                                    {row.subject}
                                                 </td>
                                                 <td
                                                     style={{
@@ -129,17 +131,7 @@ const Table1 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.choices.map(
-                                                        (mcq, index) => {
-                                                            return (
-                                                                <span
-                                                                    key={index}
-                                                                >
-                                                                    {mcq},
-                                                                </span>
-                                                            );
-                                                        }
-                                                    )}
+                                                    {row.examstatus}
                                                 </td>
                                                 <td
                                                     style={{
@@ -148,7 +140,7 @@ const Table1 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.subject_title}
+                                                    {row.assignedproctors}
                                                 </td>
                                             </tr>
                                         ))}

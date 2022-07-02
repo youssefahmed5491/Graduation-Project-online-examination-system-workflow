@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 const Table1 = (divheight) => {
     const tableRowHeight = divheight * (92 / 100) * (6.25 / 100);
@@ -10,24 +11,59 @@ const Table1 = (divheight) => {
     //             rows.push(data[i][j]);
     //         }
     //     }
-    const row = {
-        id: 1,
-        Questions: "Lorem Epsium Lorem Epsium",
-        Answer: "a",
-        Subject: "Physics1",
-        Difficulty: "Hard",
-        Duration: "10 min",
-        Status: "Active",
-        QuestionType: "MCQ",
-        Chapter: "10",
-        // choices: 2,
-        radio: "2",
-        choices: ["a", "b", "c", "d"],
-    };
-    for (var i = 0; i < 20; i++) {
-        rows.push(row);
-    }
+    const [subjects, setSubjects] = useState([]);
+    // const [status, setStatus] = useState();
+    const isToday = (someDate) => {
+        const today = new Date();
+        someDate = someDate.split("-");
 
+        if (
+            (someDate[2] < today.getDate() &&
+                someDate[1] - 1 == today.getMonth() &&
+                someDate[0] == today.getFullYear()) ||
+            (someDate[1] - 1 < today.getMonth() &&
+                someDate[0] == today.getFullYear()) ||
+            someDate[0] < today.getFullYear()
+        ) {
+            return "finished";
+        } else {
+            return "unfinished";
+        }
+    };
+    useEffect(() => {
+        axios.get(`/api/subjects`).then((response) => {
+            setSubjects(response.data);
+            //  console.log(response.data);
+        });
+    }, []);
+
+    const statusforsubject = (x) => {
+        axios.get(`/api/status/${x}`).then((response) => {
+            setStatus = response.data;
+        });
+    };
+    //const today = new Date();
+    let hmada = 0;
+    if (subjects.length > 0) {
+        for (let i = 0; i < subjects.length; i++) {
+            const row = {
+                id: subjects[i].id,
+                title: subjects[i].title,
+                date: subjects[i].date,
+                time: subjects[i].time,
+                duration: subjects[i].duration,
+
+                status: isToday(subjects[i].date),
+                // Date :subjects[i]
+                // Date :subjects[i]
+            };
+
+            //  console.log(statusforsubject(subjects[i].id), "5555555555555");
+            console.log(isToday(row.date), "88888888888888888888888888888");
+            rows.push(row);
+        }
+    }
+    console.log(rows);
     return (
         <div>
             <div
@@ -163,7 +199,7 @@ const Table1 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.text}
+                                                    {row.title}
                                                 </td>
                                                 <td
                                                     style={{
@@ -172,17 +208,7 @@ const Table1 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.choices.map(
-                                                        (mcq, index) => {
-                                                            return (
-                                                                <span
-                                                                    key={index}
-                                                                >
-                                                                    {mcq},
-                                                                </span>
-                                                            );
-                                                        }
-                                                    )}
+                                                    {row.date}
                                                 </td>
                                                 <td
                                                     style={{
@@ -191,16 +217,7 @@ const Table1 = (divheight) => {
                                                         borderColor: "white",
                                                     }}
                                                 >
-                                                    {row.subject_title}
-                                                </td>
-                                                <td
-                                                    style={{
-                                                        borderRight: "1px",
-                                                        borderStyle: "solid",
-                                                        borderColor: "white",
-                                                    }}
-                                                >
-                                                    {row.difficulty_level}
+                                                    {row.time}
                                                 </td>
                                                 <td
                                                     style={{
@@ -210,6 +227,15 @@ const Table1 = (divheight) => {
                                                     }}
                                                 >
                                                     {row.duration}
+                                                </td>
+                                                <td
+                                                    style={{
+                                                        borderRight: "1px",
+                                                        borderStyle: "solid",
+                                                        borderColor: "white",
+                                                    }}
+                                                >
+                                                    {row.status}
                                                 </td>
                                             </tr>
                                         ))}

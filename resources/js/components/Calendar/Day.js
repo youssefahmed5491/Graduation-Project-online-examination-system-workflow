@@ -127,7 +127,8 @@ const Day = ({ day, onClick }) => {
                     {day.value !== "padding" &&
                         day.isCurrentDay &&
                         day.event.length > 0 &&
-                        day.value < 20 && (
+                        day.value < 20 &&
+                        day.value > 10 && (
                             <div className="currenthasevent">
                                 {
                                     <div

@@ -41,14 +41,6 @@ const AllUsersHome = () => {
 
     const { username, radio } = useParams();
     console.log(username);
-    useEffect(() => {
-        axios.post("/api/professors", { username }).then((response) => {
-            const data = response.data;
-            if (data) {
-                setProfessor(data);
-            }
-        });
-    }, []);
 
     let profiletype;
     if (radio === "Doctor") {
@@ -57,7 +49,7 @@ const AllUsersHome = () => {
         profiletype = "students";
     } else if (radio === "System Manager") {
         profiletype = "systemmanagers";
-    } else if (radio === "proctor") {
+    } else if (radio === "Proctor") {
         profiletype = "proctors";
     } else if (radio === "Supervisor") {
         profiletype = "supervisors";
@@ -116,8 +108,33 @@ const AllUsersHome = () => {
                     setFinishedSubjects(response.data[1]);
                 });
         }
+
+        if (radio === "Proctor" && profiledata.id != null) {
+            //   console.log(profiledata.id, "55555555555555555555555555");
+
+            axios
+                .get(`/api/proctors/${profiledata.id}/subjects`)
+                .then((response) => {
+                    setAllSubjects(response.data);
+                });
+
+            axios
+                .post(`/api/proctors/${profiledata.id}/subjects`)
+                .then((response) => {
+                    setUnfinishedSubjects(response.data[0]);
+                    setFinishedSubjects(response.data[1]);
+                });
+        }
     }, [profiledata.id]);
     // console.log(unfinishedSubjects);
+    useEffect(() => {
+        axios.post("/api/professors", { username }).then((response) => {
+            const data = response.data;
+            if (data) {
+                setProfessor(data);
+            }
+        });
+    }, []);
 
     const homeClassName = `d-flex align-items-center ps-3 my-button ${
         homeClicked ? "clickedbuttom" : ""
@@ -1408,7 +1425,10 @@ const AllUsersHome = () => {
                                             Supervised Subject
                                         </h3>
                                         <div>
-                                            <Table3 divheight={divheight} />
+                                            <Table3
+                                                divheight={divheight}
+                                                username={username}
+                                            />
                                         </div>
                                     </div>
                                 )}

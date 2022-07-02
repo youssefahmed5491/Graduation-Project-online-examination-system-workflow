@@ -24,6 +24,7 @@ const ExamPaper = () => {
     const [studentdata, setStudentData] = useState([]);
     const [check, setCheck] = useState(false);
     const [ind, setInd] = useState(0);
+    let ind2 = 0;
     const [arraylol, setArraylol] = useState([]);
     const [egabat, setEgabat] = useState([]);
     const [answersArray, setAnswersArray] = useState(["a", "b", "c", "d"]);
@@ -71,9 +72,11 @@ const ExamPaper = () => {
         if (ind > displayquestions().length - 2) {
             console.log("lol");
             setInd(0);
+            ind2 = 0;
             handleSquares(0);
         } else {
             setInd(ind + 1);
+            ind2 = ind + 1;
             // let temp = [...arraylol];
             // temp[ind + 1] = 2;
             // setArraylol(temp);
@@ -86,9 +89,11 @@ const ExamPaper = () => {
         if (ind === 0) {
             setInd(displayquestions().length - 1);
 
+            ind2 = displayquestions().length - 1;
             handleSquares(displayquestions().length - 1);
         } else {
             setInd(ind - 1);
+            ind2 = ind - 1;
             // let temp = [...arraylol];
             // temp[ind - 1] = 2;
             // setArraylol(temp);
@@ -98,6 +103,7 @@ const ExamPaper = () => {
     const handleSquares = (number) => {
         if (arraylol[number] === 3) {
             setInd(number);
+            ind2 = number;
             let x = questionAnswer[number];
             let temp3 = [false, false, false, false, false, false];
             console.log("the x we need");
@@ -121,6 +127,16 @@ const ExamPaper = () => {
             temp[number] = 2;
             setArraylol(temp);
             setInd(number);
+            ind2 = number;
+        }
+    };
+    const eraseText = () => {
+        console.log(ind2, ind, "fsfsf");
+        if (egabat[ind2] != undefined) {
+            document.getElementById("exampleFormControlTextarea1").value =
+                egabat[ind2];
+        } else {
+            document.getElementById("exampleFormControlTextarea1").value = "";
         }
     };
 
@@ -161,6 +177,7 @@ const ExamPaper = () => {
     const time = new Date();
     time.setMinutes(time.getMinutes() + 6);
     console.log(arraylol);
+    let temp20 = egabat;
     return (
         <div
             className="container-fluid vh-100 vw-100"
@@ -228,6 +245,7 @@ const ExamPaper = () => {
                                 }}
                             >
                                 {users.modelquestions != null &&
+                                    users.exam_type === "MCQ" &&
                                     Array.from(
                                         Array(
                                             parseInt(
@@ -277,6 +295,32 @@ const ExamPaper = () => {
                                             );
                                         }
                                     )}
+                                <div>
+                                    {users.modelquestions != null &&
+                                        users.exam_type != "MCQ" && (
+                                            <div className="form-group ">
+                                                <textarea
+                                                    className="form-control"
+                                                    id="exampleFormControlTextarea1"
+                                                    rows="20"
+                                                    //value={egabat[ind]}
+                                                    onChange={(e) => {
+                                                        let m = e.target.value;
+                                                        let temp20 = egabat;
+                                                        temp20[ind] = m;
+                                                        setEgabat(temp20);
+                                                        let temp30 = [
+                                                            ...arraylol,
+                                                        ];
+                                                        temp30[ind] = 3;
+                                                        setArraylol(temp30);
+                                                    }}
+                                                >
+                                                    {temp20[ind]}
+                                                </textarea>
+                                            </div>
+                                        )}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -300,7 +344,9 @@ const ExamPaper = () => {
                         style={{ height: "7%", background: "grey" }}
                     >
                         <button
-                            onClick={handlePrevious}
+                            onClick={() => {
+                                handlePrevious(), eraseText();
+                            }}
                             style={{
                                 width: "150px",
                                 background: "grey",
@@ -322,7 +368,9 @@ const ExamPaper = () => {
                             </div>
                         </button>
                         <button
-                            onClick={handleNext}
+                            onClick={() => {
+                                handleNext(), eraseText();
+                            }}
                             style={{
                                 width: "100px",
                                 background: "grey",
@@ -395,7 +443,11 @@ const ExamPaper = () => {
                                                 borderRadius: "5px",
                                                 color: "white",
                                             }}
-                                            onClick={() => handleSquares(index)}
+                                            onClick={() => {
+                                                // console.log(index);
+                                                handleSquares(index);
+                                                eraseText();
+                                            }}
                                         >
                                             {index + 1}
                                         </div>
