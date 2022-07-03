@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
+import { useParams } from "react-router-dom";
 
 const AssignProcror = () => {
+    const { username, radio } = useParams();
     const [subject, setSubject] = useState();
     const [proctoringMethod, setProctoringMethod] = useState();
     const [proctorAmount, setProctorAmount] = useState();
@@ -22,11 +24,15 @@ const AssignProcror = () => {
         // console.log("h", proctorAmount);
         console.log(proctorsList);
     };
+    const req1 = {
+        username: username,
+    };
 
-    console.log(subjectdata);
+    //console.log(username, "999999999999999999999999");
     useEffect(() => {
-        axios.get("/api/subjects").then((response) => {
+        axios.post("/api/getsupervisor", req1).then((response) => {
             const data = response.data;
+
             if (data) {
                 setGetArray(data);
             }
@@ -39,16 +45,17 @@ const AssignProcror = () => {
         });
     }, []);
 
-    console.log(getarray);
     let wantedarray = [];
     const addvalue = (getarray) => {
+        console.log(getarray, "asdasdasdasdasdasd");
         wantedarray = [];
-        for (let index = 0; index < getarray.length; index++) {
+        for (let index = 0; index < Array.from(getarray).length; index++) {
             wantedarray.push({
                 value: getarray[index].title,
                 label: getarray[index].title,
             });
         }
+        // console.log(getarray[0], "m7maaaaaaaaaaaaaaaaaa");
         return wantedarray;
     };
     const addvalueproctors = (getarray) => {
@@ -69,8 +76,9 @@ const AssignProcror = () => {
     //     "Mahmoud",
     //     "Marwan",
     // ];
-
+    //console.log(getarray.title, "ppppppppppppppppppppppppp");
     const options = addvalue(getarray);
+    console.log(options, "kkkkkkkkkkkkkkkkkkkkk");
     const ProctorOptions = addvalueproctors(getarray1);
     let request = {
         //////////////////////////////////// 3ayzen nmskn al3dd w n3rf random wla bl asamy

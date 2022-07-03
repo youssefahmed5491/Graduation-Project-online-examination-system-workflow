@@ -13,8 +13,11 @@ class SupervisorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getsupervisor(Request $request)
     {
+        $supervisor = Supervisor::where('email', $request->username)->first();
+        //dd($request);
+        return response()->json([$supervisor->subject]);
     }
 
     /**

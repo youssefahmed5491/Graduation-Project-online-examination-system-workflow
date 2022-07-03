@@ -186,6 +186,7 @@ const CreateExamPage = (professor) => {
                     // }
                 });
             }
+
             axios.patch(`/api/subjects/${subjectdetails.id}`, request2);
 
             axios

@@ -28,12 +28,12 @@ const App = ({ profiledata, radio }) => {
         profiletype = "students";
     } else if (radio === "System Manager") {
         profiletype = "systemmanagers";
-    } else if (radio === "proctor") {
+    } else if (radio === "Proctor") {
         profiletype = "proctors";
     } else if (radio === "Supervisor") {
         profiletype = "supervisors";
     }
-
+    console.log(profiletype, "hjhjhjhjhjhjhjhjh");
     if (profiletype === "proctors") {
         useEffect(() => {
             axios

@@ -20,7 +20,7 @@ class LoginController extends Controller
             $username = student::where('email', $request->username)->first();
 
 
-            if ($username->exists() && $username->password == $request->password) {
+            if ($username && $username->password == $request->password) {
                 return response()->json($username);
             } else {
                 response()->json(["not exist"]);
@@ -29,7 +29,7 @@ class LoginController extends Controller
         if ($request->type == "Doctor") {
             $username = professor::where('email', $request->username)->first();
 
-            if ($username->exists() && $username->password === $request->password) {
+            if ($username && $username->password === $request->password) {
 
                 return response()->json($username);
             } else {
@@ -38,7 +38,7 @@ class LoginController extends Controller
         }
         if ($request->type == "Proctor") {
             $username = Proctor::where('email', $request->username)->first();
-            if ($username->exists() && $username->password == $request->password) {
+            if ($username && $username->password == $request->password) {
                 return response()->json($username);
             } else {
                 response()->json(["not exist"]);
@@ -47,7 +47,7 @@ class LoginController extends Controller
         if ($request->type == "Supervisor") {
             $username = supervisor::where('email', $request->username)->first();
 
-            if ($username->exists() && $username->password == $request->password) {
+            if ($username && $username->password == $request->password) {
                 return response()->json($username);
             } else {
                 response()->json(["not exist"]);
@@ -55,7 +55,7 @@ class LoginController extends Controller
         }
         if ($request->type == "System Manager") {
             $username = SystemManager::where('email', $request->username)->first();
-            if ($username->exists() && $username->password == $request->password) {
+            if ($username && $username->password == $request->password) {
                 return response()->json($username);
             } else {
                 response()->json(["not exist"]);

@@ -139,31 +139,31 @@ const Subject = ({ subject }) => {
                             },
                         ],
                     }}
-                    height={100}
+                    height={80}
                     width={300}
                 ></Bar>
             )}
 
-            <h1>
+            <h3>
                 score = {n} <br></br>{" "}
-            </h1>
-            <h1>
+            </h3>
+            <h3>
                 {" "}
                 diffculty = {diff} <br></br>
-            </h1>
-            <h1>
+            </h3>
+            <h3>
                 Quality of diffculty = {quality_diffuclty} <br></br>{" "}
-            </h1>
-            <h1>
+            </h3>
+            <h3>
                 average_scores = {average} <br></br>{" "}
-            </h1>
-            <h1>
+            </h3>
+            <h3>
                 {" "}
                 Discrimination = {d} <br></br>
-            </h1>
-            <h1>
+            </h3>
+            <h3>
                 Quality of Discrimination = {quality_discrimnation} <br></br>{" "}
-            </h1>
+            </h3>
         </div>
     );
 };

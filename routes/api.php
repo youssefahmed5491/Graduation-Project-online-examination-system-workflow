@@ -15,6 +15,8 @@ on. These
 */
 
 Route::post('login', [App\Http\Controllers\LoginController::class, "login"]);
+Route::post('getsupervisor', [App\Http\Controllers\SupervisorController::class, "getsupervisor"]);
+
 Route::get('status/{subject}', [App\Http\Controllers\SubjectController::class, "status"]);
 
 Route::get('subjects/{subject}/grading', [App\Http\Controllers\SubjectController::class, "grading"]);
