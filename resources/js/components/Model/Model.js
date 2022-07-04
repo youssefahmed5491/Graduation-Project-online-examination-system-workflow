@@ -23,13 +23,13 @@ const Model = ({ divheight }) => {
     }, []);
 
     var rows = [];
-    if (modeldata.length > 0) {
-        //console.log("ana hnaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        console.log(modeldata.length, "asdasdasdasdasd");
-        for (let i = 0; i < modeldata.length; i++) {
-            rows.push(modeldata[i]);
+    modeldata.map((data) => {
+        console.log(data, "hiiiiiiiiiiiiii");
+        for (var i = 0; i < data.length; i++) {
+            rows.push(data[i]);
         }
-    }
+    });
+
     //console.log(rows, "ay 7mada");
     // console.log(rows, "tonyyyyyyyyyyyyyyyyyyy");
 
@@ -162,108 +162,125 @@ const Model = ({ divheight }) => {
                                         </thead>
 
                                         <tbody>
-                                            {currentRows.map((row, index) => (
-                                                <tr
-                                                    style={{
-                                                        background: `${
-                                                            index % 2 == 0
-                                                                ? "#f7f7f7"
-                                                                : "#ebebeb"
-                                                        }`,
-                                                        height: `${tableRowHeight}px`,
-                                                        lineHeight: "100%",
-                                                    }}
-                                                    key={index}
-                                                >
-                                                    <th
-                                                        scope="row"
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {index}
-                                                    </th>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.text}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.mcq_answers
-                                                            .length > 0 &&
-                                                            row.mcq_answers.map(
-                                                                (
-                                                                    mcq,
-                                                                    index
-                                                                ) => {
-                                                                    return (
-                                                                        <span
-                                                                            key={
-                                                                                index
-                                                                            }
-                                                                        >
-                                                                            {
-                                                                                mcq
-                                                                            }
-                                                                            ,
-                                                                        </span>
-                                                                    );
+                                            {currentRows.length > 0 &&
+                                                currentRows.map(
+                                                    (row, index) => (
+                                                        <tr
+                                                            style={{
+                                                                background: `${
+                                                                    index % 2 ==
+                                                                    0
+                                                                        ? "#f7f7f7"
+                                                                        : "#ebebeb"
+                                                                }`,
+                                                                height: `${tableRowHeight}px`,
+                                                                lineHeight:
+                                                                    "100%",
+                                                            }}
+                                                            key={index}
+                                                        >
+                                                            <th
+                                                                scope="row"
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                {index}
+                                                            </th>
+                                                            <td
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                {row.text}
+                                                            </td>
+                                                            <td
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                {rows.length >
+                                                                    0 &&
+                                                                    row.mcq_answers &&
+                                                                    row.mcq_answers.map(
+                                                                        (
+                                                                            mcq,
+                                                                            index
+                                                                        ) => {
+                                                                            return (
+                                                                                <span
+                                                                                    key={
+                                                                                        index
+                                                                                    }
+                                                                                >
+                                                                                    {
+                                                                                        mcq
+                                                                                    }
+
+                                                                                    ,
+                                                                                </span>
+                                                                            );
+                                                                        }
+                                                                    )}
+                                                            </td>
+                                                            <td
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                {
+                                                                    row.correct_answer
                                                                 }
-                                                            )}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.correct_answer}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.difficulty_level}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            borderRight: "1px",
-                                                            borderStyle:
-                                                                "solid",
-                                                            borderColor:
-                                                                "white",
-                                                        }}
-                                                    >
-                                                        {row.duration}
-                                                    </td>
-                                                </tr>
-                                            ))}
+                                                            </td>
+                                                            <td
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                {
+                                                                    row.difficulty_level
+                                                                }
+                                                            </td>
+                                                            <td
+                                                                style={{
+                                                                    borderRight:
+                                                                        "1px",
+                                                                    borderStyle:
+                                                                        "solid",
+                                                                    borderColor:
+                                                                        "white",
+                                                                }}
+                                                            >
+                                                                {row.duration}
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                )}
                                         </tbody>
                                     </table>
                                     <Pagination

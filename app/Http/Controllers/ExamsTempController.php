@@ -45,7 +45,7 @@ class ExamsTempController extends Controller
      */
     public function show(ExamsTemp $examtemp)
     {
-        return response()->json($examtemp->modelquestions);
+        return response()->json([$examtemp->modelquestions]);
     }
 
     /**

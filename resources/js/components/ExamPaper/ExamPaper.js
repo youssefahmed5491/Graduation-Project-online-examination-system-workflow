@@ -151,7 +151,7 @@ const ExamPaper = () => {
         console.log(displayquestions(), "7madaaaa");
         //  console.log(displayuser(1).mcq_answers.length, "999999999999999999");
     }
-    console.log(egabat);
+
     const handleSubmit = () => {
         axios
             .patch(`/api/students/${studentdata.id}/exams/${users.id}`, egabat)
@@ -345,7 +345,10 @@ const ExamPaper = () => {
                     >
                         <button
                             onClick={() => {
-                                handlePrevious(), eraseText();
+                                handlePrevious();
+                                if (users.exam_type != "MCQ") {
+                                    eraseText();
+                                }
                             }}
                             style={{
                                 width: "150px",
@@ -369,7 +372,10 @@ const ExamPaper = () => {
                         </button>
                         <button
                             onClick={() => {
-                                handleNext(), eraseText();
+                                handleNext();
+                                if (users.exam_type != "MCQ") {
+                                    eraseText();
+                                }
                             }}
                             style={{
                                 width: "100px",
@@ -446,7 +452,9 @@ const ExamPaper = () => {
                                             onClick={() => {
                                                 // console.log(index);
                                                 handleSquares(index);
-                                                eraseText();
+                                                if (users.exam_type != "MCQ") {
+                                                    eraseText();
+                                                }
                                             }}
                                         >
                                             {index + 1}
@@ -561,7 +569,7 @@ const ExamPaper = () => {
                                 marginBottom: "5px",
                             }}
                         >
-                            <Link to={`/${username}`}>
+                            <Link to={`/${username}-Student`}>
                                 <button
                                     onClick={handleSubmit}
                                     style={{

@@ -41,10 +41,10 @@ class ExamController extends Controller
     {
 
 
+        // ini_set('max_execution_time', 300); //300 seconds = 5 minute
         $subject = Subject::where('title', $request->subject)->first();
-
         $chapters = $subject->set_of_criteria;
-
+        $type = $request->examtype;
         $chaptersquestions = array();
         $chaptersquestions = $request->chaptersquestions;
 
@@ -158,6 +158,7 @@ class ExamController extends Controller
 
                 //     ${"maxxy$j"} = [$questions[${"max$j"}[0]], $chaptersquestions[${"max$j"}[1] % count($chaptersquestions)]];
                 // }
+
                 //  elseif (isset($questions[${"max$j"}[0]]) == false && isset($chaptersquestions[${"max$j"}[1]]) == true) {
                 //     ${"maxxy$j"} = [$questions[${"max$j"}[0] % count($questions)], $chaptersquestions[${"max$j"}[1]]];
                 // }
@@ -183,9 +184,9 @@ class ExamController extends Controller
 
 
 
-            $data = Question::where("difficulty_level", $topmax[0],)->where("chapter", $chapters[$topmax[1]])->inRandomOrder()->first();
+            $data = Question::where("difficulty_level", $topmax[0],)->where("chapter", $chapters[$topmax[1]])->where("type", $type)->inRandomOrder()->first();
             while (in_array($data, $questionsarray)) {
-                $data = Question::where("difficulty_level", $topmax[0],)->where("chapter", $chapters[$topmax[1]])->inRandomOrder()->first();
+                $data = Question::where("difficulty_level", $topmax[0],)->where("chapter", $chapters[$topmax[1]])->where("type", $type)->inRandomOrder()->first();
             }
             array_push($questionsarray, $data);
 

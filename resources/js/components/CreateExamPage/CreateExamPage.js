@@ -1,5 +1,5 @@
 import axios from "axios";
-import { isArray, isObject } from "lodash";
+import { delay, isArray, isObject } from "lodash";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Select from "react-select";
@@ -48,7 +48,13 @@ const CreateExamPage = (professor) => {
 
     const [datevalue, setDatevalue] = useState();
     const [timevalue, setTimevalue] = useState();
-
+    function delay(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+    const getexam = async () => {
+        await axios.post("/api/exam", request1);
+        console.log(numberOfModels, "ffffffffffffffffffffffffffff");
+    };
     console.log(username, "asdgasdiasndgiasdh");
     console.log(radio, "dsdioghasudghasuidguiasg");
 
@@ -173,6 +179,7 @@ const CreateExamPage = (professor) => {
                 hardNumberQuestions) &&
             arrayChapters.filter((ar) => ar != (undefined || "")).length > 0
         ) {
+            console.log(numberOfModels, "777777777777777777777777777777");
             for (var i = 0; i < Number(numberOfModels); i++) {
                 axios.post("/api/exam", request1).then((response) => {
                     console.log(i);
@@ -691,9 +698,11 @@ const CreateExamPage = (professor) => {
 
                         <button
                             onClick={(e) => {
-                                axios.get(`api/examtemp`);
+                                axios.get(`/api/examtemp`);
+                                delay(500);
                                 for (var i = 0; i < numberOfModels; i++) {
-                                    axios.post("/api/exam", request1);
+                                    console.log(numberOfModels);
+                                    getexam();
                                 }
 
                                 axios
