@@ -49,6 +49,7 @@ const Table1 = (divheight) => {
             const row = {
                 id: subjects[i].id,
                 title: subjects[i].title,
+                code: subjects[i].uid,
                 date: subjects[i].date,
                 time: subjects[i].time,
                 duration: subjects[i].duration,
@@ -133,6 +134,16 @@ const Table1 = (divheight) => {
                                                     borderColor: "white",
                                                 }}
                                             >
+                                                Subject Code
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                style={{
+                                                    borderRight: "1px",
+                                                    borderStyle: "solid",
+                                                    borderColor: "white",
+                                                }}
+                                            >
                                                 Date
                                             </th>
                                             <th
@@ -200,6 +211,15 @@ const Table1 = (divheight) => {
                                                     }}
                                                 >
                                                     {row.title}
+                                                </td>
+                                                <td
+                                                    style={{
+                                                        borderRight: "1px",
+                                                        borderStyle: "solid",
+                                                        borderColor: "white",
+                                                    }}
+                                                >
+                                                    {row.code}
                                                 </td>
                                                 <td
                                                     style={{
